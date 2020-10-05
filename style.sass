@@ -1,0 +1,95 @@
+$font-color: white
+$large-devices: 990px
+
+$primary-color: #090C35
+
+.btn.btn-primary  
+    background-color: #5E3DB3
+    border-color: #5E3DB3
+    padding: 15px 45px
+    font-size: 10px
+    font-weight: bold
+
+header
+    background-color: black
+    height: 100vh
+    z-index: 20
+
+
+header.main
+    background-image: url('Images/Strike-9-Cover-Page.jpg')
+    background-repeat: none
+    background-size: cover
+    background-position: center
+
+    box-shadow: inset 0 0 0 100vmax rgba(5, 10, 43, 0.84)
+
+    .title
+        h1
+            color: white
+            font-size: 30px 
+            font-weight: bold
+
+    .message 
+        p 
+            color: white
+
+    .sm 
+        position: absolute
+        top: 0
+
+
+
+.hamburger
+    width: 1.5rem
+    height: 1.25rem
+    position: relative
+    top: 5px
+    right: px
+    display: flex
+    justify-content: space-around
+    flex-flow: column nowrap
+
+    div 
+        width: 1.5rem
+        height: 3px 
+        background-color: $font-color
+        border-radius: 20px
+        transform-origin: 1px
+        transition: all .3s ease-in-out
+
+
+.hamburger.open div
+    background: $font-color
+    position: fixed
+
+.hamburger.open div:nth-child(1)
+    transform: rotate(45deg) translate(0px, -10.5px)
+
+
+.hamburger.open div:nth-child(2)
+    opacity: 0
+
+.hamburger.open div:nth-child(3)
+    transform: rotate(-45deg) translate(0px, 10px)
+
+.navbar.open 
+    background: $primary-color !important
+
+.navbar-nav  
+    padding: 10px !important
+    padding-bottom: 10% !important
+    
+
+.nav-item 
+    border-bottom: 2px solid white
+    border-radius: 2px
+
+.nav-link 
+    padding: .75rem 1rem
+
+
+@media (min-width: $large-devices) 
+    .hamburger
+        display: none
+    
