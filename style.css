@@ -1,30 +1,33 @@
 .btn.btn-primary {
   background-color: #5E3DB3;
   border-color: #5E3DB3;
-  padding: 15px 45px;
-  font-size: 10px;
-  font-weight: bold; }
+  padding: 1rem 2.25rem;
+  font-size: 0.6rem;
+  font-weight: bold;
+}
 
 header {
   background-color: black;
   height: 100vh;
-  z-index: 20; }
+  z-index: 20;
+}
 
 header.main {
   background-image: url("Images/Strike-9-Cover-Page.jpg");
   background-repeat: none;
   background-size: cover;
   background-position: center;
-  box-shadow: inset 0 0 0 100vmax rgba(5, 10, 43, 0.84); }
-  header.main .title h1 {
-    color: white;
-    font-size: 30px;
-    font-weight: bold; }
-  header.main .message p {
-    color: white; }
-  header.main .sm {
-    position: absolute;
-    top: 0; }
+  box-shadow: inset 0 0 0 100vmax rgba(5, 10, 43, 0.84);
+}
+header.main .title h1 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+header.main .message p {
+  color: white;
+  font-size: 0.75rem;
+}
 
 .hamburger {
   width: 1.5rem;
@@ -34,44 +37,64 @@ header.main {
   right: px;
   display: flex;
   justify-content: space-around;
-  flex-flow: column nowrap; }
-  .hamburger div {
-    width: 1.5rem;
-    height: 3px;
-    background-color: white;
-    border-radius: 20px;
-    transform-origin: 1px;
-    transition: all 0.3s ease-in-out; }
+  flex-flow: column nowrap;
+}
+.hamburger div {
+  width: 1.5rem;
+  height: 3px;
+  background-color: white;
+  border-radius: 20px;
+  transform-origin: 1px;
+  transition: all 0.3s ease-in-out;
+}
 
 .hamburger.open div {
   background: white;
-  position: fixed; }
+  position: fixed;
+}
 
 .hamburger.open div:nth-child(1) {
-  transform: rotate(45deg) translate(0px, -10.5px); }
+  transform: rotate(45deg) translate(0px, -10.5px);
+}
 
 .hamburger.open div:nth-child(2) {
-  opacity: 0; }
+  opacity: 0;
+}
 
 .hamburger.open div:nth-child(3) {
-  transform: rotate(-45deg) translate(0px, 10px); }
+  transform: rotate(-45deg) translate(0px, 10px);
+}
 
 .navbar.open {
-  background: #090C35 !important; }
+  background: #090C35 !important;
+}
 
 .navbar-nav {
   padding: 10px !important;
-  padding-bottom: 10% !important; }
+  padding-bottom: 10% !important;
+}
 
 .nav-item {
   border-bottom: 2px solid white;
-  border-radius: 2px; }
+  border-radius: 2px;
+}
 
 .nav-link {
-  padding: 0.75rem 1rem; }
+  padding: 0.75rem 1rem;
+}
 
 @media (min-width: 990px) {
   .hamburger {
-    display: none; } }
+    display: none;
+  }
+
+  .navbar-nav {
+    padding-bottom: 0 !important;
+  }
+
+  .nav-item {
+    border: none;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
