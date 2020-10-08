@@ -19,6 +19,7 @@ header
     z-index: 20
 
 
+
 header.main
     background-image: url('Images/Strike-9-Cover-Page.jpg')
     background-repeat: none
@@ -108,7 +109,9 @@ header.main
         margin: 0 auto
         position: relative
 
-
+.grey
+    background-color: #F5F4F9
+    padding: 5%
 
 .training-plans
     width: 100%
@@ -122,9 +125,14 @@ header.main
 
     img
         width: 100%
+        height: auto
         padding-top: 10px
-        height: 90%
         margin: 0 auto
+        position: relative
+        z-index: 1
+
+    p 
+        padding-top: 5%
 
     ol 
         counter-reset: counter-training
@@ -137,15 +145,20 @@ header.main
         li 
             counter-increment: counter-training
             display: flex
-            padding-bottom: 10px
+            width: 25px
+            border-bottom: 4px solid #5E3DB3
+            
+
             
         li::before 
             content: "0" counter(counter-training)
-            border-bottom: 4px solid purple
-            border-bottom-style: none
-            border-radius: 2px
-
+            margin-left: 4px
         
+.promises
+    background: #5E3DB3
+    text-align: center
+
+    
 
 
 
@@ -170,7 +183,17 @@ header.main
 
         h2
             font-size: 1.75rem
-            
+    
+    .training-plans 
+        
+        ol
+            padding-top: 25%
+
+
+        img
+            position: absolute
+
+
 
 
 
