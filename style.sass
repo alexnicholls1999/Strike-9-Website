@@ -1,9 +1,10 @@
 $font-color: white
 $font-color-secondary: #C2C2C2
-$large-devices: 990px
 
 $primary-color: #090C35
 
+$large-devices: 990px
+$medium-devices: 768px
 
 .btn.btn-primary  
     background-color: #5E3DB3
@@ -32,7 +33,6 @@ header.main
             font-size: 1.5rem 
             font-weight: bold
 
-    .message 
         p 
             color: white
             font-size: .75rem
@@ -76,11 +76,16 @@ header.main
 .navbar-nav  
     padding: 10px !important
     padding-bottom: 10% !important
-    
 
 .nav-item 
     border-bottom: 2px solid white
     border-radius: 2px
+    padding: 5px
+
+.nav-item.active
+    border-bottom: 4px solid #5E3DB3
+    border-radius: 2px
+    
 
 .nav-link 
     padding: .75rem 1rem
@@ -88,15 +93,22 @@ header.main
 
 .sponsors 
     background: #090C35
-    height: 25%
     width: 100%
+    padding: 5%
 
     h2
         font-size: 1.25rem
         color: $font-color-secondary
+        padding-top: 40px
+        text-align: center
 
     img 
-        padding: 20%
+        display: flex
+        padding: 10%
+        margin: 0 auto
+        position: relative
+
+
 
 .training-plans
     width: 100%
@@ -105,11 +117,62 @@ header.main
         font-size: 1.75rem
         color: $font-color-secondary
 
+    h5
+        padding-left: 10px
+
     img
         width: 100%
         padding-top: 10px
         height: 90%
         margin: 0 auto
+
+    ol 
+        counter-reset: counter-training
+        list-style: none
+        display: flex
+        flex-wrap: wrap
+        padding: 10px
+        margin: 0
+
+        li 
+            counter-increment: counter-training
+            display: flex
+            padding-bottom: 10px
+            
+        li::before 
+            content: "0" counter(counter-training)
+            border-bottom: 4px solid purple
+            border-bottom-style: none
+            border-radius: 2px
+
+        
+
+
+
+@media (min-width: $medium-devices) 
+
+    .navbar-nav
+        padding-bottom: 0 !important
+    
+    .nav-item
+        border: none
+
+    header.main
+        .title
+            h1
+                font-size: 2rem 
+                font-weight: bold
+            p 
+                font-size: 1rem
+    
+    .sponsors
+        padding: 2.5%
+
+        h2
+            font-size: 1.75rem
+            
+
+
 
 @media (min-width: $large-devices) 
     .hamburger
@@ -120,3 +183,22 @@ header.main
     
     .nav-item
         border: none
+
+    header.main
+        
+        .title
+            padding-top: 50px
+
+            h1
+                font-size: 2.5rem 
+                font-weight: bold
+            p 
+                font-size: 1rem
+    
+
+    .sponsors
+
+        h2
+            font-size: 2rem
+            
+

@@ -3,26 +3,31 @@
   border-color: #5E3DB3;
   padding: 1rem 2.25rem;
   font-size: 0.6rem;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 header {
   background-color: black;
   height: 100vh;
-  z-index: 20; }
+  z-index: 20;
+}
 
 header.main {
   background-image: url("Images/Strike-9-Cover-Page.jpg");
   background-repeat: none;
   background-size: cover;
   background-position: center;
-  box-shadow: inset 0 0 0 100vmax rgba(5, 10, 43, 0.84); }
-  header.main .title h1 {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold; }
-  header.main .message p {
-    color: white;
-    font-size: 0.75rem; }
+  box-shadow: inset 0 0 0 100vmax rgba(5, 10, 43, 0.84);
+}
+header.main .title h1 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+header.main .title p {
+  color: white;
+  font-size: 0.75rem;
+}
 
 .hamburger {
   width: 1.5rem;
@@ -32,71 +37,163 @@ header.main {
   right: px;
   display: flex;
   justify-content: space-around;
-  flex-flow: column nowrap; }
-  .hamburger div {
-    width: 1.5rem;
-    height: 3px;
-    background-color: white;
-    border-radius: 20px;
-    transform-origin: 1px;
-    transition: all 0.3s ease-in-out; }
+  flex-flow: column nowrap;
+}
+.hamburger div {
+  width: 1.5rem;
+  height: 3px;
+  background-color: white;
+  border-radius: 20px;
+  transform-origin: 1px;
+  transition: all 0.3s ease-in-out;
+}
 
 .hamburger.open div {
   background: white;
-  position: fixed; }
+  position: fixed;
+}
 
 .hamburger.open div:nth-child(1) {
-  transform: rotate(45deg) translate(0px, -10.5px); }
+  transform: rotate(45deg) translate(0px, -10.5px);
+}
 
 .hamburger.open div:nth-child(2) {
-  opacity: 0; }
+  opacity: 0;
+}
 
 .hamburger.open div:nth-child(3) {
-  transform: rotate(-45deg) translate(0px, 10px); }
+  transform: rotate(-45deg) translate(0px, 10px);
+}
 
 .navbar.open {
-  background: #090C35 !important; }
+  background: #090C35 !important;
+}
 
 .navbar-nav {
   padding: 10px !important;
-  padding-bottom: 10% !important; }
+  padding-bottom: 10% !important;
+}
 
 .nav-item {
   border-bottom: 2px solid white;
-  border-radius: 2px; }
+  border-radius: 2px;
+  padding: 5px;
+}
+
+.nav-item.active {
+  border-bottom: 4px solid #5E3DB3;
+  border-radius: 2px;
+}
 
 .nav-link {
-  padding: 0.75rem 1rem; }
+  padding: 0.75rem 1rem;
+}
 
 .sponsors {
   background: #090C35;
-  height: 25%;
-  width: 100%; }
-  .sponsors h2 {
-    font-size: 1.25rem;
-    color: #C2C2C2; }
-  .sponsors img {
-    padding: 20%; }
+  width: 100%;
+  padding: 5%;
+}
+.sponsors h2 {
+  font-size: 1.25rem;
+  color: #C2C2C2;
+  padding-top: 40px;
+  text-align: center;
+}
+.sponsors img {
+  display: flex;
+  padding: 10%;
+  margin: 0 auto;
+  position: relative;
+}
 
 .training-plans {
-  width: 100%; }
-  .training-plans h2 {
-    font-size: 1.75rem;
-    color: #C2C2C2; }
-  .training-plans img {
-    width: 100%;
-    padding-top: 10px;
-    height: 90%;
-    margin: 0 auto; }
+  width: 100%;
+}
+.training-plans h2 {
+  font-size: 1.75rem;
+  color: #C2C2C2;
+}
+.training-plans h5 {
+  padding-left: 10px;
+}
+.training-plans img {
+  width: 100%;
+  padding-top: 10px;
+  height: 90%;
+  margin: 0 auto;
+}
+.training-plans ol {
+  counter-reset: counter-training;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 0;
+}
+.training-plans ol li {
+  counter-increment: counter-training;
+  display: flex;
+  padding-bottom: 10px;
+}
+.training-plans ol li::before {
+  content: "0" counter(counter-training);
+  border-bottom: 4px solid purple;
+  border-bottom-style: none;
+  border-radius: 2px;
+}
 
-@media (min-width: 990px) {
-  .hamburger {
-    display: none; }
-
+@media (min-width: 768px) {
   .navbar-nav {
-    padding-bottom: 0 !important; }
+    padding-bottom: 0 !important;
+  }
 
   .nav-item {
-    border: none; } }
+    border: none;
+  }
+
+  header.main .title h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  header.main .title p {
+    font-size: 1rem;
+  }
+
+  .sponsors {
+    padding: 2.5%;
+  }
+  .sponsors h2 {
+    font-size: 1.75rem;
+  }
+}
+@media (min-width: 990px) {
+  .hamburger {
+    display: none;
+  }
+
+  .navbar-nav {
+    padding-bottom: 0 !important;
+  }
+
+  .nav-item {
+    border: none;
+  }
+
+  header.main .title {
+    padding-top: 50px;
+  }
+  header.main .title h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  header.main .title p {
+    font-size: 1rem;
+  }
+
+  .sponsors h2 {
+    font-size: 2rem;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
