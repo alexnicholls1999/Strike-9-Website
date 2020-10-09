@@ -89,15 +89,31 @@ header.main {
     position: relative; }
 
 .grey {
-  background-color: #F5F4F9; }
+  background-color: #F5F4F9;
+  padding-bottom: 10%; }
 
 .training-plans {
   width: 100%; }
   .training-plans h2 {
-    font-size: 1.75rem;
-    color: #C2C2C2; }
-  .training-plans h5 {
-    padding-left: 10px; }
+    padding-top: 7.5%;
+    font-size: 4rem; }
+  .training-plans .list {
+    padding-top: 5%;
+    margin: 0 auto;
+    padding: 0; }
+    .training-plans .list .point {
+      padding: 0;
+      display: flex;
+      flex-direction: row; }
+      .training-plans .list .point h3 {
+        padding-left: 10px; }
+      .training-plans .list .point h5 {
+        padding: 7px;
+        padding-right: 10px;
+        border-bottom: 4px solid #5E3DB3; }
+    .training-plans .list p {
+      padding-top: 10px;
+      width: 75%; }
   .training-plans img {
     width: 100%;
     height: auto;
@@ -105,25 +121,6 @@ header.main {
     margin: 0 auto;
     position: relative;
     z-index: 1; }
-  .training-plans p {
-    padding-top: 5%; }
-  .training-plans ol {
-    counter-reset: counter-training;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0; }
-    .training-plans ol li {
-      counter-increment: counter-training;
-      display: flex;
-      width: 25px;
-      border-bottom: 4px solid #5E3DB3; }
-    .training-plans ol li::before {
-      content: "0" counter(counter-training);
-      margin-left: 4px; }
-
-.training-plans#growth ol li::after {
-  margin-left: 4px; }
 
 .promises {
   background: #5E3DB3;
@@ -147,14 +144,9 @@ header.main {
     .sponsors h2 {
       font-size: 1.75rem; }
 
-  .training-plans ol {
-    padding-top: 25%; }
   .training-plans img {
-    position: absolute; }
-
-  .training-plans#growth ol {
-    padding-top: 5%;
-    padding-bottom: 50%; } }
+    position: absolute;
+    width: 75%; } }
 @media (min-width: 990px) {
   .hamburger {
     display: none; }

@@ -111,16 +111,37 @@ header.main
 
 .grey
     background-color: #F5F4F9
+    padding-bottom: 10%
 
 .training-plans
     width: 100%
 
     h2
-        font-size: 1.75rem
-        color: $font-color-secondary
+        padding-top: 7.5%
+        font-size: 4rem
 
-    h5
-        padding-left: 10px
+
+    .list 
+        padding-top: 5%
+        margin: 0 auto
+        padding: 0
+        .point
+            padding: 0
+            display: flex
+            flex-direction: row  
+
+            h3 
+                padding-left: 10px
+
+            h5
+                padding: 7px
+                padding-right: 10px
+                border-bottom: 4px solid #5E3DB3
+
+        p 
+            padding-top: 10px 
+
+            width: 75%
 
     img
         width: 100%
@@ -130,41 +151,11 @@ header.main
         position: relative
         z-index: 1
 
-    p 
-        padding-top: 5%
-
-    ol 
-        counter-reset: counter-training
-        list-style: none
-        display: flex
-        flex-wrap: wrap
-        
-        margin: 0
-
-        li 
-            counter-increment: counter-training
-            display: flex
-            width: 25px
-            border-bottom: 4px solid #5E3DB3
-            
-        li::before 
-            content: "0" counter(counter-training)
-            margin-left: 4px
-
-.training-plans#growth
-
-    ol
-
-        li::after 
-            margin-left: 4px
-            
-
+    
 
 .promises
     background: #5E3DB3
     text-align: center
-
-    
 
 
 
@@ -191,18 +182,11 @@ header.main
             font-size: 1.75rem
     
     .training-plans 
-        
-        ol
-            padding-top: 25%
-
 
         img
             position: absolute
+            width: 75%
 
-    .training-plans#growth
-        ol
-            padding-top: 5%
-            padding-bottom: 50%
 
 
 
