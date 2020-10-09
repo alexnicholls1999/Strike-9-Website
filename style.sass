@@ -111,7 +111,6 @@ header.main
 
 .grey
     background-color: #F5F4F9
-    padding: 5%
 
 .training-plans
     width: 100%
@@ -151,7 +150,16 @@ header.main
         li::before 
             content: "0" counter(counter-training)
             margin-left: 4px
-        
+
+.training-plans#growth
+
+    ol
+
+        li::after 
+            margin-left: 4px
+            
+
+
 .promises
     background: #5E3DB3
     text-align: center
@@ -191,7 +199,10 @@ header.main
         img
             position: absolute
 
-
+    .training-plans#growth
+        ol
+            padding-top: 5%
+            padding-bottom: 50%
 
 
 
