@@ -3,26 +3,31 @@
   border-color: #5E3DB3;
   padding: 1rem 2.25rem;
   font-size: 0.6rem;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 header {
   background-color: black;
   height: 100vh;
-  z-index: 20; }
+  z-index: 20;
+}
 
 header.main {
   background-image: url("Images/Strike-9-Cover-Page.jpg");
   background-repeat: none;
   background-size: cover;
   background-position: center;
-  box-shadow: inset 0 0 0 100vmax rgba(5, 10, 43, 0.84); }
-  header.main .title h1 {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold; }
-  header.main .title p {
-    color: white;
-    font-size: 0.75rem; }
+  box-shadow: inset 0 0 0 100vmax rgba(5, 10, 43, 0.84);
+}
+header.main .title h1 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+header.main .title p {
+  color: white;
+  font-size: 0.75rem;
+}
 
 .hamburger {
   width: 1.5rem;
@@ -32,140 +37,199 @@ header.main {
   right: px;
   display: flex;
   justify-content: space-around;
-  flex-flow: column nowrap; }
-  .hamburger div {
-    width: 1.5rem;
-    height: 3px;
-    background-color: white;
-    border-radius: 20px;
-    transform-origin: 1px;
-    transition: all 0.3s ease-in-out; }
+  flex-flow: column nowrap;
+}
+.hamburger div {
+  width: 1.5rem;
+  height: 3px;
+  background-color: white;
+  border-radius: 20px;
+  transform-origin: 1px;
+  transition: all 0.3s ease-in-out;
+}
 
 .hamburger.open div {
   background: white;
-  position: fixed; }
+  position: fixed;
+}
 
 .hamburger.open div:nth-child(1) {
-  transform: rotate(45deg) translate(0px, -10.5px); }
+  transform: rotate(45deg) translate(0px, -10.5px);
+}
 
 .hamburger.open div:nth-child(2) {
-  opacity: 0; }
+  opacity: 0;
+}
 
 .hamburger.open div:nth-child(3) {
-  transform: rotate(-45deg) translate(0px, 10px); }
+  transform: rotate(-45deg) translate(0px, 10px);
+}
 
 .navbar.open {
-  background: #090C35 !important; }
+  background: #090C35 !important;
+}
 
 .navbar-nav {
   padding: 10px !important;
-  padding-bottom: 10% !important; }
+  padding-bottom: 10% !important;
+}
 
 .nav-item {
   border-bottom: 2px solid white;
   border-radius: 2px;
-  padding: 5px; }
+  padding: 2px;
+}
 
 .nav-item.active {
-  border-bottom: 4px solid #5E3DB3;
-  border-radius: 2px; }
+  box-shadow: 0 55px 0 0 #5E3DB3;
+  border-radius: 10px;
+  height: 5px;
+}
 
 .nav-link {
-  padding: 0.75rem 1rem; }
+  padding: 0.75rem 1rem;
+}
 
 .sponsors {
   background: #090C35;
   width: 100%;
-  padding: 5%; }
-  .sponsors h2 {
-    font-size: 1.25rem;
-    color: #C2C2C2;
-    padding-top: 40px;
-    text-align: center; }
-  .sponsors img {
-    display: flex;
-    padding: 10%;
-    margin: 0 auto;
-    position: relative; }
+  padding: 5%;
+}
+.sponsors h2 {
+  font-size: 1.25rem;
+  color: #C2C2C2;
+  padding-top: 40px;
+  text-align: center;
+}
+.sponsors img {
+  display: flex;
+  padding: 10%;
+  margin: 0 auto;
+  position: relative;
+}
 
 .grey {
   background-color: #F5F4F9;
-  padding-bottom: 10%; }
+  padding-bottom: 10%;
+}
 
 .training-plans {
-  width: 100%; }
-  .training-plans h2 {
-    padding-top: 7.5%;
-    font-size: 4rem; }
-  .training-plans .list {
-    padding-top: 5%;
-    margin: 0 auto;
-    padding: 0; }
-    .training-plans .list .point {
-      padding: 0;
-      display: flex;
-      flex-direction: row; }
-      .training-plans .list .point h3 {
-        padding-left: 10px; }
-      .training-plans .list .point h5 {
-        padding: 7px;
-        padding-right: 10px;
-        border-bottom: 4px solid #5E3DB3; }
-    .training-plans .list p {
-      padding-top: 10px;
-      width: 75%; }
-  .training-plans img {
-    width: 100%;
-    height: auto;
-    padding-top: 10px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1; }
+  width: 100%;
+}
+.training-plans h2 {
+  padding-top: 7.5%;
+  padding-bottom: 7.5%;
+  font-size: 4rem;
+}
+.training-plans .list {
+  padding-top: 5%;
+  margin: 0 auto;
+  padding: 5%;
+}
+.training-plans .list .point {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+.training-plans .list .point h3 {
+  padding-left: 10px;
+}
+.training-plans .list .point h5 {
+  padding-right: 10px;
+  padding: 2px;
+  height: 2px;
+  font-size: 17px;
+  border-radius: 10px;
+  box-shadow: 0 32px 0px 0 #5E3DB3;
+}
+.training-plans .list p {
+  padding-top: 10px;
+}
+.training-plans img {
+  width: 100%;
+  height: auto;
+  padding-top: 10px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+#growth .list .point {
+  flex-direction: row-reverse;
+}
+#growth .list .point h3 {
+  padding-right: 10px;
+}
+#growth p {
+  text-align: right;
+}
 
 .promises {
   background: #5E3DB3;
-  text-align: center; }
+  text-align: center;
+  color: white;
+}
 
 @media (min-width: 768px) {
   .navbar-nav {
-    padding-bottom: 0 !important; }
+    padding-bottom: 0 !important;
+  }
 
   .nav-item {
-    border: none; }
+    border: none;
+  }
 
   header.main .title h1 {
     font-size: 2rem;
-    font-weight: bold; }
+    font-weight: bold;
+  }
   header.main .title p {
-    font-size: 1rem; }
+    font-size: 1rem;
+  }
 
   .sponsors {
-    padding: 2.5%; }
-    .sponsors h2 {
-      font-size: 1.75rem; }
+    padding: 2.5%;
+  }
+  .sponsors h2 {
+    font-size: 1.75rem;
+  }
 
   .training-plans img {
     position: absolute;
-    width: 75%; } }
+    width: 75%;
+  }
+  .training-plans p {
+    width: 75%;
+    margin-left: 25%;
+  }
+}
 @media (min-width: 990px) {
   .hamburger {
-    display: none; }
+    display: none;
+  }
 
   .navbar-nav {
-    padding-bottom: 0 !important; }
+    padding-bottom: 0 !important;
+  }
 
   .nav-item {
-    border: none; }
+    border: none;
+  }
 
   header.main .title {
-    padding-top: 50px; }
-    header.main .title h1 {
-      font-size: 2.5rem;
-      font-weight: bold; }
-    header.main .title p {
-      font-size: 1rem; }
+    padding-top: 50px;
+  }
+  header.main .title h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  header.main .title p {
+    font-size: 1rem;
+  }
 
   .sponsors h2 {
-    font-size: 2rem; } }
+    font-size: 2rem;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
