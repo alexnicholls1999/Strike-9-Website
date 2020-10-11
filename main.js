@@ -28,6 +28,7 @@ function display (index) {
         slide.style.display = 'none';
     });
     slides[index].style.display = 'flex';
+
 }
 
 function nextSlide () {
@@ -36,6 +37,7 @@ function nextSlide () {
         index = 0;
     }
     display(index);
+    slides.classList.toggle('fade');
 }
 
 
@@ -46,6 +48,7 @@ function previousSlide () {
     }
     display(index);
 }
+
 
 next.addEventListener('click', nextSlide);
 previous.addEventListener('click', previousSlide);
