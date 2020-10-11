@@ -174,12 +174,6 @@ header.main
     color: white
 
 .feedback
-    height: 50% 
-    width: 100%
-    display: flex
-    align-items: center
-    justify-content: center
-    padding: 30px
 
     h2
         text-align: right
@@ -292,7 +286,7 @@ header.main
                 background-image: url(./Images/Slider/icon-prev.svg)
 
 .section-border
-    width: 100vw
+    width: 100%
     padding: 40%
     margin-top: -15%
 
@@ -316,20 +310,35 @@ header.main
         
         button
             margin-top: 30px
-        
-        
 
-    
+.index-section
+    display: flex
+    flex-direction: column
+    position: relative
+    align-items: center
 
-@keyframes fade
+    .box-right  
+        height: 100%
+        width: 100%
+        background: blue
 
-    0% 
-    opacity: 0
+    .box-left  
+        height: 100%
+        width: 100%
 
-    100%
-    opacity: 1
+    .box
+        background-color: purple
+        height: 50px
+        width: 50px
+        position: absolute
 
-
+        h5
+            text-align: center
+            margin: 0 auto
+            padding: 10px
+            height: 1px
+            border-radius: 10px
+            box-shadow: 0 1px 0px 0 #5E3DB3
 
 @media only screen and (max-width: $small-devices) 
         .slide-img img 
@@ -338,8 +347,6 @@ header.main
         .buttons 
             top: 180px !important
 	
-
-
 
 @media only screen and (min-width: $medium-devices)
     .navbar-nav
