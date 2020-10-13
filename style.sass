@@ -7,6 +7,14 @@ $large-devices: 990px
 $medium-devices: 768px
 $small-devices: 400px
 
+
+h1 
+    font-size: clamp(1rem, 5w, 4rem) !important
+
+h2
+    font-size: clamp(.9rem, 5w, 3rem) !important
+
+
 .btn.btn-primary  
     background-color: #5E3DB3
     border-color: #5E3DB3
@@ -32,19 +40,23 @@ header.main
     .title
         h1
             color: white
-            font-size: 1.5rem 
+            
             font-weight: bold
 
         p 
             color: white
-            font-size: .75rem
+            
+
+    .social-media 
+        float: right
+        padding-top: 50vh
 
 .hamburger
     width: 1.5rem
     height: 1.25rem
     position: relative
     top: 5px
-    right: px
+    z-index: 2
     display: flex
     justify-content: space-around
     flex-flow: column nowrap
@@ -101,7 +113,7 @@ header.main
     padding: 5%
 
     h2
-        font-size: 1.25rem
+        
         color: $font-color-secondary
         padding-top: 40px
         text-align: center
@@ -122,7 +134,7 @@ header.main
     h2
         padding-top: 7.5%
         padding-bottom: 7.5%
-        font-size: 4rem
+        
 
 
     .list 
@@ -142,7 +154,6 @@ header.main
                 padding-right: 10px
                 padding: 2px
                 height: 2px
-                font-size: 17px
                 border-radius: 10px
                 box-shadow: 0 32px 0px 0 #5E3DB3
 
@@ -242,7 +253,7 @@ header.main
                     font-weight: 700
                     text-align: left
              
-        .buttons
+        .arrow-buttons
             position: absolute
             left: 50%
             transform: translateX(-50%)
@@ -295,7 +306,6 @@ header.main
     padding-top: 20%
 
     h2
-        font-size: 3rem
         color: #C2C2C2
 
 
@@ -315,37 +325,101 @@ header.main
     display: flex
     flex-direction: column
     position: relative
-    align-items: center
+    padding-bottom: 20%
 
-    .box-right  
+    .index-image  
+        position: relative
+        
+        img
+            height: auto
+            width: 100%
+
+    .index-text  
         height: 100%
         width: 100%
-        background: blue
+        padding: 5%
 
-    .box-left  
-        height: 100%
-        width: 100%
+        button
+            float: right
 
     .box
-        background-color: purple
+        background-color: #5E3DB3
         height: 50px
         width: 50px
-        position: absolute
+        position: relative
+        left: 10px
+        align-items: start
+        padding: 14px
+        box-shadow: 0px 0px 20px 9px rgba(95, 95, 95, 0.30)
+        z-index: 2
 
         h5
             text-align: center
             margin: 0 auto
-            padding: 10px
-            height: 1px
+            font-size: .9rem
+            height: 2px
+            width: 15px
             border-radius: 10px
-            box-shadow: 0 1px 0px 0 #5E3DB3
+            box-shadow: 0 20px 0 0 rgba(255, 255, 255, 0.3)
+            color: white
+        
+        
+
+#Events
+    flex-direction: column-reverse
+
+    .index-text 
+        button
+            float: left
+
+
+footer 
+    background: #190438
+    color: white
+    bottom: 0
+    width: 100%
+    padding: 10%
+
+    .footer-logo
+        text-align: center
+
+    .contact-info
+        p
+            padding: 10px
+            font-size: 1rem
+
+        .sm-link
+            color: white
+
+    .index-footer
+        display: flex
+        flex-direction: row
+
+        ul 
+            list-style: none
+            margin: 0 auto
+            padding: 0
+            padding-top: 25px
+
+            li
+                padding: 10px
+            
+    .bottom-footer
+        padding-top: 50px
+
+        p 
+            border-top: 3px solid #5E3DB3
+            padding: 50px
+
+            
 
 @media only screen and (max-width: $small-devices) 
         .slide-img img 
             width: 200px !important
         
-        .buttons 
+        .arrow-buttons
             top: 180px !important
+        
 	
 
 @media only screen and (min-width: $medium-devices)
@@ -358,17 +432,13 @@ header.main
     header.main
         .title
             h1
-                font-size: 2rem 
                 font-weight: bold
-            p 
-                font-size: 1rem
+
     
     .sponsors
         padding: 2.5%
 
-        h2
-            font-size: 1.75rem
-    
+
     .training-plans 
 
         img
@@ -378,6 +448,17 @@ header.main
         p
             width: 75%
             margin-left: 25%
+
+    .index-section
+        padding-bottom: 0 !important
+
+        .box 
+            position: absolute
+            top: 50%
+            left: 50%
+            height: 75px
+            width: 75px
+            padding: 14px
 
     .feedback
         .slide 
@@ -404,9 +485,31 @@ header.main
             top: 415px !important
             transform: translate(0) !important
             left: calc(100% - 400px) !important
-
+                    
     .section-border
         padding: 15%
+
+    .index-section
+            flex-direction: row
+            
+            .index-text
+                width: 50%
+            
+            .index-image
+                width: 50%
+    
+    #Events
+        flex-direction: row !important
+        
+    #Coporate
+        padding-bottom: 0 !important
+
+    footer 
+        .index-footer ul
+            padding-top: 0px
+            
+                    
+
 
 @media (min-width: $large-devices) 
     .hamburger
@@ -424,15 +527,8 @@ header.main
             padding-top: 50px
 
             h1
-                font-size: 2.5rem 
                 font-weight: bold
-            p 
-                font-size: 1rem
-    
 
-    .sponsors
 
-        h2
-            font-size: 2rem
             
 
