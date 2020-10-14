@@ -6,6 +6,10 @@ h2 {
   font-size: clamp(5px, 5vw, 50px) !important;
 }
 
+h3 {
+  font-size: clamp(5px, 5vw, 50px) !important;
+}
+
 .btn.btn-primary {
   background-color: #5E3DB3;
   border-color: #5E3DB3;
