@@ -1,9 +1,9 @@
 h1 {
-  font-size: clamp(1rem, 5w, 4rem) !important;
+  font-size: clamp(10px, 5vw, 60px) !important;
 }
 
 h2 {
-  font-size: clamp(0.9rem, 5w, 3rem) !important;
+  font-size: clamp(5px, 5vw, 50px) !important;
 }
 
 .btn.btn-primary {
@@ -107,6 +107,7 @@ header.main .social-media {
   padding: 5%;
 }
 .sponsors h2 {
+  font-size: clamp(25px, 5vw, 40px);
   color: #C2C2C2;
   padding-top: 40px;
   text-align: center;
