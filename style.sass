@@ -9,13 +9,19 @@ $small-devices: 400px
 
 
 h1 
-    font-size: clamp(10px, 5vw, 60px) !important
+    font-size: clamp(35px, 5vw, 60px) !important
 
 h2
-    font-size: clamp(5px, 5vw, 50px) !important
+    font-size: clamp(30px, 5vw, 50px) !important
 
 h3
-    font-size: clamp(5px, 5vw, 50px) !important
+    font-size: clamp(25px, 5vw, 40px) !important
+
+h4 
+    font-size: clamp(15px, 5vw, 20px) !important
+
+p 
+    font-size: clamp(10px, 4vw, 20px)
 
 .btn.btn-primary  
     background-color: #5E3DB3
@@ -28,8 +34,6 @@ header
     background-color: black
     height: 100vh
     z-index: 20
-
-
 
 header.main
     background-image: url('Images/Strike-9-Cover-Page.jpg')
@@ -115,7 +119,7 @@ header.main
     padding: 5%
 
     h2
-        font-size: clamp(25px, 5vw, 40px)
+        font-size: clamp(25px, 5vw, 30px) !important
         color: $font-color-secondary
         padding-top: 40px
         text-align: center
@@ -188,6 +192,8 @@ header.main
 
 .feedback
 
+    padding-top: 10%
+
     h2
         text-align: right
         font-size: 3rem
@@ -208,10 +214,11 @@ header.main
         .slide 
             opacity: 1
             width: 100%
+            padding: 10px
             display: flex
             flex-direction: column-reverse
             justify-content: center
-            text-align: right
+            text-align: center
 
             .slide-img  
                 width: 100%
@@ -300,8 +307,11 @@ header.main
 
 .section-border
     width: 100%
-    padding: 40%
+    padding: 30%
     margin-top: -15%
+
+.section-border.two
+    padding: 40%
 
 .about
     padding: 10%
@@ -349,6 +359,7 @@ header.main
         height: 50px
         width: 50px
         position: relative
+        top: -25px
         left: 10px
         align-items: start
         padding: 14px
@@ -384,8 +395,19 @@ footer
 
     .footer-logo
         text-align: center
+        padding-bottom: 10%
+
+    .newsletter
+        padding-top: 10% 
+        margin: 0 auto
+        text-align: center   
+
+        form
+
+            
 
     .contact-info
+        padding-top: 20px
         p
             padding: 10px
             font-size: 1rem
@@ -396,6 +418,7 @@ footer
     .index-footer
         display: flex
         flex-direction: row
+        padding-top: 20px
 
         ul 
             list-style: none
@@ -411,18 +434,17 @@ footer
 
         p 
             border-top: 3px solid #5E3DB3
-            padding: 50px
+            padding: 40px
 
-            
+
+          
 
 @media only screen and (max-width: $small-devices) 
         .slide-img img 
             width: 200px !important
         
         .arrow-buttons
-            top: 180px !important
-        
-	
+            top: 200px !important
 
 @media only screen and (min-width: $medium-devices)
     .navbar-nav
@@ -491,6 +513,9 @@ footer
     .section-border
         padding: 15%
 
+    .section-border.two
+        padding: 15%     
+
     .index-section
             flex-direction: row
             
@@ -507,10 +532,16 @@ footer
         padding-bottom: 0 !important
 
     footer 
+        padding: 0
+        padding-top: 75px
+
+        p 
+            font-size: 15px
+
         .index-footer ul
             padding-top: 0px
-            
-                    
+
+
 
 
 @media (min-width: $large-devices) 
