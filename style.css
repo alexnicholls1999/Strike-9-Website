@@ -317,7 +317,6 @@ footer {
   background: #190438;
   color: white;
   bottom: 0;
-  width: 100%;
   padding: 10%; }
   footer .footer-logo {
     text-align: center;
@@ -333,6 +332,8 @@ footer {
       font-size: 1rem; }
     footer .contact-info .sm-link {
       color: white; }
+  footer button.btn.btn-primary.my-2.my-sm-0 {
+    width: 100%; }
   footer .index-footer {
     display: flex;
     flex-direction: row;
