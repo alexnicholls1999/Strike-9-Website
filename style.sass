@@ -3,6 +3,8 @@ $font-color-secondary: #C2C2C2
 
 $primary-color: #090C35
 
+$third-color: #5E3DB3
+
 $large-devices: 990px
 $medium-devices: 768px
 $small-devices: 400px
@@ -189,6 +191,8 @@ header.main
     background: #5E3DB3
     text-align: center
     color: white
+    padding-top: 25px
+    padding-bottom: 25px
 
 .feedback
 
@@ -333,38 +337,34 @@ header.main
         button
             margin-top: 30px
 
+
 .index-section
     display: flex
-    flex-direction: column
+    width: 100%
+    align-items: start
+    justify-content: center
     position: relative
-    padding-bottom: 20%
+    flex-direction: column
 
-    .index-image  
-        position: relative
-        
-        img
-            height: auto
-            width: 100%
-
-    .index-text  
-        height: 100%
+    .index-text
         width: 100%
         padding: 5%
 
         button
+            margin: 50px
             float: right
 
     .box
-        background-color: #5E3DB3
-        height: 50px
-        width: 50px
         position: relative
-        top: -25px
-        left: 10px
-        align-items: start
-        padding: 14px
-        box-shadow: 0px 0px 20px 9px rgba(95, 95, 95, 0.30)
         z-index: 2
+        background-color: $third-color
+        height: 75px
+        width: 75px
+        padding: 25px
+        text-align: center
+        margin-top: -30px
+        margin-left: 10px   
+        box-shadow: 0 0px 15px 0 rgba(80, 80, 80, .5)
 
         h5
             text-align: center
@@ -375,15 +375,15 @@ header.main
             border-radius: 10px
             box-shadow: 0 20px 0 0 rgba(255, 255, 255, 0.3)
             color: white
-        
-        
 
-#Events
-    flex-direction: column-reverse
+    .index-image
+        width: 100%
 
-    .index-text 
-        button
-            float: left
+        img 
+            width: 100%
+
+#coporate
+    padding-bottom: 10%
 
 
 footer 
@@ -475,17 +475,6 @@ footer
             width: 75%
             margin-left: 25%
 
-    .index-section
-        padding-bottom: 0 !important
-
-        .box 
-            position: absolute
-            top: 50%
-            left: 50%
-            height: 75px
-            width: 75px
-            padding: 14px
-
     .feedback
         .slide 
             flex-direction: row  !important
@@ -519,23 +508,38 @@ footer
         padding: 15%     
 
     .index-section
-            flex-direction: row
-            
-            .index-text
-                width: 50%
-            
-            .index-image
-                width: 50%
-    
-    #Events
-        flex-direction: row !important
+        align-items: center
+        justify-content: center
+        position: relative
+        flex-direction: row
+
+        .index-text
+            width: 50%  
+            padding: 5%
         
-    #Coporate
-        padding-bottom: 0 !important
+        .box 
+            position: absolute
+            height: 75px
+            width: 75px
+            margin: 0 auto
+
+
+
+        .index-image
+            width: 50%
+
+    #events
+        flex-direction: row-reverse
+
+    #coporate
+        padding-bottom: 0
 
     footer 
         padding: 0
         padding-top: 75px
+
+        .footer-logo
+            padding: 50px !important
 
         p 
             font-size: 15px
