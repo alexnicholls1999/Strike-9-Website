@@ -11,7 +11,7 @@ h2 {
   font-weight: 700; }
 
 h3 {
-  font-size: clamp(25px, 5vw, 40px) !important;
+  font-size: clamp(25px, 5vw, 30px) !important;
   font-weight: 600; }
 
 h4 {
@@ -161,9 +161,9 @@ header.main {
   background: #5E3DB3;
   text-align: center;
   color: white;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  padding: 5%; }
+  padding-top: 10% !important;
+  padding-bottom: 10% !important;
+  padding: 10%; }
 
 .feedback {
   padding-top: 10%; }
@@ -297,7 +297,7 @@ header.main {
     .index-section .index-text h2 {
       font-size: clamp(10px, 4vw, 20px); }
     .index-section .index-text p {
-      font-size: clamp(15px, 1.5vw, 20px) !important; }
+      font-size: clamp(13px, 1.5vw, 20px) !important; }
     .index-section .index-text button {
       margin: 50px;
       float: right; }
