@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
+    
 $font-color: white
 $font-color-secondary: #C2C2C2
 
@@ -9,22 +11,39 @@ $large-devices: 990px
 $medium-devices: 768px
 $small-devices: 400px
 
+$muli: Mulish, sans-serif
+
+$light: 300
+$regular: 400
+$medium: 500
+$semi-bold: 600
+$bold: 700
+$x-bold: 800
+$black: 900
+
+
+body 
+    font-family: $muli
 
 h1 
     font-size: clamp(35px, 5vw, 60px) !important
+    font-weight: $x-bold
 
 h2
     font-size: clamp(30px, 5vw, 50px) !important
+    font-weight: $bold
 
 h3
     font-size: clamp(25px, 5vw, 40px) !important
+    font-weight: $semi-bold
 
 h4 
     font-size: clamp(15px, 5vw, 20px) !important
+    font-weight: $regular
 
 p 
     font-size: clamp(15px, 1.5vw, 20px) 
-
+    font-weight: $light
 
 .btn.btn-primary  
     background-color: #5E3DB3
@@ -143,8 +162,6 @@ header.main
     h2
         padding-top: 7.5%
         padding-bottom: 7.5%
-        
-
 
     .list 
         padding-top: 5%
@@ -194,6 +211,7 @@ header.main
     color: white
     padding-top: 25px
     padding-bottom: 25px
+    padding: 5%
 
 .feedback
 
@@ -481,7 +499,10 @@ footer
 
         p
             width: 75%
-            margin-left: 25%
+    
+    #growth
+        p
+            margin-left: 25% 
 
     .feedback
         .slide 
