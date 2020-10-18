@@ -26,7 +26,7 @@ body
     font-family: $muli
 
 h1 
-    font-size: clamp(35px, 5vw, 60px) !important
+    font-size: clamp(19px, 5vw, 60px) !important
     font-weight: $black
 
 h2
@@ -43,7 +43,7 @@ h4
 
 
 p 
-    font-size: clamp(15px, 1.5vw, 20px) 
+    font-size: clamp(11px, 1.5vw, 20px) 
     font-weight: $light
 
 .btn.btn-primary  
@@ -76,9 +76,21 @@ header.main
             color: white
             
 
-    .social-media 
-        float: right
-        padding-top: 50vh
+    
+    .bottom
+        height: 40vh
+        position: relative
+
+        .social-media 
+            position: absolute
+            right: 10px
+            bottom: 0
+
+            .sm-link
+                color: white
+                padding: 0
+
+
 
 .hamburger
     width: 1.5rem
@@ -121,16 +133,12 @@ header.main
     padding-bottom: 10% !important
 
 .nav-item 
-    border-bottom: 2px solid white
-    border-radius: 2px
+    border-bottom: 4px solid white
     padding: 2px
 
 .nav-item.active 
-    border: none
-    box-shadow: 0 4px 0px 0 #5E3DB3
-    border-radius: 2px
-    height: 50px
-
+    border-bottom: 4px solid $third-color
+    
 
 .nav-link 
     padding: .75rem 1rem
@@ -214,6 +222,9 @@ header.main
     padding-top: 10% !important
     padding-bottom: 10% !important
     padding: 10%
+
+    h4
+        font-weight: $semi-bold !important
 
 .feedback
 
