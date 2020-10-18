@@ -27,27 +27,28 @@ body
 
 h1 
     font-size: clamp(35px, 5vw, 60px) !important
-    font-weight: $x-bold
+    font-weight: $black
 
 h2
     font-size: clamp(30px, 5vw, 50px) !important
-    font-weight: $bold
+    font-weight: $medium
 
 h3
     font-size: clamp(25px, 5vw, 30px) !important
-    font-weight: $semi-bold
+    font-weight: $regular
 
 h4 
     font-size: clamp(15px, 5vw, 20px) !important
-    font-weight: $regular
+    font-weight: $light
+
 
 p 
     font-size: clamp(15px, 1.5vw, 20px) 
     font-weight: $light
 
 .btn.btn-primary  
-    background-color: #5E3DB3
-    border-color: #5E3DB3
+    background-color: $third-color
+    border-color: $third-color
     padding: 1rem 2.25rem
     font-size: .60rem
     font-weight: bold
@@ -175,6 +176,7 @@ header.main
 
             h3 
                 padding-left: 10px
+                color: $font-color-secondary
 
             h5
                 padding-right: 10px
@@ -220,7 +222,7 @@ header.main
     h2
         text-align: right
         font-size: 3rem
-        color: #C2C2C2
+        color: $font-color-secondary
 
     .slider
         display: block
@@ -338,7 +340,7 @@ header.main
 
 .about
     padding: 10%
-    padding-top: 20%
+    // padding-top: 20%
 
     h2
         color: #C2C2C2
@@ -531,7 +533,7 @@ footer
             left: calc(100% - 400px) !important
                     
     .section-border
-        padding: 15%
+        padding: 10%
 
     .section-border.two
         padding: 15%     
@@ -598,6 +600,6 @@ footer
     .index-section
         .index-text
             p   
-                width: 50%
+                width: 75%
             
 
