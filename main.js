@@ -32,22 +32,22 @@ function display(index, slide) {
     
 }
 
-function fadeIn(el){
-    slides.classList.add('show');
-    slides.classList.remove('hide');  
-}
+// function fadeIn(el){
+//     slides.classList.add('show');
+//     slides.classList.remove('hide');  
+// }
   
-function fadeOut(el){
-    slides.classList.add('hide');
-    slides.classList.remove('show');
-}
+// function fadeOut(el){
+//     slides.classList.add('hide');
+//     slides.classList.remove('show');
+// }
 
 function nextSlide() {
     index++;
     if (index > slides.length - 1) {
         index = 0;
     } 
-    fadeIn();
+
     display(index);
 }
 
@@ -57,7 +57,6 @@ function previousSlide () {
     if (index < 0) {
         index = slides.length - 1;
     }
-    fadeOut();
     display(index);
 }
 
