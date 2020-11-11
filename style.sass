@@ -25,9 +25,6 @@ $black: 900
 body 
     font-family: $muli
 
-main 
-    box-shadow: 0px 0px 15px 0px hsla(240, 18%, 77%, 0.52)
-
 h1 
     font-size: clamp(19px, 5vw, 60px) !important
     font-weight: $black
@@ -56,6 +53,29 @@ p
     font-size: .60rem
     font-weight: bold
     box-shadow: 0px 6px 18px 0px #5E3DB3
+
+// animations
+
+.fade-in
+    opacity: 0
+    transition: opacity 250ms ease-in
+
+.fade-in.appear 
+    opacity: 1
+
+.from-left
+    transform: translateX(-50%)
+
+.from-right 
+    transform: translateX(50%)
+
+.from-left, 
+.from-right 
+    transition: transform 400ms ease-in
+
+.from-left.appear, 
+.from-right.appear 
+    transform: translateX(0)
 
 header
     background-color: black
