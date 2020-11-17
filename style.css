@@ -19,16 +19,28 @@ h4 {
   font-weight: 300; }
 
 p {
-  font-size: clamp(11px, 1.5vw, 20px);
+  font-size: clamp(11px, 1.5vw, 15px);
   font-weight: 300; }
 
 .btn.btn-primary {
   background-color: #5E3DB3;
   border-color: #5E3DB3;
   padding: 1rem 2.25rem;
-  font-size: 0.6rem;
   font-weight: bold;
   box-shadow: 0px 6px 18px 0px #5E3DB3; }
+
+.btn.btn-secondary {
+  background-color: #4D2AA5;
+  border-color: #4D2AA5;
+  font-weight: bold; }
+
+.form-check {
+  padding-left: 2.25rem; }
+
+.card {
+  border-radius: 0;
+  border: none;
+  box-shadow: 0 5px 29px 0 rgba(186, 186, 207, 0.52); }
 
 .fade-in {
   opacity: 0;
@@ -52,11 +64,10 @@ p {
   transform: translateX(0); }
 
 header {
-  background-color: black;
-  height: 100vh;
   z-index: 20; }
 
 header.main {
+  height: 100vh;
   background-image: url("Images/Strike-9-Cover-Page.jpg");
   background-repeat: none;
   background-size: cover;
@@ -79,6 +90,19 @@ header.main {
       header.main .bottom .social-media .sm-link {
         color: white;
         padding: 0; }
+
+header.events {
+  color: white;
+  background-color: #5E3DB3; }
+  header.events .title h1 {
+    color: white;
+    font-weight: bold; }
+  header.events .search {
+    padding: 2rem; }
+    header.events .search .btn.btn-secondary.search-btn {
+      float: right;
+      margin-top: 1rem;
+      width: 100%; }
 
 .hamburger {
   width: 1.5rem;
@@ -249,12 +273,18 @@ header.main {
           font-size: 1.1rem;
           line-height: 1rem;
           color: #202046; }
-        .feedback .slider .slide .slide-text .author-text h5 {
-          margin-top: 20px;
-          color: #202046;
-          font-size: 0.5rem;
-          font-weight: 700;
-          text-align: left; }
+        .feedback .slider .slide .slide-text .author-text {
+          color: #5E3DB3; }
+          .feedback .slider .slide .slide-text .author-text h5 {
+            margin-top: 20px;
+            font-size: 0.5rem;
+            font-weight: 700;
+            text-align: left; }
+        .feedback .slider .slide .slide-text .star-ratings {
+          display: flex;
+          padding-bottom: 1rem; }
+          .feedback .slider .slide .slide-text .star-ratings .fa-star {
+            color: #5E3DB3; }
     .feedback .slider .arrow-buttons {
       position: absolute;
       left: 50%;
@@ -358,6 +388,25 @@ header.main {
 #coporate {
   padding-bottom: 10%; }
 
+.events-title {
+  font-size: clamp(15px, 1.5vw, 24px);
+  font-weight: 700;
+  color: #5E3DB3; }
+
+.events-list {
+  padding: 2rem; }
+  .events-list .session-type {
+    margin-bottom: 0;
+    font-size: clamp(12px, 1.5vw, 18px);
+    font-weight: 700;
+    color: #606060; }
+  .events-list .age-label {
+    color: #606060; }
+  .events-list .events-description {
+    font-size: clamp(12px, 1.5vw, 15px); }
+  .events-list .btn.btn-primary {
+    padding: 0.75rem 2.25rem; }
+
 footer {
   background: #190438;
   color: white;
@@ -411,6 +460,11 @@ footer {
 
   header.main .title h1 {
     font-weight: bold; }
+
+  header.events .search .btn.btn-secondary.search-btn {
+    float: right;
+    margin-top: 0;
+    width: 60%; }
 
   .sponsors {
     padding: 2.5%; }

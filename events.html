@@ -15,8 +15,10 @@
     <header class="events">
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
             <div class="container">
+            
                 <a class="navbar-brand" href="#"><img src="Images/Strike-9-Light-Logo.png" alt="Strike-9 Logo"></a>
-                <!-- <div class="hamburger" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    
+                <div class="hamburger" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <div></div>
                     <div></div>
                     <div></div>
@@ -24,8 +26,8 @@
     
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/about">About Us</a>
@@ -33,8 +35,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/">Training</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Events</a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="events.html">Events<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/">Coporate</a>
@@ -43,27 +45,143 @@
                             <a class="nav-link" href="/">Contact</a>
                         </li>
                     </ul>
-                </div> -->
+                </div>
             </div>
         </nav>
 
         <div class="container">
             <div class="row" style="padding-top: 3rem;">
                 <div class="col-sm col-md-8 col-lg-8 title">
-                        <h1>STRIKE 9 TRAINING ACADEMY</h1>
-                        <p>Do you want to bring another level to your Game? Are you tracking your progress? Are you seeking additional traning outside of your club team? Football is Changing.</p>
+                    <h1>SEARCH FOR STRIKE 9 VLU EVENTS</h1>
                 </div>
-                
-            </div>
 
-            <div class="p-2"></div>
-            
+                <div class="p-2"></div>
+            </div>
+        </div>
+        <div class="container search">
+            <form action="#" method="post" novalidate="novalidate">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-1">
+                                <label for="dateFormControlInput1">Date</label>
+                                <select class="form-control search-slt" id="dateFormControlSelect1">
+                                    <option>Select Date</option>
+                                    <option>Tuesday 27th October 2020</option>
+                                    <option>Thursday 29th October 2020</option>
+                                </select> 
+                            </div>
+                             <div class="col-lg-3 col-md-3 col-sm-12 p-1">
+                                <label for="timeFormControlInput1">Time</label>
+                                <select class="form-control search-slt" id="timeFormControlSelect1">
+                                    <option>Select Time</option>
+                                    <option>09:00 until 12:00</option>
+                                    <option>13:00 until 15:00</option>
+                                    <option>16:00 until 18:00</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-1">
+                                <label for="typeFormControlInput1">Type</label>
+                                <select class="form-control search-slt" id="typeFormControlSelect1">
+                                    <option>Select Type</option>
+                                    <option>Girls Sessions</option>
+                                    <option>Boys Sessions</option>
+                                    <option>Mixed Sessions</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-1">
+                                <label for="ageFormControlInput1">Age</label>
+                                <select class="form-control search-slt" id="ageFormControlSelect1">
+                                    <option>Select Age</option>
+                                    <option>11 to 13</option>
+                                    <option>14 to 16</option>
+                                    <option>17 to 18</option>
+                                    <option>18 or above</option>
+                                </select>
+                            </div>
+
+                            <div class="py-5"></div>
+
+                            <div class="form-check checkbox-rounded checkbox-living-coral-filled mb-2">
+                                <input type="checkbox" class="form-check-input filled-in" id="roundedExample2">
+                                <label class="form-check-label" for="roundedExample2">Available Slots</label>
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-1 py-1 ml-auto">
+                                <button type="button" class="btn btn-secondary search-btn">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </header>
 
-    
+    <main>
 
-    <!-- <footer>
+        <div class="p-2"></div>
+
+        <div class="container events-list">
+            <div class="row">
+                <div class="card col-sm-12 p-4">
+                    <div class="row">
+                        <div class="col-7 ml-auto">
+                            <h4 class="events-title">Strike 9 VLU October School Sessions</h4>
+                            <p class="session-type">Girls Sessions</p>
+                            <p class="age-label">Ages 11 - 13</p>
+                        </div>
+                        <div class="col-5 text-right">
+                            <h5>FREE</h5>
+                            <h6>Tuesday 27th October</h6>
+                            <p>09:00 to 12:00</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p class="events-description">We take pride in our adaptability and believe we can impact every player, helping them reach their goals in, and out, of the world of Football. </p>
+                        </div>
+                    </div>
+                    <div class="row align-self-end">
+                        <div class="col-lg-3 col-md-3 col-sm-12 mr-auto">
+                            <button type="button" class="btn btn-primary">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3"></div>
+
+            <div class="row">
+                <div class="card col-sm-12 p-4">
+                    <div class="row">
+                        <div class="col-7 ml-auto">
+                            <h4 class="events-title">Strike 9 VLU October School Sessions</h4>
+                            <p class="session-type">Girls Sessions</p>
+                            <p class="age-label">Ages 11 - 13</p>
+                        </div>
+                        <div class="col-5 text-right">
+                            <h5>FREE</h5>
+                            <h6>Thursday 29th October</h6>
+                            <p>09:00 to 12:00</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p class="events-description">We take pride in our adaptability and believe we can impact every player, helping them reach their goals in, and out, of the world of Football. </p>
+                        </div>
+                    </div>
+                    <div class="row align-self-end">
+                        <div class="col-lg-3 col-md-3 col-sm-12 mr-auto">
+                            <button type="button" class="btn btn-primary">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-5"></div>
+    </main>
+
+    <footer>
         <div class="container">
             <div class="row padding">
                 <div class="col-lg-4">
@@ -100,11 +218,15 @@
                     </div>
             </div>
         </div>
-    </footer> -->
+    </footer>
 
-    <script type="text/javascript" src="main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
+<script type="text/javascript" src="main.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </html>
+

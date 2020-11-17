@@ -43,16 +43,29 @@ h4
 
 
 p 
-    font-size: clamp(11px, 1.5vw, 20px) 
+    font-size: clamp(11px, 1.5vw, 15px) 
     font-weight: $light
 
 .btn.btn-primary  
     background-color: $third-color
     border-color: $third-color
     padding: 1rem 2.25rem
-    font-size: .60rem
+    // font-size: .60rem
     font-weight: bold
     box-shadow: 0px 6px 18px 0px #5E3DB3
+
+.btn.btn-secondary
+    background-color: #4D2AA5
+    border-color: #4D2AA5
+    font-weight: bold
+
+.form-check  
+    padding-left: 2.25rem
+
+.card 
+    border-radius: 0
+    border: none
+    box-shadow: 0 5px 29px 0 hsla(240, 18%, 77%, 0.52)
 
 // animations
 
@@ -78,11 +91,10 @@ p
     transform: translateX(0)
 
 header
-    background-color: black
-    height: 100vh
     z-index: 20
 
 header.main
+    height: 100vh
     background-image: url('Images/Strike-9-Cover-Page.jpg')
     background-repeat: none
     background-size: cover
@@ -115,7 +127,22 @@ header.main
                 color: white
                 padding: 0
 
+header.events 
+    color: white
+    .title
+        h1
+            color: white            
+            font-weight: bold
 
+    background-color: $third-color
+
+    .search
+        padding: 2rem
+
+        .btn.btn-secondary.search-btn
+            float: right
+            margin-top: 1rem
+            width: 100%
 
 .hamburger
     width: 1.5rem
@@ -316,12 +343,22 @@ header.main
                     line-height: 1rem
                     color: hsl(240, 38%, 20%)
                 
-                .author-text h5
-                    margin-top: 20px
-                    color: hsl(240, 38%, 20%)
-                    font-size: .5rem
-                    font-weight: 700
-                    text-align: left
+                .author-text 
+                    color: $third-color
+                    h5
+                        margin-top: 20px
+                        font-size: .5rem
+                        font-weight: 700
+                        text-align: left
+
+                .star-ratings 
+                    display: flex
+                    padding-bottom: 1rem
+
+                    .fa-star
+                        color:  $third-color
+
+                
              
         .arrow-buttons
             position: absolute
@@ -449,6 +486,29 @@ header.main
 #coporate
     padding-bottom: 10%
 
+.events-title 
+    font-size: clamp(15px, 1.5vw, 24px) 
+    font-weight: $bold
+    color: $third-color
+
+.events-list 
+    padding: 2rem
+
+    .session-type
+        margin-bottom: 0
+        font-size: clamp(12px, 1.5vw, 18px) 
+        font-weight: $bold
+        color: #606060
+
+    .age-label
+        color: #606060
+        
+
+    .events-description
+        font-size: clamp(12px, 1.5vw, 15px) 
+
+    .btn.btn-primary
+        padding: .75rem 2.25rem
 
 footer 
     background: #190438
@@ -524,7 +584,13 @@ footer
             h1
                 font-weight: bold
 
-            
+    header.events
+        .search
+            .btn.btn-secondary.search-btn
+                float: right
+                margin-top: 0
+                width: 60%
+
     
     .sponsors
         padding: 2.5%
@@ -612,6 +678,7 @@ footer
 
         .index-footer ul
             padding-top: 0px
+
 
 
 
