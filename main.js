@@ -15,6 +15,18 @@
 //     }
 // });
 
+// Database connection
+
+const eventsContainer = document.querySelector('.events-container')
+const welcomeEvent = document.querySelector('.welcome-event')
+const form = document.querySelector('.events-form')
+
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    addNewEvent()
+});
+
+
 // slider
 
 const next = document.querySelector('.next');
