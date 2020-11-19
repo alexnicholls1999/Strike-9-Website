@@ -1,36 +1,25 @@
-db.collection('events').get().then(snapshot => {
-    console.log(snapshot.docs)
-})
+// db.collection('events').get().then(snapshot => {
+//     setupEvents(snapshot.docs);
+// });
 
-
-// db.collection('events').onSnapshot(snapshot => {
-//     const newestEvent = snapshot.docChanges()[0].doc.data()
-//     const id = snapshot.docChanges()[0].doc.data()
-//     showLatestEvent(newestEvent, id);
-
-//     snapshot.docChanges().shift()
-
-//     snapshot.docChanges().forEach(event => {
-//         showEvents(event.doc.data(), event.doc.id)
-//     });
-// })
-
-const addNewEvent = () => {
-    const event = {
-        etitle: form.etitle.value,
-        etype: form.etype.value,
-        edate: form.edate.value,
-        description: form.description.value
+const addBooking = () => {
+    const book = {
+        firstname: form.firstname.value,
+        lastname: form.lastname.value,
+        email: form.email.value,
+        mobile: form.mobile.value,
+        gender: form.gender.value
     }
 
-    db.collection('events').add(event)
+    db.collection('booking').add(book)
     .then(() => {
-        form.etitle.value = "",
-        form.etype.value = "",
-        form.edate.value = "",
-        form.description.value = ""
+        form.firstname.value = "",
+        form.lastname.value = "",
+        form.email.value = "",
+        form.mobile.value = "",
+        form.gender.value = ""
 
-        alert('Your event has been successfully added!')
+        alert('Your information has been successfully added!')
     })
     .catch(err => console.log(err))
 }

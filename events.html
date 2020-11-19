@@ -117,93 +117,12 @@
         </div>
     </header>
 
-
-
     <main>
-
-
         <div class="p-2"></div>
 
-        <form class="events-form">
-            <h4 class="events-title">Create an Event</h4>
-            <input type="text" id="etitle" placeholder="Enter Event Title"> 
-            <br>
-            <div class="p-1"></div>
-            <select id="etype">
-                <option>Enter Type</option>
-                <option>Girls Sessions</option>
-                <option>Boys Sessions</option>
-                <option>Mixed Sessions</option>
-            </select>
-            <br>
-            <div class="p-1"></div>
-            <input type="date" name="edate" id="edate" placeholder="Enter Date">
-            <br>
-            <div class="p-1"></div>
-            <textarea placeholder="Description..." id="description" cols="30" rows="10"></textarea>
-            <br>
-            <div class="p-1"></div>
-            <button class="btn btn-primary">Add Event</button>
-        </form>
-<!-- 
-        <div class="container events-list">
-            <div class="row">
-                <div class="card col-sm-12 p-4">
-                    <div class="row">
-                        <div class="col-7 ml-auto">
-                            <h4 class="events-title">Strike 9 VLU October School Sessions</h4>
-                            <p class="session-type">Girls Sessions</p>
-                            <p class="age-label">Ages 11 - 13</p>
-                        </div>
-                        <div class="col-5 text-right">
-                            <h5>FREE</h5>
-                            <h6>Tuesday 27th October</h6>
-                            <p>09:00 to 12:00</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-7">
-                            <p class="events-description">We take pride in our adaptability and believe we can impact every player, helping them reach their goals in, and out, of the world of Football. </p>
-                        </div>
-                    </div>
-                    <div class="row align-self-end">
-                        <div class="col-lg-3 col-md-3 col-sm-12 mr-auto">
-                            <button type="button" class="btn btn-primary">Book</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-3"></div>
-
-            <div class="row">
-                <div class="card col-sm-12 p-4">
-                    <div class="row">
-                        <div class="col-7 ml-auto">
-                            <h4 class="events-title">Strike 9 VLU October School Sessions</h4>
-                            <p class="session-type">Girls Sessions</p>
-                            <p class="age-label">Ages 11 - 13</p>
-                        </div>
-                        <div class="col-5 text-right">
-                            <h5>FREE</h5>
-                            <h6>Thursday 29th October</h6>
-                            <p>09:00 to 12:00</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-7">
-                            <p class="events-description">We take pride in our adaptability and believe we can impact every player, helping them reach their goals in, and out, of the world of Football. </p>
-                        </div>
-                    </div>
-                    <div class="row align-self-end">
-                        <div class="col-lg-3 col-md-3 col-sm-12 mr-auto">
-                            <button type="button" class="btn btn-primary">Book</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="container">
+            <div class="events-list"></div>
         </div>
-        <div class="p-5"></div> -->
     </main>
 
     <footer>
@@ -251,28 +170,10 @@
 <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
 
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyAPNHAjABhqpPLaccRKAUygVvuLftKjoWs",
-      authDomain: "strike-9-prototype.firebaseapp.com",
-      databaseURL: "https://strike-9-prototype.firebaseio.com",
-      projectId: "strike-9-prototype",
-      storageBucket: "strike-9-prototype.appspot.com",
-      messagingSenderId: "527326935811",
-      appId: "1:527326935811:web:5d2cead3c25b4f46994736"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-
-    const db = firesbase.firestore();
-
-    db.settings({timestampsInSnapshots: true});
-    
-</script>
-
-<script type="text/javascript" src="main.js"></script>
+<!-- Initialize Firebase -->
+<script src="./firebase-init.js"></script>
 <script src="db.js"></script>
+<script type="text/javascript" src="main.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

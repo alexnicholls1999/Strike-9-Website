@@ -60,33 +60,7 @@
     </header>
 
     <main>
-        <form action="#">
-            <div class="page">
-                <!-- <h4 class="events-title">Event Details</h4>
-
-                <div class="event-details"></div>
-
-                <div class="message">
-                    <p>COVID 19 SAFETY</p>
-                    <p>Can all participants on entry to the pitch: <br> Use the hand sanitizer placed at the gate to the 4g pitch. <br> Make yourself available for temperature checks session start.</p>
-                    <p>Inform us of your attenance prior to the sessio, once you have filled in an event registration form any future visits you only have to acknowledge attendance of that days session.</p>
-                </div>
-                 -->
-                <div class="field">
-                    <div class="label">Date</div>
-                    <select>
-                        <option>Select Date</option>
-                        <option>Tuesday 27th October 2020</option>
-                        <option>Thursday 29th October 2020</option>
-                    </select> 
-                </div>
-
-                <div class="field">
-                    <div class="label">Team Name</div>
-                    <input type="text" name="team" id="team">
-                </div>
-            </div>
-            <div class="p-5"></div>
+        <form class="form" action="#">
             <div class="page">
                 <h4 class="events-title">Personal Details</h4>
                 
@@ -112,7 +86,7 @@
 
                 <div class="field">
                     <div class="label">Gender</div>
-                    <select>
+                    <select name="gender" id="gender">
                         <option>Enter Gender</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -169,12 +143,12 @@
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
+<!-- Initialize Firebase -->
+<script src="./firebase-init.js"></script>
+<script src="db.js"></script>
 <script type="text/javascript" src="main.js"></script>
-<script src="firebase.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
