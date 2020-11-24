@@ -68,6 +68,57 @@ p
     box-shadow: 0 5px 29px 0 hsla(240, 18%, 77%, 0.52)
 
 
+// Booking Form
+
+.page 
+    position: relative
+    width: 100%
+
+    .form-control 
+        position: relative
+        margin-bottom: 10px
+        padding-bottom: 20px
+        width: 250px
+
+        label
+            display: inline-block
+            margin-bottom: 5px
+        
+        input 
+            border: 2px solid #f0f0f0
+            display: block
+
+        input:focus 
+            outline: 0
+            border-color: $third-color
+
+        i 
+            visibility: hidden
+            position: absolute
+            top: 40px
+            right: 40px
+
+        small 
+            color: #e74c3c
+            visibility: hidden
+
+    .form-control.success input 
+        border-color: #22eedd
+    
+    .form-control.error input 
+        border-color: #e74c3c
+    
+    .form-control.success i.fa-check-circle
+        color: #22eedd
+        visibility: visible
+    
+    .form-control.error i.fa-exclamation-circle
+        color: #e74c3c
+        visibility: visible
+    
+    .form-control.error small 
+        visibility: visible
+
 // animations
 
 .fade-in

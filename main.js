@@ -65,17 +65,17 @@ const booked = () => {
     alert('Booked');
 }
 
-form.addEventListener('change', function(e){
+form.addEventListener('change', e => {
 
     e.preventDefault();
     checkInputs();
 
 });
 
-form.addEventListener('submit', function(e){
+form.addEventListener('submit', e => {
 
     e.preventDefault();
-    addBooking();
+    booked();
 
 });
 
