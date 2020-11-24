@@ -66,89 +66,145 @@
                 <div class="page">
                     <h4 class="events-title">Personal Details</h4>
                     
-                    <div class="field">
+                    <div class="field form-control">
                         <div class="label">First Name</div>
-                        <input type="text" name="firstname" id="firstname">
+                        <input type="text" name="firstname" id="firstname" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error Message</small>
                     </div>
     
-                    <div class="field">
+                    <div class="field form-control">
                         <div class="label">Last Name</div>
-                        <input type="text" name="lastname" id="lastname">
+                        <input type="text" name="lastname" id="lastname" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error Message</small>
                     </div>
     
-                    <div class="field">
+                    <div class="field form-control">
                         <div class="label">Email</div>
-                        <input type="text" name="email" id="email">
+                        <input type="text" name="email" id="email" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error Message</small>
                     </div>
     
-                    <div class="field">
+                    <div class="field form-control">
                         <div class="label">Mobile</div>
-                        <input type="text" name="mobile" id="mobile">
+                        <input type="text" name="mobile" id="mobile" required>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error Message</small>
                     </div>
-    
-                    <div class="field">
+                </div>
+                <div class="field form-control">
                         <div class="label">Gender</div>
-                        <select name="gender" id="gender">
-                            <option>Enter Gender</option>
+                        <select name="gender" id="gender" required>
+                            <option>Choose Gender</option>
                             <option>Male</option>
                             <option>Female</option>
                         </select> 
-                    </div>
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error Message</small>
+                </div>
     
-
+            <!----
                     <div class="p-1"></div>
 
                     <div class="field">
                         <div class="label">Date of Birth</div>
-                        <select type="text" name="dd" placeholder="DD"></select>
-                        <select type="text" name="mm" placeholder="MM"></select>
-                        <select type="text" name="yyyy" placeholder="YYYY"></select>
+                        <select type="text" id="day" name="dd"></select>
+                        <select type="text" id="month" name="mm" onchange="change_month(this)"></select>
+                        <select type="text" id="year" name="yyyy" onchange="change_month(this)"></select>
                     </div>
+-->
+                    <!-- <div class="field">
+                        <div class="label">Ethnicity</div>
+                        <select id="ethnicity" name="ethnicity">
+                            <option value="" selected="selected" disabled="disabled">Choose Ethnicity</option>
+                            <optgroup label="White">
+                              <option value="White English">English</option>
+                              <option value="White Welsh">Welsh</option>
+                              <option value="White Scottish">Scottish</option>
+                              <option value="White Northern Irish">Northern Irish</option>
+                              <option value="White Irish">Irish</option>
+                              <option value="White Gypsy or Irish Traveller">Gypsy or Irish Traveller</option>
+                              <option value="White Other">Any other White background</option>
+                            </optgroup>
+                            <optgroup label="Mixed or Multiple ethnic groups">
+                              <option value="Mixed White and Black Caribbean">White and Black Caribbean</option>
+                              <option value="Mixed White and Black African">White and Black African</option>
+                              <option value="Mixed White Other">Any other Mixed or Multiple background</option>
+                            </optgroup>
+                            <optgroup label="Asian">
+                              <option value="Asian Indian">Indian</option>
+                              <option value="Asian Pakistani">Pakistani</option>
+                              <option value="Asian Bangladeshi">Bangladeshi</option>
+                              <option value="Asian Chinese">Chinese</option>
+                              <option value="Asian Other">Any other Asian background</option>
+                            </optgroup>
+                            <optgroup label="Black">
+                              <option value="Black African">African</option>
+                              <option value="Black African American">African American</option>
+                              <option value="Black Caribbean">Caribbean</option>
+                              <option value="Black Other">Any other Black background</option>
+                            </optgroup>
+                            <optgroup label="Other ethnic groups">
+                              <option value="Arab">Arab</option>
+                              <option value="Hispanic">Hispanic</option>
+                              <option value="Latino">Latino</option>
+                              <option value="Native American">Native American</option>
+                              <option value="Pacific Islander">Pacific Islander</option>
+                              <option value="Other">Any other ethnic group</option>
+                            </optgroup>
+                          </select>
+                    </div> 
 
                     <div class="p-5"></div>
-                </div>
 
-                <!-- <div class="page">
+                </div> -->
+<!-- 
+                <div class="page">
                     <h4 class="events-title">Billing Address</h4>
                     
                     <div class="field">
-                        <div class="label">First Name</div>
-                        <input type="text" name="firstname" id="firstname">
+                        <div class="label">Address Line 1</div>
+                        <input type="text" name="addressline1" id="addressline1">
+                    </div>
+
+                    <div class="field">
+                        <div class="label">Address Line 2</div>
+                        <input type="text" name="addressline2" id="addressline2">
+                    </div>
+
+                    <div class="field">
+                        <div class="label">Address Line 3</div>
+                        <input type="text" name="addressline3" id="addressline3">
                     </div>
     
                     <div class="field">
-                        <div class="label">Last Name</div>
-                        <input type="text" name="lastname" id="lastname">
+                        <div class="label">City</div>
+                        <input type="text" name="city" id="city">
                     </div>
-    
+
+                    <div class="p-1"></div>
+
                     <div class="field">
-                        <div class="label">Email</div>
-                        <input type="text" name="email" id="email">
+                        <div class="label">Postcode</div>
+                        <input type="text" name="postcode" id="postcode">
                     </div>
-    
-                    <div class="field">
-                        <div class="label">Mobile</div>
-                        <input type="text" name="mobile" id="mobile">
-                    </div>
-    
-                    <div class="field">
-                        <div class="label">Gender</div>
-                        <select name="gender" id="gender">
-                            <option>Enter Gender</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                        </select> 
-                    </div>
-    
-                    <div class="p-5"></div> -->
                 </div>
+
+                <div class="p-5"></div> -->
     
-                <button class="btn btn-primary">Book Event</button>
+                <button class="btn btn-primary" type="submit" name="btnsubmit" onclick="booked()">Book Event</button>
             </form>
         </div>
 
     </main>
-
+ 
 </body>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -158,9 +214,10 @@
 <!-- Initialize Firebase -->
 <script src="./firebase-init.js"></script>
 <script src="db.js"></script>
-<script type="text/javascript" src="main.js"></script>
-
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script type="text/javascript" src="main.js"></script>
+<script src="validation.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 

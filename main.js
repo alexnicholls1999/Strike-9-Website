@@ -17,6 +17,7 @@
 
 
 const form = document.querySelector('.form')
+const searchform = document.querySelector('.search')
 const eventsList = document.querySelector('.events-list')
 
 const setupEvents = (data) => {
@@ -60,10 +61,97 @@ const setupEvents = (data) => {
     eventsList.innerHTML = html;
 }
 
-form.addEventListener('submit', e => {
-    e.preventDefault()
-    addBooking()
-})
+const booked = () => {
+    alert('Booked');
+}
+
+form.addEventListener('change', function(e){
+
+    e.preventDefault();
+    checkInputs();
+
+});
+
+form.addEventListener('submit', function(e){
+
+    e.preventDefault();
+    addBooking();
+
+});
+
+
+
+
+// DOB Picker
+
+var Days = [31,28,31,30,31,30,31,31,30,31,30,31];// index => month [0-11]
+$(document).ready(function(){
+    var option = '<option value="day">DD</option>';
+    var selectedDay="day";
+    for (var i=1;i <= Days[0];i++){ //add option days
+        option += '<option value="'+ i + '">' + i + '</option>';
+    }
+    $('#day').append(option);
+    $('#day').val(selectedDay);
+
+    var option = '<option value="month">MM</option>';
+    var selectedMon ="month";
+    for (var i=1;i <= 12;i++){
+        option += '<option value="'+ i + '">' + i + '</option>';
+    }
+    $('#month').append(option);
+    $('#month').val(selectedMon);
+  
+    var d = new Date();
+    var option = '<option value="year">YYYY</option>';
+    selectedYear ="year";
+    for (var i=1930;i <= d.getFullYear();i++){// years start i
+        option += '<option value="'+ i + '">' + i + '</option>';
+    }
+    $('#year').append(option);
+    $('#year').val(selectedYear);
+});
+
+function isLeapYear(year) {
+    year = parseInt(year);
+    if (year % 4 != 0) {
+	      return false;
+	  } else if (year % 400 == 0) {
+	      return true;
+	  } else if (year % 100 == 0) {
+	      return false;
+	  } else {
+	      return true;
+	  }
+}
+
+function change_year(select)
+{
+    if( isLeapYear( $(select).val() ) )
+	  {
+		    Days[1] = 29;
+		    
+    }
+    else {
+        Days[1] = 28;
+    }
+    if( $("#month").val() == 2)
+		    {
+			       var day = $('#day');
+			       var val = $(day).val();
+			       $(day).empty();
+			       var option = '<option value="day">day</option>';
+			       for (var i=1;i <= Days[1];i++){ //add option days
+				         option += '<option value="'+ i + '">' + i + '</option>';
+             }
+			       $(day).append(option);
+			       if( val > Days[ month ] )
+			       {
+				          val = 1;
+			       }
+			       $(day).val(val);
+		     }
+  }
 
 
 // slider
