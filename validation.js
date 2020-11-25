@@ -3,13 +3,20 @@ const lastname = document.getElementById('lastname');
 const email = document.getElementById('email');
 const mobile = document.getElementById('mobile');
 const gender = document.getElementById('gender');
+const day = document.getElementById('day');
+const month = document.getElementById('month');
+const year = document.getElementById('year');
 
 function checkInputs() {
+
     const firstnameValue = firstname.value.trim();
     const lastnameValue = lastname.value.trim();
     const emailValue = email.value.trim();
     const mobileValue = mobile.value.trim();
     const genderValue = gender.value.trim();
+    const dayValue = day.value.trim();
+    const monthValue = month.value.trim();
+    const yearValue = year.value.trim();
 
     if(firstnameValue === '') {
         setErrorFor(firstname, 'Username cannot be blank');
@@ -45,6 +52,16 @@ function checkInputs() {
         setErrorFor(gender, "Please choose a gender");
     } else {
         setSuccessFor(gender);
+    }
+
+    if(dayValue === 'DD' || monthValue === 'MM' || yearValue === 'YYYY'){
+        setErrorFor(day, "Please enter date of your birth")
+        setErrorFor(month, "Please enter date of your birth")
+        setErrorFor(year, "Please enter date of your birth")
+    } else {
+        setSuccessFor(day);
+        setSuccessFor(month);
+        setSuccessFor(year);
     }
 }
 

@@ -84,74 +84,37 @@ form.addEventListener('submit', e => {
 
 // DOB Picker
 
-var Days = [31,28,31,30,31,30,31,31,30,31,30,31];// index => month [0-11]
-$(document).ready(function(){
-    var option = '<option value="day">DD</option>';
-    var selectedDay="day";
-    for (var i=1;i <= Days[0];i++){ //add option days
-        option += '<option value="'+ i + '">' + i + '</option>';
-    }
-    $('#day').append(option);
-    $('#day').val(selectedDay);
+function call() {
+    
+    const d = new Date();
+    const n = d.getFullYear();
 
-    var option = '<option value="month">MM</option>';
-    var selectedMon ="month";
-    for (var i=1;i <= 12;i++){
-        option += '<option value="'+ i + '">' + i + '</option>';
+    for (var i = n; i >= 1950; i--) {
+        var opt = new Option();
+        opt.value = opt.text = i;
+        year.add(opt);
     }
-    $('#month').append(option);
-    $('#month').val(selectedMon);
-  
-    var d = new Date();
-    var option = '<option value="year">YYYY</option>';
-    selectedYear ="year";
-    for (var i=1930;i <= d.getFullYear();i++){// years start i
-        option += '<option value="'+ i + '">' + i + '</option>';
-    }
-    $('#year').append(option);
-    $('#year').val(selectedYear);
-});
+    year.addEventListener("change", validateDate);
+    month.addEventListener("change", validateDate);
 
-function isLeapYear(year) {
-    year = parseInt(year);
-    if (year % 4 != 0) {
-	      return false;
-	  } else if (year % 400 == 0) {
-	      return true;
-	  } else if (year % 100 == 0) {
-	      return false;
-	  } else {
-	      return true;
-	  }
+    function validateDate() {
+        var y = +year.value, m = month.value, d = day.value;
+        if (m === "2")
+            var mlength = 28 + (! (y & 3) && ((y % 100) !== 0 || !(y & 15)));
+        else {
+            var mlength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m - 1];
+        }
+        day.length = 0;
+        for (var i = 1; i <= mlength; i++) {
+            var opt = new Option();
+            opt.value = opt.text = i;
+            if (i == d) opt.selected = true;
+            day.add(opt);
+        }
+    }
+    
+    validateDate();
 }
-
-function change_year(select)
-{
-    if( isLeapYear( $(select).val() ) )
-	  {
-		    Days[1] = 29;
-		    
-    }
-    else {
-        Days[1] = 28;
-    }
-    if( $("#month").val() == 2)
-		    {
-			       var day = $('#day');
-			       var val = $(day).val();
-			       $(day).empty();
-			       var option = '<option value="day">day</option>';
-			       for (var i=1;i <= Days[1];i++){ //add option days
-				         option += '<option value="'+ i + '">' + i + '</option>';
-             }
-			       $(day).append(option);
-			       if( val > Days[ month ] )
-			       {
-				          val = 1;
-			       }
-			       $(day).val(val);
-		     }
-  }
 
 
 // slider
