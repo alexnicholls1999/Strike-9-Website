@@ -35,8 +35,8 @@ function checkInputs() {
         setErrorFor(mobile, "Mobile cannot be blank");
     } else if (isNaN(mobileValue)) {
         setErrorFor(mobile, "Mobile must be a number (Eg. 07604524208)");
-    } else if ((mobileValue.length < 1) || (mobileValue.length > 10)){
-        setErrorFor(mobile, "Your mobile number must be between 1 to 10 integers");
+    } else if ((mobileValue.length < 1) || (mobileValue.length > 11)){
+        setErrorFor(mobile, "Your mobile number must be between 1 to 11 digit numbers");
     } else {
         setSuccessFor(mobile);
     }

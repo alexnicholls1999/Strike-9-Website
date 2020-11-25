@@ -96,16 +96,39 @@ p
             visibility: hidden
             position: absolute
             top: 40px
-            right: 40px
+            right: 45px
+
+        .select 
+            top: 45px
+            right: 55px
+        
+        
+        select
+            display: block
+            border: 2px solid #f0f0f0
+            width: 200px
+            height: 35px
+        
+        select:focus
+            outline: 0  
+            border-color: $third-color
 
         small 
             color: #e74c3c
             visibility: hidden
 
+        
+
     .form-control.success input 
         border-color: #22eedd
     
     .form-control.error input 
+        border-color: #e74c3c
+
+    .form-control.success select 
+        border-color: #22eedd
+
+    .form-control.error select 
         border-color: #e74c3c
     
     .form-control.success i.fa-check-circle
