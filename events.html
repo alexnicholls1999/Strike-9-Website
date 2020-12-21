@@ -58,32 +58,32 @@
                 <div class="p-2"></div>
             </div>
         </div>
-        <!-- <div class="container search">
-            <form action="#" method="post" novalidate="novalidate">
+        <div class="container search">
+            <form class="searchform">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-12 p-1">
                                 <label for="dateFormControlInput1">Date</label>
-                                <select class="form-control search-slt" id="dateFormControlSelect1">
-                                    <option>Select Date</option>
-                                    <option>Tuesday 27th October 2020</option>
+                                <select class="form-control search-slt" name="date" id="dateFormControlSelect1">
+                                    <option value="Any">Any</option>
+                                    <option>17th October 2020</option>
                                     <option>Thursday 29th October 2020</option>
                                 </select> 
                             </div>
                              <div class="col-lg-3 col-md-3 col-sm-12 p-1">
                                 <label for="timeFormControlInput1">Time</label>
-                                <select class="form-control search-slt" id="timeFormControlSelect1">
-                                    <option>Select Time</option>
-                                    <option>09:00 until 12:00</option>
-                                    <option>13:00 until 15:00</option>
-                                    <option>16:00 until 18:00</option>
+                                <select class="form-control search-slt" name="time" id="timeFormControlSelect1">
+                                    <option value="Any">Any</option>
+                                    <option>09:00 - 12:00</option>
+                                    <option>12:00 - 14:00</option>
+                                    <option>16:00 - 18:00</option>
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-1">
                                 <label for="typeFormControlInput1">Type</label>
-                                <select class="form-control search-slt" id="typeFormControlSelect1">
-                                    <option>Select Type</option>
+                                <select class="form-control search-slt" name="eventsType" id="typeFormControlSelect1">
+                                    <option value="Any">Any</option>
                                     <option>Girls Sessions</option>
                                     <option>Boys Sessions</option>
                                     <option>Mixed Sessions</option>
@@ -91,35 +91,32 @@
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12 p-1">
                                 <label for="ageFormControlInput1">Age</label>
-                                <select class="form-control search-slt" id="ageFormControlSelect1">
-                                    <option>Select Age</option>
-                                    <option>11 to 13</option>
-                                    <option>14 to 16</option>
-                                    <option>17 to 18</option>
-                                    <option>18 or above</option>
+                                <select class="form-control search-slt" name="age" id="ageFormControlSelect1">
+                                    <option value="Any">Any</option>
+                                    <option>Ages 11 to 13</option>
+                                    <option>Ages 14 to 16</option>
+                                    <option>Ages 17 to 18</option>
+                                    <option>Ages 18 or above</option>
                                 </select>
                             </div>
 
                             <div class="py-5"></div>
-
+<!-- 
                             <div class="form-check checkbox-rounded checkbox-living-coral-filled mb-2">
-                                <input type="checkbox" class="form-check-input filled-in" id="roundedExample2">
+                                <input type="checkbox" class="form-check-input filled-in" id="isAvailable">
                                 <label class="form-check-label" for="roundedExample2">Available Slots</label>
-                            </div>
+                            </div> -->
 
                             <div class="col-lg-3 col-md-3 col-sm-12 p-1 py-1 ml-auto">
-                                <button type="button" class="btn btn-secondary search-btn">Search</button>
+                                <button type="button" id="search" class="btn btn-secondary search-btn">Search</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
-        </div> -->
+        </div>
 
-        <form class="search">
-            <input type="text" name="eventsType" placeholder="Enter Type">
-            <button type="button" class="btn btn-secondary search-btn">Search</button>
-        </form>
+
     </header>
 
     <main>

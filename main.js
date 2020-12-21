@@ -17,7 +17,6 @@
 
 
 const form = document.querySelector('.form')
-const searchform = document.querySelector('.search')
 const eventsList = document.querySelector('.events-list')
 
 const setupEvents = (data) => {
@@ -61,9 +60,9 @@ const setupEvents = (data) => {
     eventsList.innerHTML = html;
 }
 
-const booked = () => {
-    alert('Booked');
-}
+// const booked = () => {
+//     alert('Booked');
+// }
 
 form.addEventListener('change', e => {
 

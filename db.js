@@ -2,28 +2,6 @@ db.collection('events').get().then(snapshot => {
     setupEvents(snapshot.docs);
 });
 
-const searchEvents = () => {
-    const search = {
-        eventsType: searchform.eventsType.value
-    }
-
-    db.collection("events")
-    .where("eventsType", "==", eventsType)
-    // .where("date", "==", "17th October 2020")
-    // .where("age", "==", "Ages 11 to 13")
-    // .where("time", "==", "12:00 - 14:00")
-    .get(search)
-    .then(snap => {
-        snap.forEach(doc => {
-            console.log(doc.data());
-        });
-    });
-
-}
-
-
-
-
 const addBooking = () => {
     const book = {
         firstname: form.firstname.value,
@@ -61,3 +39,60 @@ const addBooking = () => {
     })
     .catch(err => console.log(err))
 }
+
+
+const searchform = document.querySelector('.searchform')
+const search = document.querySelector('#search')
+const isAvailable = document.querySelector('#isAvailable')
+
+search.addEventListener("click", e => {
+    e.preventDefault();
+
+    const search = {
+        date: searchform.date.value,
+        time: searchform.time.value,
+        eventsType: searchform.eventsType.value,
+        age: searchform.age.value,
+    }
+
+    var query = db.collection("events")
+
+    if (search.date != "Any") {
+        query = query.where("date", "==", search.date)
+    }  else {
+        query = query.where("datefltr", "==", true)
+    }
+
+    if (search.eventsType != "Any") {
+        query = query.where("eventsType", "==", search.eventsType)
+    } else {
+        query = query.where("eventsTypefltr", "==", true)
+    }
+
+    if (search.time != "Any") {
+        query = query.where("time", "==", search.time)
+    }  else {
+        query = query.where("timefltr", "==", true)
+    }
+    
+    if(search.age != "Any") {
+        query = query.where("age", "==", search.age)
+    } else {
+        query = query.where("agefltr", "==", true)
+    }
+
+    
+
+    query
+        .get()
+        .then(snapshot => {
+            setupEvents(snapshot.docs);
+        })
+        .catch(err => console.log(err))
+        // .then(function(querySnapshot){
+        //     querySnapshot.forEach(function(doc){
+        //         console.log(doc.id, doc.data());
+        //     })
+        // })
+})
+
