@@ -2,11 +2,13 @@ import React from 'react'
 import Header from '../Organisms/Header'
 import Hero from '../Organisms/Hero'
 
-function MainLayout() {
+
+function MainLayout(props) {
     return (
         <>
             <Header/>
             <Hero />
+            {props.children}
         </>
     )
 }

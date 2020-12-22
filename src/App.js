@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './config/GlobalStyles';
 import Events from "./Pages/Events";
 import MainLayout from "./Components/Templates/mainlayout";
+import SecondaryLayout from "./Components/Templates/secondarylayout";
 
 function App() {
   return (
@@ -12,9 +13,9 @@ function App() {
         <GlobalStyles/>
         <Switch>
           <Route exact path="/">
-            <MainLayout>
+            <SecondaryLayout>
                 <Events />
-            </MainLayout>
+            </SecondaryLayout>
           </Route>
         </Switch>
     </ThemeProvider>

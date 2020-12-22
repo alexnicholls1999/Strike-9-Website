@@ -2,24 +2,27 @@ import React from 'react'
 import styled from 'styled-components'
 import {Container, Row} from 'react-bootstrap'
 
-const Wallpaper = styled.div`
-    position: absolute;
+const HeroWrapper = styled.div`
+    position: relative;
     top: 0;
     background-color: ${({ theme }) => theme.colors.primary.DaisyBush};
-    height: 100vh;
     width: 100%;
     z-index: -1;
 `;
 
-function Hero() {
+function Hero(props) {
     return (
         <>
-            <Wallpaper/>
-            <Container>
-                <Row>
-                    <h1>Test</h1>
-                </Row>
-            </Container>
+            <HeroWrapper>
+                <Container >
+                    <Row>
+                        <h1>Test</h1>
+                    </Row>
+                    <Row>
+                        {props.children}
+                    </Row>
+                </Container>
+            </HeroWrapper>
         </>
     )
 }

@@ -6,14 +6,14 @@ import {Container, Row, Col} from "react-bootstrap";
 const HeaderWrapper = styled.header`
     display: flex;
     position: relative;
-
+    background-color: ${({ theme, secondary }) => secondary ? theme.colors.primary.DaisyBush : 'transparent'};
 `;
 
-function Header() {
+function Header(props) {
     return (
-        <HeaderWrapper>
+        <HeaderWrapper secondary={props.secondary} >
             <Container>
-                <Navigationbar />
+                <Navigationbar/>
             </Container>
         </HeaderWrapper>
     )
