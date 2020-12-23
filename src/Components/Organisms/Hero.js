@@ -5,9 +5,8 @@ import {Container, Row} from 'react-bootstrap'
 const HeroWrapper = styled.div`
     position: relative;
     top: 0;
-    background-color: ${({ theme }) => theme.colors.primary.DaisyBush};
+    background-color: ${({ theme }) => theme.colors.primary.RoyalPurple};
     width: 100%;
-    z-index: -1;
 `;
 
 function Hero(props) {
