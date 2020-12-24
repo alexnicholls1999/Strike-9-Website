@@ -1,36 +1,38 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
 
-function Button(props) {
+function BootstrapButton(props) {
 
-    const StyledButton = styled.button`
-        display: inline-block;
-        text-align: center;
-        whitespace: nowrap;
-        vertical-align: middle;
-        user-select: none;
-        border: 1px solid transparent;
-        padding: .375rem .75rem;
-        font-size: 1.25rem;
+    const StyledButton = styled(Button)`
         font-weight: bold;
-        line-height: 1.5;
-        border-radius: .25rem;
-
         background-color: ${({ theme }) => theme.colors.primary.DaisyBush};
         border-color: ${({ theme }) => theme.colors.primary.DaisyBush};
         color: ${({ theme }) => theme.colors.neutral.White};
-        padding: 1rem 2.25rem;
-        width: 250px;
+        padding: 0.75rem 2.25rem;
+        width: 100%;
+        box-shadow: ${({ theme, shadow }) => shadow ? `0 2px 20px 8px #BEA4FF` : 'none'};
+        
+        // float: right;
+
+        &:hover {
+            background: ${({ theme }) => theme.colors.primary.DaisyBush};
+            border-color: ${({ theme }) => theme.colors.primary.DaisyBush};
+        }
+
+        @media (min-width: 768px) {
+            width: 60% !important;
+        }
     `;
 
-    const {onClick, text} = props;
+    const {onClick, text, variant, size, style, shadow} = props;
 
     return (
         <>
-            <StyledButton onClick={onClick}> {text} </StyledButton>
+            <StyledButton shadow={shadow} variant={variant} size={size} style={style} onClick={onClick}> {text} </StyledButton>
         </>
     )
 }
 
 
-export default Button;
+export default BootstrapButton;

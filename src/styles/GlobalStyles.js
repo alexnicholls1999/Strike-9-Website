@@ -4,10 +4,15 @@ const GlobalStyles = createGlobalStyle`
 
 body {
     font-family: ${({theme}) => theme.typography.fontFamily};
+
 }
 
+
+
 h1 {
-    font-size: ${({theme}) => theme.typography.h1.fontSize};
+    font-size: clamp(${({theme}) => theme.typography.h1.fontSize.min}, 5vw, ${({theme}) => theme.typography.h1.fontSize.max}) ;
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.neutral.White}
 }
 
 h2 {
@@ -49,12 +54,11 @@ textarea {
 }
 
 label {
-    font-size: 12px;
-    font-weight: bold;
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-size: 15px;
     line-height: 15px;
-    text-transform: uppercase;
-    margin-bottom: 20
-    color: #1F2041;
+    color: white;
 }
 
 

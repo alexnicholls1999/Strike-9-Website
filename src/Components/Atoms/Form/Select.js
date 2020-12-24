@@ -8,18 +8,11 @@ const StyledSelect = styled.select`
 
 `;
 
-function Select ({ options, defaultValue, handleChange, label, ...otherProps }) {
+function Select ({ options, defaultValue, handleChange}) {
     if (!Array.isArray(options) || options.length < 1) return null;
   
-    return (
-      <div className="formRow">
-        {label && (
-          <label>
-            {label}
-          </label>
-        )}
-  
-        <StyledSelect value={defaultValue} onChange={handleChange} {...otherProps}>
+    return ( 
+        <StyledSelect className="form-control" value={defaultValue} onChange={handleChange}>
           {options.map((option, index) => {
             const { value, name } = option;
   
@@ -28,7 +21,6 @@ function Select ({ options, defaultValue, handleChange, label, ...otherProps }) 
             );
           })}
         </StyledSelect>
-      </div>
     );
   }
   

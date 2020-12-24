@@ -30,7 +30,10 @@ const theme = {
     typography: {
         fontFamily: "Muli",
         h1: {
-            fontSize: "42px"
+            fontSize: {
+                min: "19px",
+                max: "60px"
+            }
         },
         h2: {
             fontSize: "32px"

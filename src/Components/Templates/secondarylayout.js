@@ -1,5 +1,7 @@
 import React from 'react'
 import Header from '../Organisms/Header'
+import { Container } from 'react-bootstrap';
+import Footer from '../Organisms/Footer';
 
 function SecondaryLayout(props) {
     return (
@@ -8,7 +10,7 @@ function SecondaryLayout(props) {
             <div>
                 {props.children}
             </div>
-
+            <Footer />
         </>
     )
 }
