@@ -1,32 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-
-const Link = styled.a`
-
-`;
+import {faInstagram, faTwitter, faFacebookSquare} from '@fortawesome/free-brands-svg-icons'
+import SocialMediaLink from '../Atoms/SocialMediaIcon'
 
 
 const StyledSocialMedia = styled.div`
 
 `;
 
-
-function SocialMediaLink(props) {
-    const {socialmedia, href} = props;
-
-    return (
-        <Link href={href}>
-            <p>{socialmedia}</p>
-        </Link>
-    )
-}
-
 function SocialMedia() {
     return (
         <StyledSocialMedia>
-            <SocialMediaLink href="#" socialmedia="insta"/>
-            <SocialMediaLink href="#" socialmedia="facebook"/>
-            <SocialMediaLink href="#" socialmedia="twitter"/>
+            <SocialMediaLink href="#" socialmedia={faInstagram}/>
+            <SocialMediaLink href="#" socialmedia={faTwitter}/>
+            <SocialMediaLink href="#" socialmedia={faFacebookSquare}/>
         </StyledSocialMedia>
     )
 }

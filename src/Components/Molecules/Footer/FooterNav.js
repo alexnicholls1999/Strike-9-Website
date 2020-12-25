@@ -3,6 +3,24 @@ import styled from 'styled-components'
 import { Row, Col } from 'react-bootstrap'
 
 const IndexFooter = styled.div`
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+
+    ul {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        padding-top: 25px;
+
+        li {
+            padding: 10px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding-top: 0px;
+    }
 
 `
 

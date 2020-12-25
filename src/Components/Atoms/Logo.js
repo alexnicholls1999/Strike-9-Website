@@ -1,10 +1,10 @@
 import React from 'react'
 import Strike9Logo from '../../assets/Strike-9-Light-Logo.png' 
 
-function Logo() {
+function Logo(props) {
     return (
         <>
-            <img src={Strike9Logo}/>
+            <img style={props.style} src={Strike9Logo}/>
         </>
     )
 }

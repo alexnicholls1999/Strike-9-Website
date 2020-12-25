@@ -118,7 +118,6 @@ function Search(props) {
                         </Col>
                     </Row>
                 </Col>
-                
         </SearchForm>
     )
 }

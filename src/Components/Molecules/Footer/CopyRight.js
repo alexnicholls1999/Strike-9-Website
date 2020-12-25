@@ -5,7 +5,12 @@ import { Row, Col } from 'react-bootstrap'
 
 const BottomFooter = styled.div`
 
+    padding-top: 50px;
 
+    p {
+        border-top: 3px solid #5E3DB3;
+        padding: 40px;
+    }
 
 `;
 

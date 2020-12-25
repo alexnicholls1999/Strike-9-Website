@@ -83,7 +83,7 @@ function Events() {
                       type={type}
                       age={age}
                       onClick={handleSubmit}
-                    />
+                />
               </Container>
             </Hero>
 
