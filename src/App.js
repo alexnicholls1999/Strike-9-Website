@@ -6,12 +6,17 @@ import GlobalStyles from './styles/GlobalStyles';
 import Events from "./Pages/Events";
 import MainLayout from "./Components/Templates/mainlayout";
 import SecondaryLayout from "./Components/Templates/secondarylayout";
+import Header from "./Components/Organisms/Header";
+import { withRouter } from "react-router-dom";
+
+const HeaderWithRouter = withRouter(Header);
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
         <GlobalStyles/>
         <Switch>
+          <HeaderWithRouter />
           <Route exact path="/events">
             <SecondaryLayout>
                 <Events />

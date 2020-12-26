@@ -7,7 +7,7 @@ import Hero from '../Organisms/Hero'
 function MainLayout(props) {
     return (
         <>
-            <Header/>
+            <Header activeKey={props.activeKey}/>
             <Hero />
             {props.children}
             <Footer />

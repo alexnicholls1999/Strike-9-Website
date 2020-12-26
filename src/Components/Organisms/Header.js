@@ -13,7 +13,7 @@ function Header(props) {
     return (
         <HeaderWrapper secondary={props.secondary} >
             <Container>
-                <Navigationbar/>
+                <Navigationbar activeKey={props.activeKey}/>
             </Container>
         </HeaderWrapper>
     )
