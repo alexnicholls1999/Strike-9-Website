@@ -30,6 +30,11 @@ const NavLink = styled(Nav.Link)`
 
 `;
 
+const NavItem = styled(Nav.Item)`
+
+
+`;
+
 
 function BootstrapNav(props) {
 
@@ -37,13 +42,25 @@ function BootstrapNav(props) {
 
     return (
         <Collapse id="basic-navbar-nav">
-            <StyledNav className="ml-auto" activeKey={location.pathname}>
-                <NavLink as={Link} eventKey="/" to="/">Home</NavLink>
-                <NavLink as={Link} to="#">About Us</NavLink>
-                <NavLink as={Link} to="#">Training</NavLink>
-                <NavLink as={Link} eventKey="/events" to="#">Events</NavLink>
-                <NavLink as={Link} to="#">Corporate</NavLink>
-                <NavLink as={Link} to="#">Contact Us</NavLink>
+            <StyledNav className="ml-auto" activeKey="/events">
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/">Home</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/">About Us</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/">Training</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/events" as={Link} to="/events">Events</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/">Corporate</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/">Contact Us</Nav.Link>
+                </Nav.Item>
             </StyledNav>
         </Collapse>
          

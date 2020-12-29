@@ -44,7 +44,10 @@ const theme = {
         },
 
         h4: {
-            fontSize: "24px"
+            fontSize: {
+                min: "15px",
+                max: "20px"
+            }
         }, 
 
         h6: {

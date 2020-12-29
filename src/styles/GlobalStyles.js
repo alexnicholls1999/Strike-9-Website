@@ -27,6 +27,7 @@ h3 {
 
 h4 {
     font-size: ${({theme}) => theme.typography.h4.fontSize};
+    font-size: clamp(${({theme}) => theme.typography.h4.fontSize.min}, 5vw, ${({theme}) => theme.typography.h4.fontSize.max}) ;
 }
 
 h6 {

@@ -9,15 +9,13 @@ import SecondaryLayout from "./Components/Templates/secondarylayout";
 import Header from "./Components/Organisms/Header";
 import { withRouter } from "react-router-dom";
 
-const HeaderWithRouter = withRouter(Header);
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
         <GlobalStyles/>
         <Switch>
-          <HeaderWithRouter />
-          <Route exact path="/events">
+          <Route exact path="/">
             <SecondaryLayout>
                 <Events />
             </SecondaryLayout>
