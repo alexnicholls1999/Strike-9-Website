@@ -6,7 +6,7 @@ import Footer from '../Organisms/Footer';
 function SecondaryLayout(props) {
     return (
         <>
-            <Header secondary activeKey={props.activeKey}/>
+            <Header secondary={props.secondary} activeKey={props.activeKey}/>
             <div>
                 {props.children}
             </div>

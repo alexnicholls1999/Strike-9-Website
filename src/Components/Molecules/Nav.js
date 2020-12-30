@@ -47,19 +47,19 @@ function BootstrapNav(props) {
                   <Nav.Link as={Link} to="/">Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/">About Us</Nav.Link>
+                  <Nav.Link as={Link} to="/about">About Us</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/">Training</Nav.Link>
+                  <Nav.Link as={Link} to="/training">Training</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="/events" as={Link} to="/events">Events</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/">Corporate</Nav.Link>
+                  <Nav.Link as={Link} to="/corporate">Corporate</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/">Contact Us</Nav.Link>
+                  <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
                 </Nav.Item>
             </StyledNav>
         </Collapse>

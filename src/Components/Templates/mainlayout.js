@@ -8,8 +8,10 @@ function MainLayout(props) {
     return (
         <>
             <Header activeKey={props.activeKey}/>
-            <Hero />
-            {props.children}
+            <Hero title={props.title}/>
+            <div>
+                {props.children}
+            </div>
             <Footer />
         </>
     )

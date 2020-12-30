@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-bootstrap'
+import {Link} from 'react-router-dom';
 
 const IndexFooter = styled.div`
     display: flex;
@@ -12,9 +13,17 @@ const IndexFooter = styled.div`
         margin: 0 auto;
         padding: 0;
         padding-top: 25px;
+        
+        a {
+            color: white;
 
-        li {
-            padding: 10px;
+            &:hover {
+                text-decoration: none;
+            }
+            
+            li {
+                padding: 10px;
+            }
         }
     }
 
@@ -29,14 +38,14 @@ function FooterNav() {
         <Col lg={4}>
             <IndexFooter>
                 <ul>
-                    <li>Home</li>
-                    <li>Training</li>
-                    <li>Coporate</li>
+                    <Link to="/"><li>Home</li></Link>
+                    <Link to="/training"><li>Training</li></Link>
+                    <Link to="/coporate"><li>Coporate</li></Link>
                 </ul>
                 <ul>
-                    <li>About Us</li>
-                    <li>Events</li>
-                    <li>Contact</li>
+                    <Link to="/about"><li>About Us</li></Link>
+                    <Link to="/events"><li>Events</li></Link>
+                    <Link to="/contact"><li>Contact</li></Link>
                 </ul>
             </IndexFooter>
         </Col>

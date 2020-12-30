@@ -8,6 +8,7 @@ import MainLayout from "./Components/Templates/mainlayout";
 import SecondaryLayout from "./Components/Templates/secondarylayout";
 import Header from "./Components/Organisms/Header";
 import { withRouter } from "react-router-dom";
+import BookEvent from './Pages/BookEvent';
 
 
 function App() {
@@ -16,8 +17,13 @@ function App() {
         <GlobalStyles/>
         <Switch>
           <Route exact path="/">
-            <SecondaryLayout>
+            <SecondaryLayout secondary>
                 <Events />
+            </SecondaryLayout>
+          </Route>
+          <Route exact path="/events/:id">
+            <SecondaryLayout secondary title="STRIKE 9 VLU REGISTER EVENTS FORM">
+                <BookEvent />
             </SecondaryLayout>
           </Route>
         </Switch>
