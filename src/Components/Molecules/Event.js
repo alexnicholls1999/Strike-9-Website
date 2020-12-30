@@ -47,38 +47,36 @@ function Event(props) {
     const { title, type, age, cost, date, time, description, linkTo, buttonName } = props;
 
     return (
-        <Container>
-            <Row>
-                <Card>
-                    <Col sm={12}>
-                        <Row>
-                            <Col xs={7} className="ml-auto">
-                                <EventsTitle>{title}</EventsTitle>
-                                <EventsType style={{marginBottom: "0"}}>{type}</EventsType>
-                                <EventsAge>{age}</EventsAge>
-                            </Col>
-                            <Col xs={5} className="ml-auto text-right">
-                                <Cost>{cost}</Cost>
-                                <Date>{date}</Date>
-                                <Time>{time}</Time>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={7}>
-                                <Description>{description}</Description>
-                            </Col>
-                        </Row>
-                        <Row className="align-self-end">
-                            <Col lg={3} md={3} sm={12} className="ml-auto">
-                                <Link to={linkTo}>
-                                    <Button shadow style={{float: "right", width: "auto"}} text={buttonName}/>
-                                </Link>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Card>
-            </Row>
-        </Container>
+        <Row>
+            <Card className="p-4">
+                <Col sm={12}>
+                    <Row>
+                        <Col xs={7} className="ml-auto">
+                            <EventsTitle>{title}</EventsTitle>
+                            <EventsType style={{marginBottom: "0"}}>{type}</EventsType>
+                            <EventsAge>{age}</EventsAge>
+                        </Col>
+                        <Col xs={5} className="ml-auto text-right">
+                            <Cost>{cost}</Cost>
+                            <Date>{date}</Date>
+                            <Time>{time}</Time>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={7}>
+                            <Description>{description}</Description>
+                        </Col>
+                    </Row>
+                    <Row className="align-self-end">
+                        <Col lg={3} md={3} sm={12} className="ml-auto">
+                            <Link to={linkTo}>
+                                <Button shadow style={{float: "right", width: "auto"}} text={buttonName}/>
+                            </Link>
+                        </Col>
+                    </Row>
+                </Col>
+            </Card>
+        </Row>
     )
 }
 

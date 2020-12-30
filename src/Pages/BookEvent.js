@@ -2,11 +2,12 @@ import React from 'react'
 import EventDetails from '../Components/Organisms/EventDetails'
 import Hero from '../Components/Organisms/Hero';
 import { Container, Row } from "react-bootstrap";
+import Form from '../Components/Organisms/BookingForm';
 
 function BookEvent() {
     return (
         <>
-            <Hero title="SEARCH FOR STRIKE 9 VLU EVENTS" half>
+            <Hero title="STRIKE 9 VLU REGISTER EVENTS FORM" half>
               <Container>
                 <div className="p-5"></div>
               </Container>
@@ -19,6 +20,9 @@ function BookEvent() {
               <Row>
                   <div className="p-5"></div>
               </Row>
+            </Container>
+            <Container>
+              <Form />
             </Container>
 
         </>

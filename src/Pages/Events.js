@@ -1,11 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row} from 'react-bootstrap';
 import { db } from '../firebase/utils';
+import styled from "styled-components";
 
 import Event from '../Components/Molecules/Event'
-
 import Search from '../Components/Organisms/Search'
 import Hero from '../Components/Organisms/Hero'
+import NoResults from '../Components/Organisms/NoResults';
+
+const SearchResults = styled.div`
+
+  background-color: white;
+
+
+
+`;
+
 
 function Events() {
   const [updateEvents, setUpdateEvents] = useState([]);
@@ -59,6 +69,13 @@ function Events() {
       query = query.where("agefltr", "==", true);
     }
 
+    // if (!Array.isArray(query)) return null;
+    // if (query.length < 1) {
+    //   return (
+    //     <NoResults/>
+    //   )
+    // }
+
     query.onSnapshot((snapshot) => {
       const newEvents = snapshot.docs.map((doc) => ({
         id: doc.id,
@@ -87,23 +104,25 @@ function Events() {
               </Container>
             </Hero>
 
-
-            <div>
-                {updateEvents.map((event) => (
-                  <Event 
-                    key={event.id}
-                    title={event.eventsTitle}
-                    type={event.eventsType}
-                    age={event.age}
-                    cost={event.cost}
-                    date={event.date}
-                    description={event.description}
-                    time={event.time}
-                    buttonName="BOOK"
-                    linkTo={"/events/" + event.id}
-                  />
-                ))}
-            </div>
+            <Container>
+              <SearchResults> 
+                  {updateEvents.map((event) => (
+                    <Event 
+                      key={event.id}
+                      title={event.eventsTitle}
+                      type={event.eventsType}
+                      age={event.age}
+                      cost={event.cost}
+                      date={event.date}
+                      description={event.description}
+                      time={event.time}
+                      buttonName="BOOK"
+                      linkTo={"/events/" + event.id}
+                    />
+                  ))}
+              </SearchResults>
+            </Container>
+            
             
         </>
     )
