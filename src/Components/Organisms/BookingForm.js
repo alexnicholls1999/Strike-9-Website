@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Gender from '../Molecules/Form/Gender';
 import Input from '../Atoms/Form/Input';
 import {FormGroup} from 'react-bootstrap';
+import Ethnicity from '../Molecules/Form/Ethnicity';
+import DOB from '../Molecules/Form/DateOfBirth';
 
 const StyledForm = styled.form`
 
@@ -43,19 +45,19 @@ function Form() {
                 <div className="p-2"></div>
                 <FormGroup>
                     <label>First Name</label>
-                    <Input placeholder="Enter Team/Group Name" value={teamName} onChange={(e) => setTeamName(e.target.teamName) } />
+                    <Input placeholder="Enter First Name" value={teamName} onChange={(e) => setTeamName(e.target.teamName) } />
                 </FormGroup>
                 <FormGroup>
                     <label>Last Name</label>
-                    <Input placeholder="Enter Team/Group Name" value={teamName} onChange={(e) => setTeamName(e.target.teamName) } />
+                    <Input placeholder="Enter Last Name" value={teamName} onChange={(e) => setTeamName(e.target.teamName) } />
                 </FormGroup>
                 <FormGroup>
                     <label>Email</label>
-                    <Input placeholder="Enter Team/Group Name" value={teamName} onChange={(e) => setTeamName(e.target.teamName) } />
+                    <Input placeholder="Enter Email" value={teamName} onChange={(e) => setTeamName(e.target.teamName) } />
                 </FormGroup>
                 <FormGroup>
                     <label>Mobile</label>
-                    <Input placeholder="Enter Team/Group Name" value={teamName} onChange={(e) => setTeamName(e.target.teamName) } />
+                    <Input placeholder="Enter Mobile" value={teamName} onChange={(e) => setTeamName(e.target.teamName) } />
                 </FormGroup>
                 <FormGroup>
                     <label>Gender</label>
@@ -63,11 +65,11 @@ function Form() {
                 </FormGroup>
                 <FormGroup>
                     <label>Date of Birth</label>
-                    <Input placeholder="Enter Team/Group Name" value={teamName} onChange={(e) => setTeamName(e.target.teamName) } />
+                    <DOB/>
                 </FormGroup>
                 <FormGroup>
                     <label>Ethnicity</label>
-                    <Input placeholder="Enter Team/Group Name" value={teamName} onChange={(e) => setTeamName(e.target.teamName) } />
+                    <Ethnicity/>
                 </FormGroup>
             </Step>
         </StyledForm>

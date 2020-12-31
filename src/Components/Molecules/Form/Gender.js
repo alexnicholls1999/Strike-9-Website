@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 function Gender(props) {
 
-    const {handleGenderChange, style, gender} = props;
+    const {handleGenderChange, gender} = props;
 
     const configGender = {
         value: gender, 
