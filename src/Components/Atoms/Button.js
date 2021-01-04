@@ -25,11 +25,11 @@ function BootstrapButton(props) {
         }
     `;
 
-    const {onClick, text, variant, size, style, shadow} = props;
+    const {onClick, text, variant, type, size, style, shadow} = props;
 
     return (
         <>
-            <StyledButton shadow={shadow} variant={variant} size={size} style={style} onClick={onClick}> {text} </StyledButton>
+            <StyledButton type={type} shadow={shadow} variant={variant} size={size} style={style} onClick={onClick}> {text} </StyledButton>
         </>
     )
 }

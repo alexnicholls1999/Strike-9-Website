@@ -1,11 +1,7 @@
 import React from 'react'
 
-function Step() {
-    return (
-        <div>
-            
-        </div>
-    )
+function FormikStep({children}) {
+    return <>{children}</>;
 }
 
-export default Step;
+export default FormikStep;
