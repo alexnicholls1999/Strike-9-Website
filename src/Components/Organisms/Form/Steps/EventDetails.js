@@ -1,6 +1,8 @@
 import React from 'react';
-import {Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, FormGroup} from 'react-bootstrap';
 import styled from "styled-components";
+
+import Input from "../../../Atoms/Form/Input";
 
 const StyledUl = styled.ul`
 
@@ -9,7 +11,7 @@ const StyledUl = styled.ul`
 
 `
 
-function EventDetails() {
+function EventDetails({teamName, onTeamNameChange}) {
     return (
         <Container>
             <Row>
@@ -34,6 +36,13 @@ function EventDetails() {
                     <p style={{width: "50%"}}>Inform us of your attendance prior to the session, once you have filled in an event registration form any future visits you will only have to acknowledge attendance of that days session. </p>
                 </div>
             </Row>
+            <Row>
+                <FormGroup>
+                    <label>Enter Team Name</label>
+                    <Input placeholder="Enter Team/Group Name" value={teamName} onChange={onTeamNameChange} />
+                </FormGroup>
+            </Row>
+
         </Container>
     )
 }

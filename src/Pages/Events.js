@@ -69,13 +69,6 @@ function Events() {
       query = query.where("agefltr", "==", true);
     }
 
-    // if (!Array.isArray(query)) return null;
-    // if (query.length < 1) {
-    //   return (
-    //     <NoResults/>
-    //   )
-    // }
-
     query.onSnapshot((snapshot) => {
       const newEvents = snapshot.docs.map((doc) => ({
         id: doc.id,

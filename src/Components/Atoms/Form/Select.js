@@ -15,11 +15,12 @@ function Select ({ options, defaultValue, handleChange, style}) {
   
     return ( 
         <StyledSelect style={style} className="form-control" value={defaultValue} onChange={handleChange}>
-          {options.map((option, index) => {
+          {options.map((option, optionGrp, index) => {
             const { value, name } = option;
+            const {optionGrpValue, optionGrpName} = optionGrp;
   
             return (
-              <option key={index} value={value}>{name}</option>
+                <option key={index} value={value}>{name}</option>
             );
           })}
         </StyledSelect>

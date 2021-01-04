@@ -12,8 +12,10 @@ const StyledInput = styled.input`
 
 function Input(props) {
 
+    const {value, type, placeholder, onChange } = props;
+
     return (
-        <StyledInput type={props.type} placeholder={props.placeholder} />
+        <StyledInput value={value} onChange={onChange} type={type} placeholder={placeholder} />
     )
 }
 

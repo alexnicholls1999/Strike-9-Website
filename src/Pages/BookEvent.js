@@ -1,8 +1,8 @@
 import React from 'react'
-import EventDetails from '../Components/Organisms/EventDetails'
+import EventDetails from '../Components/Organisms/Form/Steps/EventDetails'
 import Hero from '../Components/Organisms/Hero';
 import { Container, Row } from "react-bootstrap";
-import Form from '../Components/Organisms/BookingForm';
+import Form from '../Components/Organisms/Form/BookingForm';
 
 function BookEvent() {
     return (
