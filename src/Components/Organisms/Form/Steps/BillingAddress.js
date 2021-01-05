@@ -6,12 +6,17 @@ import Input from "../../../Atoms/Form/Input";
 import Label from "../../../Atoms/Form/Label";
 import FormikStep from '../../../Atoms/Form/Step';
 
+const Title = styled.h3 `
+    color: ${({theme}) => theme.colors.primary.RoyalPurple};
+    font-weight: bold;
+`;
+
 function BillingAddress(props) {
     const {label, billingLine1, billingLine2, billingLine3, location, postcode, onBillingLine1Change, onBillingLine2Change, onBillingLine3Change, onLocationChange, onPostcodeChange } = props;
     return (
         <FormikStep label={label}>
             
-            <h3>Billing Address</h3>
+            <Title>Billing Address</Title>
             <div className="p-2"></div>
             
             <FormGroup>

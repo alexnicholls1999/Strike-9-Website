@@ -9,6 +9,11 @@ import Ethnicity from "../../../Molecules/Form/Ethnicity";
 import FormikStep from '../../../Atoms/Form/Step';
 import Label from '../../../Atoms/Form/Label';
 
+const Title = styled.h3 `
+    color: ${({theme}) => theme.colors.primary.RoyalPurple};
+    font-weight: bold;
+`
+
 function PersonalDetails(props) {
     const {
         label,
@@ -29,8 +34,7 @@ function PersonalDetails(props) {
     } = props;
     return (
         <FormikStep label={label}>
-            
-            <h3>Personal Details</h3>
+            <Title>Personal Details</Title>
             <div className="p-2"></div>
             <FormGroup>
                 <Label>First Name</Label>

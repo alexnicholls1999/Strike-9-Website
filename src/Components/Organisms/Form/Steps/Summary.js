@@ -10,6 +10,10 @@ const StyledSummary = styled.div`
 
 
 `
+const Title = styled.h3 `
+    color: ${({theme}) => theme.colors.primary.RoyalPurple};
+    font-weight: bold;
+`;
 
 function Summary(props) {
 
@@ -19,12 +23,9 @@ function Summary(props) {
     
         
         <FormikStep label={label}>
-            {label === "Booked!" ? (
-                 <Confirmation />
-            ) : ( 
-                <StyledSummary>
+            <StyledSummary>
                 <Container>
-                    <h3>Summary</h3>
+                    <Title>Summary</Title>
                     <div className="p-2"></div>
                     <Row>
                         <Col lg={4}>
@@ -54,10 +55,7 @@ function Summary(props) {
                         </Col>
                     </Row>
                 </Container>
-             </StyledSummary>
-            )}
-            
-
+             </StyledSummary>         
         </FormikStep>
 
     )

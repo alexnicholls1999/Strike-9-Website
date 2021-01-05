@@ -17,15 +17,7 @@ import BillingAddress from './Steps/BillingAddress';
 import Summary from './Steps/Summary';
 import Confirmation from './Steps/Confirmation';
 
-const StyledForm = styled.form`
 
-    label {
-        color: black;
-        margin-bottom: 1rem;
-        font-weight: bold;
-    }
-
-`;
 
 const Step = styled.div `
 
@@ -152,22 +144,27 @@ function Form({eventdate}) {
                 onPostcodeChange={(e) => setPostcode(e.target.value)}
             />
 
-            <Summary 
-                label={booked}
-                teamName={teamName}
-                firstName={firstName}
-                lastName={lastName}
-                email={email}
-                mobile={mobile}
-                gender={gender}
-                selectedDate={new Date(selectedDate).toDateString()}
-                ethnicity={ethnicity}
-                billingLine1={billingLine1}
-                billingLine2={billingLine2}
-                billingLine3={billingLine3}
-                location={location}
-                postcode={postcode}
-            />
+            { booked === "Booked!" ? (
+                <Confirmation label={booked}/>
+            ) : (
+                <Summary 
+                    label={booked}
+                    teamName={teamName}
+                    firstName={firstName}
+                    lastName={lastName}
+                    email={email}
+                    mobile={mobile}
+                    gender={gender}
+                    selectedDate={new Date(selectedDate).toDateString()}
+                    ethnicity={ethnicity}
+                    billingLine1={billingLine1}
+                    billingLine2={billingLine2}
+                    billingLine3={billingLine3}
+                    location={location}
+                    postcode={postcode}
+                />
+            )}
+
 
         </FormikStepper>
     )

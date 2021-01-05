@@ -20,8 +20,12 @@ const ButtonControls = styled.div`
 
 `;
 
+const StepBody = styled.div`
+    padding-left: 25px;
 
-function FormikStepper({children, ...props}) {
+`;
+
+function FormikStepper({children, leftlg, rightlg, ...props}) {
     const childrenArray = Children.toArray(children);
     const [step, setStep] = useState(0);
     const [completed, setCompleted] = useState(false);
@@ -46,7 +50,7 @@ function FormikStepper({children, ...props}) {
         >
             {({ isSubmitting }) => (
                 <Form autoComplete="off">
-                    <Card style={{marginTop: "-45px", zIndex: "1", position: "relative"}}>
+                    <Card style={{marginTop: "-50px", zIndex: "1", position: "relative"}}>
                         <Stepper alternativeLabel activeStep={step}>
                         {childrenArray.map((child, index) => (
                             <Step
@@ -62,20 +66,31 @@ function FormikStepper({children, ...props}) {
                     <Container>
                         <div className="p-2"></div>
                         <Row>
-                            <Col lg={8}>
-                                {currentChild}
-                            </Col>
-                            <Col lg={4}>
-                                <ButtonControls>
-                                    <Button startIcon={isSubmitting ? <CircularProgress size="1rem"/> : null} type="submit" text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} /> 
-                            
-                                    {step > 0 && step < 3 ? (
-                                        
-                                            <Button disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS"/>  
-                                        
-                                    ) : null}
-                                </ButtonControls>
-                            </Col>
+                            {completed === false ? (
+                                <Col lg={8}>
+                                    <StepBody>
+                                        {currentChild}
+                                    </StepBody>
+                                </Col>
+                                ) : (
+                                <Col lg={12}>
+                                    {currentChild}
+                                </Col>
+                            )}
+
+                            {completed === false ? (
+                                <Col lg={4}>
+                                    <ButtonControls style={props.buttonStyle}>
+                                        <Button startIcon={isSubmitting ? <CircularProgress size="1rem"/> : null} type="submit" text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} /> 
+                                
+                                        {step > 0 && step < 3 ? (
+                                            
+                                                <Button disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS"/>  
+                                            
+                                        ) : null}
+                                    </ButtonControls>
+                                </Col>
+                            ) : null}
                         </Row>
                     </Container>
                 </Form>

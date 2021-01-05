@@ -13,13 +13,18 @@ const StyledUl = styled.ul`
     padding: 0;
 
 `
+const Title = styled.h3 `
+    color: ${({theme}) => theme.colors.primary.RoyalPurple};
+    font-weight: bold;
+
+`
 
 function EventDetails({teamName, onTeamNameChange, label}) {
     return (
         <FormikStep label={label}>
                 <Container>
                 <Row>
-                    <h3 className="py-3">Event Details</h3>
+                    <Title className="py-3">Event Details</Title>
                 </Row>
                 <Row>
                     <div>
