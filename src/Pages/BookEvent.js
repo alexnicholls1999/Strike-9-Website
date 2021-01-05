@@ -13,15 +13,6 @@ function BookEvent() {
               </Container>
             </Hero>
             <Container>
-              <Row>
-                  <div className="p-5"></div>
-              </Row>
-              <EventDetails />
-              <Row>
-                  <div className="p-5"></div>
-              </Row>
-            </Container>
-            <Container>
               <Form />
             </Container>
 

@@ -8,7 +8,14 @@ import Ethnicity from '../../Molecules/Form/Ethnicity';
 import DatePicker from '../../Molecules/Form/DatePicker';
 import { db } from '../../../firebase/utils';
 import Button from '../../Atoms/Button';
+
+
 import EventDetails from './Steps/EventDetails';
+import FormikStepper from '../../Molecules/Form/Stepper';
+import PersonalDetails from './Steps/PersonalDetails';
+import BillingAddress from './Steps/BillingAddress';
+import Summary from './Steps/Summary';
+import Confirmation from './Steps/Confirmation';
 
 const StyledForm = styled.form`
 
@@ -44,13 +51,51 @@ function Form({eventdate}) {
     const [billingLine3, setBillingLine3] = useState("");
     const [location, setLocation] = useState("");
     const [postcode, setPostcode] = useState("");
+    
+    const [booked, setBooked] = useState("Summary");
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = () => {
 
-        db.collection("booking")
-            .add({
+        setBooked("Booked!")
+        // db.collection("booking")
+        //   .add({
+        //     teamName: teamName,
+        //     firstName: firstName,
+        //     lastName: lastName,
+        //     email: email,
+        //     mobile: mobile,
+        //     gender: gender,
+        //     selectedDate: selectedDate,
+        //     ethnicity: ethnicity,
+        //     billingLine1: billingLine1,
+        //     billingLine2: billingLine2,
+        //     billingLine3: billingLine3,
+        //     location: location,
+        //     postcode: postcode
+        //   })
+        //   .then(() => {
+        //     setTeamName("");
+        //     setFirstName("");
+        //     setLastName("");
+        //     setEmail("");
+        //     setMobile("");
+        //     setGender("");
+        //     setSelectedDate(null);
+        //     setEthnicity("");
+        //     setBillingLine1("");
+        //     setBillingLine2("");
+        //     setBillingLine3("");
+        //     setLocation("");
+        //     setPostcode("");
+        //     setBooked("Booked!");
+            
+        //   });
+    }
+
+    return (
+        <FormikStepper
+            initialValues={{
                 teamName: teamName,
                 firstName: firstName,
                 lastName: lastName,
@@ -63,129 +108,68 @@ function Form({eventdate}) {
                 billingLine2: billingLine2,
                 billingLine3: billingLine3,
                 location: location,
-                postcode: postcode,    
-            })
-            .then(() => {
-                setTeamName("");
-                setFirstName("");
-                setLastName("");
-                setEmail("");
-                setMobile("");
-                setGender("");
-                setSelectedDate(null);
-                setEthnicity("");
-                setBillingLine1("");
-                setBillingLine2("");
-                setBillingLine3("");
-                setLocation("");
-                setPostcode("");
-                alert("Successfully Booked")
-            })
-
-    }
-
-
-
-    return (
-        <StyledForm>
-            
-            {/* <EventDetails 
+                postcode: postcode
+            }}
+            onSubmit={handleSubmit}
+        >
+            <EventDetails 
+                label="Events Details"
                 teamName={teamName} 
                 onTeamNameChange={(e) => setTeamName(e.target.value)} 
-            /> */}
+            />
 
-            <Step>
-                <div className="p-4"></div>
-                <h3>Personal Details</h3>
-                <div className="p-2"></div>
-                <FormGroup>
-                    <label>First Name</label>
-                    <Input placeholder="Enter First Name" value={firstName} onChange={(e) => setFirstName(e.target.value) } />
-                </FormGroup>
-                <FormGroup>
-                    <label>Last Name</label>
-                    <Input placeholder="Enter Last Name" value={lastName} onChange={(e) => setLastName(e.target.value) } />
-                </FormGroup>
-                <FormGroup>
-                    <label>Email</label>
-                    <Input placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value) } />
-                </FormGroup>
-                <FormGroup>
-                    <label>Mobile</label>
-                    <Input placeholder="Enter Mobile" value={mobile} onChange={(e) => setMobile(e.target.value) } />
-                </FormGroup>
-                <FormGroup>
-                    <label>Gender</label>
-                    <Gender gender={gender} handleGenderChange={(e) => setGender(e.target.value)}/>
-                </FormGroup>
-                <FormGroup>
-                    <label>Date of Birth</label>
-                    <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)}/>
-                </FormGroup> 
-                <FormGroup>
-                    <label>Ethnicity</label>
-                    <Ethnicity value={ethnicity} onChange={(e) => setEthnicity(e.target.value)}/>
-                </FormGroup>
-            </Step>
-            <Step>
-                <div className="p-4"></div>
-                <h3>Billing Address</h3>
-                <div className="p-2"></div>
+            <PersonalDetails 
+                label="Personal Details"
+                firstName={firstName}
+                lastName={lastName}
+                email={email}
+                mobile={mobile}
+                gender={gender}
+                selectedDate={selectedDate}
+                ethnicity={ethnicity}
+
+                onFirstNameChange={(e) => setFirstName(e.target.value)}
+                onLastNameChange={(e) => setLastName(e.target.value)}
+                onEmailChange={(e) => setEmail(e.target.value)}
+                onMobileChange={(e) => setMobile(e.target.value)}
+                onGenderChange={(e) => setGender(e.target.value)}
+                onSelectedDateChange={(date) => setSelectedDate(date)}
+                onEthnicityChange={(e) => setEthnicity(e.target.value)}
+            />
+
+            <BillingAddress 
+                label="Billing Address"
+                billingLine1={billingLine1}
+                billingLine2={billingLine2}
+                billingLine3={billingLine3}
+                location={location}
+                postcode={postcode}
                 
-                <FormGroup>
-                    <label>Billing Address Line 1</label>
-                    <Input placeholder="Enter Billing Address Line 1" value={billingLine1} onChange={(e) => setBillingLine1(e.target.value) } />
-                </FormGroup>
-                <FormGroup>
-                    <label>Billing Address Line 2</label>
-                    <Input placeholder="Enter Billing Address Line 2" value={billingLine2} onChange={(e) => setBillingLine2(e.target.value) } />
-                </FormGroup>
-                <FormGroup>
-                    <label>Billing Address Line 3</label>
-                    <Input placeholder="Enter Billing Address Line 3" value={billingLine3} onChange={(e) => setBillingLine3(e.target.value) } />
-                </FormGroup>
-                <FormGroup>
-                    <label>Town/City</label>
-                    <Input placeholder="Enter Town/City" value={location} onChange={(e) => setLocation(e.target.value) } />
-                </FormGroup>
-                <FormGroup>
-                    <label>Postcode</label>
-                    <Input placeholder="Enter Postcode" value={postcode} onChange={(e) => setPostcode(e.target.value) } />
-                </FormGroup>
-            </Step>
-            <div className="summary">
-                <div className="p-4"></div>
-                <h3>Summary</h3>
-                <div className="p-2"></div>
-                
-                <div className="step-group">
-                    <label>Event Details</label>
-                    <p>27th October 2020</p>
-                    <p>{teamName}</p>
-                </div> 
+                onBillingLine1Change={(e) => setBillingLine1(e.target.value)}
+                onBillingLine2Change={(e) => setBillingLine2(e.target.value)}
+                onBillingLine3Change={(e) => setBillingLine3(e.target.value)}
+                onLocationChange={(e) => setLocation(e.target.value)}
+                onPostcodeChange={(e) => setPostcode(e.target.value)}
+            />
 
-                <div className="step-group">
-                    <label>Personal Details</label>
-                    <p>{firstName}</p>
-                    <p>{lastName}</p>
-                    <p>{email}</p>
-                    <p>{gender}</p>
-                    <p>{new Date(selectedDate).toDateString()}</p>
-                    <p>{ethnicity}</p>
-                </div>                
-                <div className="step-group">
-                    <label>Billing Address</label>
-                    <p>{billingLine1}</p>
-                    <p>{billingLine2}</p>
-                    <p>{billingLine3}</p>
-                    <p>{location}</p>
-                    <p>{postcode}</p>
-                </div>
-            </div>
-            <Button text="BOOK EVENT" onClick={handleSubmit}/>
+            <Summary 
+                label={booked}
+                teamName={teamName}
+                firstName={firstName}
+                lastName={lastName}
+                email={email}
+                mobile={mobile}
+                gender={gender}
+                selectedDate={new Date(selectedDate).toDateString()}
+                ethnicity={ethnicity}
+                billingLine1={billingLine1}
+                billingLine2={billingLine2}
+                billingLine3={billingLine3}
+                location={location}
+                postcode={postcode}
+            />
 
-
-        </StyledForm>
+        </FormikStepper>
     )
 }
 

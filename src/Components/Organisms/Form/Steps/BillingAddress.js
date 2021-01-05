@@ -7,9 +7,9 @@ import Label from "../../../Atoms/Form/Label";
 import FormikStep from '../../../Atoms/Form/Step';
 
 function BillingAddress(props) {
-    const {billingLine1, billingLine2, billingLine3, location, postcode, onBillingLine1Change, onBillingLine2Change, onBillingLine3Change, onLocationChange, onPostcodeChange } = props;
+    const {label, billingLine1, billingLine2, billingLine3, location, postcode, onBillingLine1Change, onBillingLine2Change, onBillingLine3Change, onLocationChange, onPostcodeChange } = props;
     return (
-        <FormikStep label="Billing Address">
+        <FormikStep label={label}>
             
             <h3>Billing Address</h3>
             <div className="p-2"></div>

@@ -1,5 +1,15 @@
 import React from 'react'
 import FormikStep from '../../../Atoms/Form/Step';
+import Label from '../../../Atoms/Form/Label';
+import { Container, Row, Col } from 'react-bootstrap';
+import styled from 'styled-components';
+import Confirmation from './Confirmation';
+
+const StyledSummary = styled.div`
+
+
+
+`
 
 function Summary(props) {
 
@@ -7,37 +17,47 @@ function Summary(props) {
 
     return (
     
+        
         <FormikStep label={label}>
-            <div className="summary">
+            {label === "Booked!" ? (
+                 <Confirmation />
+            ) : ( 
+                <StyledSummary>
+                <Container>
+                    <h3>Summary</h3>
+                    <div className="p-2"></div>
+                    <Row>
+                        <Col lg={4}>
+                            <Label>Event Details</Label>
+                            <p>27th October 2020</p>
+                            <p>{teamName}</p>
+                        </Col>
+                        <Col lg={4}>
+                            <Label>Personal Details</Label>
+                            <p>{firstName}</p>
+                            <p>{lastName}</p>
+                            <p>{email}</p>
+                            <p>{mobile}</p>
+                            <p>{gender}</p>
+                            <p>{selectedDate}</p>
+                            <p>{ethnicity}</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col lg={4}>
+                            <Label>Billing Address</Label>
+                            <p>{billingLine1}</p>
+                            <p>{billingLine2}</p>
+                            <p>{billingLine3}</p>
+                            <p>{location}</p>
+                            <p>{postcode}</p>
+                        </Col>
+                    </Row>
+                </Container>
+             </StyledSummary>
+            )}
+            
 
-                <h3>Summary</h3>
-                <div className="p-2"></div>
-                
-                <div className="step-group">
-                    <label>Event Details</label>
-                    <p>27th October 2020</p>
-                    <p>{teamName}</p>
-                </div> 
-
-                <div className="step-group">
-                    <label>Personal Details</label>
-                    <p>{firstName}</p>
-                    <p>{lastName}</p>
-                    <p>{email}</p>
-                    <p>{mobile}</p>
-                    <p>{gender}</p>
-                    <p>{selectedDate}</p>
-                    <p>{ethnicity}</p>
-                </div>                
-                <div className="step-group">
-                    <label>Billing Address</label>
-                    <p>{billingLine1}</p>
-                    <p>{billingLine2}</p>
-                    <p>{billingLine3}</p>
-                    <p>{location}</p>
-                    <p>{postcode}</p>
-                </div>
-            </div>
         </FormikStep>
 
     )

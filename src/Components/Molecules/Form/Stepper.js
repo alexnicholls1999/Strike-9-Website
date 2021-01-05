@@ -48,14 +48,14 @@ function FormikStepper({children, ...props}) {
                 <Form autoComplete="off">
                     <Card style={{marginTop: "-45px", zIndex: "1", position: "relative"}}>
                         <Stepper alternativeLabel activeStep={step}>
-                            {childrenArray.map((child, index) => (
-                                <Step 
-                                    key={child.props.label}
-                                    completed={step > index || completed}
-                                >
-                                    <StepLabel> {child.props.label} </StepLabel>
-                                </Step>
-                            ))}
+                        {childrenArray.map((child, index) => (
+                            <Step
+                            key={child.props.label}
+                            completed={step > index || completed}
+                            >
+                            <StepLabel>{child.props.label}</StepLabel>
+                            </Step>
+                        ))}
                         </Stepper>
                     </Card>
 
@@ -78,9 +78,6 @@ function FormikStepper({children, ...props}) {
                             </Col>
                         </Row>
                     </Container>
-
-
-
                 </Form>
             )}
         </Formik>

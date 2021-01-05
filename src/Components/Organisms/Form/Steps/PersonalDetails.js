@@ -11,6 +11,7 @@ import Label from '../../../Atoms/Form/Label';
 
 function PersonalDetails(props) {
     const {
+        label,
         firstName, 
         lastName, 
         email, 
@@ -27,7 +28,7 @@ function PersonalDetails(props) {
         onEthnicityChange
     } = props;
     return (
-        <FormikStep label="Personal Details">
+        <FormikStep label={label}>
             
             <h3>Personal Details</h3>
             <div className="p-2"></div>

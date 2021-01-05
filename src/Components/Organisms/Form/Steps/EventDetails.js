@@ -14,9 +14,9 @@ const StyledUl = styled.ul`
 
 `
 
-function EventDetails({teamName, onTeamNameChange}) {
+function EventDetails({teamName, onTeamNameChange, label}) {
     return (
-        <FormikStep label="Event Details">
+        <FormikStep label={label}>
                 <Container>
                 <Row>
                     <h3 className="py-3">Event Details</h3>
