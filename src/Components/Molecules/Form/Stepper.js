@@ -2,9 +2,11 @@ import React, { useState, Children } from 'react';
 import { Formik, Form } from "formik";
 import {Container, Col, Row } from "react-bootstrap";
 import styled from 'styled-components';
-import { Step, Stepper, StepLabel, CircularProgress } from "@material-ui/core";
+import { Step, Stepper, StepLabel, CircularProgress, StepConnector } from "@material-ui/core";
 import Button from "../../Atoms/Button";
 import Card from "../../Atoms/Card";
+import { makeStyles, withStyles } from "@material-ui/core/styles"; 
+
 
 const ButtonControls = styled.div`
     width: 400px;
@@ -24,6 +26,62 @@ const StepBody = styled.div`
     padding-left: 25px;
 
 `;
+
+const FormikConnector = withStyles({
+    active: {
+        "& $line": {
+            borderColor: "#5e3d83"
+        }
+    },
+    completed: {
+        "& $line": {
+            borderColor: "#5e3d83"
+        }
+    },
+    line: {
+        borderColor: "#F1F1F1",
+        borderTopWidth: 3,
+        width: "75%",
+        borderRadius: 10,
+        margin: "0 auto"
+    }
+})(StepConnector);
+
+const Strike9StepIconStyles = makeStyles({
+    root: {
+        color: "#eaeaf0",
+        display: "flex",
+        height: 22,
+        alignItems: "center"
+    },
+    active: {
+        color: "#5e3d83",
+        opacity: "100%"
+    },
+    completed: {
+        color: "#5E3D83",
+        zIndex: 1,
+        opacity: "100%"
+    }
+});
+
+function StepIcon(props) {
+    const classes = Strike9StepIconStyles();
+    const { active, stepCompleted } = props;
+
+    return (
+        <div className={clsx(classes.root, {
+            [classes.active]: active
+        })}>
+            {stepCompleted ? <Check className={classes.completed}/> : <Check />}0
+        </div>
+    )
+}
+
+StepIcon.propTypes = {
+    active: PropTypes.bool,
+    stepCompleted: PropTypes.bool
+}
 
 function FormikStepper({children, leftlg, rightlg, ...props}) {
     const childrenArray = Children.toArray(children);
@@ -51,7 +109,7 @@ function FormikStepper({children, leftlg, rightlg, ...props}) {
             {({ isSubmitting }) => (
                 <Form autoComplete="off">
                     <Card style={{marginTop: "-50px", zIndex: "1", position: "relative"}}>
-                        <Stepper alternativeLabel activeStep={step}>
+                        <Stepper activeStep={step}>
                         {childrenArray.map((child, index) => (
                             <Step
                             key={child.props.label}
