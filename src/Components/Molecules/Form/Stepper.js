@@ -1,11 +1,15 @@
 import React, { useState, Children } from 'react';
+import PropTypes from "prop-types";
 import { Formik, Form } from "formik";
 import {Container, Col, Row } from "react-bootstrap";
 import styled from 'styled-components';
-import { Step, Stepper, StepLabel, CircularProgress, StepConnector } from "@material-ui/core";
+import { Step, Stepper, StepLabel, CircularProgress} from "@material-ui/core";
+import StepConnector from "@material-ui/core/StepConnector";
+import Check from "@material-ui/icons/Check";
 import Button from "../../Atoms/Button";
 import Card from "../../Atoms/Card";
 import { makeStyles, withStyles } from "@material-ui/core/styles"; 
+import clsx from "clsx";
 
 
 const ButtonControls = styled.div`
@@ -67,20 +71,20 @@ const Strike9StepIconStyles = makeStyles({
 
 function StepIcon(props) {
     const classes = Strike9StepIconStyles();
-    const { active, stepCompleted } = props;
+    const { active, completed } = props;
 
     return (
         <div className={clsx(classes.root, {
             [classes.active]: active
         })}>
-            {stepCompleted ? <Check className={classes.completed}/> : <Check />}0
+            {completed ? <Check className={classes.completed}/> : <Check />}
         </div>
     )
 }
 
 StepIcon.propTypes = {
     active: PropTypes.bool,
-    stepCompleted: PropTypes.bool
+    completed: PropTypes.bool
 }
 
 function FormikStepper({children, leftlg, rightlg, ...props}) {
@@ -108,14 +112,14 @@ function FormikStepper({children, leftlg, rightlg, ...props}) {
         >
             {({ isSubmitting }) => (
                 <Form autoComplete="off">
-                    <Card style={{marginTop: "-50px", zIndex: "1", position: "relative"}}>
-                        <Stepper activeStep={step}>
+                    <Card style={{marginTop: "-45px", zIndex: "1", position: "relative"}}>
+                        <Stepper connector={<FormikConnector/>} activeStep={step}>
                         {childrenArray.map((child, index) => (
                             <Step
                             key={child.props.label}
                             completed={step > index || completed}
                             >
-                            <StepLabel>{child.props.label}</StepLabel>
+                                <StepLabel StepIconComponent={StepIcon}>{child.props.label}</StepLabel>
                             </Step>
                         ))}
                         </Stepper>

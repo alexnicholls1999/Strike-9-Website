@@ -62,7 +62,24 @@ label {
     color: white;
 }
 
-
+.MuiStepLabel-label.MuiStepLabel-completed {
+    color: #5e3d83 !important;
+    font-weight: bold !important;
+}
+.MuiStepLabel-label.MuiStepLabel-active {
+    color: #5e3d83 !important;
+    font-weight: bold;
+}
+.MuiStepLabel-label {
+    color: #f1f1f1 !important;
+}
+.MuiTypography-body2 {
+    font-size: 0.875rem;
+    font-family: "Muli", sans-serif !important;
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+}
 
 
 
