@@ -63,18 +63,18 @@ label {
 }
 
 .MuiStepLabel-label.MuiStepLabel-completed {
-    color: #5e3d83 !important;
+    color: ${({theme}) => theme.colors.primary.RoyalPurple} !important;
     font-weight: bold !important;
 }
 .MuiStepLabel-label.MuiStepLabel-active {
-    color: #5e3d83 !important;
-    font-weight: bold;
+    color: ${({theme}) => theme.colors.primary.RoyalPurple} !important;
+    font-weight: bold !important;
 }
 .MuiStepLabel-label {
     color: #f1f1f1 !important;
 }
 .MuiTypography-body2 {
-    font-size: 0.875rem;
+    font-size: 1rem !important;
     font-family: "Muli", sans-serif !important;
     font-weight: 400;
     line-height: 1.43;

@@ -8,9 +8,9 @@ const StyledLabel = styled.label`
 `;
 
 
-function Label({children}) {
+function Label({children, style}) {
     return (
-        <StyledLabel>{children}</StyledLabel>
+        <StyledLabel style={style}>{children}</StyledLabel>
     )
 }
 

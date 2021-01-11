@@ -110,7 +110,7 @@ function FormikStepper({children, leftlg, rightlg, ...props}) {
                 }
             }}
         >
-            {({ isSubmitting }) => (
+            {({ isSubmitting, isValid, dirty }) => (
                 <Form autoComplete="off">
                     <Card style={{marginTop: "-45px", zIndex: "1", position: "relative"}}>
                         <Stepper connector={<FormikConnector/>} activeStep={step}>
@@ -143,7 +143,7 @@ function FormikStepper({children, leftlg, rightlg, ...props}) {
                             {completed === false ? (
                                 <Col lg={4}>
                                     <ButtonControls style={props.buttonStyle}>
-                                        <Button startIcon={isSubmitting ? <CircularProgress size="1rem"/> : null} type="submit" text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} /> 
+                                        <Button disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress size="1rem"/> : null} type="submit" text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} /> 
                                 
                                         {step > 0 && step < 3 ? (
                                             

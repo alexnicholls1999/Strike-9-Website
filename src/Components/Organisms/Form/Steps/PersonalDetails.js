@@ -1,6 +1,7 @@
 import React from 'react'
 import {Container, Row, FormGroup} from 'react-bootstrap';
 import styled from "styled-components";
+import { useFormikContext } from "formik";
 
 import Input from "../../../Atoms/Form/Input";
 import Gender from "../../../Molecules/Form/Gender";
@@ -8,6 +9,7 @@ import DatePicker from "../../../Molecules/Form/DatePicker";
 import Ethnicity from "../../../Molecules/Form/Ethnicity";
 import FormikStep from '../../../Atoms/Form/Step';
 import Label from '../../../Atoms/Form/Label';
+import ErrorMessage from '../../../Atoms/Form/ErrorMessage';
 
 const Title = styled.h3 `
     color: ${({theme}) => theme.colors.primary.RoyalPurple};
@@ -15,6 +17,8 @@ const Title = styled.h3 `
 `
 
 function PersonalDetails(props) {
+    const formik = useFormikContext();
+
     const {
         label,
         firstName, 
@@ -33,38 +37,41 @@ function PersonalDetails(props) {
         onEthnicityChange
     } = props;
     return (
-        <FormikStep label={label}>
+        <Container>
             <Title>Personal Details</Title>
             <div className="p-2"></div>
             <FormGroup>
-                <Label>First Name</Label>
-                <Input placeholder="Enter First Name" value={firstName} onChange={onFirstNameChange} />
+                <Label style={formik.errors.firstName ? {color: "#C90808"} : null}>First Name</Label>
+                <input style={formik.errors.firstName ? {borderColor: "#C90808"} : null} type="text" name="firstName" value={formik.values.firstName} onChange={formik.handleChange} placeholder="Enter First Name"/>
+                <ErrorMessage>{formik.errors.firstName}</ErrorMessage>
             </FormGroup>
             <FormGroup>
-                <Label>Last Name</Label>
-                <Input placeholder="Enter Last Name" value={lastName} onChange={onLastNameChange} />
+                <Label style={formik.errors.lastName ? {color: "#C90808"} : null}>Last Name</Label>
+                <input style={formik.errors.lastName ? {borderColor: "#C90808"} : null} type="text" name="lastName" value={formik.values.lastName} onChange={formik.handleChange} placeholder="Enter Last Name"/>
+                <ErrorMessage>{formik.errors.lastName}</ErrorMessage>
             </FormGroup>
             <FormGroup>
-                <Label>Email</Label>
-                <Input placeholder="Enter Email" value={email} onChange={onEmailChange} />
+                <Label style={formik.errors.email ? {color: "#C90808"} : null}>Email</Label>
+                <input style={formik.errors.email ? {borderColor: "#C90808"} : null} type="text" name="email" value={formik.values.email} onChange={formik.handleChange} placeholder="Enter Email Address"/>
+                <ErrorMessage>{formik.errors.email}</ErrorMessage>
             </FormGroup>
             <FormGroup>
-                <Label>Mobile</Label>
-                <Input placeholder="Enter Mobile" value={mobile} onChange={onMobileChange} />
+                <Label style={formik.errors.mobile ? {color: "#C90808"} : null}>Mobile</Label>
+                <input style={formik.errors.mobile ? {borderColor: "#C90808"} : null} type="number" name="mobile" value={formik.values.mobile} onChange={formik.handleChange} placeholder="Enter Mobile"/>
+                <ErrorMessage>{formik.errors.mobile}</ErrorMessage>
             </FormGroup>
             <FormGroup>
-                <Label>Gender</Label>
-                <Gender gender={gender} handleGenderChange={onGenderChange}/>
-            </FormGroup>
-            <FormGroup>
-                <Label>Date of Birth</Label>
-                <DatePicker selected={selectedDate} onChange={onSelectedDateChange}/>
+                <Gender />
             </FormGroup> 
             <FormGroup>
-                <Label>Ethnicity</Label>
-                <Ethnicity value={ethnicity} onChange={onEthnicityChange}/>
+            <Label style={formik.errors.selectedDate ? {color: "#C90808"} : null}>Date of Birth</Label>
+                <DatePicker name="selectedDate"/>
+                <ErrorMessage>{formik.errors.selectedDate}</ErrorMessage>
+            </FormGroup> 
+            <FormGroup>
+                <Ethnicity />
             </FormGroup>
-        </FormikStep>
+        </Container>
 
     )
 }

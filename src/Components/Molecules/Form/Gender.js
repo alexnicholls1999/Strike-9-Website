@@ -1,10 +1,14 @@
 import React from 'react';
-import Dropdown from '../Dropdown';
 import styled from 'styled-components';
+import { useFormikContext } from 'formik';
+
+import Label from "./../../Atoms/Form/Label";
+import ErrorMessage from "./../../Atoms/Form/ErrorMessage";
 
 function Gender(props) {
 
-    const {handleGenderChange, gender} = props;
+    const {handleGenderChange, onBlur, onChange, gender, value} = props;
+    const formik = useFormikContext();
 
     const configGender = {
         value: gender, 
@@ -24,8 +28,17 @@ function Gender(props) {
 
 
     return (
-        <Dropdown style={{width: "350px"}} {...configGender} />
-    )
+        // <Dropdown style={{width: "350px"}} {...configGender} />
+        <>
+            <Label style={formik.errors.gender ? {color: "#C90808"} : null}>Mobile</Label>
+            <select name="gender" value={formik.values.gender} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+                <option value="">Enter Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <ErrorMessage>{formik.errors.gender}</ErrorMessage>
+        </>
+       )
 }
 
 export default Gender;

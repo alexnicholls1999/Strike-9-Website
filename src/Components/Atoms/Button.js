@@ -19,17 +19,21 @@ function BootstrapButton(props) {
             background: ${({ theme }) => theme.colors.primary.DaisyBush};
             border-color: ${({ theme }) => theme.colors.primary.DaisyBush};
         }
+        &:disabled {
+            background-color: ${({ theme }) => theme.colors.primary.DaisyBush};
+            border-color: ${({ theme }) => theme.colors.primary.DaisyBush};
+        }
 
         @media (min-width: 768px) {
             width: 60% !important;
         }
     `;
 
-    const {onClick, text, variant, type, size, style, shadow} = props;
+    const {onClick, text, disabled, variant, type, size, style, shadow} = props;
 
     return (
         <>
-            <StyledButton type={type} shadow={shadow} variant={variant} size={size} style={style} onClick={onClick}> {text} </StyledButton>
+            <StyledButton type={type} shadow={shadow} variant={variant} disabled={disabled} size={size} style={style} onClick={onClick}> {text} </StyledButton>
         </>
     )
 }

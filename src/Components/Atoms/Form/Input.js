@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import {Formik, useFormikContext} from "formik";
 
 const StyledInput = styled.input`
     font-size: 15px;
@@ -12,10 +13,11 @@ const StyledInput = styled.input`
 
 function Input(props) {
 
-    const {value, type, placeholder, onChange } = props;
+    const formik = useFormikContext();
+    const {value, type, style, placeholder } = props;
 
     return (
-        <StyledInput value={value} onChange={onChange} type={type} placeholder={placeholder} />
+        <StyledInput value={value} style={style} onChange={formik.handleChange} type={type} placeholder={placeholder} />
     )
 }
 
