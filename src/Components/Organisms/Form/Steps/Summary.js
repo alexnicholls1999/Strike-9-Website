@@ -4,12 +4,59 @@ import Label from '../../../Atoms/Form/Label';
 import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 import {useFormikContext} from "formik";
+import PersonalDetails from './PersonalDetails';
+import BillingAddress from './BillingAddress';
 
 const StyledSummary = styled.div`
 
 
 
+`;
+
+const EventsDetailsSummary = styled.div`
+    ul {
+        padding-left: 10px; 
+        list-style: none;
+        color: #606060;
+
+        li {
+            padding: 5px;
+        }
+    }
+
+
+`;
+
+const PersonalDetailsSummary = styled.div`
+
+    display: flex;
+    flex-direction: row;
+
+
+    ul {
+        padding-left: 10px; 
+        list-style: none;
+        color: #606060;
+
+        li {
+            padding: 5px;
+        }
+    }
+
+`;
+
+const BillingAddressSummary = styled.div`
+    ul {
+        padding-left: 10px; 
+        list-style: none;
+        color: #606060;
+
+        li {
+            padding: 5px;
+        }
+    }
 `
+
 const Title = styled.h3 `
     color: ${({theme}) => theme.colors.primary.RoyalPurple};
     font-weight: bold;
@@ -29,33 +76,59 @@ function Summary(props) {
                 <Container>
                     <Title>Summary</Title>
                     <div className="p-2"></div>
+
                     <Row>
-                        <Col lg={4}>
+                        <Col md={6}>
                             <Label>Event Details</Label>
-                            <p>27th October 2020</p>
-                            <p>{formik.values.teamName}</p>
+                            <EventsDetailsSummary>
+                                <ul>
+                                    <li>27th October 2020</li>
+                                    <li>{formik.values.teamName}</li>
+                                </ul>
+                            </EventsDetailsSummary>
+                            
                         </Col>
-                        <Col lg={4}>
+                        <Col md={6}>
                             <Label>Personal Details</Label>
-                            <p>{formik.values.firstName}</p>
-                            <p>{formik.values.lastName}</p>
-                            <p>{formik.values.email}</p>
-                            <p>{formik.values.mobile}</p>
-                            <p>{formik.values.gender}</p>
-                            <p>{new Date(formik.values.selectedDate).toString()}</p>
-                            <p>{formik.values.ethnicity}</p>
+                            <PersonalDetailsSummary>
+                                
+                                <ul>
+                                    <li>{formik.values.firstName}</li>
+                                    <li>{formik.values.email}</li>
+                                    <li>{formik.values.mobile}</li>
+                                    <li>{formik.values.gender}</li>
+                                    <li>{formik.values.ethnicity}</li>
+                                </ul>
+                                <ul>
+                                    
+                                    <li>{formik.values.lastName}</li>
+                                    <li></li>
+                                    <li></li>
+                                    <li><hr style={{border: "none", padding: "3px"}}/></li>
+                                    <li>{new Date(formik.values.selectedDate).toString()}</li>
+                                </ul>
+                            </PersonalDetailsSummary>
                         </Col>
                     </Row>
+
                     <Row>
-                        <Col lg={4}>
+                        <Col md={6}>
                             <Label>Billing Address</Label>
-                            <p>{formik.values.billingLine1}</p>
-                            <p>{formik.values.billingLine2}</p>
-                            <p>{formik.values.billingLine3}</p>
-                            <p>{formik.values.location}</p>
-                            <p>{formik.values.postcode}</p>
+                            <BillingAddressSummary>
+                                <ul>
+                                    <li>{formik.values.billingLine1}</li>
+                                    <li>{formik.values.billingLine2}</li>
+                                    <li>{formik.values.billingLine3}</li>
+                                    <li>{formik.values.location}</li>
+                                    <li>{formik.values.postcode}</li>
+                                </ul>
+                                
+                            </BillingAddressSummary>
+                            
+                            
                         </Col>
                     </Row>
+
                 </Container>
              </StyledSummary>         
         </FormikStep>

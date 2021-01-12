@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Row, FormGroup} from 'react-bootstrap';
+import {Container, Row, FormGroup, Col} from 'react-bootstrap';
 import styled from "styled-components";
 import { useFormikContext } from "formik";
 
@@ -40,37 +40,63 @@ function PersonalDetails(props) {
         <Container>
             <Title>Personal Details</Title>
             <div className="p-2"></div>
-            <FormGroup>
-                <Label style={formik.errors.firstName ? {color: "#C90808"} : null}>First Name</Label>
-                <input style={formik.errors.firstName ? {borderColor: "#C90808"} : null} type="text" name="firstName" value={formik.values.firstName} onChange={formik.handleChange} placeholder="Enter First Name"/>
-                <ErrorMessage>{formik.errors.firstName}</ErrorMessage>
-            </FormGroup>
-            <FormGroup>
-                <Label style={formik.errors.lastName ? {color: "#C90808"} : null}>Last Name</Label>
-                <input style={formik.errors.lastName ? {borderColor: "#C90808"} : null} type="text" name="lastName" value={formik.values.lastName} onChange={formik.handleChange} placeholder="Enter Last Name"/>
-                <ErrorMessage>{formik.errors.lastName}</ErrorMessage>
-            </FormGroup>
-            <FormGroup>
-                <Label style={formik.errors.email ? {color: "#C90808"} : null}>Email</Label>
-                <input style={formik.errors.email ? {borderColor: "#C90808"} : null} type="text" name="email" value={formik.values.email} onChange={formik.handleChange} placeholder="Enter Email Address"/>
-                <ErrorMessage>{formik.errors.email}</ErrorMessage>
-            </FormGroup>
-            <FormGroup>
-                <Label style={formik.errors.mobile ? {color: "#C90808"} : null}>Mobile</Label>
-                <input style={formik.errors.mobile ? {borderColor: "#C90808"} : null} type="number" name="mobile" value={formik.values.mobile} onChange={formik.handleChange} placeholder="Enter Mobile"/>
-                <ErrorMessage>{formik.errors.mobile}</ErrorMessage>
-            </FormGroup>
-            <FormGroup>
-                <Gender />
-            </FormGroup> 
-            <FormGroup>
-                <Label style={formik.errors.selectedDate ? {color: "#C90808"} : null}>Date of Birth</Label>
-                <DatePicker name="selectedDate"/>
-                <ErrorMessage>{formik.errors.selectedDate}</ErrorMessage>
-            </FormGroup> 
-            <FormGroup>
-                <Ethnicity />
-            </FormGroup>
+            
+            <Row>
+                <Col md={6}>
+                    <FormGroup>
+                        <Label style={formik.errors.firstName ? {color: "#C90808"} : null}>First Name</Label>
+                        <input style={formik.errors.firstName ? {borderColor: "#C90808"} : null} type="text" name="firstName" value={formik.values.firstName} onChange={formik.handleChange} placeholder="Enter First Name"/>
+                        <ErrorMessage>{formik.errors.firstName}</ErrorMessage>
+                    </FormGroup>
+                </Col>
+                <Col md={6}>
+                    <FormGroup>
+                        <Label style={formik.errors.lastName ? {color: "#C90808"} : null}>Last Name</Label>
+                        <input style={formik.errors.lastName ? {borderColor: "#C90808"} : null} type="text" name="lastName" value={formik.values.lastName} onChange={formik.handleChange} placeholder="Enter Last Name"/>
+                        <ErrorMessage>{formik.errors.lastName}</ErrorMessage>
+                    </FormGroup>
+                </Col>
+                <Col md={6}>
+                    <FormGroup>
+                        <Label style={formik.errors.email ? {color: "#C90808"} : null}>Email</Label>
+                        <input style={formik.errors.email ? {borderColor: "#C90808"} : null} type="text" name="email" value={formik.values.email} onChange={formik.handleChange} placeholder="Enter Email Address"/>
+                        <ErrorMessage>{formik.errors.email}</ErrorMessage>
+                    </FormGroup>
+                </Col>
+
+                <Col md={6}>        
+                    <FormGroup>
+                        <Label style={formik.errors.mobile ? {color: "#C90808"} : null}>Mobile</Label>
+                        <input style={formik.errors.mobile ? {borderColor: "#C90808"} : null} type="text" name="mobile" value={formik.values.mobile} onChange={formik.handleChange} placeholder="Enter Mobile"/>
+                        <ErrorMessage>{formik.errors.mobile}</ErrorMessage>
+                    </FormGroup>
+                </Col>
+
+            </Row>
+            <Row>
+                <Col md={6}>
+                    <FormGroup>
+                        <Gender />
+                    </FormGroup>
+                </Col>
+            </Row> 
+            <Row>
+                <Col md={6}>
+                    <FormGroup>
+                        <Label style={formik.errors.selectedDate ? {color: "#C90808"} : null}>Date of Birth</Label>
+                        <DatePicker name="selectedDate"/>
+                        <ErrorMessage>{formik.errors.selectedDate}</ErrorMessage>
+                    </FormGroup>
+                </Col> 
+            </Row>
+            <Row>
+                <Col md={6}>
+                    <FormGroup>
+                        <Ethnicity />
+                    </FormGroup>
+                </Col>
+            </Row>
+
         </Container>
 
     )

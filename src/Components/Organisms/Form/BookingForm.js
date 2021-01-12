@@ -17,8 +17,7 @@ import BillingAddress from './Steps/BillingAddress';
 import Summary from './Steps/Summary';
 import Confirmation from './Steps/Confirmation';
 import FormikStep from '../../Atoms/Form/Step';
-
-const sleep = (time) => new Promise((acc) => setTimeout(acc, time));
+import { LocalActivity } from '@material-ui/icons';
 
 const Step = styled.div `
 
@@ -27,9 +26,34 @@ const Step = styled.div `
 `;
 
 
+
+
 function Form() {
 
+    // Form Values
+    const [teamName, setTeamName] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [mobile, setMobile] = useState("");
+    const [gender, setGender] = useState("");
+    const [selectedDate, setSelectedDate] = useState("");
+    const [ethnicity, setEthnicity] = useState("");
+    const [billingLine1, setBillingLine1] = useState("");
+    const [billingLine2, setBillingLine2] = useState("");
+    const [billingLine3, setBillingLine3] = useState("");
+    const [location, setLocation] = useState("");
+    const [postcode, setPostcode] = useState("");
+
+    // Booked Value
     const [booked, setBooked] = useState("Summary");
+
+
+    const handleSubmit = () => {
+        
+            
+    }
+
 
     return (
         <FormikStepper
@@ -48,20 +72,17 @@ function Form() {
                 location: "",
                 postcode: ""
             }}
-            onSubmit={async (values) => {
-                console.log("values", values);
-                setBooked("Booked!")
-            }}
+            onSubmit={handleSubmit}
         >
-            <FormikStep label="Events Details" validationSchema={EventsDetailsSchema}>
+            <FormikStep label="Events Details" >
                 <EventsDetails />
             </FormikStep>
 
-            <FormikStep label="Personal Details" validationSchema={PersonalDetailsSchema} >
+            <FormikStep label="Personal Details"  >
                 <PersonalDetails />
             </FormikStep>
 
-            <FormikStep label="Billing Address" validationSchema={BillingAddressSchema}>
+            <FormikStep label="Billing Address" >
                 <BillingAddress />
             </FormikStep>
 

@@ -1,6 +1,6 @@
 import { useFormikContext } from 'formik';
 import React from 'react';
-import {Container, Row, FormGroup} from 'react-bootstrap';
+import {Container, Row, Col, FormGroup} from 'react-bootstrap';
 import styled from "styled-components";
 
 
@@ -18,37 +18,54 @@ function BillingAddress(props) {
     const formik = useFormikContext();
     const {label, billingLine1, billingLine2, billingLine3, location, postcode, onBillingLine1Change, onBillingLine2Change, onBillingLine3Change, onLocationChange, onPostcodeChange } = props;
     return (
-        <FormikStep label={label}>
-            
+        <Container>
             <Title>Billing Address</Title>
             <div className="p-2"></div>
             
-            <FormGroup>
-                <Label style={formik.errors.billingLine1 ? {color: "#C90808"} : null}>Billing Address Line 1</Label>
-                <input style={formik.errors.billingLine1 ? {borderColor: "#C90808"} : null} type="text" name="billingLine1" value={formik.values.billingLine1} onChange={formik.handleChange} placeholder="Enter Address Line 1"/>
-                <ErrorMessage>{formik.errors.billingLine1}</ErrorMessage>
-            </FormGroup>
-            <FormGroup>
-                <Label style={formik.errors.billingLine2 ? {color: "#C90808"} : null}>Billing Address Line 2</Label>
-                <input style={formik.errors.billingLine2 ? {borderColor: "#C90808"} : null} type="text" name="billingLine2" value={formik.values.billingLine2} onChange={formik.handleChange} placeholder="Enter Address Line 2"/>
-                <ErrorMessage>{formik.errors.billingLine2}</ErrorMessage>
-            </FormGroup>
-            <FormGroup>
-                <Label style={formik.errors.billingLine3 ? {color: "#C90808"} : null}>Billing Address Line 3</Label>
-                <input style={formik.errors.billingLine3 ? {borderColor: "#C90808"} : null} type="text" name="billingLine3" value={formik.values.billingLine3} onChange={formik.handleChange} placeholder="Enter Address Line 3 (Optional)"/>
-                <ErrorMessage>{formik.errors.billingLine3}</ErrorMessage>
-            </FormGroup>
-            <FormGroup>
-                <Label style={formik.errors.location ? {color: "#C90808"} : null}>Town/City</Label>
-                <input style={formik.errors.location ? {borderColor: "#C90808"} : null} type="text" name="location" value={formik.values.location} onChange={formik.handleChange} placeholder="Enter Town/City"/>
-                <ErrorMessage>{formik.errors.location}</ErrorMessage>
-            </FormGroup>
-            <FormGroup>
-                <Label style={formik.errors.postcode ? {color: "#C90808"} : null}>Postcode</Label>
-                <input style={formik.errors.postcode ? {borderColor: "#C90808"} : null} type="text" name="postcode" value={formik.values.postcode} onChange={formik.handleChange} placeholder="Enter Postcode"/>
-                <ErrorMessage>{formik.errors.postcode}</ErrorMessage>
-            </FormGroup>
-        </FormikStep>
+            <Row>
+                <Col md={6}>
+                    <FormGroup>
+                        <Label style={formik.errors.billingLine1 ? {color: "#C90808"} : null}>Billing Address Line 1</Label>
+                        <input style={formik.errors.billingLine1 ? {borderColor: "#C90808"} : null} type="text" name="billingLine1" value={formik.values.billingLine1} onChange={formik.handleChange} placeholder="Enter Address Line 1"/>
+                        <ErrorMessage>{formik.errors.billingLine1}</ErrorMessage>
+                    </FormGroup>
+                </Col>
+                <Col md={6}>
+                    <FormGroup>
+                        <Label style={formik.errors.billingLine2 ? {color: "#C90808"} : null}>Billing Address Line 2</Label>
+                        <input style={formik.errors.billingLine2 ? {borderColor: "#C90808"} : null} type="text" name="billingLine2" value={formik.values.billingLine2} onChange={formik.handleChange} placeholder="Enter Address Line 2"/>
+                        <ErrorMessage>{formik.errors.billingLine2}</ErrorMessage>
+                    </FormGroup>
+                </Col>
+            </Row>
+            <Row>
+                <Col md={6}>
+                    <FormGroup>
+                        <Label style={formik.errors.billingLine3 ? {color: "#C90808"} : null}>Billing Address Line 3</Label>
+                        <input style={formik.errors.billingLine3 ? {borderColor: "#C90808"} : null} type="text" name="billingLine3" value={formik.values.billingLine3} onChange={formik.handleChange} placeholder="Enter Address Line 3 (Optional)"/>
+                        <ErrorMessage>{formik.errors.billingLine3}</ErrorMessage>
+                    </FormGroup>
+                </Col>
+                <Col md={6}>
+                    <FormGroup>
+                        <Label style={formik.errors.location ? {color: "#C90808"} : null}>Town/City</Label>
+                        <input style={formik.errors.location ? {borderColor: "#C90808"} : null} type="text" name="location" value={formik.values.location} onChange={formik.handleChange} placeholder="Enter Town/City"/>
+                        <ErrorMessage>{formik.errors.location}</ErrorMessage>
+                    </FormGroup>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col md={6}>
+                    <FormGroup>
+                        <Label style={formik.errors.postcode ? {color: "#C90808"} : null}>Postcode</Label>
+                        <input style={formik.errors.postcode ? {borderColor: "#C90808"} : null} type="text" name="postcode" value={formik.values.postcode} onChange={formik.handleChange} placeholder="Enter Postcode"/>
+                        <ErrorMessage>{formik.errors.postcode}</ErrorMessage>
+                    </FormGroup>  
+                </Col>
+            </Row>
+      
+        </Container>
     )
 }
 

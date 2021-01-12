@@ -31,7 +31,7 @@ function Gender(props) {
         // <Dropdown style={{width: "350px"}} {...configGender} />
         <>
             <Label style={formik.errors.gender ? {color: "#C90808"} : null}>Mobile</Label>
-            <select name="gender" value={formik.values.gender} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+            <select name="gender" value={formik.values.gender} class="form-control dropdown" onChange={formik.handleChange} onBlur={formik.handleBlur}>
                 <option value="">Enter Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
