@@ -41,13 +41,14 @@ em {
 
 input[type="text"], input[type="email"], input[type="password"] {
     width: 100%;
-    height: 44px;
+    height: 40px;
     border: 1px solid ${({theme}) => theme.colors.darkShade[10]};
     box-sizing: border-box;
     border-radius: 4px;
     margin-bottom: 2%;
-    font-size: 22px;
+    padding-left: 10px;
 }
+
 
 textarea {
     border: 1px solid ${({theme}) => theme.colors.darkShade[10]};

@@ -64,7 +64,7 @@ function PersonalDetails(props) {
                 <Gender />
             </FormGroup> 
             <FormGroup>
-            <Label style={formik.errors.selectedDate ? {color: "#C90808"} : null}>Date of Birth</Label>
+                <Label style={formik.errors.selectedDate ? {color: "#C90808"} : null}>Date of Birth</Label>
                 <DatePicker name="selectedDate"/>
                 <ErrorMessage>{formik.errors.selectedDate}</ErrorMessage>
             </FormGroup> 
