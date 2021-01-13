@@ -105,7 +105,7 @@ function Summary(props) {
                                     <li></li>
                                     <li></li>
                                     <li><hr style={{border: "none", padding: "3px"}}/></li>
-                                    <li>{new Date(formik.values.selectedDate).toString()}</li>
+                                    <li>{new Date(formik.values.selectedDate).toDateString()}</li>
                                 </ul>
                             </PersonalDetailsSummary>
                         </Col>

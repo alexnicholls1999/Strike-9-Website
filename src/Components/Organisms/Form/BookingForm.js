@@ -49,7 +49,7 @@ function Form() {
     const [booked, setBooked] = useState("Summary");
 
 
-    const handleSubmit = () => {
+    const handleSubmit = (values) => {
         
             
     }
@@ -72,7 +72,7 @@ function Form() {
                 location: "",
                 postcode: ""
             }}
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit()}
         >
             <FormikStep label="Events Details" >
                 <EventsDetails />
