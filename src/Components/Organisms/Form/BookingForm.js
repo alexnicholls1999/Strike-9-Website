@@ -18,6 +18,7 @@ import Summary from './Steps/Summary';
 import Confirmation from './Steps/Confirmation';
 import FormikStep from '../../Atoms/Form/Step';
 import { LocalActivity } from '@material-ui/icons';
+import { faUserInjured } from '@fortawesome/free-solid-svg-icons';
 
 const Step = styled.div `
 
@@ -28,7 +29,10 @@ const Step = styled.div `
 
 
 
-function Form() {
+function Form(props) {
+
+
+    const eventId = props.match.params.id;
 
     // Form Values
     const [teamName, setTeamName] = useState("");
@@ -48,16 +52,37 @@ function Form() {
     // Booked Value
     const [booked, setBooked] = useState("Summary");
 
+    const [id, setId] = useState(eventId);
+    const [userid, setUserId] = useState("AncaTiTUKOWSxa1")
 
     const handleSubmit = (values) => {
-        
-            
+        setBooked("Booked!");
+        db.collection("booking")
+            .add({
+                eventId: values.eventId,
+                uid: values.uid,
+                teamName: values.teamName,
+                firstName: values.firstName,
+                lastName: values.lastName,
+                email: values.email,
+                mobile: values.mobile,
+                gender: values.gender,
+                selectedDate: new Date(values.selectedDate).toDateString(),
+                ethnicity: values.ethnicity,
+                billingLine1: values.billingLine1,
+                billingLine2: values.billingLine2,
+                billingLine3: values.billingLine3,
+                location: values.location,
+                postcode: values.postcode
+            });
     }
 
 
     return (
         <FormikStepper
             initialValues={{
+                eventId: id,
+                uid: userid,
                 teamName: "",
                 firstName: "",
                 lastName: "",
@@ -72,17 +97,22 @@ function Form() {
                 location: "",
                 postcode: ""
             }}
-            onSubmit={handleSubmit()}
+            onSubmit={async (values) => {
+                handleSubmit(values);
+                setBooked("Booked!");
+                console.log("Successful Submit", values);
+            }}
         >
-            <FormikStep label="Events Details" >
+        
+            <FormikStep label="Events Details" validationSchema={EventsDetailsSchema}>
                 <EventsDetails />
             </FormikStep>
 
-            <FormikStep label="Personal Details"  >
+            <FormikStep label="Personal Details" validationSchema={PersonalDetailsSchema} >
                 <PersonalDetails />
             </FormikStep>
 
-            <FormikStep label="Billing Address" >
+            <FormikStep label="Billing Address" validationSchema={BillingAddressSchema}>
                 <BillingAddress />
             </FormikStep>
 

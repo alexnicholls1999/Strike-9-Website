@@ -16,16 +16,8 @@ function App() {
     <ThemeProvider theme={theme}>
         <GlobalStyles/>
         <Switch>
-          <Route exact path="/">
-            <SecondaryLayout secondary>
-                <Events />
-            </SecondaryLayout>
-          </Route>
-          <Route exact path="/events/:id">
-            <SecondaryLayout secondary title="STRIKE 9 VLU REGISTER EVENTS FORM">
-                <BookEvent />
-            </SecondaryLayout>
-          </Route>
+          <Route exact path="/" component={Events} />
+          <Route exact path="/events/:id" component={BookEvent}/>
         </Switch>
     </ThemeProvider>
   )

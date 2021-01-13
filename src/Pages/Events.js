@@ -7,6 +7,7 @@ import Event from '../Components/Molecules/Event'
 import Search from '../Components/Organisms/Search'
 import Hero from '../Components/Organisms/Hero'
 import NoResults from '../Components/Organisms/NoResults';
+import SecondaryLayout from '../Components/Templates/secondarylayout';
 
 const SearchResults = styled.div`
 
@@ -80,7 +81,7 @@ function Events() {
   };
 
     return (
-        <>
+        <SecondaryLayout secondary>
             <Hero title="SEARCH FOR STRIKE 9 VLU EVENTS" half>
               <Container>
                 <Search 
@@ -115,9 +116,7 @@ function Events() {
                   ))}
               </SearchResults>
             </Container>
-            
-            
-        </>
+        </SecondaryLayout>
     )
 }
 
