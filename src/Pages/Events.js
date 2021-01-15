@@ -8,6 +8,7 @@ import Search from '../Components/Organisms/Search'
 import Hero from '../Components/Organisms/Hero'
 import NoResults from '../Components/Organisms/NoResults';
 import SecondaryLayout from '../Components/Templates/secondarylayout';
+import UnavailableEvent from '../Components/Molecules/UnavailableEvent';
 
 const SearchResults = styled.div`
 
@@ -75,6 +76,7 @@ function Events() {
         id: doc.id,
         ...doc.data()
       }));
+      
 
       setUpdateEvents(newEvents);
     });
@@ -114,6 +116,7 @@ function Events() {
                       linkTo={"/events/" + event.id}
                     />
                   ))}
+                  <UnavailableEvent buttonName="BOOK"/>
               </SearchResults>
             </Container>
         </SecondaryLayout>

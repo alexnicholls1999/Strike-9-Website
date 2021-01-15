@@ -9,7 +9,7 @@ import Card from './../Atoms/Card'
 const EventsTitle = styled.h4 `
     font-weight: 700;
     color: #5E3DB3;
-
+    opacity: 0.6;
 `;
 
 const EventsType = styled.p`
@@ -17,32 +17,33 @@ const EventsType = styled.p`
     font-size: clamp(12px, 1.5vw, 18px);
     font-weight: 700;
     color: #606060;
-
+    opacity: 0.6;
 `;
 
 const EventsAge = styled.p `
     color: #606060;
-
+    opacity: 0.6;
 `;
 
 const Cost = styled.h5 `
+    color: ${({ theme }) => theme.colors.feedback.Error};
     font-weight: bold;
 
 `;
 const Date = styled.h6 `
-
+    opacity: 0.6;
 `;
 const Time = styled.p `
-
+    opacity: 0.6;
 
 `;
 
 const Description = styled.p `
-
+    opacity: 0.6;
 
 `;
 
-function Event(props) {
+function UnavailableEvent(props) {
 
     const { title, type, age, cost, date, time, description, linkTo, buttonName } = props;
 
@@ -52,25 +53,25 @@ function Event(props) {
                 <Col sm={12}>
                     <Row>
                         <Col xs={7} className="ml-auto">
-                            <EventsTitle>{title}</EventsTitle>
-                            <EventsType style={{marginBottom: "0"}}>{type}</EventsType>
-                            <EventsAge>{age}</EventsAge>
+                            <EventsTitle>Strike 9 VLU October School Sessions</EventsTitle>
+                            <EventsType style={{marginBottom: "0"}}>Boys Sessions</EventsType>
+                            <EventsAge>Ages 18 and above</EventsAge>
                         </Col>
                         <Col xs={5} className="ml-auto text-right">
-                            <Cost>{cost}</Cost>
-                            <Date>{date}</Date>
-                            <Time>{time}</Time>
+                            <Cost>Fully Booked!</Cost>
+                            <Date>27th October 2020</Date>
+                            <Time>12:00 - 14:00</Time>
                         </Col>
                     </Row>
                     <Row>
                         <Col md={7}>
-                            <Description>{description}</Description>
+                            <Description>We take pride in our adaptability and believe we can impact every player, helping them reach their goals in, and out, of the world of Football. </Description>
                         </Col>
                     </Row>
                     <Row className="align-self-end">
                         <Col lg={3} md={3} sm={12} className="ml-auto">
                             <Link to={linkTo}>
-                                <Button shadow style={{float: "right", width: "auto"}} text={buttonName}/>
+                                <Button disabled shadow style={{float: "right", width: "auto"}} text={buttonName}/>
                             </Link>
                         </Col>
                     </Row>
@@ -81,4 +82,4 @@ function Event(props) {
 }
 
 
-export default Event;
+export default UnavailableEvent;

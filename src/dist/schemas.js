@@ -22,5 +22,5 @@ export const BillingAddressSchema = Yup.object().shape({
     billingLine2: Yup.string().min(2, "A minimum of 2 characters!").required("Required!"),
     billingLine3: Yup.string().min(2, "A minimum of 2 characters!"),
     location: Yup.string().min(2, "A minimum of 2 characters!").required("Required!"),
-    postcode: Yup.string().min(2, "A minimum of 2 characters!").max(5, "A maximum of 5 characters!").required("Required!")
+    postcode: Yup.string().min(2, "A minimum of 2 characters!").max(7, "A maximum of 7 characters!").required("Required!")
 })
