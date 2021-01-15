@@ -9,6 +9,7 @@ import Hero from '../Components/Organisms/Hero'
 import NoResults from '../Components/Organisms/NoResults';
 import SecondaryLayout from '../Components/Templates/secondarylayout';
 import UnavailableEvent from '../Components/Molecules/UnavailableEvent';
+import { Checkbox } from '@material-ui/core';
 
 const SearchResults = styled.div`
 
@@ -25,7 +26,10 @@ function Events() {
   const [time, setTime] = useState("Any");
   const [type, setType] = useState("Any");
   const [age, setAge] = useState("Any");
-  const [checkbox, setCheckbox] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+
+
+  // console.log("Checked is", [isChecked]);
 
   useEffect(() => {
     db.collection("events").onSnapshot((snapshot) => {
@@ -46,6 +50,10 @@ function Events() {
     // if (checkbox === true) {
     //   query = query.where("slots", "<", 0);
     // }
+
+    if (isChecked === true) {
+        query = query.where("slots", "!=", 0);
+    }
 
     if (date !== "Any") {
       query = query.where("date", "==", date);
@@ -91,6 +99,9 @@ function Events() {
                       handleTimeChange={(e) => setTime(e.target.value)}
                       handleTypeChange={(e) => setType(e.target.value)}
                       handleAgeChange={(e) => setAge(e.target.value)}
+                      handleCheck={(e) => setIsChecked(e.target.checked)}
+                      checked={isChecked}
+                      checkedValue={isChecked}
                       date={date}
                       time={time}
                       type={type}
@@ -103,20 +114,35 @@ function Events() {
             <Container>
               <SearchResults> 
                   {updateEvents.map((event) => (
-                    <Event 
-                      key={event.id}
-                      title={event.eventsTitle}
-                      type={event.eventsType}
-                      age={event.age}
-                      cost={event.cost}
-                      date={event.date}
-                      description={event.description}
-                      time={event.time}
-                      buttonName="BOOK"
-                      linkTo={"/events/" + event.id}
+                    event.slots > 0 ? (
+                      <Event 
+                        key={event.id}
+                        title={event.eventsTitle}
+                        type={event.eventsType}
+                        age={event.age}
+                        cost={event.cost}
+                        date={event.date}
+                        description={event.description}
+                        time={event.time}
+                        buttonName="BOOK"
+                        linkTo={"/events/" + event.id}
                     />
+                    ) : (
+                      <UnavailableEvent 
+                        key={event.id}
+                        title={event.eventsTitle}
+                        type={event.eventsType}
+                        age={event.age}
+                        cost={event.cost}
+                        date={event.date}
+                        description={event.description}
+                        time={event.time}
+                        buttonName="BOOK"
+                    />
+                    )
+
                   ))}
-                  <UnavailableEvent buttonName="BOOK"/>
+
               </SearchResults>
             </Container>
         </SecondaryLayout>

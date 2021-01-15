@@ -7,6 +7,9 @@ import Dropdown from "../Molecules/Dropdown";
 import Button from "../Atoms/Button";
 import { Container, Row, Col} from 'react-bootstrap';
 import { Route } from 'react-router';
+import Checkbox from '../Atoms/Form/Checkbox';
+import Label from '../Atoms/Form/Label';
+import { CheckBox } from '@material-ui/icons';
 
 const SearchForm = styled.form`
     
@@ -15,7 +18,7 @@ const SearchForm = styled.form`
 
 function Search(props) {
 
-    const { handleDateChange, handleTimeChange, handleTypeChange, handleAgeChange, date, time, type, age, onClick} = props;
+    const { handleDateChange, handleTimeChange, handleTypeChange, handleAgeChange, handleCheck, checked, checkedValue, date, time, type, age, onClick} = props;
 
     const configDate = {
         value: date,
@@ -113,6 +116,9 @@ function Search(props) {
                             <Dropdown text="Age" {...configAge} />
                         </Col>
                         <div className="py-5"></div>
+                        <Col lg={3} md={3}>
+                            <Checkbox onChange={handleCheck} value={checkedValue} checked={checked} text="Available Slots" /> 
+                        </Col>
                         <Col lg={3} md={3} sm={12} className="p-1 py-1 ml-auto">
                             <Button style={{float: "right"}} text="SEARCH" onClick={onClick}/>
                         </Col>

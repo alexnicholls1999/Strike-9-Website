@@ -53,19 +53,19 @@ function UnavailableEvent(props) {
                 <Col sm={12}>
                     <Row>
                         <Col xs={7} className="ml-auto">
-                            <EventsTitle>Strike 9 VLU October School Sessions</EventsTitle>
-                            <EventsType style={{marginBottom: "0"}}>Boys Sessions</EventsType>
-                            <EventsAge>Ages 18 and above</EventsAge>
+                            <EventsTitle>{title}</EventsTitle>
+                            <EventsType style={{marginBottom: "0"}}>{type}</EventsType>
+                            <EventsAge>{age}</EventsAge>
                         </Col>
                         <Col xs={5} className="ml-auto text-right">
                             <Cost>Fully Booked!</Cost>
-                            <Date>27th October 2020</Date>
-                            <Time>12:00 - 14:00</Time>
+                            <Date>{date}</Date>
+                            <Time>{time}</Time>
                         </Col>
                     </Row>
                     <Row>
                         <Col md={7}>
-                            <Description>We take pride in our adaptability and believe we can impact every player, helping them reach their goals in, and out, of the world of Football. </Description>
+                            <Description>{description}</Description>
                         </Col>
                     </Row>
                     <Row className="align-self-end">
