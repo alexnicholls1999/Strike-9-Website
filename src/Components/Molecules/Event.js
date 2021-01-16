@@ -74,6 +74,7 @@ function Event(props) {
                             </Link>
                         </Col>
                     </Row>
+                    <div className="p-2"></div>
                 </Col>
             </Card>
         </Row>

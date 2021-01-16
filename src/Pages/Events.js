@@ -32,7 +32,7 @@ function Events() {
   // console.log("Checked is", [isChecked]);
 
   useEffect(() => {
-    db.collection("events").onSnapshot((snapshot) => {
+    db.collection("events").orderBy("date").onSnapshot((snapshot) => {
       const newEvents = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data()
@@ -52,42 +52,45 @@ function Events() {
     // }
 
     if (isChecked === true) {
-        query = query.where("slots", "!=", 0);
+        query = query.where("slots", "!=", 0)
     }
 
     if (date !== "Any") {
-      query = query.where("date", "==", date);
+      query = query.where("date", "==", date)
     } else {
-      query = query.where("datefltr", "==", true);
+      query = query.where("datefltr", "==", true)
     }
 
     if (type !== "Any") {
-      query = query.where("eventsType", "==", type);
+      query = query.where("eventsType", "==", type)
     } else {
-      query = query.where("eventsTypefltr", "==", true);
+      query = query.where("eventsTypefltr", "==", true)
     }
 
     if (time !== "Any") {
-      query = query.where("time", "==", time);
+      query = query.where("time", "==", time)
     } else {
-      query = query.where("timefltr", "==", true);
+      query = query.where("timefltr", "==", true)
     }
 
     if (age !== "Any") {
-      query = query.where("age", "==", age);
+      query = query.where("age", "==", age)
     } else {
-      query = query.where("agefltr", "==", true);
+      query = query.where("agefltr", "==", true)
     }
 
+
+    
     query.onSnapshot((snapshot) => {
       const newEvents = snapshot.docs.map((doc) => ({
         id: doc.id,
-        ...doc.data()
+        ...doc.data(),
+
       }));
-      
 
       setUpdateEvents(newEvents);
     });
+
   };
 
     return (
@@ -113,36 +116,38 @@ function Events() {
 
             <Container>
               <SearchResults> 
-                  {updateEvents.map((event) => (
-                    event.slots > 0 ? (
-                      <Event 
-                        key={event.id}
-                        title={event.eventsTitle}
-                        type={event.eventsType}
-                        age={event.age}
-                        cost={event.cost}
-                        date={event.date}
-                        description={event.description}
-                        time={event.time}
-                        buttonName="BOOK"
-                        linkTo={"/events/" + event.id}
-                    />
-                    ) : (
-                      <UnavailableEvent 
-                        key={event.id}
-                        title={event.eventsTitle}
-                        type={event.eventsType}
-                        age={event.age}
-                        cost={event.cost}
-                        date={event.date}
-                        description={event.description}
-                        time={event.time}
-                        buttonName="BOOK"
-                    />
-                    )
-
-                  ))}
-
+                  {updateEvents.length > 0 ? (
+                    updateEvents.map((event) => (
+                      event.slots > 0 ? (
+                        <Event 
+                          key={event.id}
+                          title={event.eventsTitle}
+                          type={event.eventsType}
+                          age={event.age}
+                          cost={event.cost}
+                          date={event.date}
+                          description={event.description}
+                          time={event.time}
+                          buttonName="BOOK"
+                          linkTo={"/events/" + event.id}
+                      />
+                      ) : (
+                        <UnavailableEvent 
+                          key={event.id}
+                          title={event.eventsTitle}
+                          type={event.eventsType}
+                          age={event.age}
+                          cost={event.cost}
+                          date={event.date}
+                          description={event.description}
+                          time={event.time}
+                          buttonName="BOOK"
+                      />
+                      )
+                    ))
+                  ) : (
+                    <p>No Results Found</p>
+                  )}
               </SearchResults>
             </Container>
         </SecondaryLayout>
