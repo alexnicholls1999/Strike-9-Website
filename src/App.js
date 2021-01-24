@@ -9,18 +9,54 @@ import SecondaryLayout from "./Components/Templates/secondarylayout";
 import Header from "./Components/Organisms/Header";
 import { withRouter } from "react-router-dom";
 import BookEvent from './Pages/BookEvent';
+import {connect} from "react-redux";
+import { signInAnonymously } from './redux/actions/authActions';
+import Home from './Pages/Home';
 
 
-function App() {
+function RouteGuard(props) {
+  const { auth, signInAnonymously, children} = props;
+
+  if (!auth.uid) {
+    console.log("Sign in Guest", auth.uid);
+    signInAnonymously();
+  } else {
+    console.log(auth.uid);
+  }
+
+  return <>{children}</>
+}
+
+function App({...props}) {
   return (
     <ThemeProvider theme={theme}>
         <GlobalStyles/>
         <Switch>
-          <Route exact path="/" component={Events} />
-          <Route exact path="/events/:id" component={BookEvent}/>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/events">
+              <RouteGuard {...props}>
+                <Events />
+              </RouteGuard>
+            </Route>
+            <Route exact path="/events/:id" component={BookEvent}/>
         </Switch>
     </ThemeProvider>
   )
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+    authError: state.auth.authError
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signInAnonymously: () => dispatch(signInAnonymously)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

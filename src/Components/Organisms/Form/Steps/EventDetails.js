@@ -19,7 +19,7 @@ const Title = styled.h3 `
 
 `
 
-function EventDetails() {
+function EventDetails({date, time, cost}) {
 
     const formik = useFormikContext();
 
@@ -30,9 +30,9 @@ function EventDetails() {
             </Row>
             <Row>
                 <div>
-                    <p>Event Timing: Saturday 27th & 29th October, 2020, 3pm Start. </p>
+                    <p>Event Timing: {date}, {time} Start. </p>
                     <p>Event Address: Moseley School Sports Centre, Springfield Road, B13 9NP</p>
-                    <p>Cost: FREE</p>
+                    <p>Cost: {cost}</p>
                 </div>
             </Row>
             <Row>

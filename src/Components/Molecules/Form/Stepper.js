@@ -90,7 +90,7 @@ StepIcon.propTypes = {
 function FormikStepper({children, leftlg, rightlg, ...props}) {
     const childrenArray = Children.toArray(children);
     const [step, setStep] = useState(0);
-    const [completed, setCompleted] = useState(false);
+    const [completed, setCompleted] = useState(false); 
     const currentChild = childrenArray[step];
 
     const isLastStep = () => {
@@ -116,8 +116,8 @@ function FormikStepper({children, leftlg, rightlg, ...props}) {
                         <Stepper connector={<FormikConnector/>} activeStep={step}>
                             {childrenArray.map((child, index) => (
                                 <Step
-                                key={child.props.label}
-                                completed={step > index || completed}
+                                    key={child.props.label}
+                                    completed={step > index || completed}
                                 >
                                     <StepLabel StepIconComponent={StepIcon}>{child.props.label}</StepLabel>
                                 </Step>

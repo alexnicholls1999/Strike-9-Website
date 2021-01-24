@@ -117,7 +117,10 @@ function Search(props) {
                         </Col>
                         <div className="py-5"></div>
                         <Col lg={3} md={3}>
-                            <Checkbox onChange={handleCheck} value={checkedValue} checked={checked} text="Available Slots" /> 
+                            <label>
+                                <Checkbox onChange={handleCheck} value={checkedValue} checked={checked}  />
+                                <span style={ {marginLeft: 8, fontWeight: 500} }>Available Slots</span>
+                            </label>
                         </Col>
                         <Col lg={3} md={3} sm={12} className="p-1 py-1 ml-auto">
                             <Button style={{float: "right"}} text="SEARCH" onClick={onClick}/>

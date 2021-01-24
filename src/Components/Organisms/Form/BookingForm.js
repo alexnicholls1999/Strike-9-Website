@@ -1,14 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import styled from 'styled-components';
+import React, {useState} from 'react';
+import { connect} from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
-import Gender from '../../Molecules/Form/Gender';
-import Input from '../../Atoms/Form/Input';
-import {FormGroup} from 'react-bootstrap';
-import Ethnicity from '../../Molecules/Form/Ethnicity';
-import DatePicker from '../../Molecules/Form/DatePicker';
 import { db } from '../../../firebase/utils';
 import { EventsDetailsSchema, PersonalDetailsSchema, BillingAddressSchema } from '../../../dist/schemas';
-import Button from '../../Atoms/Button';
 
 import EventsDetails from './Steps/EventDetails';
 import FormikStepper from '../../Molecules/Form/Stepper';
@@ -17,22 +13,9 @@ import BillingAddress from './Steps/BillingAddress';
 import Summary from './Steps/Summary';
 import Confirmation from './Steps/Confirmation';
 import FormikStep from '../../Atoms/Form/Step';
-import { LocalActivity } from '@material-ui/icons';
-import { faUserInjured } from '@fortawesome/free-solid-svg-icons';
-
-const Step = styled.div `
-
-
-
-`;
-
-
-
 
 function Form(props) {
-
-
-    const eventId = props.match.params.id;
+    const {id, event, auth} = props;
 
     // Form Values
     const [teamName, setTeamName] = useState("");
@@ -52,8 +35,8 @@ function Form(props) {
     // Booked Value
     const [booked, setBooked] = useState("Summary");
 
-    const [id, setId] = useState(eventId);
-    const [userid, setUserId] = useState("AncaTiTUKOWSxa1")
+    console.log(event);
+
 
     const handleSubmit = (values) => {
         setBooked("Booked!");
@@ -74,60 +57,90 @@ function Form(props) {
                 billingLine3: values.billingLine3,
                 location: values.location,
                 postcode: values.postcode
+            })
+            .catch((err) => {
+                console.log(err)
             });
+
+        db.collection("events").doc(id).update({
+            slots: values.slots
+        })
+        .catch((err) => {
+            console.log(err)
+        });
     }
 
-
-    return (
-        <FormikStepper
-            initialValues={{
-                eventId: id,
-                uid: userid,
-                teamName: "",
-                firstName: "",
-                lastName: "",
-                email: "",
-                mobile: "",
-                gender: "",
-                selectedDate: "",
-                ethnicity: "",
-                billingLine1: "",
-                billingLine2: "",
-                billingLine3: "",
-                location: "",
-                postcode: ""
-            }}
-            onSubmit={async (values) => {
-                handleSubmit(values);
-                setBooked("Booked!");
-                console.log("Successful Submit", values);
-            }}
-        >
-        
-            <FormikStep label="Events Details" validationSchema={EventsDetailsSchema}>
-                <EventsDetails />
-            </FormikStep>
-
-            <FormikStep label="Personal Details" validationSchema={PersonalDetailsSchema} >
-                <PersonalDetails />
-            </FormikStep>
-
-            <FormikStep label="Billing Address" validationSchema={BillingAddressSchema}>
-                <BillingAddress />
-            </FormikStep>
-
-
-            { booked === "Booked!" ? (
-                <Confirmation label={booked}/>
-            ) : (
-                <FormikStep label={booked}>
-                    <Summary />
+    if (event) {
+        return (
+            <FormikStepper
+                initialValues={{
+                    eventId: id,
+                    uid: auth.uid,
+                    slots: event.slots - 1,
+                    teamName: "",
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    mobile: "",
+                    gender: "",
+                    selectedDate: "",
+                    ethnicity: "",
+                    billingLine1: "",
+                    billingLine2: "",
+                    billingLine3: "",
+                    location: "",
+                    postcode: ""
+                }}
+                onSubmit={async (values) => {
+                    setBooked("Booked!");
+                    console.log("Successful Submit", values); 
+                    handleSubmit(values);
+                }}
+            >
+            
+                <FormikStep label="Events Details" validationSchema={EventsDetailsSchema}>
+                    <EventsDetails date={event.date} time={event.time} cost={event.cost}/>
                 </FormikStep>
-            )}
+    
+                <FormikStep label="Personal Details"  validationSchema={PersonalDetailsSchema}>
+                    <PersonalDetails />
+                </FormikStep>
+    
+                <FormikStep label="Billing Address" validationSchema={BillingAddressSchema}>
+                    <BillingAddress />
+                </FormikStep>
+    
+    
+                { booked === "Booked!" ? (
+                    <Confirmation label={booked}/>
+                ) : (
+                    <FormikStep label={booked}>
+                        <Summary />
+                    </FormikStep>
+                )}
+    
+    
+            </FormikStepper>
+        ) 
+    } else {
+        return (
+            <p>Loading Events ...</p>
+        )
+    }
 
-
-        </FormikStepper>
-    )
 }
 
-export default Form;
+const mapStateToProps = (state, ownProps) => {
+    console.log(state);
+    const id = ownProps.match.params.id;
+    const events = state.firestore.data.events;
+    const event = events ? events[id] : null;
+
+    return {
+        id: id,
+        event: event,
+        auth: state.firebase.auth
+    }
+}
+
+export default compose(connect(mapStateToProps), firestoreConnect([{ collection: "events" }]))(Form);

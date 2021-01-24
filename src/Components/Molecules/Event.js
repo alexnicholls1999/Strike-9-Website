@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signInAnonymously } from './../../redux/actions/authActions';
 import {Row, Col, Container } from 'react-bootstrap';
 import styled from 'styled-components';
 import Button from './../Atoms/Button';
@@ -44,7 +46,13 @@ const Description = styled.p `
 
 function Event(props) {
 
-    const { title, type, age, cost, date, time, description, linkTo, buttonName } = props;
+    const { title, type, age, cost, date, time, description, linkTo, buttonName, auth , signInAnonymously } = props;
+
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push(linkTo);
+    }
 
     return (
         <Row>
@@ -69,9 +77,7 @@ function Event(props) {
                     </Row>
                     <Row className="align-self-end">
                         <Col lg={3} md={3} sm={12} className="ml-auto">
-                            <Link to={linkTo}>
-                                <Button shadow style={{float: "right", width: "auto"}} text={buttonName}/>
-                            </Link>
+                            <Button onClick={handleClick} shadow style={{float: "right", width: "auto"}} text={buttonName}/>
                         </Col>
                     </Row>
                     <div className="p-2"></div>
@@ -80,6 +86,5 @@ function Event(props) {
         </Row>
     )
 }
-
 
 export default Event;

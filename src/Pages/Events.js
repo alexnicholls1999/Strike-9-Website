@@ -89,7 +89,7 @@ function Events() {
       }));
 
       setUpdateEvents(newEvents);
-    });
+    }); 
 
   };
 
@@ -153,5 +153,5 @@ function Events() {
         </SecondaryLayout>
     )
 }
-
+                                   
 export default Events;
