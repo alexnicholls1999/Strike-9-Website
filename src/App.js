@@ -40,7 +40,7 @@ function App({...props}) {
                 <Events />
               </RouteGuard>
             </Route>
-            <Route exact path="/events/:id" component={BookEvent}/>
+            <Route path="/events/:id" component={BookEvent}/>
         </Switch>
     </ThemeProvider>
   )

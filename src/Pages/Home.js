@@ -20,8 +20,8 @@ function Home() {
     return (
 
         // This layout is only used as a prototype for v1.2. For v1.3 use Main Layout.
-        <SecondaryLayout secondary >
-            <Hero title="STRIKE 9 TRAINING ACADEMY" half>
+        <SecondaryLayout secondary>
+            <Hero title="STRIKE 9 TRAINING ACADEMY">
               <Container>
                 <div className="p-5"></div>
               </Container>
