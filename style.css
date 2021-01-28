@@ -19,14 +19,14 @@ h4 {
   font-weight: 300; }
 
 p {
-  font-size: clamp(11px, 1.5vw, 20px);
+  font-size: clamp(13px, 1.5vw, 20px) !important;
   font-weight: 300; }
 
 .btn.btn-primary {
   background-color: #5E3DB3;
   border-color: #5E3DB3;
   padding: 1rem 2.25rem;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: bold;
   box-shadow: 0px 6px 18px 0px #5E3DB3; }
 
@@ -304,7 +304,8 @@ header.main {
   padding: 40%; }
 
 .about {
-  padding: 10%; }
+  padding: 10%;
+  padding-bottom: 10%; }
   .about h2 {
     color: #C2C2C2; }
   .about img {
@@ -312,7 +313,8 @@ header.main {
     position: absolute; }
   .about .about-info p {
     padding: 10px;
-    padding-left: 0; }
+    padding-left: 0;
+    font-size: 10px; }
   .about .about-info button {
     margin-top: 30px; }
 
@@ -330,7 +332,9 @@ header.main {
     .index-section .index-text h2 {
       font-size: clamp(10px, 4vw, 20px); }
     .index-section .index-text p {
-      font-size: clamp(13px, 1.5vw, 20px) !important; }
+      font-size: clamp(13px, 1.5vw, 20px) !important;
+      padding-bottom: 25px;
+      width: 80%; }
     .index-section .index-text button {
       margin: 50px;
       float: right; }
@@ -405,7 +409,11 @@ footer {
     width: 200px !important; }
 
   .arrow-buttons {
-    top: 200px !important; } }
+    top: 200px !important; }
+
+  .beta {
+    margin-top: 10px;
+    width: 100% !important; } }
 @media only screen and (min-width: 768px) {
   .navbar-nav {
     padding-bottom: 0 !important; }
