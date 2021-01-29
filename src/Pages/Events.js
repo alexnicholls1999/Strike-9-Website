@@ -10,6 +10,7 @@ import NoResults from '../Components/Organisms/NoResults';
 import SecondaryLayout from '../Components/Templates/secondarylayout';
 import UnavailableEvent from '../Components/Molecules/UnavailableEvent';
 import { Checkbox } from '@material-ui/core';
+import useSearch from '../hooks/useSearch';
 
 const SearchResults = styled.div`
 
@@ -21,77 +22,8 @@ const SearchResults = styled.div`
 
 
 function Events() {
-  const [updateEvents, setUpdateEvents] = useState([]);
-  const [date, setDate] = useState("Any");
-  const [time, setTime] = useState("Any");
-  const [type, setType] = useState("Any");
-  const [age, setAge] = useState("Any");
-  const [isChecked, setIsChecked] = useState(false);
 
-
-  // console.log("Checked is", [isChecked]);
-
-  useEffect(() => {
-    db.collection("events").orderBy("date").onSnapshot((snapshot) => {
-      const newEvents = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-
-      setUpdateEvents(newEvents);
-    });
-  }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    let query = db.collection("events");
-
-    // if (checkbox === true) {
-    //   query = query.where("slots", "<", 0);
-    // }
-
-    if (isChecked === true) {
-        query = query.where("slots", "!=", 0)
-    }
-
-    if (date !== "Any") {
-      query = query.where("date", "==", date)
-    } else {
-      query = query.where("datefltr", "==", true)
-    }
-
-    if (type !== "Any") {
-      query = query.where("eventsType", "==", type)
-    } else {
-      query = query.where("eventsTypefltr", "==", true)
-    }
-
-    if (time !== "Any") {
-      query = query.where("time", "==", time)
-    } else {
-      query = query.where("timefltr", "==", true)
-    }
-
-    if (age !== "Any") {
-      query = query.where("age", "==", age)
-    } else {
-      query = query.where("agefltr", "==", true)
-    }
-
-
-    
-    query.onSnapshot((snapshot) => {
-      const newEvents = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-
-      }));
-
-      setUpdateEvents(newEvents);
-    }); 
-
-  };
+  const { updateEvents, time, date, type, age, isChecked, state, setState, setTime, setDate, setAge, setType, setIsChecked, handleSubmit } = useSearch();
 
     return (
         <SecondaryLayout secondary>

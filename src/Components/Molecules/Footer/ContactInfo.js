@@ -16,7 +16,7 @@ function ContactInfo() {
             <Col lg={4} className="text-center">
                 <StyledContactInfo>
                     <p>info@strike9training.co.uk</p>
-                    <SocialMedia />
+                    {/* <SocialMedia /> */}
                 </StyledContactInfo>
                 
             </Col >
