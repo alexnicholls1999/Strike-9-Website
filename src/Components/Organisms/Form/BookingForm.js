@@ -44,19 +44,20 @@ function Form(props) {
                     postcode: ""
                 }}
                 onSubmit={async (values, id) => {
+                    setBooked("Booked!")
                     handleSubmit(values, id);
                 }}
             >
             
-                <FormikStep label="Events Details" validationSchema={EventsDetailsSchema}>
+                <FormikStep label="Events Details">
                     <EventsDetails date={event.date} time={event.time} cost={event.cost}/>
                 </FormikStep>
     
-                <FormikStep label="Personal Details"  validationSchema={PersonalDetailsSchema}>
+                <FormikStep label="Personal Details">
                     <PersonalDetails />
                 </FormikStep>
     
-                <FormikStep label="Billing Address" validationSchema={BillingAddressSchema}>
+                <FormikStep label="Billing Address">
                     <BillingAddress />
                 </FormikStep>
     
