@@ -23,24 +23,24 @@ const SearchResults = styled.div`
 
 function Events() {
 
-  const { updateEvents, time, date, type, age, isChecked, state, setState, setTime, setDate, setAge, setType, setIsChecked, handleSubmit } = useSearch();
+  const { updateEvents , state, handleOnChangeAvailableSlots, handleOnChangeSearch, handleSubmit } = useSearch();
 
     return (
         <SecondaryLayout secondary>
             <Hero title="SEARCH FOR STRIKE 9 VLU EVENTS" half>
               <Container>
                 <Search 
-                      handleDateChange={(e) => setDate(e.target.value)}
-                      handleTimeChange={(e) => setTime(e.target.value)}
-                      handleTypeChange={(e) => setType(e.target.value)}
-                      handleAgeChange={(e) => setAge(e.target.value)}
-                      handleCheck={(e) => setIsChecked(e.target.checked)}
-                      checked={isChecked}
-                      checkedValue={isChecked}
-                      date={date}
-                      time={time}
-                      type={type}
-                      age={age}
+                      handleDateChange={handleOnChangeSearch}
+                      handleTimeChange={handleOnChangeSearch}
+                      handleTypeChange={handleOnChangeSearch}
+                      handleAgeChange={handleOnChangeSearch}
+                      handleCheck={handleOnChangeAvailableSlots}
+                      checked={state.isChecked}
+                      checkedValue={state.isChecked}
+                      date={state.date}
+                      time={state.time}
+                      type={state.type}
+                      age={state.age}
                       onClick={handleSubmit}
                 />
               </Container>

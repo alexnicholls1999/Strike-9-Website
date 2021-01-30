@@ -5,39 +5,34 @@ export default function useBookEvent(){
     const [booked, setBooked] = useState("Summary");
 
     const handleSubmit = (values) => {
-        useEffect(() => {
-            console.log(values)
+        db.collection("booking")
+            .add({
+                eventId: values.eventId,
+                uid: values.uid,
+                teamName: values.teamName,
+                firstName: values.firstName,
+                lastName: values.lastName,
+                email: values.email,
+                mobile: values.mobile,
+                gender: values.gender,
+                selectedDate: new Date(values.selectedDate).toDateString(),
+                ethnicity: values.ethnicity,
+                billingLine1: values.billingLine1,
+                billingLine2: values.billingLine2,
+                billingLine3: values.billingLine3,
+                location: values.location,
+                postcode: values.postcode
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+
+        db.collection("events").doc(values.eventId).update({
+            slots: values.slots
         })
-        // db.collection("booking")
-        //     .add({
-        //         eventId: values.eventId,
-        //         uid: values.uid,
-        //         teamName: values.teamName,
-        //         firstName: values.firstName,
-        //         lastName: values.lastName,
-        //         email: values.email,
-        //         mobile: values.mobile,
-        //         gender: values.gender,
-        //         selectedDate: new Date(values.selectedDate).toDateString(),
-        //         ethnicity: values.ethnicity,
-        //         billingLine1: values.billingLine1,
-        //         billingLine2: values.billingLine2,
-        //         billingLine3: values.billingLine3,
-        //         location: values.location,
-        //         postcode: values.postcode
-        //     })
-        //     .catch((err) => {
-        //         console.log(err)
-        //     });
-
-        // db.collection("events").doc(id).update({
-        //     slots: values.slots
-        // })
-        // .catch((err) => {
-        //     console.log(err)
-        // });
-
-        console.log("Successful Submit", values)
+        .catch((err) => {
+            console.log(err)
+        });
 
     }
 

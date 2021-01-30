@@ -20,8 +20,6 @@ function Form(props) {
 
     const { handleSubmit, setBooked, booked} = useBookEvent();
 
-    console.log(event);
-
     if (event) {
         return (
             <FormikStepper
@@ -43,9 +41,9 @@ function Form(props) {
                     location: "",
                     postcode: ""
                 }}
-                onSubmit={async (values, id) => {
+                onSubmit={async (values) => {
                     setBooked("Booked!")
-                    handleSubmit(values, id);
+                    handleSubmit(values);
                 }}
             >
             

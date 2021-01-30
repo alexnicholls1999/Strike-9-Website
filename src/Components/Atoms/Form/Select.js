@@ -8,13 +8,13 @@ const StyledSelect = styled.select`
 
 `;
 
-function Select ({ options, defaultValue, handleChange, style}) {
+function Select ({ options, defaultValue, defaultName, handleChange, style}) {
 
 
     if (!Array.isArray(options) || options.length < 1) return null;
   
     return ( 
-        <StyledSelect style={style} className="form-control" value={defaultValue} onChange={handleChange}>
+        <StyledSelect style={style} className="form-control" name={defaultName} value={defaultValue} onChange={handleChange}>
           {options.map((option, optionGrp, index) => {
             const { value, name } = option;
             const {optionGrpValue, optionGrpName} = optionGrp;

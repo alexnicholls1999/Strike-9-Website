@@ -18,7 +18,7 @@ const SearchForm = styled.form`
 
 function Search(props) {
 
-    const { handleDateChange, handleTimeChange, handleTypeChange, handleAgeChange, handleCheck, checked, checkedValue, date, time, type, age, onClick} = props;
+    const { handleDateChange, handleTimeChange, handleTypeChange, handleAgeChange, handleCheck, name, checked, checkedValue, date, time, type, age, onClick} = props;
 
     const configDate = {
         value: date,
@@ -104,16 +104,16 @@ function Search(props) {
                 <Col lg={12}>
                     <Row>
                         <Col lg={3} md={3} sm={12} className="p-1">
-                            <Dropdown text="Date" {...configDate} />
+                            <Dropdown text="Date" name="date" {...configDate} />
                         </Col>
                         <Col lg={3} md={3} sm={12} className="p-1">
-                            <Dropdown text="Time" {...configTime} />
+                            <Dropdown text="Time" name="time" {...configTime} />
                         </Col>
                         <Col lg={3} md={3} sm={12} className="p-1">
-                            <Dropdown text="Type" {...configType} />
+                            <Dropdown text="Type" name="type" {...configType} />
                         </Col>
                         <Col lg={3} md={3} sm={12} className="p-1">
-                            <Dropdown text="Age" {...configAge} />
+                            <Dropdown text="Age" name="age" {...configAge} />
                         </Col>
                         <div className="py-5"></div>
                         <Col lg={3} md={3}>

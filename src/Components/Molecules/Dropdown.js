@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Select from '../Atoms/Form/Select'
 
 function Dropdown(props) {
-    const { text, value, handleChange, style, ...otherProps } = props;
+    const { text, value, handleChange, name, style, ...otherProps } = props;
 
 
     return (
@@ -13,7 +13,7 @@ function Dropdown(props) {
                 {text}
             </label>
 
-            <Select style={style} value={value} handleChange={handleChange} {...otherProps}/>
+            <Select style={style} value={value} defaultName={name} handleChange={handleChange} {...otherProps}/>
         </>
     )
 }

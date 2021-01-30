@@ -8,44 +8,65 @@ export default function useSearch() {
         date: "Any",
         time: "Any",
         type: "Any",
-        age: "Any",
-        isChecked: false
-    });
-    const [date, setDate] = useState("Any");
-    const [time, setTime] = useState("Any");
-    const [type, setType] = useState("Any");
-    const [age, setAge] = useState("Any");
-    const [isChecked, setIsChecked] = useState(false);
+        age: "Any"
+    })
 
-    let ref = db.collection("events")
-    
+
+    const handleOnChangeSearch = (e) => {
+        setState({
+            ...state,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleOnChangeAvailableSlots = (e) => {
+
+        setState({
+            date: state.date,
+            time: state.time,
+            type: state.time,
+            age: state.age,
+            isChecked: e.target.checked,
+        })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (isChecked === true) {
+        console.log(state);
+
+        let ref = db.collection("events")
+
+        if (state.isChecked === true) {
             ref = ref.where("slots", "!=", 0)
-          }
-      
-        if (date !== "Any") {
-        ref = ref.where("date", "==", date)
+        }
+
+
+        if (state.date !== "Any") {
+            ref = ref.where("date", "==", state.date)
         } else {
-        ref = ref.where("datefltr", "==", true)
+            ref = ref.where("datefltr", "==", true)
+        }
+
+        if (state.type !== "Any") {
+            ref = ref.where("eventsType", "==", state.type)
+        } else {
+            ref = ref.where("eventsTypefltr", "==", true) 
         }
     
-        if (type !== "Any") {
-        ref = ref.where("eventsType", "==", type)
+        if (state.type !== "Any") {
+        ref = ref.where("eventsType", "==", state.type)
         } else {
         ref = ref.where("eventsTypefltr", "==", true)
         }
     
-        if (time !== "Any") {
-        ref = ref.where("time", "==", time)
+        if (state.time !== "Any") {
+        ref = ref.where("time", "==", state.time)
         } else {
         ref = ref.where("timefltr", "==", true)
         }
     
-        if (age !== "Any") {
-        ref = ref.where("age", "==", age)
+        if (state.age !== "Any") {
+        ref = ref.where("age", "==", state.age)
         } else {
         ref = ref.where("agefltr", "==", true)
         }
@@ -62,6 +83,8 @@ export default function useSearch() {
 
     }
     
+
+
     useEffect(() => {
         db.collection("events").orderBy("date").onSnapshot((snapshot) => {
         const newEvents = snapshot.docs.map((doc) => ({
@@ -78,18 +101,8 @@ export default function useSearch() {
     return {
         updateEvents,
         state,
-        time,
-        date,
-        age,
-        type,
-        isChecked,
-        setState,
-        setUpdateEvents,
-        setTime,
-        setDate,
-        setAge,
-        setType,
-        setIsChecked,
+        handleOnChangeAvailableSlots,
+        handleOnChangeSearch,
         handleSubmit
     }
 
