@@ -81,7 +81,9 @@ function Form(props) {
 
 const mapStateToProps = (state, ownProps) => {
     console.log(state);
-    const id = ownProps.match.params.id;
+    const id = ownProps.params.id;
+
+    console.log(id);
     const events = state.firestore.data.events;
     const event = events ? events[id] : null;
 

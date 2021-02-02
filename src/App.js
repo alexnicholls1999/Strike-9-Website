@@ -40,7 +40,13 @@ function App({...props}) {
                 <Events />
               </RouteGuard>
             </Route>
-            <Route path="/events/:id" component={BookEvent}/>
+            <Route path="/events/:id">
+              <RouteGuard {...props}>
+                <SecondaryLayout secondary>
+                  <BookEvent />
+                </SecondaryLayout>
+              </RouteGuard>
+            </Route>
         </Switch>
     </ThemeProvider>
   )
