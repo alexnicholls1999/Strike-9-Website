@@ -27,6 +27,11 @@ const theme = {
             2: "rsla(238, 35%, 19%, .02)"
         }
     },
+    viewport: {
+        largeDevices: "990px",
+        mediumDevices: "768px",
+        smallDevices: "400px"
+    },
     typography: {
         fontFamily: "Muli",
         fontWeight: {

@@ -1,11 +1,36 @@
-import React from 'react'
+import React from 'react';
+import {Navbar, Nav, NavDropdown} from "react-bootstrap";
+import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
+import {NavLink} from "react-router-dom";
+import styled from "styled-components";
 
-function BootstrapNav() {
+export default function BoostrapNav() {
     return (
-        <div>
-            
-        </div>
+        // <Collapse id="basic-navbar-nav">
+        //     <Nav className="ml-auto">
+        //         <Nav.Item>
+        //             <Nav.Link as={NavLink} exact to="/">Home</Nav.Link>
+        //         </Nav.Item>
+        //         <Nav.Item>
+        //             <Nav.Link as={NavLink} to="/events">Events</Nav.Link>
+        //         </Nav.Item>
+        //     </Nav>
+        // </Collapse>
+        <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+            </NavDropdown>
+            </Nav>
+        </Navbar.Collapse>
+
     )
 }
 
-export default BootstrapNav
+

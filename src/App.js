@@ -5,6 +5,7 @@ import theme from "./styles/theme";
 import Home from './Pages/Home';
 import Events from './Pages/Events';
 import GlobalStyles from "./styles/GlobalStyles";
+import MainLayout from "./Components/Templates/MainLayout";
 
 
 function App() {
@@ -14,14 +15,17 @@ function App() {
       <GlobalStyles />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <MainLayout>
+            <Home />
+          </MainLayout>
         </Route>
         <Route path="/events">
-          <Events />
+          <MainLayout>
+            <Events/>
+          </MainLayout>
         </Route>
       </Switch>
     </ThemeProvider>
-
   );
 }
 

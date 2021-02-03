@@ -11,14 +11,15 @@ const StyledHamburger = styled(NavbarToggle)`
     justify-content: space-around;
     flex-flow: column nowrap;
     border: none;
-    
-
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
     outline: none !important;
 
+    
     div {
         width: 1.5rem;
         height: 3px;
-        
+        background-color: black;
         transform-origin: 1px;
         transition: all .3s ease-in;
 
