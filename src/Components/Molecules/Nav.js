@@ -1,7 +1,7 @@
 import React from 'react'
 import {Navbar, Nav} from 'react-bootstrap';
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Collapse = styled(Navbar.Collapse)`
 
@@ -17,7 +17,7 @@ const StyledNav = styled(Nav)`
 
 `;
 
-const NavLink = styled(Nav.Link)`
+const StyledNavLink = styled(Nav.Link)`
     color: rgba(255,255,255,.5);
     padding: .5rem;
     padding-left: 0;
@@ -42,24 +42,24 @@ function BootstrapNav(props) {
 
     return (
         <Collapse id="basic-navbar-nav">
-            <StyledNav className="ml-auto" activeKey="/events">
+            <StyledNav className="ml-auto" >
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/">Home</Nav.Link>
+                  <Nav.Link as={NavLink} exact to="/">Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/about">About Us</Nav.Link>
+                  <Nav.Link as={NavLink} to="/about">About Us</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/training">Training</Nav.Link>
+                  <Nav.Link as={NavLink} to="/training">Training</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="/events" as={Link} to="/events">Events</Nav.Link>
+                  <Nav.Link eventKey="/events" as={NavLink} to="/events">Events</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/corporate">Corporate</Nav.Link>
+                  <Nav.Link as={NavLink} to="/corporate">Corporate</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
+                  <Nav.Link as={NavLink} to="/contact">Contact Us</Nav.Link>
                 </Nav.Item>
             </StyledNav>
         </Collapse>
