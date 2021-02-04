@@ -1,49 +1,34 @@
 import React from 'react';
 import styled from "styled-components";
-import { Container, Navbar, Nav, NavDropdown, Row, NavbarBrand} from "react-bootstrap";
+import PropTypes from "prop-types";
+import { Container } from "react-bootstrap";
+import BoostrapNavbar from '../Molecules/Navbar';
 
-import Hamburger from '../Atoms/Hamburger';
-import BoostrapNav from '../Molecules/Nav';
-import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
-
-const Collapse = styled(Navbar.Collapse)`
-
-
-`;
 
 const HeaderWrapper = styled.div`
     display: flex;
-    flex-direction: row;
-
+    position: relative;
+    background-color: ${({theme, secondary}) => secondary ? theme.colors.primary.RoyalPurple : "none"};
 `;
 
-function Header() {
-    return (
-        <Navbar bg="light" variant="light">
-            {/* <Container>
-                <h2>Logo</h2>
-                <Hamburger />
-                <BoostrapNav />
-            </Container> */}
-            <NavbarBrand><h2>Logo</h2></NavbarBrand>
+function Header(props) {
+    const {secondary} = props;
 
-            <NavbarCollapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#link">Link</Nav.Link>
-                    <Nav.Link href="#link">Link 2</Nav.Link>
-                    <Nav.Link href="#link">Link 3</Nav.Link>
-                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
-                </Nav>
-            </NavbarCollapse>
-        </Navbar>
+    return (
+        <HeaderWrapper secondary={secondary}>
+            <Container>
+                <BoostrapNavbar />
+            </Container>
+        </HeaderWrapper>
+
     )
 }
 
+Header.propTypes = {
+    secondary: PropTypes.bool
+}
+
+Header.defaultProps = {
+    secondary: false
+}
 export default Header;

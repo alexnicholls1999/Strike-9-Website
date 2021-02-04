@@ -6,23 +6,25 @@ import Home from './Pages/Home';
 import Events from './Pages/Events';
 import GlobalStyles from "./styles/GlobalStyles";
 import MainLayout from "./Components/Templates/MainLayout";
+import SecondaryLayout from "./Components/Templates/SecondaryLayout";
+
 
 
 function App() {
-  console.log(theme);
+  
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Switch>
         <Route exact path="/">
-          <MainLayout>
+          <MainLayout secondary>
             <Home />
           </MainLayout>
         </Route>
         <Route path="/events">
-          <MainLayout>
+          <SecondaryLayout>
             <Events/>
-          </MainLayout>
+          </SecondaryLayout>
         </Route>
       </Switch>
     </ThemeProvider>

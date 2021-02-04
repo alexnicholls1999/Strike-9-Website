@@ -19,7 +19,7 @@ const StyledHamburger = styled(NavbarToggle)`
     div {
         width: 1.5rem;
         height: 3px;
-        background-color: black;
+        background-color: ${({theme}) => theme.colors.neutral.White};
         transform-origin: 1px;
         transition: all .3s ease-in;
 
