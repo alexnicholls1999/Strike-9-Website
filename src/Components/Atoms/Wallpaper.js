@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Strike9Wallpaper from "../../assets/Images/s9cover.jpg"
 
 
-const StyledWallpaper = styled.img`
+const StyledWallpaper = styled.div`
     height: 100vh;
     background-image: url(${Strike9Wallpaper});
     background-size: cover;

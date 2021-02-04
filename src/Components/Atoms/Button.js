@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 const StyledButton = styled.button`
 
@@ -21,7 +22,7 @@ const StyledButton = styled.button`
 
 `;
 
-function Button({onClick, text, ...Props}) {
+function Button({onClick, linkto, text, ...Props}) {
     return (
         <StyledButton onClick={onClick} {...Props} >{text}</StyledButton>
     )
