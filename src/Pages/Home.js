@@ -20,13 +20,13 @@ const ButtonsWrapper = styled.div`
 function Home() {
     return (
         <>
+            
             <Hero title={Content.title} paragraph={Content.msg}>
                 <ButtonsWrapper>
                     <Button style={{marginRight: "10px"}}text="Register"/>
                     <Button text="Find out more"/>
                 </ButtonsWrapper>
             </Hero>
-            <Wallpaper />
         </>
     )
 }
