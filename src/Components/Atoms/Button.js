@@ -16,9 +16,8 @@ const StyledButton = styled.button`
     margin-top: 6%;
     border: none;
     width: 100%;
-    font-size: 15px;
     font-weight: 700;
-    box-shadow: 0px 0px 17px 2px ${({theme}) => theme.colors.primary.RoyalPurple};
+    // box-shadow: 0px 0px 17px 2px ${({theme}) => theme.colors.primary.RoyalPurple};
 
 `;
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import {Container, Col, Row} from "react-bootstrap";
+import Wallpaper from '../Atoms/Wallpaper';
 
 const HeroWrapper = styled.div`
 
@@ -19,6 +20,7 @@ function Hero(props) {
 
     return (
         <HeroWrapper secondary={secondary}>
+            <Wallpaper/>
             <Container>
                 <Row style={{paddingTop: "3rem"}}>
                     <Col lg={8} md={8} sm>

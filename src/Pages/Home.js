@@ -30,18 +30,15 @@ function Home() {
 
     const history = useHistory();
     return (
-        <Container>
+        <>
+            
             <Hero title={Content.title} paragraph={Content.msg}>
                 <ButtonsWrapper>
                     <Button style={{marginRight: "10px"}} onClick={() => history.push('/events')}text="Register"/>
                     <Button text="Find out more"/>
                 </ButtonsWrapper>
             </Hero>
-            <SocialMediaHeroWrapper>
-                <SocialMedia />
-            </SocialMediaHeroWrapper>
-            <Wallpaper />
-        </Container>
+        </>
     )
 }
 
