@@ -41,7 +41,7 @@ function BootstrapNav(props) {
     const { location } = props;
 
     return (
-        <Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav">
             <StyledNav className="ml-auto" >
                 <Nav.Item>
                   <Nav.Link as={NavLink} exact to="/">Home</Nav.Link>
@@ -62,7 +62,7 @@ function BootstrapNav(props) {
                   <Nav.Link as={NavLink} to="/contact">Contact Us</Nav.Link>
                 </Nav.Item>
             </StyledNav>
-        </Collapse>
+        </Navbar.Collapse>
          
     )
 }
