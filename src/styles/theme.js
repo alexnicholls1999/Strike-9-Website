@@ -45,7 +45,7 @@ const theme = {
         },
         h1: {
             fontSize: {
-                min: "19px",
+                min: "21px",
                 max: "60px"
             }
         }, 

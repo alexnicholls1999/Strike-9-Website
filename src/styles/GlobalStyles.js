@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle `
     h1 {
         font-size: clamp(${({theme}) => theme.typography.h1.fontSize.min}, 5vw, ${({theme}) => theme.typography.h1.fontSize.max}) ;
         font-weight: ${({theme}) => theme.typography.fontWeight.bold};
+        color: ${({theme}) => theme.colors.neutral.White};
         
     }
     h2 {
@@ -28,7 +29,8 @@ const GlobalStyles = createGlobalStyle `
         font-weight: ${({theme}) => theme.typography.h6.fontWeight};
     }
     p {
-        font-size: clamp(${({theme}) => theme.typography.p.fontSize.min}, 5vw, ${({theme}) => theme.typography.p.fontSize.max}) 
+        font-size: clamp(${({theme}) => theme.typography.p.fontSize.min}, 5vw, ${({theme}) => theme.typography.p.fontSize.max});
+        color: ${({theme}) => theme.colors.neutral.White};
     }
     input[type="text"], input[type="email"], input[type="password"] {
         width: 100%;

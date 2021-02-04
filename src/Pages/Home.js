@@ -1,20 +1,32 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import styled from "styled-components"
+import { Col, Container, Row } from 'react-bootstrap'
+import Button from '../Components/Atoms/Button'
 import Hero from '../Components/Organisms/Hero'
+import Wallpaper from '../Components/Atoms/Wallpaper'
 
 const Content = {
-      title: "STRIKE 9 TRAINING",
+      title: "STRIKE 9 TRAINING ACADEMY",
       msg: "Do you want to bring another level to your Game? Are you tracking your progress? Are you seeking additional training outside of your club team? Football is changing."
 }
+
+
+const ButtonsWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+`
 
 function Home() {
     return (
         <>
             <Hero title={Content.title} paragraph={Content.msg}>
-                <Container>
-
-                </Container>
+                <ButtonsWrapper>
+                    <Button style={{marginRight: "10px"}}text="Register"/>
+                    <Button text="Find out more"/>
+                </ButtonsWrapper>
             </Hero>
+            <Wallpaper />
         </>
     )
 }

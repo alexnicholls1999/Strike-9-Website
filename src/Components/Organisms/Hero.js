@@ -21,12 +21,10 @@ function Hero(props) {
         <HeroWrapper secondary={secondary}>
             <Container>
                 <Row style={{paddingTop: "3rem"}}>
-                    <Container>
-                        <Col lg={8} md={8} sm>
-                            <h1>{title}</h1>
-                            <p>{paragraph}</p>
-                        </Col>
-                    </Container>
+                    <Col lg={8} md={8} sm>
+                        <h1>{title}</h1>
+                        <p>{paragraph}</p>
+                    </Col>
                 </Row>
             </Container>
             <Container>
