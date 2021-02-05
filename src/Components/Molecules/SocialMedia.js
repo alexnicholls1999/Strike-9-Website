@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 const StyledSocialMedia = styled.div`
     color: ${({theme}) => theme.colors.neutral.White};
+    
 `;
 
 function SocialMedia() {

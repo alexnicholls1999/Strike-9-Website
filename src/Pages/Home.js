@@ -23,7 +23,7 @@ const ButtonsWrapper = styled.div`
 const SocialMediaHeroWrapper = styled.div`
     position: absolute;
     bottom: 10%;
-    right: 10%;
+    right: 10px;
 `;
 
 function Home() {
@@ -37,7 +37,11 @@ function Home() {
                     <Button style={{marginRight: "10px"}} onClick={() => history.push('/events')}text="Register"/>
                     <Button text="Find out more"/>
                 </ButtonsWrapper>
+                <SocialMediaHeroWrapper>
+                    <SocialMedia/>
+                </SocialMediaHeroWrapper>
             </Hero>
+            <Wallpaper />
         </>
     )
 }
