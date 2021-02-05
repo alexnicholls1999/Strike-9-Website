@@ -10,7 +10,11 @@ const HeroWrapper = styled.div`
     background-color: ${({theme, secondary}) => secondary ? theme.colors.primary.RoyalPurple : "none"};
     width: 100%;
     padding: 1rem;
+<<<<<<< HEAD
     height: 50vh
+=======
+    height: 90vh;
+>>>>>>> 3b0bcafff5df06b9dfbfbe01f164ea7a678f9b14
 
 `
 
