@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import Button from '../Components/Atoms/Button'
 import Hero from '../Components/Organisms/Hero'
 import Wallpaper from '../Components/Atoms/Wallpaper'
+import SocialMedia from '../Components/Molecules/SocialMedia'
 
 const Content = {
       title: "STRIKE 9 TRAINING ACADEMY",
@@ -15,7 +16,13 @@ const ButtonsWrapper = styled.div`
     display: flex;
     flex-direction: row;
     width: 300px;
-`
+`;
+
+const SocialMediaWrapper = styled.div`
+    bottom: 10%;
+    right: 10%;
+
+`;
 
 function Home() {
     return (
@@ -24,9 +31,21 @@ function Home() {
             <Hero title={Content.title} paragraph={Content.msg}>
                 <ButtonsWrapper>
                     <Button style={{marginRight: "10px"}}text="Register"/>
-                    <Button text="Find out more"/>
-                </ButtonsWrapper>
+                    <Button text="Find out more"/>        
+                </ButtonsWrapper>   
             </Hero>
+            <SocialMediaWrapper>
+                <SocialMedia />
+            </SocialMediaWrapper>
+            <Wallpaper/>
+            <Container>
+                <Row>
+                    <h2>SPONSORS</h2>   
+                </Row>
+                <Row>
+                    <img src="" alt="" srcset=""/>
+                </Row>
+            </Container>
         </>
     )
 }

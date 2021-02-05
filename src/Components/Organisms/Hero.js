@@ -10,6 +10,7 @@ const HeroWrapper = styled.div`
     background-color: ${({theme, secondary}) => secondary ? theme.colors.primary.RoyalPurple : "none"};
     width: 100%;
     padding: 1rem;
+    height: 50vh
 
 `
 
@@ -20,7 +21,6 @@ function Hero(props) {
 
     return (
         <HeroWrapper secondary={secondary}>
-            <Wallpaper/>
             <Container>
                 <Row style={{paddingTop: "3rem"}}>
                     <Col lg={8} md={8} sm>

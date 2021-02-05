@@ -4,9 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function SocialMediaIcon({path, socialmedia}) {
     return (
-        <Link path={path}>
-            <FontAwesomeIcon className="fab px-2" size="3x" icon={socialmedia} />
-        </Link>
+        <FontAwesomeIcon className="fab px-2" size="3x" icon={socialmedia} />
     )
 }
 
