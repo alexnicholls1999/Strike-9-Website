@@ -16,6 +16,14 @@ const StyledNav = styled(Nav)`
 
 `;
 
+const StyledNavLink = styled(NavLink)`
+
+    &.active{
+        border-bottom: 2px solid white;
+    }
+
+
+`;
 
 
 
@@ -27,10 +35,10 @@ function BootstrapNavbar() {
             <NavbarCollapse id="basic-navbar-nav">
                 <StyledNav className="ml-auto">
                     <Nav.Item>
-                        <Nav.Link as={NavLink} exact to="/">Home</Nav.Link>
+                        <Nav.Link as={StyledNavLink} exact to="/">Home</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link as={NavLink} to="/events">Events</Nav.Link>
+                        <Nav.Link as={StyledNavLink} to="/events">Events</Nav.Link>
                     </Nav.Item>
                 </StyledNav>
             </NavbarCollapse>

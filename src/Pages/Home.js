@@ -23,7 +23,17 @@ const ButtonsWrapper = styled.div`
 const SocialMediaHeroWrapper = styled.div`
     position: absolute;
     bottom: 10%;
-    right: 10px;
+    right: 10%;
+`;
+
+const Sponsors = styled.div`
+    background-color: black;
+    height: 250px;
+    padding: 10%;
+
+    h2 {
+        color: ${({theme}) => theme.colors.neutral.White};
+    }
 `;
 
 function Home() {
@@ -31,7 +41,6 @@ function Home() {
     const history = useHistory();
     return (
         <>
-            
             <Hero title={Content.title} paragraph={Content.msg}>
                 <ButtonsWrapper>
                     <Button style={{marginRight: "10px"}} onClick={() => history.push('/events')}text="Register"/>
@@ -41,7 +50,15 @@ function Home() {
                     <SocialMedia/>
                 </SocialMediaHeroWrapper>
             </Hero>
+
+            <Sponsors>
+                <Container>
+                    <h2 className="text-center">Test</h2>
+                </Container>
+            </Sponsors> 
+
             <Wallpaper />
+
         </>
     )
 }
