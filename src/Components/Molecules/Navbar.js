@@ -17,20 +17,12 @@ const StyledNav = styled(Nav)`
 `;
 
 const StyledNavLink = styled(NavLink)`
-<<<<<<< HEAD
-=======
 
     &.active{
-        border-bottom: 2px solid white;
-    }
-
-
-`;
->>>>>>> 3b0bcafff5df06b9dfbfbe01f164ea7a678f9b14
-
-    &.active {
         border-bottom: 3px solid ${({theme}) => theme.colors.neutral.White};
     }
+
+
 `;
 
 
