@@ -7,6 +7,9 @@ const theme = {
             Perfume: "#D5C6F8",
             Whisper: "#F5F4F9",
         },
+        secondary: {
+            Violet: "#050727" 
+        },
         neutral: {
             BlackRock: "#190438",
             Black: "#000000",

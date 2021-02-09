@@ -1,64 +1,129 @@
-import React from 'react'
-import styled from "styled-components"
-import { Col, Container, Row } from 'react-bootstrap'
-import Button from '../Components/Atoms/Button'
-import Hero from '../Components/Organisms/Hero'
-import Wallpaper from '../Components/Atoms/Wallpaper'
-import { useHistory } from 'react-router-dom'
-import SocialMedia from '../Components/Molecules/SocialMedia'
+import React from 'react';
+import styled from "styled-components";
+import { Col, Container, Row } from 'react-bootstrap';
+import HeroContent from '../Components/Molecules/HeroContent';
+import Hero from '../Components/Organisms/Hero';
+import Wallpaper from '../Components/Atoms/Wallpaper';
+import FootballPlayer from '../assets/kisspng-football-player-wallpaper-football-match-5a68fb66da5359.0732821715168295428943.png';
+
+const homeImages = [
+    {
+        name: "SportEngland",
+        src: "https://www.sportengland.org/themes/custom/se/images/se-logo-white.png",
+        alt: "Sport England"
+    }
+] 
 
 
-const Content = {
-      title: "STRIKE 9 TRAINING ACADEMY",
-      msg: "Do you want to bring another level to your Game? Are you tracking your progress? Are you seeking additional training outside of your club team? Football is changing."
-}
 
-
-const ButtonsWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 300px;
-`;
-
-const SocialMediaHeroWrapper = styled.div`
-    position: absolute;
-    bottom: 10%;
-    right: 10%;
-`;
 
 const Sponsors = styled.div`
-    background-color: black;
-    height: 250px;
+    background-color: ${({theme}) => theme.colors.secondary.Violet};
     padding: 10%;
 
-    h2 {
-        color: ${({theme}) => theme.colors.neutral.White};
+    @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
+        padding: 2.5% !important;
     }
 `;
 
-function Home() {
+const SponsorTitle = styled.h2`
+    color: ${({theme}) => theme.colors.neutral.SilverGrey};
+`;
 
-    const history = useHistory();
+const SponsorsImage = styled.img`
+    height: 5rem;
+`;
+
+const TrainingPlans = styled.div`
+    padding-top: 25px;
+
+    h2 {
+        color: ${({theme}) => theme.colors.neutral.SilverGrey};
+    }
+
+    img {
+        width: 100%;
+    }
+`;
+
+const List = styled.div`
+    padding-top: 5%;
+    margin: 0 auto;
+    padding: 5%;
+    flex-direction: ${({growth}) => (growth ? "row-reverse" : "row")};
+
+    p {
+        padding-top: 10px;
+        color: ${({theme}) => theme.colors.neutral.Black};
+    }
+`;
+
+const Point = styled.div`
+    padding: 0;
+    display: flex;
+
+
+    h3 {
+        padding-left: 10px;
+        color: ${({theme}) => theme.colors.neutral.SilverGrey};
+    }
+
+    h5 {
+        padding-right: 10px;
+        padding: 2px;
+        height: 2px;
+        border-radius: 10px;
+        box-shadow: 0 32px 0px 0 #5E3DB3;
+    }
+`;
+ 
+function Home() {
+  
     return (
         <>
-            <Hero title={Content.title} paragraph={Content.msg}>
-                <ButtonsWrapper>
-                    <Button style={{marginRight: "10px"}} onClick={() => history.push('/events')}text="Register"/>
-                    <Button text="Find out more"/>
-                </ButtonsWrapper>
-                <SocialMediaHeroWrapper>
-                    <SocialMedia/>
-                </SocialMediaHeroWrapper>
-            </Hero>
-
             <Sponsors>
                 <Container>
-                    <h2 className="text-center">Test</h2>
+                    <Row className="justify-content-center">
+                        <Col md={6} sm>
+                            <SponsorTitle>SPONSORS</SponsorTitle> 
+                        </Col>
+                        <Col md={6} sm>
+                            <SponsorsImage src="https://www.sportengland.org/themes/custom/se/images/se-logo-white.png" alt={homeImages.alt} />
+                        </Col>
+                    </Row>
                 </Container>
             </Sponsors> 
 
-            <Wallpaper />
-
+            <TrainingPlans>
+                <Container>
+                    <Row>
+                        <Col className="ml-auto" md={6} sm>
+                            <h2>TRAINING PLANS</h2>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={6} sm>
+                            <img src={FootballPlayer} alt="football_player"/>
+                        </Col>
+                        <Col md={6} sm>
+                            <List>
+                                <Point>
+                                    <h5>01</h5>
+                                    <h3>COLABORATION</h3>
+                                </Point>
+                                <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
+                            </List>
+                            <List growth>
+                                <Point >
+                                    <h5>01</h5>
+                                    <h3>COLABORATION</h3>
+                                </Point>
+                                <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
+                            </List>
+                        </Col>
+                    </Row>
+                </Container>
+            </TrainingPlans>
         </>
     )
 }

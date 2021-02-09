@@ -8,6 +8,10 @@ import GlobalStyles from "./styles/GlobalStyles";
 import MainLayout from "./Components/Templates/MainLayout";
 import SecondaryLayout from "./Components/Templates/SecondaryLayout";
 
+const content = {
+  title: "STRIKE 9 TRAINING ACADEMY",
+  msg: "Do you want to bring another level to your Game? Are you tracking your progress? Are you seeking additional training outside of your club team? Football is changing."
+}
 
 
 function App() {
@@ -17,8 +21,8 @@ function App() {
       <GlobalStyles />
       <Switch>
         <Route exact path="/">
-          <MainLayout secondary>
-            <Home />
+          <MainLayout title={content.title} paragraph={content.msg} >
+            <Home  />
           </MainLayout>
         </Route>
         <Route path="/events">

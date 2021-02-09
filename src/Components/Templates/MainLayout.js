@@ -1,16 +1,24 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
+import Wallpaper from '../Atoms/Wallpaper'
 import Header from '../Organisms/Header'
 import Hero from '../Organisms/Hero'
 
-function MainLayout({children}) {
+
+function MainLayout({children, title, paragraph }) {
     return (
-        <div>
-            <Header />
+        <>
+            <Wallpaper>
+                <Header />
+                <Hero title={title} paragraph={paragraph} homepage/>
+            </Wallpaper>
+            
+
+
             <>
                 {children}    
-            </>
-        </div>
+            </> 
+        </>
     )
 }
 

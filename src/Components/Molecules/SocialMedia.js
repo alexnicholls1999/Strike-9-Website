@@ -4,8 +4,8 @@ import { faInstagram, faTwitter, faFacebookSquare } from "@fortawesome/free-bran
 import styled from "styled-components"
 
 const StyledSocialMedia = styled.div`
-    color: ${({theme}) => theme.colors.neutral.White};
-    
+    // color: ${({theme}) => theme.colors.neutral.White};
+    color: white;
 `;
 
 function SocialMedia() {

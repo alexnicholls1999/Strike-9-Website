@@ -28,7 +28,7 @@ const StyledNavLink = styled(NavLink)`
 
 function BootstrapNavbar() {
     return (
-        <Navbar variant="dark" expand="lg">
+        <Navbar variant="dark"  expand="lg">
             <Logo />
             <Hamburger />
             <NavbarCollapse id="basic-navbar-nav">
