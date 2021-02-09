@@ -46,25 +46,32 @@ const TrainingPlans = styled.div`
     }
 `;
 
+const ListWrapper = styled.div`
+    position: relative;
+
+`;
+
 const List = styled.div`
     padding-top: 5%;
     margin: 0 auto;
     padding: 5%;
-    flex-direction: ${({growth}) => (growth ? "row-reverse" : "row")};
+    background-color: ${({growth}) => (growth ? "#F5F4F9" : "none")};
 
     p {
         padding-top: 10px;
         color: ${({theme}) => theme.colors.neutral.Black};
+        text-align: ${({growth}) => (growth ? "right" : "left")};
     }
 `;
 
 const Point = styled.div`
     padding: 0;
     display: flex;
-
+    flex-direction: ${({growth}) => (growth ? "row-reverse" : "row")};
 
     h3 {
         padding-left: 10px;
+        padding-right: ${({growth}) => (growth ? "10px" : "0")};
         color: ${({theme}) => theme.colors.neutral.SilverGrey};
     }
 
@@ -106,20 +113,22 @@ function Home() {
                             <img src={FootballPlayer} alt="football_player"/>
                         </Col>
                         <Col md={6} sm>
-                            <List>
-                                <Point>
-                                    <h5>01</h5>
-                                    <h3>COLABORATION</h3>
-                                </Point>
-                                <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
-                            </List>
-                            <List growth>
-                                <Point >
-                                    <h5>01</h5>
-                                    <h3>COLABORATION</h3>
-                                </Point>
-                                <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
-                            </List>
+                            <ListWrapper>
+                                <List>
+                                    <Point>
+                                        <h5>01</h5>
+                                        <h3>COLABORATION</h3>
+                                    </Point>
+                                    <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
+                                </List>
+                                <List growth>
+                                    <Point growth>
+                                        <h5>02</h5>
+                                        <h3>GROWTH</h3>
+                                    </Point>
+                                    <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
+                                </List>
+                            </ListWrapper>
                         </Col>
                     </Row>
                 </Container>
