@@ -22,7 +22,8 @@ const GlobalStyles = createGlobalStyle `
         font-size: clamp(${({theme}) => theme.typography.h4.fontSize.min}, 5vw, ${({theme}) => theme.typography.h4.fontSize.max}) 
     }
     h5 {
-        font-size: clamp(${({theme}) => theme.typography.h5.fontSize.min}, 5vw, ${({theme}) => theme.typography.h5.fontSize.max}) 
+        font-size: clamp(${({theme}) => theme.typography.h5.fontSize.min}, 5vw, ${({theme}) => theme.typography.h5.fontSize.max}); 
+        color: ${({theme}) => theme.colors.neutral.White};
     }
     h6 {
         font-size: clamp(${({theme}) => theme.typography.h6.fontSize.min}, 5vw, ${({theme}) => theme.typography.h6.fontSize.max}) 

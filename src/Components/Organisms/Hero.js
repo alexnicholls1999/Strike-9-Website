@@ -50,8 +50,8 @@ function Hero(props) {
                         <>
                             <Row>
                                 <ButtonsWrapper>
-                                    <Button style={{marginRight: "10px"}} onClick={() => history.push('/events')}text="Register"/>
-                                    <Button text="Find out more"/>
+                                    <Button style={{marginRight: "10px"}} onClick={() => history.push('/events')}text="REGISTER"/>
+                                    <Button text="FIND OUT MORE"/>
                                 </ButtonsWrapper>
                             </Row>
                             <SocialMediaHeroWrapper>

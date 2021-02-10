@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from "styled-components";
 import { Col, Container, Row } from 'react-bootstrap';
-import HeroContent from '../Components/Molecules/HeroContent';
-import Hero from '../Components/Organisms/Hero';
-import Wallpaper from '../Components/Atoms/Wallpaper';
+import Button from '../Components/Atoms/Button';
 import FootballPlayer from '../assets/kisspng-football-player-wallpaper-football-match-5a68fb66da5359.0732821715168295428943.png';
+import Testimonial from '../Components/Organisms/Testimonial';
+import AboutInfoImage from '../assets/about-info-image.png';
+import GreyBorder from '../Components/Atoms/GreyBorder';
+import Index from '../Components/Organisms/Index';
+
 
 const homeImages = [
     {
@@ -55,7 +58,7 @@ const List = styled.div`
     padding-top: 5%;
     margin: 0 auto;
     padding: 5%;
-    background-color: ${({growth}) => (growth ? "#F5F4F9" : "none")};
+    // background-color: ${({growth}) => (growth ? "#F5F4F9" : "none")};
 
     p {
         padding-top: 10px;
@@ -80,7 +83,45 @@ const Point = styled.div`
         padding: 2px;
         height: 2px;
         border-radius: 10px;
+        color: black;
         box-shadow: 0 32px 0px 0 #5E3DB3;
+    }
+`;
+
+const TestimonialWrapper = styled.div`
+    padding: 10px 0;
+
+`;
+
+const Promises = styled.div`
+    background: ${({theme}) => theme.colors.primary.RoyalPurple};
+    text-align: center;
+    color: ${({theme}) => theme.colors.neutral.White};
+    padding-top: 10% !important;
+    padding-bottom: 10% !important;
+    padding: 10%;
+
+    h4 {
+        font-weight: ${({theme}) => theme.typography.fontWeight.semiBold}
+    }
+
+`
+
+const About = styled.div`
+
+    button {
+        width: 150px;
+    }
+
+    img {
+        width: 100%;
+    }
+
+`;
+
+const AboutInfo = styled.div`
+    p {
+        color: ${({theme}) => theme.colors.neutral.Black};
     }
 `;
  
@@ -133,6 +174,68 @@ function Home() {
                     </Row>
                 </Container>
             </TrainingPlans>
+            <GreyBorder />
+            <Promises>
+                <Container>
+                    <Row>
+                        <Col sm={3}>
+                            <h4>COACHING</h4>
+                            <p>We will work with coaches to develop their knowledge</p>
+                        </Col>
+                        
+                        <Col sm={3}>
+                            <h4>PLAYERS</h4>
+                            <p>We will work with coaches to develop their knowledge</p>
+                        </Col>
+                        
+                        <Col sm={3}>
+                            <h4>PARENTS</h4>
+                            <p>We will work with coaches to develop their knowledge</p>
+                        </Col>
+                        
+                        <Col sm={3}>
+                            <h4>VOLUNTEERS</h4>
+                            <p>We will work with coaches to develop their knowledge</p>
+                        </Col>
+                    </Row>
+                </Container>
+            </Promises>
+
+
+            <TestimonialWrapper>
+                <Container>
+                    <Row>
+                        <Col md={6} sm>
+                            <h2>TRAINING PLANS</h2>
+                        </Col>
+                    </Row>
+                
+                    <Testimonial />
+                </Container>
+            </TestimonialWrapper>
+            <GreyBorder />
+            <About>
+                <Container>
+                    <Row>
+                        <Col md={6} sm className="mr-auto">
+                            <h2>ABOUT US</h2>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={6} sm>
+                            <AboutInfo>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit similique tenetur eos dicta ducimus obcaecati cum saepe natus incidunt, fuga porro nesciunt consectetur animi quidem asperiores voluptatem temporibus culpa veritatis?</p>
+                                <Button text="FIND OUT MORE"/>
+                            </AboutInfo>
+                        </Col>
+                        <Col md={6} sm>
+                            <img src={AboutInfoImage} alt="Football-Player"/>
+                        </Col>
+                    </Row>
+                </Container>
+            </About>
+            <GreyBorder />
+            <Index />
         </>
     )
 }
