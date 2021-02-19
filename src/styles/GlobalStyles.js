@@ -10,10 +10,10 @@ const GlobalStyles = createGlobalStyle `
         font-size: clamp(${({theme}) => theme.typography.h1.fontSize.min}, 5vw, ${({theme}) => theme.typography.h1.fontSize.max}) ;
         font-weight: ${({theme}) => theme.typography.fontWeight.bold};
         color: ${({theme}) => theme.colors.neutral.White};
-        
     }
     h2 {
-        font-size: clamp(${({theme}) => theme.typography.h2.fontSize.min}, 5vw, ${({theme}) => theme.typography.h2.fontSize.max}) 
+        font-size: clamp(${({theme}) => theme.typography.h2.fontSize.min}, 5vw, ${({theme}) => theme.typography.h2.fontSize.max});
+        color: ${({theme}) => theme.colors.neutral.SilverGrey}; 
     }
     h3 {
         font-size: clamp(${({theme}) => theme.typography.h3.fontSize.min}, 5vw, ${({theme}) => theme.typography.h3.fontSize.max}) 

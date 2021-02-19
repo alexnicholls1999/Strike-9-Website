@@ -40,10 +40,6 @@ const SponsorsImage = styled.img`
 const TrainingPlans = styled.div`
     padding-top: 25px;
 
-    h2 {
-        color: ${({theme}) => theme.colors.neutral.SilverGrey};
-    }
-
     img {
         width: 100%;
     }
@@ -91,6 +87,10 @@ const Point = styled.div`
 const TestimonialWrapper = styled.div`
     padding: 10px 0;
 
+    h2 {
+        padding-top: 10%;
+    }
+
 `;
 
 const Promises = styled.div`
@@ -117,6 +117,9 @@ const About = styled.div`
         width: 100%;
     }
 
+    h2 {
+        padding-top: 10%;
+    }
 `;
 
 const AboutInfo = styled.div`
@@ -206,7 +209,7 @@ function Home() {
                 <Container>
                     <Row>
                         <Col md={6} sm>
-                            <h2>TRAINING PLANS</h2>
+                            <h2>FEEDBACK</h2>
                         </Col>
                     </Row>
                 

@@ -14,6 +14,7 @@ function MainLayout({children, title, paragraph }) {
                 <Hero title={title} paragraph={paragraph} homepage/>
             </Wallpaper>
             
+            
 
 
             <>
