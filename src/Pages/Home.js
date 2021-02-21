@@ -31,10 +31,20 @@ const Sponsors = styled.div`
 
 const SponsorTitle = styled.h2`
     color: ${({theme}) => theme.colors.neutral.SilverGrey};
+    text-align: center;
+
+    @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
+        text-align: right;
+    }
 `;
 
 const SponsorsImage = styled.img`
     height: 5rem;
+
+    
+    @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
+        height: 4.5rem;
+    }
 `;
 
 const TrainingPlans = styled.div`
@@ -97,8 +107,8 @@ const Promises = styled.div`
     background: ${({theme}) => theme.colors.primary.RoyalPurple};
     text-align: center;
     color: ${({theme}) => theme.colors.neutral.White};
-    padding-top: 10% !important;
-    padding-bottom: 10% !important;
+    padding-top: 5% !important;
+    padding-bottom: 5% !important;
     padding: 10%;
 
     h4 {
@@ -177,7 +187,7 @@ function Home() {
                     </Row>
                 </Container>
             </TrainingPlans>
-            <GreyBorder />
+            <GreyBorder style={{marginTop: "-330px", padding: "15%"}}/>
             <Promises>
                 <Container>
                     <Row>

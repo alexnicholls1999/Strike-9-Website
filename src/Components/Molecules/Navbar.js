@@ -30,7 +30,7 @@ function BootstrapNavbar() {
     return (
         <Navbar variant="dark"  expand="lg">
             <Logo />
-            <Hamburger />
+            <Hamburger/>
             <NavbarCollapse id="basic-navbar-nav">
                 <StyledNav className="ml-auto">
                     <Nav.Item>

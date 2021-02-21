@@ -7,8 +7,7 @@ const StyledGreyBorder = styled.div`
     background-color: #F5F4F9;
     padding: 25%;
     z-index: -1;
-    margin-top: -15%;
-    
+    margin-top: -10%;
 
     @media (min-width: ${({theme}) => theme.viewport.mediumDevices}){
         padding: 10%;
@@ -16,9 +15,9 @@ const StyledGreyBorder = styled.div`
 
 `;
 
-function GreyBorder() {
+function GreyBorder({style}) {
     return (
-        <StyledGreyBorder>
+        <StyledGreyBorder style={style}>
             <Container>
                 <Row>
 
