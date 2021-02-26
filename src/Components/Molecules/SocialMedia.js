@@ -1,6 +1,6 @@
 import React from 'react';
 import SocialMediaIcon from '../Atoms/SocialMediaIcon';
-import { faInstagram, faTwitter, faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faTwitterSquare, faFacebookSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import styled from "styled-components"
 
 const StyledSocialMedia = styled.div`
@@ -11,9 +11,10 @@ const StyledSocialMedia = styled.div`
 function SocialMedia() {
     return (
         <StyledSocialMedia>
-            <SocialMediaIcon socialmedia={faInstagram} />
-            <SocialMediaIcon socialmedia={faTwitter} />
+            <SocialMediaIcon socialmedia={faTwitterSquare} />
             <SocialMediaIcon socialmedia={faFacebookSquare} />
+            <SocialMediaIcon socialmedia={faInstagram} />
+            <SocialMediaIcon socialmedia={faLinkedin} />
         </StyledSocialMedia>
     )
 }

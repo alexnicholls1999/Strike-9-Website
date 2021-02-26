@@ -5,13 +5,18 @@ import {Link} from "react-router-dom";
 
 const IndexFooter = styled.div`
     display: flex; 
-    flex-direction: row;
+    flex-direction: column;
     padding-top: 20px;
 
     ul {
         list-style: none;
-        margin: 0 auto;
-        padding: 0 25px;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 5%;
+
+        h5 {
+            font-size: .8rem;
+        }
 
         a {
             color: ${({theme}) => theme.colors.neutral.White};
@@ -21,13 +26,23 @@ const IndexFooter = styled.div`
             }
 
             li {
-                padding: 10px;
+                font-size: 12px;
+                padding: 2.5px;
+                padding-left: 0;
             }
         }
     }
 
     @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
         padding-top: 0;
+        flex-direction: row;
+
+        ul {
+            margin-right: 50px;
+            padding-left: 25px;
+            
+        }
+        
     }
 
 `;
@@ -37,14 +52,22 @@ function FooterNav() {
         <Col>
             <IndexFooter>
                 <ul>
+                    <h5>Explore</h5>
                     <Link to="/"><li>Home</li></Link>
                     <Link to="/"><li>Training</li></Link>
                     <Link to="/"><li>Corporate</li></Link>
-                </ul>
-                <ul>
                     <Link to="/"><li>About Us</li></Link>
                     <Link to="/"><li>Events</li></Link>
                     <Link to="/"><li>Contact</li></Link>
+                </ul>
+                <ul>
+                    <h5>Contact</h5>
+                    <Link to="/"><li>info@strike9training.co.uk</li></Link>
+                </ul>
+                <ul>
+                    <h5>Legal</h5>
+                    <Link to="/"><li>Terms & Conditions</li></Link>
+                    <Link to="/"><li>Privacy Policy</li></Link>
                 </ul>
             </IndexFooter>
         </Col>

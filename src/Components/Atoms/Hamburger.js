@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const StyledHamburger = styled(NavbarToggle)`
     position: relative;
@@ -38,15 +39,15 @@ const StyledHamburger = styled(NavbarToggle)`
 
 `
 
-function Hamburger() {
+function Hamburger(props) {
 
-    const [open, setOpen] = useState(false)
+    const { onClick, open } = props;
 
     return (
         <StyledHamburger
             aria-controls="basic-navbar-nav"
             open={open}
-            onClick={() => setOpen(!open)}
+            onClick={onClick}
         >
             <div></div>
             <div></div>
@@ -54,6 +55,16 @@ function Hamburger() {
             
         </StyledHamburger>
     )
+}
+
+Hamburger.defaultProps = {
+    onClick: () => {},
+    open: false
+}
+
+Hamburger.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    open: PropTypes.bool.isRequired
 }
 
 export default Hamburger

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import styled from "styled-components";
 import { Col, Container, Row } from 'react-bootstrap';
 import Button from '../Components/Atoms/Button';
@@ -7,6 +7,10 @@ import Testimonial from '../Components/Organisms/Testimonial';
 import AboutInfoImage from '../assets/about-info-image.png';
 import GreyBorder from '../Components/Atoms/GreyBorder';
 import Index from '../Components/Organisms/Index';
+import useFadeIn from '../react-hooks/useFadeIn';
+import gsap from "gsap";
+import { useIntersection } from "react-use";
+
 
 
 const homeImages = [
@@ -33,18 +37,16 @@ const SponsorTitle = styled.h2`
     color: ${({theme}) => theme.colors.neutral.SilverGrey};
     text-align: center;
 
+
     @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
         text-align: right;
+        margin-right: 10px;
+        font-size: 30px;
     }
 `;
 
 const SponsorsImage = styled.img`
-    height: 5rem;
-
-    
-    @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
-        height: 4.5rem;
-    }
+    width: 100%;
 `;
 
 const TrainingPlans = styled.div`
@@ -53,6 +55,23 @@ const TrainingPlans = styled.div`
     img {
         width: 100%;
     }
+
+    @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
+        img {
+            position: absolute;
+        }
+    }
+`;
+
+const GrowthWrapper = styled.div`
+
+    padding-bottom: 15%;
+    background-color: #F5F4F9;
+
+    // @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
+    //     margin-top: -25%;
+    // }
+
 `;
 
 const ListWrapper = styled.div`
@@ -139,26 +158,25 @@ const AboutInfo = styled.div`
 `;
  
 function Home() {
-  
+    
     return (
-        <>
-            <Sponsors>
+        <div>
+            <Sponsors >
                 <Container>
-                    <Row className="justify-content-center">
+                    <Row className="align-items-center">
                         <Col md={6} sm>
                             <SponsorTitle>SPONSORS</SponsorTitle> 
                         </Col>
-                        <Col md={6} sm>
+                        <Col md={3} sm>
                             <SponsorsImage src="https://www.sportengland.org/themes/custom/se/images/se-logo-white.png" alt={homeImages.alt} />
                         </Col>
                     </Row>
                 </Container>
             </Sponsors> 
-
             <TrainingPlans>
                 <Container>
                     <Row>
-                        <Col className="ml-auto" md={6} sm>
+                        <Col md={6} sm className="ml-auto">
                             <h2>TRAINING PLANS</h2>
                         </Col>
                     </Row>
@@ -167,14 +185,22 @@ function Home() {
                             <img src={FootballPlayer} alt="football_player"/>
                         </Col>
                         <Col md={6} sm>
-                            <ListWrapper>
-                                <List>
-                                    <Point>
-                                        <h5>01</h5>
-                                        <h3>COLABORATION</h3>
-                                    </Point>
-                                    <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
-                                </List>
+                            <List>
+                                <Point>
+                                    <h5>01</h5>
+                                    <h3>COLABORATION</h3>
+                                </Point>
+                                <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
+                            </List>
+                        </Col>
+                    </Row>
+                </Container>
+            </TrainingPlans>
+
+            <GrowthWrapper>
+                <Container>
+                        <Row>
+                            <Col md={6} sm className="ml-auto">
                                 <List growth>
                                     <Point growth>
                                         <h5>02</h5>
@@ -182,12 +208,11 @@ function Home() {
                                     </Point>
                                     <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
                                 </List>
-                            </ListWrapper>
-                        </Col>
-                    </Row>
+                            </Col>
+                        </Row>
                 </Container>
-            </TrainingPlans>
-            <GreyBorder style={{marginTop: "-330px", padding: "15%"}}/>
+            </GrowthWrapper>
+            
             <Promises>
                 <Container>
                     <Row>
@@ -226,7 +251,7 @@ function Home() {
                     <Testimonial />
                 </Container>
             </TestimonialWrapper>
-            <GreyBorder />
+            <GreyBorder/>
             <About>
                 <Container>
                     <Row>
@@ -247,9 +272,9 @@ function Home() {
                     </Row>
                 </Container>
             </About>
-            <GreyBorder />
-            <Index />
-        </>
+            <GreyBorder/>
+            <Index />  
+        </div>
     )
 }
 

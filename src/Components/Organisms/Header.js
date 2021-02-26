@@ -6,20 +6,15 @@ import BoostrapNavbar from '../Molecules/Navbar';
 
 
 const HeaderWrapper = styled.div`
-    display: flex;
-    // background-color: ${({theme, secondary}) => secondary ? theme.colors.primary.RoyalPurple : "none"};
-    background: ${({ open }) => (open ? "rotate(45deg)" : "rotate{0}")};
-    
+
 `;
 
 function Header(props) {
-    const {secondary, open} = props;
+    const {secondary, navBg, menuColor} = props;
 
     return (
-        <HeaderWrapper secondary={secondary} open={open}>
-            <Container>
-                <BoostrapNavbar />
-            </Container>
+        <HeaderWrapper secondary={secondary} >
+            <BoostrapNavbar navBg={navBg} menuColor={menuColor} />
         </HeaderWrapper>
 
     )

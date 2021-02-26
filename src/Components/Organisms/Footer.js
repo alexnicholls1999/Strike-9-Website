@@ -11,11 +11,10 @@ const StyledFooter = styled.footer`
     background-color: ${({theme}) => theme.colors.neutral.BlackRock};
     color:  ${({theme}) => theme.colors.neutral.White};
     bottom: 0;
-    padding: 10%;
+    padding: 10% 10px;
 
     @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
-        padding: 0;
-        padding-top: 75px;
+        padding: 5%;
     }
 
 
@@ -29,7 +28,7 @@ function Footer() {
                     <Col lg={4}>
                         <LogoFooter />
                     </Col>
-                    <ContactInfo/>
+                    
                     <FooterNav /> 
                 </Row>
                 <CopyRight />

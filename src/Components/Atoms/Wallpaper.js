@@ -5,16 +5,16 @@ import Strike9Wallpaper from "../../assets/Images/s9cover.jpg"
 
 
 const StyledWallpaper = styled.div`
-    height: ${({secondary}) => secondary ? "auto" : "100vh"};
-    background: ${({theme, secondary}) => secondary ? theme.colors.primary.RoyalPurple : `url(${Strike9Wallpaper})`};
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: url(${Strike9Wallpaper});
     background-size: cover;
     background-position: center;
-    box-shadow: ${({secondary}) => secondary ? "none" : "inset 0 0 0 100vmax rgb(5 10 43 / 84%)"};
+    box-shadow: inset 0 0 0 100vmax rgb(5 10 43 / 84%);
     top: 0;
     right: 0;
-    z-index: -1;
-
-    
+    z-index: -1;    
 `
 
 function Wallpaper({children, secondary}) {

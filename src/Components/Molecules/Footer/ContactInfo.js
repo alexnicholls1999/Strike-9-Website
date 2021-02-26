@@ -1,18 +1,35 @@
 import React from 'react';
 import styled from "styled-components";
 import { Col } from "react-bootstrap";
-import SocialMedia from "../SocialMedia";
 
 const StyledContactInfo = styled.div`
+    font-size: 14px;
+    float: left;
+    text-align: left;
 
+    p {
+        font-size: 12px;
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+    @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
+        float: none;
+        text-align: center;
+
+        p {
+            text-align: center;
+        }
+        
+
+    }
 `;
 
 function ContactInfo() {
     return (
-        <Col lg={4} className="text-center">
+        <Col lg={4} sm={12}>
             <StyledContactInfo>
                 <p>info@strike9training.co.uk</p>
-                <SocialMedia />
             </StyledContactInfo>
         </Col>
     )

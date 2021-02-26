@@ -71,7 +71,13 @@ const GlobalStyles = createGlobalStyle `
         line-height: 1.43;
         letter-spacing: 0.01071em;
     }
-
+    .fadeIn {
+        opacity: 0;
+        tranisition: opacity 250ms ease-in;
+    }
+    .fadeIn.appear {
+        opacity: 1;
+    }
 
 `
 

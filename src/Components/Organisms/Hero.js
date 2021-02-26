@@ -23,7 +23,7 @@ const ButtonsWrapper = styled.div`
 
 const SocialMediaHeroWrapper = styled.div`
     position: absolute;
-    bottom: 10%;
+    bottom: 10vh;
     right: 10%;
 `;
 
