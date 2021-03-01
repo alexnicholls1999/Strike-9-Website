@@ -144,6 +144,7 @@ const About = styled.div`
 
     img {
         width: 100%;
+        padding-top: 25px;
     }
 
     h2 {
@@ -216,22 +217,22 @@ function Home() {
             <Promises>
                 <Container>
                     <Row>
-                        <Col sm={3}>
+                        <Col md={3} sm={6}>
                             <h4>COACHING</h4>
                             <p>We will work with coaches to develop their knowledge</p>
                         </Col>
                         
-                        <Col sm={3}>
+                        <Col md={3} sm={6}>
                             <h4>PLAYERS</h4>
                             <p>We will work with coaches to develop their knowledge</p>
                         </Col>
                         
-                        <Col sm={3}>
+                        <Col md={3} sm={6}>
                             <h4>PARENTS</h4>
                             <p>We will work with coaches to develop their knowledge</p>
                         </Col>
                         
-                        <Col sm={3}>
+                        <Col md={3} sm={6}>
                             <h4>VOLUNTEERS</h4>
                             <p>We will work with coaches to develop their knowledge</p>
                         </Col>
@@ -260,13 +261,13 @@ function Home() {
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={6} sm>
+                        <Col md={6} sm={12}>
                             <AboutInfo>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit similique tenetur eos dicta ducimus obcaecati cum saepe natus incidunt, fuga porro nesciunt consectetur animi quidem asperiores voluptatem temporibus culpa veritatis?</p>
                                 <Button text="FIND OUT MORE"/>
                             </AboutInfo>
                         </Col>
-                        <Col md={6} sm>
+                        <Col md={6}>
                             <img src={AboutInfoImage} alt="Football-Player"/>
                         </Col>
                     </Row>

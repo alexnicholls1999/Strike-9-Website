@@ -40,6 +40,11 @@ const SlideText = styled.div`
         text-align: left;
         text-transform: uppercase;
     }
+
+    @media (max-width: 400px) {
+        padding-top: 65px;
+    }
+
     @media(min-width: 768px) {
         background-position: 10% 30% !important;
         background-size: 100px !important;

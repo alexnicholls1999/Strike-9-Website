@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle `
         color: ${({theme}) => theme.colors.neutral.White};
     }
     h2 {
-        font-size: clamp(${({theme}) => theme.typography.h2.fontSize.min}, 5vw, ${({theme}) => theme.typography.h2.fontSize.max});
+        font-size: clamp(${({theme}) => theme.typography.h2.fontSize.min}, ${({theme}) => theme.typography.h2.fontSize.default}, ${({theme}) => theme.typography.h2.fontSize.max});
         color: ${({theme}) => theme.colors.neutral.SilverGrey}; 
     }
     h3 {
@@ -30,7 +30,6 @@ const GlobalStyles = createGlobalStyle `
         font-weight: ${({theme}) => theme.typography.h6.fontWeight};
     }
     p {
-        font-size: clamp(${({theme}) => theme.typography.p.fontSize.min}, 5vw, ${({theme}) => theme.typography.p.fontSize.max});
         color: ${({theme}) => theme.colors.neutral.White};
     }
     input[type="text"], input[type="email"], input[type="password"] {

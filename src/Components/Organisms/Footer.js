@@ -25,7 +25,7 @@ function Footer() {
         <StyledFooter>
             <Container>
                 <Row>
-                    <Col lg={4}>
+                    <Col md={4} sm={12}>
                         <LogoFooter />
                     </Col>
                     

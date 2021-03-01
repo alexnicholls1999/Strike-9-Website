@@ -49,43 +49,50 @@ const theme = {
         h1: {
             fontSize: {
                 min: "21px",
+                default: "",
                 max: "60px"
             }
         }, 
         h2: {
             fontSize: {
-                min: "30px",
-                max: "50px"       
+                min: "2rem",
+                default: "4vw", 
+                max: "5rem"       
             }
         },
         h3: {
             fontSize: {
                 min: "25px",
+                default: "", 
                 max: "30px"
             }
         }, 
         h4: {
             fontSize: {
                 min: "15px",
+                default: "", 
                 max: "20px"
             }
         },
         h5: {
             fontSize: {
                 min: "15px",
+                default: "", 
                 max: "20px"
             }
         },
         h6: {
             fontSize: {
                 min: "15px",
+                default: "", 
                 max: "20px"
             }
         },
         p: {
             fontSize: {
-                min: "11px",
-                max: "20px"
+                min: "1rem",
+                default: ".75vw", 
+                max: "1.25rem"
             }
         }
     }

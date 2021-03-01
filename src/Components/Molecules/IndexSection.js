@@ -35,14 +35,8 @@ const StyledIndexText = styled.div`
     width: 100%;
     padding-left: 5%;
     padding-top: 10%;
-
-    // h2 {
-    //     font-size: clamp(10px, 4vw, 20px);
-    // }
-
     
     p {
-        font-size: clamp(13px, 1.5vw, 20px) !important;
         color: ${({theme}) => theme.colors.neutral.Black}
     }
 

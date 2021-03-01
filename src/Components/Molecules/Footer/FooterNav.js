@@ -36,41 +36,46 @@ const IndexFooter = styled.div`
     @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
         padding-top: 0;
         flex-direction: row;
-
-        ul {
-            margin-right: 50px;
-            padding-left: 25px;
-            
-        }
-        
     }
 
 `;
 
 function FooterNav() {
     return (
-        <Col>
-            <IndexFooter>
-                <ul>
-                    <h5>Explore</h5>
-                    <Link to="/"><li>Home</li></Link>
-                    <Link to="/"><li>Training</li></Link>
-                    <Link to="/"><li>Corporate</li></Link>
-                    <Link to="/"><li>About Us</li></Link>
-                    <Link to="/"><li>Events</li></Link>
-                    <Link to="/"><li>Contact</li></Link>
-                </ul>
-                <ul>
-                    <h5>Contact</h5>
-                    <Link to="/"><li>info@strike9training.co.uk</li></Link>
-                </ul>
-                <ul>
-                    <h5>Legal</h5>
-                    <Link to="/"><li>Terms & Conditions</li></Link>
-                    <Link to="/"><li>Privacy Policy</li></Link>
-                </ul>
-            </IndexFooter>
-        </Col>
+        <>
+            <Col md={2} sm={2}>
+                <IndexFooter>
+                    <ul>
+                        <h5>Explore</h5>
+                        <Link to="/"><li>Home</li></Link>
+                        <Link to="/"><li>Training</li></Link>
+                        <Link to="/"><li>Corporate</li></Link>
+                        <Link to="/"><li>About Us</li></Link>
+                        <Link to="/"><li>Events</li></Link>
+                        <Link to="/"><li>Contact</li></Link>
+                    </ul>
+                </IndexFooter>
+            </Col>
+
+            <Col md={3} sm={4}>
+                <IndexFooter>
+                    <ul>
+                        <h5>Contact</h5>
+                        <Link to="/"><li>info@strike9training.co.uk</li></Link>
+                    </ul>
+                </IndexFooter>
+            </Col>
+
+            <Col md={3} sm={4}>
+                <IndexFooter>
+                    <ul>
+                        <h5>Legal</h5>
+                        <Link to="/"><li>Terms & Conditions</li></Link>
+                        <Link to="/"><li>Privacy Policy</li></Link>
+                    </ul>
+                </IndexFooter>
+            </Col>
+        </>
     )
 }
 

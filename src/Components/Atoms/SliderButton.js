@@ -23,13 +23,14 @@ const ArrowButtons = styled.div`
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 200px;
+    top: 300px;
     width: 90px;
     height: 45px;
     box-shadow: -20px 12px 20px 0px hsla(240, 18%, 77%, 0.52);
     border-radius: 50px;
     background: white;
     overflow: hidden;
+
     @media(max-width: 400px) {
         top: 200px !important;
     }

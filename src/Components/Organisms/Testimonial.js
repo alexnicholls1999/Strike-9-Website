@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import Slide from '../Molecules/Slide';
 import styled from "styled-components";
 import SliderButton from '../Atoms/SliderButton';
+import imgJade from "./../../assets/Slider/image-jade.jpg";
+import imgJohn from "./../../assets/Slider/image-john.jpg";
+import imgTanya from "./../../assets/Slider/image-tanya.jpg";
 
 const Slider = styled.div`
     display: block;
@@ -21,32 +24,20 @@ function Testimonial() {
             id: 1,
             name: "Jade Francis",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis neque harum quis recusandae. Ipsa ex totam corporis officiis repellendus reiciendis, necessitatibus ut tempore nostrum beatae omnis, voluptas rem mollitia aperiam.",
-            img: `https://image.shutterstock.com/image-photo/portrait-girl-thumbs-park-260nw-573105835.jpg`
+            img: imgJade
         },
         {
             id: 2,
             name: "John Clarke",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis neque harum quis recusandae. Ipsa ex totam corporis officiis repellendus reiciendis, necessitatibus ut tempore nostrum beatae omnis, voluptas rem mollitia aperiam.",
-            img: `https://image.shutterstock.com/z/stock-photo-little-boy-shooting-at-goal-517840018.jpg`
+            img: imgJohn
         },
         {
             id: 3,
-            name: "Joe Young",
+            name: "Tanya Young",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis neque harum quis recusandae. Ipsa ex totam corporis officiis repellendus reiciendis, necessitatibus ut tempore nostrum beatae omnis, voluptas rem mollitia aperiam.",
-            img: `https://image.shutterstock.com/z/stock-photo-boys-kicking-football-on-the-sports-field-210359746.jpg`
-        },
-        {
-            id: 4,
-            name: "Adam Jackson",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis neque harum quis recusandae. Ipsa ex totam corporis officiis repellendus reiciendis, necessitatibus ut tempore nostrum beatae omnis, voluptas rem mollitia aperiam.",
-            img: `https://image.shutterstock.com/image-photo/elementary-school-kids-playing-football-600w-667950280.jpg`
-        },
-        {
-            id: 5,
-            name: "Lucy Mayfleet",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis neque harum quis recusandae. Ipsa ex totam corporis officiis repellendus reiciendis, necessitatibus ut tempore nostrum beatae omnis, voluptas rem mollitia aperiam.",
-            img: `https://image.shutterstock.com/image-photo/portrait-smiling-teen-girl-football-600w-1421155703.jpg`
-        }
+            img: imgTanya
+        } 
     ];
     const slidesArray = slides;
     const currentSlide = slidesArray[index];
@@ -56,7 +47,7 @@ function Testimonial() {
         e.preventDefault();
         
         if (index === 0) {
-            setIndex(4);
+            setIndex(2);
         } else {
             setIndex((i) => i - 1);
         }
@@ -65,7 +56,7 @@ function Testimonial() {
     const nextSlide = (e) => {
         e.preventDefault();
 
-        if (index > 3) {
+        if (index > 1) {
             setIndex(0);
         } else {
             setIndex((i) => i + 1);
