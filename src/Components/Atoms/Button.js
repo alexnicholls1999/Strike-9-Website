@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const StyledButton = styled.button`
 
     height: 45px;
-    background: ${({theme}) => theme.colors.primary.RoyalPurple};
+    background: ${({theme}) => theme.colors.primary.DaisyBush};
     border-radius: 7px;
     color: ${({theme}) => theme.colors.neutral.White};
     display: flex;
@@ -18,7 +18,7 @@ const StyledButton = styled.button`
     width: 100%;
     font-size: 12px;
     font-weight: 700;
-    box-shadow: 0px 0px 17px 2px ${({theme}) => theme.colors.primary.RoyalPurple};
+    box-shadow: 0px 0px 17px 2px ${({theme}) => theme.colors.primary.DaisyBush};
 
 `;
 

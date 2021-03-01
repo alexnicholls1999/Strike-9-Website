@@ -37,7 +37,7 @@ function Hero(props) {
     return (
         <HeroWrapper secondary={secondary}>
             <Container>
-                <Row style={{paddingTop: "3rem"}}>
+                <Row>
                     <Col lg={8} md={8} sm>
                         <h1>{title}</h1>
                         <p>{paragraph}</p>

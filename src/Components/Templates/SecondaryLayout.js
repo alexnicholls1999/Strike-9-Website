@@ -10,6 +10,12 @@ const IntroWrapper = styled.div`
     width: 100%;
 `;
 
+const Padding = styled.div`
+    padding: 3.5rem;
+
+`;
+
+
 function SecondaryLayout({children}) {
     return (
         <>  
@@ -17,10 +23,10 @@ function SecondaryLayout({children}) {
                 <Header navBg="#5E3DB3" menuColor="#5E3DB3" />
                 
             </IntroWrapper>
-            
-
 
             {children}
+
+            <Padding />
 
             <Footer />
         </>
