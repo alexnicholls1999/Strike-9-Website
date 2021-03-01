@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-
+import FadeIn from "./../../Animations/FadeIn";
 const StyledBox = styled.div`
     position: relative;
     z-index: 2;
@@ -36,8 +36,12 @@ const StyledTitle = styled.h5`
 function Box({headingTitle}) {
     return (
         <StyledBox>
-            <StyledTitle>{headingTitle}</StyledTitle>
+            <FadeIn>
+                    <StyledTitle>{headingTitle}</StyledTitle>
+            </FadeIn>
         </StyledBox>
+
+
     )
 }
 

@@ -7,9 +7,7 @@ import Testimonial from '../Components/Organisms/Testimonial';
 import AboutInfoImage from '../assets/about-info-image.png';
 import GreyBorder from '../Components/Atoms/GreyBorder';
 import Index from '../Components/Organisms/Index';
-import useFadeIn from '../react-hooks/useFadeIn';
-import gsap from "gsap";
-import { useIntersection } from "react-use";
+import FadeIn from '../Animations/FadeIn';
 
 
 
@@ -59,6 +57,7 @@ const TrainingPlans = styled.div`
     @media (min-width: ${({theme}) => theme.viewport.mediumDevices}) {
         img {
             position: absolute;
+            z-index: 2;
         }
     }
 `;
@@ -162,118 +161,126 @@ function Home() {
     
     return (
         <div>
-            <Sponsors >
-                <Container>
-                    <Row className="align-items-center">
-                        <Col md={6} sm>
-                            <SponsorTitle>SPONSORS</SponsorTitle> 
-                        </Col>
-                        <Col md={3} sm>
-                            <SponsorsImage src="https://www.sportengland.org/themes/custom/se/images/se-logo-white.png" alt={homeImages.alt} />
-                        </Col>
-                    </Row>
-                </Container>
-            </Sponsors> 
-            <TrainingPlans>
-                <Container>
-                    <Row>
-                        <Col md={6} sm className="ml-auto">
-                            <h2>TRAINING PLANS</h2>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md={6} sm>
-                            <img src={FootballPlayer} alt="football_player"/>
-                        </Col>
-                        <Col md={6} sm>
-                            <List>
-                                <Point>
-                                    <h5>01</h5>
-                                    <h3>COLABORATION</h3>
-                                </Point>
-                                <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
-                            </List>
-                        </Col>
-                    </Row>
-                </Container>
-            </TrainingPlans>
-
-            <GrowthWrapper>
-                <Container>
+            <FadeIn>
+                <Sponsors >
+                    <Container>
+                        <Row className="align-items-center">
+                            <Col md={6} sm>
+                                <SponsorTitle>SPONSORS</SponsorTitle> 
+                            </Col>
+                            <Col md={3} sm>
+                                <SponsorsImage src="https://www.sportengland.org/themes/custom/se/images/se-logo-white.png" alt={homeImages.alt} />
+                            </Col>
+                        </Row>
+                    </Container>
+                </Sponsors> 
+            </FadeIn>
+            <FadeIn>
+                <TrainingPlans>
+                    <Container>
                         <Row>
                             <Col md={6} sm className="ml-auto">
-                                <List growth>
-                                    <Point growth>
-                                        <h5>02</h5>
-                                        <h3>GROWTH</h3>
+                                <h2>TRAINING PLANS</h2>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={6} sm>
+                                <img src={FootballPlayer} alt="football_player"/>
+                            </Col>
+                            <Col md={6} sm>
+                                <List>
+                                    <Point>
+                                        <h5>01</h5>
+                                        <h3>COLABORATION</h3>
                                     </Point>
                                     <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
                                 </List>
                             </Col>
                         </Row>
-                </Container>
-            </GrowthWrapper>
+                    </Container>
+                </TrainingPlans>
+                <GrowthWrapper>
+                    <Container>
+                            <Row>
+                                <Col md={6} sm className="ml-auto">
+                                    <List growth>
+                                        <Point growth>
+                                            <h5>02</h5>
+                                            <h3>GROWTH</h3>
+                                        </Point>
+                                        <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
+                                    </List>
+                                </Col>
+                            </Row>
+                    </Container>
+                </GrowthWrapper>
+            </FadeIn>
             
-            <Promises>
-                <Container>
-                    <Row>
-                        <Col md={3} sm={6}>
-                            <h4>COACHING</h4>
-                            <p>We will work with coaches to develop their knowledge</p>
-                        </Col>
-                        
-                        <Col md={3} sm={6}>
-                            <h4>PLAYERS</h4>
-                            <p>We will work with coaches to develop their knowledge</p>
-                        </Col>
-                        
-                        <Col md={3} sm={6}>
-                            <h4>PARENTS</h4>
-                            <p>We will work with coaches to develop their knowledge</p>
-                        </Col>
-                        
-                        <Col md={3} sm={6}>
-                            <h4>VOLUNTEERS</h4>
-                            <p>We will work with coaches to develop their knowledge</p>
-                        </Col>
-                    </Row>
-                </Container>
-            </Promises>
+            <FadeIn>
+                <Promises>
+                    <Container>
+                        <Row>
+                            <Col md={3} sm={6}>
+                                <h4>COACHING</h4>
+                                <p>We will work with coaches to develop their knowledge</p>
+                            </Col>
+                            
+                            <Col md={3} sm={6}>
+                                <h4>PLAYERS</h4>
+                                <p>We will work with coaches to develop their knowledge</p>
+                            </Col>
+                            
+                            <Col md={3} sm={6}>
+                                <h4>PARENTS</h4>
+                                <p>We will work with coaches to develop their knowledge</p>
+                            </Col>
+                            
+                            <Col md={3} sm={6}>
+                                <h4>VOLUNTEERS</h4>
+                                <p>We will work with coaches to develop their knowledge</p>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Promises>
+            </FadeIn>
 
-
-            <TestimonialWrapper>
-                <Container>
-                    <Row>
-                        <Col md={6} sm>
-                            <h2>FEEDBACK</h2>
-                        </Col>
-                    </Row>
-                
-                    <Testimonial />
-                </Container>
-            </TestimonialWrapper>
-            <GreyBorder/>
-            <About>
-                <Container>
-                    <Row>
-                        <Col md={6} sm className="mr-auto">
-                            <h2>ABOUT US</h2>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md={6} sm={12}>
-                            <AboutInfo>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit similique tenetur eos dicta ducimus obcaecati cum saepe natus incidunt, fuga porro nesciunt consectetur animi quidem asperiores voluptatem temporibus culpa veritatis?</p>
-                                <Button text="FIND OUT MORE"/>
-                            </AboutInfo>
-                        </Col>
-                        <Col md={6}>
-                            <img src={AboutInfoImage} alt="Football-Player"/>
-                        </Col>
-                    </Row>
-                </Container>
-            </About>
-            <GreyBorder/>
+            <FadeIn>
+                <TestimonialWrapper>
+                    <Container>
+                        <Row>
+                            <Col md={6} sm>
+                                <h2>FEEDBACK</h2>
+                            </Col>
+                        </Row>
+                    
+                        <Testimonial />
+                    </Container>
+                </TestimonialWrapper>
+                <GreyBorder/>
+            </FadeIn>
+            <FadeIn>
+                <About>
+                    <Container>
+                        <Row>
+                            <Col md={6} sm className="mr-auto">
+                                <h2>ABOUT US</h2>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={6} sm={12}>
+                                <AboutInfo>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit similique tenetur eos dicta ducimus obcaecati cum saepe natus incidunt, fuga porro nesciunt consectetur animi quidem asperiores voluptatem temporibus culpa veritatis?</p>
+                                    <Button text="FIND OUT MORE"/>
+                                </AboutInfo>
+                            </Col>
+                            <Col md={6}>
+                                <img src={AboutInfoImage} alt="Football-Player"/>
+                            </Col>
+                        </Row>
+                    </Container>
+                </About>
+                <GreyBorder/>
+            </FadeIn>
             <Index />  
         </div>
     )

@@ -2,6 +2,9 @@ import React from 'react'
 import styled from "styled-components";
 import Box from '../Atoms/Box';
 import Button from '../Atoms/Button';
+import FadeIn from "./../../Animations/FadeIn";
+import SlideInRight from "./../../Animations/SlideInRight";
+import SlideInLeft from "./../../Animations/SlideInLeft";
 
 const StyledIndexSection = styled.div`
     display: flex;
@@ -62,17 +65,46 @@ function IndexSection(props) {
     const {src, alt, headingTitle, title, message, text, alternate} = props;
 
     return (
-        <StyledIndexSection alternate={alternate}>
-            <StyledIndexImage>
-                <img src={src} alt={alt}/>
-            </StyledIndexImage>
-            <Box headingTitle={headingTitle} />
-            <StyledIndexText>
-                <h2>{title}</h2>
-                <p>{message}</p>
-                <Button text={text}/>
-            </StyledIndexText>
-        </StyledIndexSection>
+        <>
+        {!alternate ? (
+            <FadeIn>
+                <StyledIndexSection>
+                    <StyledIndexImage>
+                        <SlideInRight>
+                            <img src={src} alt={alt} />
+                        </SlideInRight>
+                    </StyledIndexImage>
+                    <Box headingTitle={headingTitle} />
+                    <StyledIndexText>
+                        <SlideInLeft>
+                            <h2>{title}</h2>
+                            <p>{message}</p>
+                            <Button text={text}/>
+                        </SlideInLeft>
+                    </StyledIndexText>
+                </StyledIndexSection>
+            </FadeIn>
+        ) : (
+            <FadeIn>
+                <StyledIndexSection alternate={alternate}>
+                    <StyledIndexImage>
+                        <SlideInLeft>
+                            <img src={src} alt={alt} />
+                        </SlideInLeft>
+                    </StyledIndexImage>
+                    <Box headingTitle={headingTitle} />
+                    <StyledIndexText>
+                        <SlideInRight>
+                            <h2>{title}</h2>
+                            <p>{message}</p>
+                            <Button text={text}/>
+                        </SlideInRight>
+                    </StyledIndexText>
+                </StyledIndexSection>
+            </FadeIn>
+        )}
+
+        </>
     )
 }
 

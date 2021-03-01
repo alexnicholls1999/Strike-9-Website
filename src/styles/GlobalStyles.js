@@ -70,14 +70,50 @@ const GlobalStyles = createGlobalStyle `
         line-height: 1.43;
         letter-spacing: 0.01071em;
     }
+    
     .fadeIn {
         opacity: 0;
-        tranisition: opacity 250ms ease-in;
-    }
-    .fadeIn.appear {
+        visibility: hidden;
+        transition: opacity 1200ms ease-in, transform 600ms ease-in,
+          visibility 1200ms ease-in;
+        will-change: opacity, transform, visibility;
+      }
+      .fadeIn.isVisible {
         opacity: 1;
-    }
-
+        transform: none;
+        visibility: visible;
+      }
+      
+      .slideInRight {
+        transform: translateX(0);
+      }
+      
+      .slideInLeft {
+        transform: translateX(0);
+      }
+      
+      .slideInLeft,
+      .slideInRight {
+        opacity: 0;
+        transition: transform 400ms ease-in;
+      }
+      
+      .slideInRight.isVisible,
+      .slideInLeft.isVisible {
+        opacity: 1;
+        transform: translateX(0);
+        display: block;
+      }
+      
+      @media (min-width: 768px) {
+        .slideInRight {
+          transform: translateX(50%);
+        }
+      
+        .slideInLeft {
+          transform: translateX(-50%);
+        }
+      }
 `
 
 export default GlobalStyles;

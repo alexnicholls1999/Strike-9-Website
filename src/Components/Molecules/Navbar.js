@@ -19,7 +19,8 @@ const StyledNav = styled(Nav)`
 `;
 
 const StyledNavbar = styled(Navbar)`
-    background: ${({ open, navBg, menuColor}) => (open ? menuColor : navBg)}
+    background: ${({ open, navBg, menuColor}) => (open ? menuColor : navBg)};
+    padding-bottom: 5%;
 `
 
 const StyledNavLink = styled(NavLink)`
