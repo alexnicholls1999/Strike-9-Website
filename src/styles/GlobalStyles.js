@@ -29,9 +29,7 @@ const GlobalStyles = createGlobalStyle `
         font-size: clamp(${({theme}) => theme.typography.h6.fontSize.min}, 5vw, ${({theme}) => theme.typography.h6.fontSize.max}) 
         font-weight: ${({theme}) => theme.typography.h6.fontWeight};
     }
-    p {
-        color: ${({theme}) => theme.colors.neutral.White};
-    }
+
     input[type="text"], input[type="email"], input[type="password"] {
         width: 100%;
         height: 40px;
@@ -59,10 +57,24 @@ const GlobalStyles = createGlobalStyle `
     .MuiStepLabel-label.MuiStepLabel-active {
         color: ${({theme}) => theme.colors.primary.RoyalPurple} !important;
         font-weight: bold !important;
+        
     }
     .MuiStepLabel-label {
         color: #f1f1f1 !important;
+        display: none !important;
     }
+
+    @media (min-width: 768px) {
+      .MuiStepLabel-label {
+        display: block !important;
+      }
+
+      .MuiStepLabel-label.MuiStepLabel-active {
+        display: block !important;
+      }
+
+    }
+  
     .MuiTypography-body2 {
         font-size: 1rem !important;
         font-family: "Muli", sans-serif !important;
@@ -80,7 +92,6 @@ const GlobalStyles = createGlobalStyle `
       }
       .fadeIn.isVisible {
         opacity: 1;
-        transform: none;
         visibility: visible;
       }
       

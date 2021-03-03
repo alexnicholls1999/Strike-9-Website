@@ -27,6 +27,10 @@ const SocialMediaHeroWrapper = styled.div`
     right: 10%;
 `;
 
+const Memo = styled.p`
+    color: ${({theme}) => theme.colors.neutral.White};
+`;
+
 function Hero(props) {
 
     const {title, paragraph, children, secondary, homepage} = props;
@@ -40,7 +44,7 @@ function Hero(props) {
                 <Row>
                     <Col lg={8} md={8} sm>
                         <h1>{title}</h1>
-                        <p>{paragraph}</p>
+                        <Memo>{paragraph}</Memo>
                     </Col>
                 </Row>
             </Container>

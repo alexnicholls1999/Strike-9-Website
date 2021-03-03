@@ -4,11 +4,11 @@ import { Container } from 'react-bootstrap'
 import Hero from '../Components/Organisms/Hero'
 import Search from '../Components/Organisms/Search'
 import { events } from './../events';
-import Event from '../Components/Molecules/Event'
+import Event from '../Components/Molecules/Event';
+import FadeIn from './../Animations/FadeIn';
 
 const SearchResults = styled.div`
-
-
+    padding: 0 5%;
 `;
 
 function Events() {
@@ -19,8 +19,8 @@ function Events() {
                     <Search />
                 </Container>
             </Hero>
-            <Container>
-                <SearchResults>
+            <SearchResults>
+                <Container>
                     {events.map((event) => (
                         <Event
                             key={event.id}
@@ -32,10 +32,13 @@ function Events() {
                             description={event.description}
                             time={event.time}
                             buttonName="BOOK"
+                            linkTo={"/events/" + event.id}
                         />
+
                     ))}
-                </SearchResults>
-            </Container>
+                </Container>
+
+            </SearchResults>
         </div>
     )
 }

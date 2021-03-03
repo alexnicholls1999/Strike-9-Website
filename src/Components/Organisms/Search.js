@@ -117,7 +117,7 @@ function Search({handleDateChange, handleTimeChange, handleTypeChange, handleAge
                             <span style={{ marginLeft: 8, fontWeight: 500}}>Available Slots</span>
                         </label>
                     </Col>
-                    <Col lg={3} md={3} sm={12} className="p-1 py-1 ml-auto">
+                    <Col lg={2} md={3} sm={12} className="ml-auto">
                         <Button style={{float: "right"}} text="SEARCH" onClick={onClick} />
                     </Col>
                 </Row>

@@ -7,6 +7,7 @@ import Events from './Pages/Events';
 import GlobalStyles from "./styles/GlobalStyles";
 import MainLayout from "./Components/Templates/MainLayout";
 import SecondaryLayout from "./Components/Templates/SecondaryLayout";
+import BookEvent from "./Pages/BookEvent";
 
 const content = {
   title: "STRIKE 9 TRAINING ACADEMY",
@@ -25,9 +26,14 @@ function App() {
             <Home  />
           </MainLayout>
         </Route>
-        <Route path="/events">
+        <Route exact path="/events">
           <SecondaryLayout>
             <Events/>
+          </SecondaryLayout>
+        </Route>
+        <Route path="/events/:id">
+          <SecondaryLayout>
+            <BookEvent />
           </SecondaryLayout>
         </Route>
       </Switch>
