@@ -45,7 +45,7 @@ const FormikConnector = withStyles({
 function FormikStepper({children, ...props}) {
     const childrenArray = Children.toArray(children);
     const [step, setStep] = useState(0);
-    const [completed, setCompleted] = useState(0);
+    const [completed, setCompleted] = useState(false);
     const currentChild = childrenArray[step];
 
     const isLastStep = () => {
@@ -83,23 +83,7 @@ function FormikStepper({children, ...props}) {
                     <Container>
                         <div className="py-3"></div>
                         <Row>
-                            <Col lg={8}>
-                                <StepBody>
-                                    {currentChild}
-                                </StepBody>
-                            </Col>
-                            <Col lg={3} className="ml-auto">
-                                <ButtonControls style={props.buttonStyle}>
-                                    <Button disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress size="1rem"/> : null} type="submit" text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} /> 
-                            
-                                    {step > 0 && step < 3 ? (
-                                        
-                                            <Button disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS"/>  
-                                        
-                                    ) : null}
-                                </ButtonControls>
-                            </Col>
-                            {/* {completed === false ? (
+                            {completed === false ? (
                                 <Col lg={8}>
                                     <StepBody>
                                         {currentChild}
@@ -112,7 +96,7 @@ function FormikStepper({children, ...props}) {
                             )}
 
                             {completed === false ? (
-                                <Col lg={4}>
+                                <Col lg={3} sm={12} className="ml-auto">
                                     <ButtonControls style={props.buttonStyle}>
                                         <Button disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress size="1rem"/> : null} type="submit" text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} /> 
                                 
@@ -123,7 +107,7 @@ function FormikStepper({children, ...props}) {
                                         ) : null}
                                     </ButtonControls>
                                 </Col>
-                            ) : null} */}
+                            ) : null}
                         </Row>
                     </Container>
                 </Form>

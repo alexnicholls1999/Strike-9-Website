@@ -64,6 +64,16 @@ const GlobalStyles = createGlobalStyle `
         display: none !important;
     }
 
+    .MuiStepConnector-root {
+      opacity: 1;
+    }
+
+    @media (max-width: 400px) {
+      .MuiStepConnector-root {
+        opacity: 0;
+      }
+    }
+
     @media (min-width: 768px) {
       .MuiStepLabel-label {
         display: block !important;

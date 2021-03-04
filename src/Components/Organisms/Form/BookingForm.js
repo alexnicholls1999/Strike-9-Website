@@ -6,11 +6,14 @@ import { BillingAddressSchema, EventsDetailsSchema, PersonalDetailsSchema } from
 import PersonalDetails from './Steps/PersonalDetails';
 import BillingAddress from './Steps/BillingAddress';
 import Summary from './Steps/Summary';
+import useBookEvent from '../../../react-hooks/useBookEvent';
+import Confirmation from './Steps/Confirmation';
 
 
 function BookingForm({params}) {
     const id = params.id;
 
+    const { handleSubmit, setBooked, booked } = useBookEvent();
 
     return (
         <FormikStepper
@@ -31,7 +34,8 @@ function BookingForm({params}) {
                 postcode: ""
             }}
             onSubmit={async (values) => {
-                console.log(values);
+                setBooked("Booked!");
+                handleSubmit(values);
             }}
         > 
             <FormikStep label="Events Details" validationSchema={EventsDetailsSchema} >
@@ -51,9 +55,14 @@ function BookingForm({params}) {
                 <BillingAddress />
             </FormikStep>
 
-            <FormikStep label="Summary">
-                <Summary />
-            </FormikStep>
+            { booked === "Booked!" ? (
+                <Confirmation label={booked}/>
+            ) : (
+                <FormikStep label={booked}>
+                    <Summary />
+                </FormikStep>
+            )}
+
         </FormikStepper>
 
     )
