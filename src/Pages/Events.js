@@ -20,7 +20,6 @@ function Events() {
                 </Container>
             </Hero>
             <SearchResults>
-                <Container>
                     {events.map((event) => (
                         <Event
                             key={event.id}
@@ -36,7 +35,6 @@ function Events() {
                         />
 
                     ))}
-                </Container>
 
             </SearchResults>
         </div>

@@ -15,7 +15,7 @@ const IndexFooter = styled.div`
         margin-bottom: 5%;
 
         h5 {
-            font-size: .75rem;
+            font-size: 1rem;
             font-weight: 700;
         }
 

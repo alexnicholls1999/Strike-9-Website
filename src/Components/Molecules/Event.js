@@ -36,7 +36,7 @@ const EventsType = styled.p`
 
 const EventsAge = styled.p`
     color: #606060;
-    font-size: clamp(10px, 2.5vw, 18px);
+    font-size: clamp(8px, 2vw, 15px);
 `;
 
 const Cost = styled.h5`
@@ -47,7 +47,8 @@ const Cost = styled.h5`
 
 const Date = styled.h6`
     font-size: clamp(10px, 2.5vw, 18px);
-
+    margin-bottom: 0;
+    font-weight: 700;
 `;
 
 const Time = styled.p`
@@ -97,7 +98,7 @@ function Event({title, type, age, cost, date, time, description, linkTo, buttonN
                                 </Col>
                             </Row>  
                             <Row>
-                                <Col lg={2} md={3} sm={5} xs={5} className="ml-auto">
+                                <Col lg={2} md={3} sm={5} xs={6} className="ml-auto">
                                     <Button onClick={handleClick} shadow text={buttonName}/>
                                 </Col>
                             </Row> 
