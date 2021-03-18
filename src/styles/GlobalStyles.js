@@ -33,7 +33,7 @@ const GlobalStyles = createGlobalStyle `
     input[type="text"], input[type="email"], input[type="password"] {
         width: 100%;
         height: 40px;
-        border: 1px solid ${({theme}) => theme.colors.darkShade[10]};
+        border: 1px solid rgba(236, 236, 236, 100);
         box-sizing: border-box;
         border-radius: 4px;
         margin-bottom: 2%;
