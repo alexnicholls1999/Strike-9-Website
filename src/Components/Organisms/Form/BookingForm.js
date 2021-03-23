@@ -31,14 +31,17 @@ function BookingForm({params}) {
                 billingLine2: "",
                 billingLine3: "",
                 location: "",
-                postcode: ""
+                postcode: "",
+                checked: false
             }}
             onSubmit={async (values) => {
                 setBooked("Booked!");
                 handleSubmit(values);
             }}
         > 
-            <FormikStep label="Events Details" validationSchema={EventsDetailsSchema} >
+            <FormikStep label="Events Details" 
+            // validationSchema={EventsDetailsSchema} 
+            >
                 <EventDetails 
                     date="17th October 2020"
                     time="12:00 - 14:00"
@@ -47,11 +50,15 @@ function BookingForm({params}) {
                 />
             </FormikStep>
             
-            <FormikStep label="Personal Details" validationSchema={PersonalDetailsSchema}>
+            <FormikStep label="Personal Details" 
+            // validationSchema={PersonalDetailsSchema}
+            >
                 <PersonalDetails />
             </FormikStep>
             
-            <FormikStep label="Billing Address" validationSchema={BillingAddressSchema}>
+            <FormikStep label="Billing Address" 
+            // validationSchema={BillingAddressSchema}
+            >
                 <BillingAddress />
             </FormikStep>
 

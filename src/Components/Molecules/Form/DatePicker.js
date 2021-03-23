@@ -73,15 +73,15 @@ const ReactDatePickerWrapper = styled.div`
             margin-top: 0;
             margin-bottom: 0.75rem;
 
-            .react-datepicker__day--keyboard-selected, .react-datepicker__day--today {
+            .react-datepicker__day--selected, .react-datepicker__day--keyboard-selected{
                 background-color: ${({theme}) => theme.colors.primary.DaisyBush};
-                font-weight: lighter;
+                font-weight: bold;
             }
+
             .react-datepicker__day--outside-month {
                 color: #e2e2e2;
             }
         }
- 
     }
 
 

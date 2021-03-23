@@ -1,6 +1,6 @@
 import React, { useState, Children} from 'react';
 import styled from "styled-components";
-import {Formik, Form} from "formik";
+import {Formik, Form, useFormikContext} from "formik";
 import Card from '../../Atoms/Card';
 import { CircularProgress, Step, StepLabel, Stepper } from '@material-ui/core';
 import { Container, Row, Col} from 'react-bootstrap';
@@ -8,6 +8,7 @@ import {withStyles} from "@material-ui/core/styles";
 import StepConnector from "@material-ui/core/StepConnector";
 import Button from '../../Atoms/Button';
 import StepIcon from '../../Atoms/Forms/StepIcon';
+import Checkbox from '../../Atoms/Forms/Checkbox';
 
 const ButtonControls = styled.div`
     width: 100%;
@@ -42,11 +43,12 @@ const FormikConnector = withStyles({
     }
 })(StepConnector);
 
-function FormikStepper({children, ...props}) {
+function FormikStepper({children, handleCheck, checkedValue, checked, ...props}) {
     const childrenArray = Children.toArray(children);
     const [step, setStep] = useState(0);
     const [completed, setCompleted] = useState(false);
     const currentChild = childrenArray[step];
+    const formik = useFormikContext();
 
     const isLastStep = () => {
         return step === childrenArray.length - 1;
@@ -97,15 +99,28 @@ function FormikStepper({children, ...props}) {
 
                             {completed === false ? (
                                 <Col lg={3} sm={12} className="ml-auto">
-                                    <ButtonControls style={props.buttonStyle}>
-                                        <Button disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress size="1rem"/> : null} type="submit" text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} /> 
-                                
-                                        {step > 0 && step < 3 ? (
-                                            
-                                                <Button disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS"/>  
-                                            
-                                        ) : null}
-                                    </ButtonControls>
+                                    <Row>
+                                        <Col sm={{span: 12, order: 2}}>  
+                                            <div className="p-3"></div>
+                                            {isLastStep() ? 
+                                                <div>
+                                                    
+                                                    <p> By booking an event, you agree to Strike 9 Trainings <a href="">Terms and Conditions </a> and <a href="">Privacy Policy </a>.</p>
+                                                </div>
+                                            : null}
+                                        </Col>
+                                        <Col sm={{span: 12, order: 1}}>
+                                            <ButtonControls style={props.buttonStyle}>
+                                                <Button disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress size="1rem"/> : null} type="submit" text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} /> 
+                                        
+                                                {step > 0 && step < 3 ? (
+                                                    
+                                                        <Button disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS"/>  
+                                                    
+                                                ) : null}
+                                            </ButtonControls>
+                                        </Col>
+                                    </Row>
                                 </Col>
                             ) : null}
                         </Row>

@@ -115,7 +115,9 @@ function Summary(props) {
                     </Row>
 
                 </Container>
-             </StyledSummary>         
+             </StyledSummary>
+             
+
         </FormikStep>
 
     )
