@@ -9,6 +9,8 @@ import StepConnector from "@material-ui/core/StepConnector";
 import Button from '../../Atoms/Button';
 import StepIcon from '../../Atoms/Forms/StepIcon';
 import Checkbox from '../../Atoms/Forms/Checkbox';
+import Modal from '../../Atoms/Modal';
+import TermsAndConditions from '../../Organisms/TermsAndConditions';
 
 const ButtonControls = styled.div`
     width: 100%;
@@ -22,6 +24,13 @@ const StepBody = styled.div`
 
 `;
 
+const StyledModalWrapper = styled.div`
+    position: relative;
+`;
+
+const StyledClickWrap = styled.div`
+    display: ${({show}) => (show ? "none" : "block")};
+`;
 
 const FormikConnector = withStyles({
     active: {
@@ -48,7 +57,20 @@ function FormikStepper({children, handleCheck, checkedValue, checked, ...props})
     const [step, setStep] = useState(0);
     const [completed, setCompleted] = useState(false);
     const currentChild = childrenArray[step];
-    const formik = useFormikContext();
+
+    const [show, setShow] = useState(false);
+    const [termsandconditions, setTermsandConditions] = useState(false);
+
+    const handleShowTermsAndConditions = (e) => {
+        setShow(!show);
+        setTermsandConditions(true);
+    }
+
+    
+    const handleShowPrivacyPolicy = (e) => { 
+        setShow(!show);
+        setTermsandConditions(false);
+    }
 
     const isLastStep = () => {
         return step === childrenArray.length - 1;
@@ -68,6 +90,7 @@ function FormikStepper({children, handleCheck, checkedValue, checked, ...props})
             }}
         >
             {({ isSubmitting, isValid, dirty }) => (
+                <>
                 <Form autoComplete="off">
                     <Card style={{marginTop: "-45px", zIndex: "1", position: "relative"}}>
                         <Stepper connector={<FormikConnector/>} activeStep={step}>
@@ -103,10 +126,11 @@ function FormikStepper({children, handleCheck, checkedValue, checked, ...props})
                                         <Col sm={{span: 12, order: 2}}>  
                                             <div className="p-3"></div>
                                             {isLastStep() ? 
-                                                <div>
-                                                    
-                                                    <p> By booking an event, you agree to Strike 9 Trainings <a href="">Terms and Conditions </a> and <a href="">Privacy Policy </a>.</p>
-                                                </div>
+                                                <>
+                                                    <StyledClickWrap show={show}>
+                                                        <p> By booking an event, you agree to Strike 9 Trainings <a href="#" onClick={(e) => { handleShowTermsAndConditions(e);}}>Terms and Conditions </a> and <a href="#" onClick={(e) => {handleShowPrivacyPolicy(e);}}>Privacy Policy </a>.</p>
+                                                    </StyledClickWrap>
+                                                </>
                                             : null}
                                         </Col>
                                         <Col sm={{span: 12, order: 1}}>
@@ -120,12 +144,24 @@ function FormikStepper({children, handleCheck, checkedValue, checked, ...props})
                                                 ) : null}
                                             </ButtonControls>
                                         </Col>
+                                        
                                     </Row>
                                 </Col>
                             ) : null}
                         </Row>
                     </Container>
+
                 </Form>
+                <StyledModalWrapper>
+                    {termsandconditions === true ? (
+                        <Modal onClose={handleShowTermsAndConditions} show={show}>
+                            <TermsAndConditions />  
+                        </Modal>
+                    ) : (
+                        <Modal onClose={handleShowPrivacyPolicy} show={show}/>
+                    )}
+                </StyledModalWrapper>
+                </>
             )}
         </Formik>
     )
