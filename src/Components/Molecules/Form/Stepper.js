@@ -11,6 +11,7 @@ import StepIcon from '../../Atoms/Forms/StepIcon';
 import Checkbox from '../../Atoms/Forms/Checkbox';
 import Modal from '../../Atoms/Modal';
 import TermsAndConditions from '../../Organisms/TermsAndConditions';
+import PrivacyPolicy from '../../Organisms/PrivacyPolicy';
 
 const ButtonControls = styled.div`
     width: 100%;
@@ -19,13 +20,23 @@ const ButtonControls = styled.div`
 
 `;
 
+
+
 const StepBody = styled.div`
 
 
 `;
 
 const StyledModalWrapper = styled.div`
-    position: relative;
+    display: ${({show}) => (show ? "block" : "none")};
+    position: fixed;
+    padding: 2.5%;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
 `;
 
 const StyledClickWrap = styled.div`
@@ -152,13 +163,15 @@ function FormikStepper({children, handleCheck, checkedValue, checked, ...props})
                     </Container>
 
                 </Form>
-                <StyledModalWrapper>
+                <StyledModalWrapper show={show}> 
                     {termsandconditions === true ? (
                         <Modal onClose={handleShowTermsAndConditions} show={show}>
                             <TermsAndConditions />  
                         </Modal>
                     ) : (
-                        <Modal onClose={handleShowPrivacyPolicy} show={show}/>
+                        <Modal onClose={handleShowPrivacyPolicy} show={show}>
+                            <PrivacyPolicy />
+                        </Modal>
                     )}
                 </StyledModalWrapper>
                 </>

@@ -15,24 +15,43 @@ const StyledModal = styled.div`
     opacity: ${({show}) => (show ? "1" : "0")};
     visibility: ${({show}) => (show ? "visible" : "hidden")};
     transform: ${(show) => (show ? "scale(1)": "scale(0.33)")}; 
+
+    @media(min-width: 768px) {
+        width: 500px;
+        height: 500px;
+        margin-top: 25vh;
+    }
 `;
 
 const StyledModalShadow = styled.div`
-    background: black; 
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    opacity: 0.25;
 `;
 
 const StyledModalMain = styled.div`
     position: relative;
-    padding: 0 5%;
-    padding-top: 0;
+    padding: 5%;
     height: 85%;
     overflow-y: auto;
+
+    h2 {
+        font-size: 1.75rem;
+        color: #4D2AA5;
+        font-weight: 600;
+    }
 `;
 
 const StyledModalFooter = styled.div`
-    height: 15%;
     background: white;
+    float: right;
+    width: 150px;
+    margin-right: 15px;
 `;
 
 function Modal({onClose, show, children}) {

@@ -1,9 +1,9 @@
 import React from 'react'
 
-function TermsAndConditions() {
+function PrivacyPolicy() {
     return (
         <>
-            <h2>Terms And Conditions</h2>
+            <h2>Privacy Policy</h2>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores consequuntur possimus cumque earum consequatur ex ducimus blanditiis, nostrum enim eum.</p>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores consequuntur possimus cumque earum consequatur ex ducimus blanditiis, nostrum enim eum.</p>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores consequuntur possimus cumque earum consequatur ex ducimus blanditiis, nostrum enim eum.</p>
@@ -16,4 +16,4 @@ function TermsAndConditions() {
     )
 }
 
-export default TermsAndConditions
+export default PrivacyPolicy;
