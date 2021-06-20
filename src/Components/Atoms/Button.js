@@ -28,9 +28,9 @@ const StyledButton = styled.button`
 
 `;
 
-function Button({onClick, linkto, text, ...Props}) {
+function Button({onClick, linkto, text,  disabled, ...Props}) {
     return (
-        <StyledButton onClick={onClick} {...Props} >{text}</StyledButton>
+        <StyledButton onClick={onClick} disabled={disabled} {...Props} >{text}</StyledButton>
     )
 }
 

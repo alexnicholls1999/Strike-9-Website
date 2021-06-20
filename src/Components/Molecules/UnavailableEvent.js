@@ -68,12 +68,8 @@ const Description = styled.p `
     opacity: 0.6;
 `;
 
-function UnavailableEvent({title, type, age, cost, date, time, description, linkTo, buttonName}) {
-    const history = useHistory();
+function UnavailableEvent({title, type, age, date, time, description, linkTo, buttonName}) {
 
-    const handleClick = () => {
-        history.push(linkTo)
-    }
 
     return (
         <Row className="justify-content-center">
@@ -106,7 +102,7 @@ function UnavailableEvent({title, type, age, cost, date, time, description, link
                             </Row>  
                             <Row>
                                 <Col lg={2} md={3} sm={5} xs={6} className="ml-auto">
-                                    <Button onClick={handleClick} disabled shadow text={buttonName}/>
+                                    <Button disabled text={buttonName}/>
                                 </Col>
                             </Row> 
                         </Col>
