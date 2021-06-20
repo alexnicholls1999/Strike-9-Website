@@ -7,6 +7,7 @@ import { events } from './../events';
 import Event from '../Components/Molecules/Event';
 import FadeIn from './../Animations/FadeIn';
 import useSearch from "./../react-hooks/useSearch";
+import UnavailableEvent from '../Components/Molecules/UnavailableEvent'
 
 const SearchResults = styled.div`
     padding: 0 5%;
@@ -41,10 +42,29 @@ function Events() {
                         updateEvents.map((event) => (
                             event.slots > 0 ? (
                                 <Event 
-
+                                    key={event.id}
+                                    title={event.eventsTitle}
+                                    type={event.eventsType}
+                                    age={event.age}
+                                    cost={event.cost}
+                                    date={event.date}
+                                    description={event.description}
+                                    time={event.time}
+                                    buttonName="BOOK"
+                                    linkTo={"/events/" + event.id}
                                 />
                             ) : (
-                                <UnavailableEvent />
+                                <UnavailableEvent 
+                                    key={event.id}
+                                    title={event.eventsTitle}
+                                    type={event.eventsType}
+                                    age={event.age}
+                                    cost={event.cost}
+                                    date={event.date}
+                                    description={event.description}
+                                    time={event.time}
+                                    buttonName="BOOK"
+                                />
                             )
                         ))
                     ) : (

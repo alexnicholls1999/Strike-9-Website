@@ -20,6 +20,12 @@ const StyledButton = styled.button`
     font-weight: 700;
     box-shadow: 0px 0px 17px 2px ${({theme}) => theme.colors.primary.DaisyBush};
 
+    &:disabled {
+        background-color: ${({ theme }) => theme.colors.primary.DaisyBush};
+        border-color: ${({ theme }) => theme.colors.primary.DaisyBush};
+        opacity: 0.6;
+    }
+
 `;
 
 function Button({onClick, linkto, text, ...Props}) {
