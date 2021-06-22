@@ -18,7 +18,7 @@ function BookEvent() {
                 </Container>
             </Hero>
             <Container>
-                <BookingForm params={params} />
+                <BookingForm params={params} /> 
             </Container>
         </>
     )

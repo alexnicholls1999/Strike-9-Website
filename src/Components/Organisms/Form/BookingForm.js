@@ -1,4 +1,8 @@
 import React from 'react'
+import { compose } from 'redux';
+import { connect } from 'formik';
+import { firestoreConnect } from 'react-redux-firebase';
+
 import FormikStep from '../../Atoms/Forms/Step';
 import FormikStepper from '../../Molecules/Form/Stepper';
 import EventDetails from './Steps/EventDetails';
@@ -10,69 +14,93 @@ import useBookEvent from '../../../react-hooks/useBookEvent';
 import Confirmation from './Steps/Confirmation';
 
 
-function BookingForm({params}) {
+
+function BookingForm({params, event, auth}) {
     const id = params.id;
 
     const { handleSubmit, setBooked, booked } = useBookEvent();
 
-    return (
-        <FormikStepper
-            initialValues={{
-                eventId: id,
-                teamName: "",
-                firstName: "",
-                lastName: "",
-                email: "",
-                mobile: "",
-                gender: "",
-                selectedDate: "",
-                ethnicity: "",
-                billingLine1: "",
-                billingLine2: "",
-                billingLine3: "",
-                location: "",
-                postcode: "",
-                checked: false
-            }}
-            onSubmit={async (values) => {
-                setBooked("Booked!");
-                handleSubmit(values);
-            }}
-        > 
-            <FormikStep label="Events Details" 
-            // validationSchema={EventsDetailsSchema} 
-            >
-                <EventDetails 
-                    date="17th October 2020"
-                    time="12:00 - 14:00"
-                    address="Mosley School Sports Centre, Springfield Road, B13 9NP"
-                    cost="FREE"
-                />
-            </FormikStep>
-            
-            <FormikStep label="Personal Details" 
-            // validationSchema={PersonalDetailsSchema}
-            >
-                <PersonalDetails />
-            </FormikStep>
-            
-            <FormikStep label="Billing Address" 
-            // validationSchema={BillingAddressSchema}
-            >
-                <BillingAddress />
-            </FormikStep>
 
-            { booked === "Booked!" ? (
-                <Confirmation label={booked}/>
-            ) : (
-                <FormikStep label={booked}>
-                    <Summary />
+    if (event) {
+        return (
+            <FormikStepper
+                initialValues={{
+                    eventId: id,
+                    uid: auth.id,
+                    slots: event.slots - 1,
+                    teamName: "",
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    mobile: "",
+                    gender: "",
+                    selectedDate: "",
+                    ethnicity: "",
+                    billingLine1: "",
+                    billingLine2: "",
+                    billingLine3: "",
+                    location: "",
+                    postcode: "",
+                    checked: false
+                }}
+                onSubmit={async (values) => {
+                    setBooked("Booked!");
+                    handleSubmit(values);
+                }}
+            > 
+                <FormikStep label="Events Details" 
+                // validationSchema={EventsDetailsSchema} 
+                >
+                    <EventDetails 
+                        date={event.date}
+                        time={event.time}
+                        address="Mosley School Sports Centre, Springfield Road, B13 9NP"
+                        cost={event.cost}
+                    />
                 </FormikStep>
-            )}
+                
+                <FormikStep label="Personal Details" 
+                // validationSchema={PersonalDetailsSchema}
+                >
+                    <PersonalDetails />
+                </FormikStep>
+                
+                <FormikStep label="Billing Address" 
+                // validationSchema={BillingAddressSchema}
+                >
+                    <BillingAddress />
+                </FormikStep>
 
-        </FormikStepper>
+                { booked === "Booked!" ? (
+                    <Confirmation label={booked}/>
+                ) : (
+                    <FormikStep label={booked}>
+                        <Summary />
+                    </FormikStep>
+                )}
 
-    )
+            </FormikStepper>       
+        )
+    } else {
+        return (
+            <p> Loading Events... </p>
+        )
+    }
 }
 
-export default BookingForm;
+const mapStateToProps = (state, ownProps) => {
+    console.log(state); 
+    const id = ownProps.params.id;
+    console.log(id);
+
+    const events = state.firestore.data.events;
+    const event = events ? events[id] : null;
+
+    return {
+        id: id,
+        event: event,
+        auth: state.firebase.auth
+    }
+}
+
+export default compose(connect(mapStateToProps), firestoreConnect([{ collection: "events"}]))(BookingForm);

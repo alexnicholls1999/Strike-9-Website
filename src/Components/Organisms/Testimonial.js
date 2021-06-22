@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Slide from '../Molecules/Slide';
 import styled from "styled-components";
 import SliderButton from '../Atoms/SliderButton';
 import imgJade from "./../../assets/Slider/image-jade.jpg";
 import imgJohn from "./../../assets/Slider/image-john.jpg";
 import imgTanya from "./../../assets/Slider/image-tanya.jpg";
+import useTestimonial from '../../react-hooks/useTestimonial';
 
 const Slider = styled.div`
     display: block;
@@ -18,7 +19,7 @@ const Slider = styled.div`
 
 
 function Testimonial() {
-    const [index, setIndex] = useState(0);
+   
     const slides = [
         {
             id: 1,
@@ -39,29 +40,7 @@ function Testimonial() {
             img: imgTanya
         } 
     ];
-    const slidesArray = slides;
-    const currentSlide = slidesArray[index];
-
-
-    const previousSlide = (e) => {
-        e.preventDefault();
-        
-        if (index === 0) {
-            setIndex(2);
-        } else {
-            setIndex((i) => i - 1);
-        }
-    }
-
-    const nextSlide = (e) => {
-        e.preventDefault();
-
-        if (index > 1) {
-            setIndex(0);
-        } else {
-            setIndex((i) => i + 1);
-        }
-    }
+    const { currentSlide, onHandlePreviousSlide, onHandleNextSlide } = useTestimonial(slides);
 
     return (
         <>
@@ -73,7 +52,7 @@ function Testimonial() {
                     img={currentSlide.img}
                 />
 
-                <SliderButton onNextClick={nextSlide} onPreviousClick={previousSlide}/>
+                <SliderButton onNextClick={onHandleNextSlide} onPreviousClick={onHandlePreviousSlide}/>
             </Slider>
         </>
     )

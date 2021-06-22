@@ -1,26 +1,14 @@
 import { useState, useEffect } from "react";
 import { db } from "./../firebase/utils";
 
-let ref = db.collection("events");
-
-function SearchResults(ref, updateEvents){
-    ref.orderBy("date").onSnapshot((snapshot) => {
-        const newEvents = snapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data()
-        }));
-
-        updateEvents(newEvents);
-    })
-}
-
 export default function useSearch() {
     const [updateEvents, setUpdateEvents] = useState([]);
     const [state, setState] = useState({
         date: "Any",
         time: "Any",
         type: "Any",
-        age: "Any"
+        age: "Any",
+        isChecked: false
     })
 
 
@@ -43,6 +31,7 @@ export default function useSearch() {
     }
 
     const handleSubmit = (e) => {
+        let ref = db.collection("events");
         e.preventDefault();
 
         if (state.isChecked === true) {
@@ -79,14 +68,28 @@ export default function useSearch() {
             ref = ref.where("agefltr", "==", true)
         }
 
-        SearchResults(ref, setUpdateEvents);
+        ref.onSnapshot((snapshot) => {
+            const newEvents = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+
+            setUpdateEvents(newEvents);
+        })
 
     }
     
 
 
     useEffect(() => {
-        SearchResults(ref, setUpdateEvents)
+        db.collection("events").orderBy("date").onSnapshot((snapshot) => {
+            const newEvents = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+
+            setUpdateEvents(newEvents);
+        })
     }, []);
       
     

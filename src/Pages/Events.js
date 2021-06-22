@@ -8,6 +8,7 @@ import Event from '../Components/Molecules/Event';
 import FadeIn from './../Animations/FadeIn';
 import useSearch from "./../react-hooks/useSearch";
 import UnavailableEvent from '../Components/Molecules/UnavailableEvent'
+import NoResults from '../Components/Molecules/NoResults'
 
 const SearchResults = styled.div`
     padding: 0 5%;
@@ -68,7 +69,7 @@ function Events() {
                             )
                         ))
                     ) : (
-                        <p>No Results Found</p>
+                        <NoResults />
                     )}
             </SearchResults>
         </div>

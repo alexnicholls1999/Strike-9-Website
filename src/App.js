@@ -8,37 +8,68 @@ import GlobalStyles from "./styles/GlobalStyles";
 import MainLayout from "./Components/Templates/MainLayout";
 import SecondaryLayout from "./Components/Templates/SecondaryLayout";
 import BookEvent from "./Pages/BookEvent";
+import {connect} from "react-redux";
+import {signInAnonymously} from "./redux/actions/authAction";
+
 
 const content = {
   title: "STRIKE 9 TRAINING ACADEMY",
   msg: "Do you want to bring another level to your Game? Are you tracking your progress? Are you seeking additional training outside of your club team? Football is changing."
 }
 
+function RouteGuard({auth, signInAnonymously, children}) {
+  if (!auth.uid){
+    console.log("Sign in Guest", auth.uid);
+    signInAnonymously();
+  } 
 
-function App() {
+  console.log(auth.uid);
+
+  return <>{children}</>
+
+}
+
+function App({...props}) {
   
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Switch>
         <Route exact path="/">
-          <MainLayout title={content.title} paragraph={content.msg} >
-            <Home  />
-          </MainLayout>
+            <MainLayout title={content.title} paragraph={content.msg} >
+              <Home  />
+            </MainLayout>
         </Route>
         <Route exact path="/events">
-          <SecondaryLayout>
-            <Events/>
-          </SecondaryLayout>
+          <RouteGuard {...props}>
+            <SecondaryLayout>
+              <Events/>
+            </SecondaryLayout>
+          </RouteGuard>
         </Route>
         <Route path="/events/:id">
-          <SecondaryLayout>
-            <BookEvent />
-          </SecondaryLayout>
+          <RouteGuard {...props}>
+            <SecondaryLayout>
+              <BookEvent />
+            </SecondaryLayout>
+          </RouteGuard>
         </Route>
       </Switch>
     </ThemeProvider>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+    authError: state.auth.authError
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signInAnonymously: () => dispatch(signInAnonymously)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
