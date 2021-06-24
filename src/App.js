@@ -17,13 +17,15 @@ const content = {
   msg: "Do you want to bring another level to your Game? Are you tracking your progress? Are you seeking additional training outside of your club team? Football is changing."
 }
 
-function RouteGuard({auth, signInAnonymously, children}) {
+function RouteGuard(props) {
+  const {auth, signInAnonymously, children} = props;
+
   if (!auth.uid){
     console.log("Sign in Guest", auth.uid);
     signInAnonymously();
-  } 
-
-  console.log(auth.uid);
+  } else {
+    console.log(auth.uid);
+  }
 
   return <>{children}</>
 
@@ -60,6 +62,7 @@ function App({...props}) {
 }
 
 const mapStateToProps = (state) => {
+
   return {
     auth: state.firebase.auth,
     authError: state.auth.authError

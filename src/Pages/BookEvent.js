@@ -3,7 +3,6 @@ import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import BookingForm from '../Components/Organisms/Form/BookingForm';
 import Hero from '../Components/Organisms/Hero';
-import SecondaryLayout from '../Components/Templates/SecondaryLayout';
 
 function BookEvent() {
 

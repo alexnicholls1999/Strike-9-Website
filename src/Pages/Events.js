@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { Container } from 'react-bootstrap'
 import Hero from '../Components/Organisms/Hero'
 import Search from '../Components/Organisms/Search'
-import { events } from './../events';
 import Event from '../Components/Molecules/Event';
 import FadeIn from './../Animations/FadeIn';
 import useSearch from "./../react-hooks/useSearch";
@@ -16,7 +15,7 @@ const SearchResults = styled.div`
 
 function Events() {
 
-    const { updateEvents, state, handleOnChangeAvailableSlots, handleOnChangeSearch, handleSubmit } = useSearch(); 
+    const { updateEvents, state, handleOnChangeAvailableSlots, handleOnChangeSearch, handleSubmit } = useSearch();  
 
     return (
         <div>

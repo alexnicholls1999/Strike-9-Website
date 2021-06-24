@@ -1,12 +1,11 @@
 import React from 'react'
 import { compose } from 'redux';
-import { connect } from 'formik';
+import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 
 import FormikStep from '../../Atoms/Forms/Step';
 import FormikStepper from '../../Molecules/Form/Stepper';
 import EventDetails from './Steps/EventDetails';
-import { BillingAddressSchema, EventsDetailsSchema, PersonalDetailsSchema } from "../../../dist/schemas";
 import PersonalDetails from './Steps/PersonalDetails';
 import BillingAddress from './Steps/BillingAddress';
 import Summary from './Steps/Summary';
@@ -14,24 +13,24 @@ import useBookEvent from '../../../react-hooks/useBookEvent';
 import Confirmation from './Steps/Confirmation';
 
 
-
-function BookingForm({params, event, auth}) {
-    const id = params.id;
+function BookingForm({ id, event, auth }) {
 
     const { handleSubmit, setBooked, booked } = useBookEvent();
 
+    
+    console.log(auth.id);
 
     if (event) {
         return (
             <FormikStepper
                 initialValues={{
                     eventId: id,
-                    uid: auth.id,
+                    uid: auth.uid,
                     slots: event.slots - 1,
                     teamName: "",
                     firstName: "",
                     lastName: "",
-                    email: "",
+                    email: "", 
                     mobile: "",
                     gender: "",
                     selectedDate: "",
@@ -70,7 +69,7 @@ function BookingForm({params, event, auth}) {
                 >
                     <BillingAddress />
                 </FormikStep>
-
+    
                 { booked === "Booked!" ? (
                     <Confirmation label={booked}/>
                 ) : (
@@ -78,20 +77,20 @@ function BookingForm({params, event, auth}) {
                         <Summary />
                     </FormikStep>
                 )}
-
-            </FormikStepper>       
+    
+            </FormikStepper>      
+    
         )
     } else {
         return (
-            <p> Loading Events... </p>
+            <p>Loading Events...</p>
         )
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state); 
+    console.log(state);
     const id = ownProps.params.id;
-    console.log(id);
 
     const events = state.firestore.data.events;
     const event = events ? events[id] : null;
@@ -103,4 +102,5 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default compose(connect(mapStateToProps), firestoreConnect([{ collection: "events"}]))(BookingForm);
+
+export default compose(connect(mapStateToProps), firestoreConnect([{collection: "events"}]))(BookingForm);
