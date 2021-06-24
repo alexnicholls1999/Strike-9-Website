@@ -1,8 +1,8 @@
 export const signInAnonymously = () => {
-    return (dispatch, getState, {getFirebase}) => {
+    return (dispatch, getState, { getFirebase }) => {
         const firebase = getFirebase();
 
-        firebase    
+        firebase
             .auth()
             .signInAnonymously()
             .then(() => {

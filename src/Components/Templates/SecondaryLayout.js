@@ -20,7 +20,7 @@ function SecondaryLayout({children}) {
     return (
         <>  
             <IntroWrapper>
-                <Header navBg="#5E3DB3" menuColor="#5E3DB3" />
+                <Header navbg="#5E3DB3" menuColor="#5E3DB3" />
                 
             </IntroWrapper>
 

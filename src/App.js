@@ -1,26 +1,21 @@
-import React from "react";
-import { Route, Switch } from 'react-router-dom';
-import {ThemeProvider} from "styled-components";
+import React from 'react';
+import {Switch, Route } from 'react-router';
 import theme from "./styles/theme";
-import Home from './Pages/Home';
-import Events from './Pages/Events';
-import GlobalStyles from "./styles/GlobalStyles";
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from './styles/GlobalStyles';
+import Events from "./Pages/Events";
 import MainLayout from "./Components/Templates/MainLayout";
 import SecondaryLayout from "./Components/Templates/SecondaryLayout";
-import BookEvent from "./Pages/BookEvent";
+import BookEvent from './Pages/BookEvent';
 import {connect} from "react-redux";
-import {signInAnonymously} from "./redux/actions/authAction";
+import { signInAnonymously } from './redux/actions/authAction';
+import Home from './Pages/Home';
 
-
-const content = {
-  title: "STRIKE 9 TRAINING ACADEMY",
-  msg: "Do you want to bring another level to your Game? Are you tracking your progress? Are you seeking additional training outside of your club team? Football is changing."
-}
 
 function RouteGuard(props) {
-  const {auth, signInAnonymously, children} = props;
+  const { auth, signInAnonymously, children} = props;
 
-  if (!auth.uid){
+  if (!auth.uid) {
     console.log("Sign in Guest", auth.uid);
     signInAnonymously();
   } else {
@@ -28,41 +23,34 @@ function RouteGuard(props) {
   }
 
   return <>{children}</>
-
 }
 
 function App({...props}) {
-  
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Switch>
-        <Route exact path="/">
-            <MainLayout title={content.title} paragraph={content.msg} >
-              <Home  />
-            </MainLayout>
-        </Route>
-        <Route exact path="/events">
-          <RouteGuard {...props}>
-            <SecondaryLayout>
-              <Events/>
-            </SecondaryLayout>
-          </RouteGuard>
-        </Route>
-        <Route path="/events/:id">
-          <RouteGuard {...props}>
-            <SecondaryLayout>
-              <BookEvent />
-            </SecondaryLayout>
-          </RouteGuard>
-        </Route>
-      </Switch>
+        <GlobalStyles/>
+        <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/events">
+              <RouteGuard {...props}>
+                <Events />
+              </RouteGuard>
+            </Route>
+            <Route path="/events/:id">
+              <RouteGuard {...props}>
+                <SecondaryLayout secondary>
+                  <BookEvent />
+                </SecondaryLayout>
+              </RouteGuard>
+            </Route>
+        </Switch>
     </ThemeProvider>
-  );
+  )
 }
 
 const mapStateToProps = (state) => {
-
   return {
     auth: state.firebase.auth,
     authError: state.auth.authError

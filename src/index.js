@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from "react-router-dom";
+import {
+  BrowserRouter as Router
+} from "react-router-dom";
 import {createStore, applyMiddleware, compose} from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import { getFirestore, createFirestoreInstance, reduxFirestore } from "redux-firestore";
-import { getFirebase, ReactReduxFirebaseProvider } from "react-redux-firebase";
+import { getFirestore, createFirestoreInstance, reduxFirestore} from "redux-firestore";
+import { getFirebase, ReactReduxFirebaseProvider} from "react-redux-firebase";
+import firebase from "./firebase/utils";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import firebase from "./firebase/utils";
-import rootReducer from "./redux/reducers/rootReducer";
-
-const root = document.getElementById('root');
+import rootReducer from './redux/reducers/rootReducer';
 
 const middleware = [thunk.withExtraArgument({getFirebase, getFirestore})];
 
@@ -21,11 +21,13 @@ const store = createStore(
 );
 
 const rrfProps = {
-  firebase, 
+  firebase,
   config: firebase,
   dispatch: store.dispatch,
   createFirestoreInstance
 }
+
+const root = document.getElementById("root")
 
 ReactDOM.render(
   <Router>

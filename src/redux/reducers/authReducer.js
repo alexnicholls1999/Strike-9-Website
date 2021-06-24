@@ -1,6 +1,4 @@
-const initState = {
-    authError: null
-};
+const initState = {};
 
 const authReducer = (state = initState, action) => {
     switch (action.type) {
@@ -12,14 +10,13 @@ const authReducer = (state = initState, action) => {
             }
         case "GUEST_LOGIN_SUCCESS": 
             return {
-                ...state,
+                ...state, 
                 authError: null
             };
         case "SIGNOUT_SUCCESS": 
             console.log("Signed Out!");
             return state;
-        
-        default: 
+        default:
             return state;
     }
 }

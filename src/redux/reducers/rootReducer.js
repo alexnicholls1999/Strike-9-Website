@@ -6,9 +6,10 @@ import { firebaseReducer } from "react-redux-firebase";
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    book: bookReducer,
+    event: bookReducer,
     firestore: firestoreReducer,
     firebase: firebaseReducer
 })
+
 
 export default rootReducer;
