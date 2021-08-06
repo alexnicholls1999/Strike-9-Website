@@ -10,11 +10,11 @@ const HeaderWrapper = styled.div`
 `;
 
 function Header(props) {
-    const {secondary, navBg, menuColor} = props;
+    const {secondary, navbg, menuColor} = props;
 
     return (
         <HeaderWrapper secondary={secondary} >
-            <BoostrapNavbar navBg={navBg} menuColor={menuColor} />
+            <BoostrapNavbar navbg={navbg} menuColor={menuColor} />
         </HeaderWrapper>
 
     )

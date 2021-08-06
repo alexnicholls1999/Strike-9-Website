@@ -17,8 +17,7 @@ function BookingForm({ id, event, auth }) {
 
     const { handleSubmit, setBooked, booked } = useBookEvent();
 
-    
-    console.log(auth.id);
+    console.log(auth.uid);
 
     if (event) {
         return (
@@ -43,8 +42,10 @@ function BookingForm({ id, event, auth }) {
                     checked: false
                 }}
                 onSubmit={async (values) => {
-                    setBooked("Booked!");
-                    handleSubmit(values);
+                    // setBooked("Booked!");
+                    // handleSubmit(values);
+
+                    console.log(values);
                 }}
             > 
                 <FormikStep label="Events Details" 
@@ -89,9 +90,8 @@ function BookingForm({ id, event, auth }) {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state);
-    const id = ownProps.params.id;
 
+    const id = ownProps.params.id;
     const events = state.firestore.data.events;
     const event = events ? events[id] : null;
 
@@ -102,5 +102,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-
-export default compose(connect(mapStateToProps), firestoreConnect([{collection: "events"}]))(BookingForm);
+export default compose(connect(mapStateToProps), firestoreConnect([{ collection: "events" }]))(BookingForm);

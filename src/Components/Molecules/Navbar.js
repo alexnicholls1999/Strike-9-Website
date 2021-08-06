@@ -40,14 +40,14 @@ const StyledNavLink = styled(NavLink)`
 
 function BootstrapNavbar(props) {
 
-    const { navBg, menuColor } = props;
+    const { navbg, menucolor } = props;
     const [open, setOpen] = useState(false);
 
     return (
         <StyledNavbar
             open={open}
-            navBg={navBg}
-            menuColor={menuColor}
+            navbg={navbg}
+            menucolor={menucolor}
             variant="dark"
             expand="lg"
         >
