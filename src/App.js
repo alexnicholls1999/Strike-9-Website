@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Switch, Route } from 'react-router';
 import theme from "./styles/theme";
 import { ThemeProvider } from 'styled-components';
@@ -7,20 +7,19 @@ import Events from "./Pages/Events";
 import MainLayout from "./Components/Templates/MainLayout";
 import SecondaryLayout from "./Components/Templates/SecondaryLayout";
 import BookEvent from './Pages/BookEvent';
-import {connect} from "react-redux";
-import { signInAnonymously } from './redux/actions/authAction';
+import firebase from "./firebase/utils";
 import Home from './Pages/Home';
 
 
 function RouteGuard(props) {
   const { auth, signInAnonymously, children} = props;
 
-  if (!auth.uid) {
-    console.log("Sign in Guest", auth.uid);
-    signInAnonymously();
-  } else {
-    console.log(auth.uid);
-  }
+  // if (!auth.uid) {
+  //   console.log("Sign in Guest", auth.uid);
+  //   signInAnonymously();
+  // } else {
+  //   console.log(auth.uid);
+  // }
 
   return <>{children}</>
 }
@@ -50,17 +49,5 @@ function App({...props}) {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    auth: state.firebase.auth,
-    authError: state.auth.authError
-  }
-}
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signInAnonymously: () => dispatch(signInAnonymously)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

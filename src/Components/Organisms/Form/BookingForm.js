@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-
 import FormikStep from '../../Atoms/Forms/Step';
 import FormikStepper from '../../Molecules/Form/Stepper';
 import EventDetails from './Steps/EventDetails';
@@ -11,20 +10,21 @@ import BillingAddress from './Steps/BillingAddress';
 import Summary from './Steps/Summary';
 import useBookEvent from '../../../react-hooks/useBookEvent';
 import Confirmation from './Steps/Confirmation';
-
+import useAuth from '../../../firebase/useAuth';
+import firebase from '../../../firebase/utils';
 
 function BookingForm({ id, event, auth }) {
 
     const { handleSubmit, setBooked, booked } = useBookEvent();
 
-    console.log(auth.uid);
+    const { user, signInAnomousUser } = useAuth(firebase.auth);
 
     if (event) {
         return (
             <FormikStepper
                 initialValues={{
                     eventId: id,
-                    uid: auth.uid,
+                    authId: user.l,
                     slots: event.slots - 1,
                     teamName: "",
                     firstName: "",
@@ -42,10 +42,8 @@ function BookingForm({ id, event, auth }) {
                     checked: false
                 }}
                 onSubmit={async (values) => {
-                    // setBooked("Booked!");
-                    // handleSubmit(values);
-
                     console.log(values);
+                    signInAnomousUser();
                 }}
             > 
                 <FormikStep label="Events Details" 

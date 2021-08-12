@@ -62,10 +62,11 @@ const Description = styled.p `
 `;
 
 function Event({title, type, age, cost, date, time, description, linkTo, buttonName}) {
+
     const history = useHistory();
 
     const handleClick = () => {
-        history.push(linkTo)
+        history.push(linkTo);
     }
 
     return (

@@ -2,9 +2,7 @@ export const signInAnonymously = () => {
     return (dispatch, getState, { getFirebase }) => {
         const firebase = getFirebase();
 
-        firebase
-            .auth()
-            .signInAnonymously()
+        firebase.auth().signInAnonymously()
             .then(() => {
                 dispatch({ type: "GUEST_LOGIN_SUCCESS"});
             })
