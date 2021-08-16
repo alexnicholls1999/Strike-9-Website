@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import './index.css';
+import { BrowserRouter as Router } from "react-router-dom";
 import App from './App';
+import Webfont from "webfontloader";
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+Webfont.load({
+  google: {
+    families: ["Muli: 300, 400, 500, 600, 700, 800, 900"]
+  }
+});
 
 ReactDOM.render(
   <React.StrictMode>

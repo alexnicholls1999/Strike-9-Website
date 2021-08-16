@@ -1,30 +1,17 @@
-import PropTypes from 'prop-types';
-import Select from '../Atoms/Forms/Select';
+import PropTypes from "prop-types";
+import Select from "../Atoms/Form/Select";
 
-function Dropdown({text, value, handleChange, name, style, ...props}) {
+function Dropdown({title, ...props}) {
     return (
         <>
-            <label>{text}</label>
-
-            <Select style={style} value={value} defaultName={name} handleChange={handleChange} {...props}/>   
+            <label style={{color: "white"}}>{title}</label> 
+            <Select {...props} />
         </>
     )
 }
 
-Dropdown.defaultProps = {
-    text: '',
-    value: '',
-    name: '',
-    style: '',
-    handleChange: () => {}
-}
-
 Dropdown.propTypes = {
-    text: PropTypes.string,
-    value: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    style: PropTypes.string,
-    handleChange: PropTypes.func
+    title: PropTypes.string.isRequired
 }
 
-export default Dropdown;
+export default Dropdown

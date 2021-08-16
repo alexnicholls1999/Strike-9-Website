@@ -1,19 +1,13 @@
-import React from 'react'
-import { Col, Row } from 'react-bootstrap';
-import styled from "styled-components"
-import Checkbox from '../Atoms/Forms/Checkbox';
-import Button from '../Atoms/Button';
-import Dropdown from '../Molecules/Dropdown';
+import PropTypes from "prop-types";
+import { Col, Container, Row } from "react-bootstrap";
+import Button from "../Atoms/Buttons/Button";
+import Checkbox from "../Atoms/Form/Checkbox";
+import Dropdown from "../Molecules/Dropdown";
 
+function Search({onClick, handleFilters, filters}) {
 
-const SearchForm = styled.form`
-
-`;
-
-function Search({handleDateChange, handleTimeChange, handleTypeChange, handleAgeChange, handleCheck, checked, checkedValue, date, time, type, age, onClick}) {
-    
     const configDate = {
-        value: date,
+       value: filters.date,
         options: [
             {
                 name: "Any"
@@ -26,13 +20,13 @@ function Search({handleDateChange, handleTimeChange, handleTypeChange, handleAge
             },
             {
                 name: "27th October 2020"
-            } 
+            }
         ],
-        handleChange: handleDateChange
-    } 
+        onChange: handleFilters.handleDateChange
+    }
 
     const configTime = {
-        value: time,
+        value: filters.time,
         options: [
             {
                 name: "Any"
@@ -47,11 +41,11 @@ function Search({handleDateChange, handleTimeChange, handleTypeChange, handleAge
                 name: "14:00 - 16:00"
             } 
         ],
-        handleChange: handleTimeChange
+        onChange: handleFilters.handleTimeChange
     } 
 
     const configType = {
-        value: type,
+        value: filters.type,
         options: [
             {
                 name: "Any"
@@ -66,11 +60,11 @@ function Search({handleDateChange, handleTimeChange, handleTypeChange, handleAge
                 name: "Mixed Sessions"
             } 
         ],
-        handleChange: handleTypeChange
+        onChange: handleFilters.handleTypeChange
     } 
-
+    
     const configAge = {
-        value: age,
+        value: filters.age,
         options: [
             {
                 name: "Any"
@@ -88,42 +82,60 @@ function Search({handleDateChange, handleTimeChange, handleTypeChange, handleAge
                 name: "Ages 18 and above"
             } 
         ],
-        handleChange: handleAgeChange
-    } 
+        onChange: handleFilters.handleAgeChange
+    }
 
-
-    
-    
     return (
-        <SearchForm>
+        <form>
             <Col lg={12}>
                 <Row>
                     <Col lg={3} md={3} sm={12} className="p-1">
-                        <Dropdown text="Date" name="date" {...configDate} />
+                        <Dropdown title="Date" name="date" {...configDate} />
                     </Col>
                     <Col lg={3} md={3} sm={12} className="p-1">
-                        <Dropdown text="Time" name="time" {...configTime} />
+                        <Dropdown title="Time" name="time" {...configTime} />
                     </Col>
                     <Col lg={3} md={3} sm={12} className="p-1">
-                        <Dropdown text="Type" name="type" {...configType} />
+                        <Dropdown title="Type" name="type" {...configType} />
                     </Col>
                     <Col lg={3} md={3} sm={12} className="p-1">
-                        <Dropdown text="Age" name="age" {...configAge} />
+                        <Dropdown title="Age" name="age" {...configAge} />
                     </Col>
-                    <div className="py-5"></div>
+                </Row>
+                <div className="py-2"></div>
+                <Row>
                     <Col lg={3} md={3}>
                         <label>
-                            <Checkbox onChange={handleCheck} value={checkedValue} checked={checked} />
-                            <span style={{ marginLeft: 8, fontWeight: 500}}>Available Slots</span>
+                            <Checkbox onChange={handleFilters.handleCheck} value={filters.checkedValue} checked={filters.checked}/>
+                            <span style={{color: "white", marginLeft: 8, fontWeight: 500}}>Available Slots</span>
                         </label>
                     </Col>
-                    <Col lg={2} md={3} sm={12} className="ml-auto">
+                    <Col lg={2} md={3} sm={12} className="ms-auto">
                         <Button style={{float: "right"}} text="SEARCH" onClick={onClick} />
                     </Col>
                 </Row>
             </Col>
-        </SearchForm>
+        </form>
     )
+}
+
+Search.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    handleFilters: PropTypes.shape({
+        handleDateChange: PropTypes.func.isRequired,
+        handleTimeChange: PropTypes.func.isRequired,
+        handleTypeChange: PropTypes.func.isRequired,
+        handleAgeChange: PropTypes.func.isRequired,
+        handleCheck: PropTypes.func.isRequired
+    }),
+    filters: PropTypes.shape({
+        date: PropTypes.string.isRequired,
+        time: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        age: PropTypes.string.isRequired,
+        checked: PropTypes.bool.isRequired,
+        checkedValue: PropTypes.bool.isRequired
+    })
 }
 
 export default Search

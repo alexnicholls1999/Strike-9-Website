@@ -1,36 +1,35 @@
-import PropTypes from 'prop-types';
-import { Row, Col } from "react-bootstrap";
-import { useHistory } from 'react-router-dom';
+import PropTypes from "prop-types";
 import styled from "styled-components";
-
-import Button from "./../Atoms/Button";
-import Card from "./../Atoms/Card";
+import { useHistory } from "react-router-dom";
+import { Col, Row } from "react-bootstrap";
+import Button from "../Atoms/Buttons/Button";
+import Card from "../Atoms/Card";
 
 const EventWrapper = styled.div`
     margin: 1rem;
 
-    @media (min-width: 764px) {
+    @media (min-width: 764px){
         margin: 2rem;
     }
 `;
 
 const EventCardWrapper = styled.div`
-    padding: 2.5rem 10px;
+    padding: 2rem 2rem;
 
-    @media (min-width: 764px) {
+    @media (min-width: 764px){
         padding: 2.5rem 2rem;
     }
 `;
 
-const EventsTitle = styled.h4 `
-    font-weight: 700;
-    color: #5E3DB3;
+const EventsTitle = styled.h4`
+    font-weight: ${({theme}) => theme.typography.fontWeight.bold};
+    color: ${({theme}) => theme.colors.primary.RoyalPurple};
     font-size: clamp(15px, 2.5vw, 20px);
 `;
 
 const EventsType = styled.p`
     margin-bottom: 0;
-    font-weight: 700;
+    font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     color: #606060;
     font-size: clamp(10px, 2.5vw, 18px);
 `;
@@ -41,33 +40,33 @@ const EventsAge = styled.p`
 `;
 
 const Cost = styled.h5`
-    font-weight: bold;
-    color: black;
-    font-size: clamp(15px, 2.5vw, 20px);
+    font-weight: ${({theme}) => theme.typography.fontWeight.bold};
+    color: ${({theme}) => theme.colors.neutral.Black};
+    font-size: clamp(15px, 2.5vw, 20px); 
 `;
 
 const Date = styled.h6`
-    font-size: clamp(10px, 2.5vw, 18px);
     margin-bottom: 0;
-    font-weight: 700;
+    font-weight: ${({theme}) => theme.typography.fontWeight.bold};
+    font-size: clamp(10px, 2.5vw, 18px);   
 `;
 
 const Time = styled.p`
-    color: black;
+    color: ${({theme}) => theme.colors.neutral.Black};
     font-size: clamp(10px, 2.5vw, 15px);
 `;
 
-const Description = styled.p `
-    color: black;
+const Description = styled.p`
+    color: ${({theme}) => theme.colors.neutral.Black};
     font-size: clamp(10px, 2.5vw, 18px);
 `;
 
-function Event({title, type, age, cost, date, time, description, linkTo, buttonName}) {
+function Event({event}) {
 
     const history = useHistory();
 
     const handleClick = () => {
-        history.push(linkTo);
+        history.push(event.linkTo)
     }
 
     return (
@@ -77,36 +76,35 @@ function Event({title, type, age, cost, date, time, description, linkTo, buttonN
                     <EventCardWrapper>
                         <Col sm={12}>
                             <Row>
-                                <Col xs={8} className="ml-auto">
-                                    <EventsTitle>{title}</EventsTitle>
+                                <Col xs={8} className="ms-auto">
+                                    <EventsTitle>{event.title}</EventsTitle>
                                 </Col>
-                                <Col xs={4} className="text-right">
-                                    <Cost>{cost}</Cost>
+                                <Col xs={4} className="text-end">
+                                    <Cost>{event.cost}</Cost>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col xs={5}>
-                                    <EventsType style={{marginBottom: "0"}}>{type}</EventsType>
-                                    <EventsAge>{age}</EventsAge>
+                                    <EventsType>{event.type}</EventsType>
+                                    <EventsAge>{event.age}</EventsAge>
                                 </Col>
-                                <Col xs={7} className="text-right">
-                                    <Date>{date}</Date>
-                                    <Time>{time}</Time>
+                                <Col xs={7} className="text-end">
+                                    <Date>{event.date}</Date>
+                                    <Time>{event.time}</Time>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col md={7}>
-                                    <Description>{description}</Description>
+                                    <Description>{event.description}</Description>
                                 </Col>
-                            </Row>  
+                            </Row>
                             <Row>
-                                <Col lg={2} md={3} sm={5} xs={6} className="ml-auto">
-                                    <Button onClick={handleClick} shadow text={buttonName}/>
+                                <Col lg={2} md={3} sm={5} xs={6} className="ms-auto">
+                                    <Button onClick={handleClick} text="BOOK" />
                                 </Col>
-                            </Row> 
+                            </Row>
                         </Col>
-                        
-                    </EventCardWrapper> 
+                    </EventCardWrapper>
                 </Card>
             </EventWrapper>
         </Row>
@@ -114,27 +112,29 @@ function Event({title, type, age, cost, date, time, description, linkTo, buttonN
 }
 
 Event.defaultProps = {
-    title: '', 
-    type: '', 
-    age: '', 
-    cost: '', 
-    date: '', 
-    time: '', 
-    description: '', 
-    linkTo: '', 
-    buttonName: ''
+    event: {
+        title: 'Event Title',
+        type: 'Type',
+        age: 'Age',
+        cost: 'Cost',
+        date: 'DD-MM',
+        time: '00:00 - 00:00',
+        description: 'Description',
+        linkTo: 'linkTo'
+    }
 }
 
 Event.propTypes = {
-    title: PropTypes.string.isRequired, 
-    type: PropTypes.string.isRequired, 
-    age: PropTypes.string.isRequired, 
-    cost: PropTypes.string.isRequired, 
-    date: PropTypes.string.isRequired, 
-    time: PropTypes.string.isRequired, 
-    description: PropTypes.string.isRequired, 
-    linkTo: PropTypes.string.isRequired, 
-    buttonName: PropTypes.string.isRequired
+    event: PropTypes.shape({
+        title: PropTypes.string,
+        type: PropTypes.string,
+        age: PropTypes.string,
+        cost: PropTypes.string,
+        date: PropTypes.string,
+        time: PropTypes.string,
+        description: PropTypes.string,
+        linkTo: PropTypes.string
+    })
 }
 
 export default Event
