@@ -2,21 +2,22 @@ import { useFormikContext } from 'formik';
 import Input from '../../../Atoms/Form/Input';
 import Label from '../../../Atoms/Form/Label';
 
-function PersonalDetails() {
+function EventDetails() {
+    
     const formik = useFormikContext();
     
     return (
         <>
-            <Label>Full Name: </Label>
+            <Label>Team Name: </Label>
             <Input 
-                value={formik.values.fullName}
+                value={formik.values.teamName}
                 type="text"
-                name="fullName"
+                name="teamName"
                 onChange={formik.handleChange}
-                placeholder="Enter Full Name"
+                placeholder="Enter Team Name"
             />
         </>
     )
 }
 
-export default PersonalDetails
+export default EventDetails

@@ -1,50 +1,61 @@
-import PropTypes from "prop-types";
-import FormikStep from "../../Atoms/FormikStep";
-import FormikStepper from "../../Molecules/FormikStepper";
-import EventsDetails from "./Steps/EventsDetails";
-import PersonalDetails from "./Steps/PersonalDetails";
+import * as Yup from "yup";
+import FormikStepper from '../../Molecules/FormikStepper';
+import FormikStep from "./../../Atoms/FormikStep";
+import BillingAddress from "./Steps/BillingAddress";
+import EventDetails from './Steps/EventDetails';
+import PersonalDetails from './Steps/PersonalDetails';
+import Summary from "./Steps/Summary";
+
+const sleep = (time) => new Promise((acc) => setTimeout(acc, time));
+
+const teamSchema = Yup.object({
+    teamName: Yup.string().min(2, "Too Short!").required()
+});
+
+const personalSchema = Yup.object({
+    fullName: Yup.string().min(2, "Too Short!").required()
+});
+
+const billingAddressSchema = Yup.object({
+    location: Yup.string().min(2, "Too Short!").required()
+});
 
 function BookingForm({params}) {
-    const id = params.id
-    const userId = '2ewad3542fsa31';
-    const eventSlots = 100;
+
+    const eventId = params.id;
+    const userId = "ladsasdwawda5423af";
+    const slots = 100;
 
     return (
         <FormikStepper
             initialValues={{
-                eventId: id,
-                authId: userId,
-                slots: eventSlots - 1,
-                teamName: "",
-                firstName: "",
-                lastName: "",
-                email: "",
-                mobile: "",
-                gender: "",
-                selectDate: "",
-                ethnicity: "",
-                billingLine1: "",
-                billingLine2: "",
-                billingLine3: "",
-                location: "",
-                postcode: "",
-                checked: false
+                eventId: eventId,
+                userId: userId,
+                eventSlots: slots - 1,
+                teamName: '',
+                fullName: '',
+                location: '',
             }}
             onSubmit={async (values) => {
-                console.log(values)
+                await sleep(3000);
+                console.log(values);
             }}
         >
-            <FormikStep label="Events Details">
-                {/* Add firebase data here */}
-                <EventsDetails
-                    eventsDetails={{date: "17th October 2020", time: "10:00 - 12:00", address: "Mosley School Sports Centre, Springfield Road, B13 9NP", cost: "FREE"}}
-                />
+            <FormikStep label="Events Details" validationSchema={teamSchema}>
+                <EventDetails />
             </FormikStep>
             
             <FormikStep label="Personal Details">
-                <PersonalDetails/>
+                <PersonalDetails />
             </FormikStep>
 
+            <FormikStep label="Billing Address">
+                <BillingAddress />
+            </FormikStep>
+
+            <FormikStep label="Summary">
+                <Summary />
+            </FormikStep>
         </FormikStepper>
     )
 }

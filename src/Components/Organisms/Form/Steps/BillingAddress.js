@@ -2,21 +2,21 @@ import { useFormikContext } from 'formik';
 import Input from '../../../Atoms/Form/Input';
 import Label from '../../../Atoms/Form/Label';
 
-function PersonalDetails() {
+function BillingAddress() {
     const formik = useFormikContext();
     
     return (
         <>
-            <Label>Full Name: </Label>
+            <Label>Team Name: </Label>
             <Input 
-                value={formik.values.fullName}
+                value={formik.values.location}
                 type="text"
-                name="fullName"
+                name="location"
                 onChange={formik.handleChange}
-                placeholder="Enter Full Name"
+                placeholder="Enter Location"
             />
         </>
     )
 }
 
-export default PersonalDetails
+export default BillingAddress
