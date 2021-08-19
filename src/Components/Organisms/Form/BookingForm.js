@@ -1,3 +1,4 @@
+import { useState } from "react";
 import * as Yup from "yup";
 import FormikStepper from '../../Molecules/FormikStepper';
 import FormikStep from "./../../Atoms/FormikStep";
@@ -22,9 +23,14 @@ const billingAddressSchema = Yup.object({
 
 function BookingForm({params}) {
 
-    const eventId = params.id;
-    const userId = "ladsasdwawda5423af";
-    const slots = 100;
+    const [state, setState] = useState({
+        eventId: params.id,
+        userId: "ladsasdwawda5423af",
+        slots: 100,
+        booked: "Summary"
+    })
+
+    const { eventId, userId, slots, booked} = state;
 
     return (
         <FormikStepper
@@ -39,6 +45,10 @@ function BookingForm({params}) {
             onSubmit={async (values) => {
                 await sleep(3000);
                 console.log(values);
+                setState({
+                    ...state,
+                    booked: "Booked!"
+                })
             }}
         >
             <FormikStep label="Events Details" validationSchema={teamSchema}>
@@ -53,8 +63,12 @@ function BookingForm({params}) {
                 <BillingAddress />
             </FormikStep>
 
-            <FormikStep label="Summary">
-                <Summary />
+            <FormikStep label={booked}>
+                { booked === "Booked!" ? (
+                    <h1 style={{color: "#5E3D83", textAlign: "center"}}>Booking Successful</h1>
+                ) : (
+                    <Summary />
+                )}
             </FormikStep>
         </FormikStepper>
     )

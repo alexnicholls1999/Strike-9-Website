@@ -19,6 +19,29 @@ const StyledClickWrap = styled.div`
     display: ${({show}) => (show ? "none" : "block")};
 `;
 
+const StyledStepLabel = styled(StepLabel)`
+
+    .MuiStepLabel-label {
+        display: none;
+    }
+
+    .MuiStepLabel-label.MuiStepLabel-completed {
+        color: ${({theme}) => theme.colors.primary.RoyalPurple};
+        font-weight: bold;
+    }
+
+    .MuiStepLabel-label.MuiStepLabel-active {
+        color: ${({theme}) => theme.colors.primary.RoyalPurple};
+        font-weight: bold;
+    }
+
+    @media(min-width: 768px) {
+        .MuiStepLabel-label {
+            display: block
+        }
+    }
+`;
+
 function FormikStepper({children, ...props}) {
     const childrenArray = Children.toArray(children);
     const [step, setStep] = useState(0);
@@ -54,7 +77,7 @@ function FormikStepper({children, ...props}) {
                                     key={child.props.label}
                                     completed={step > index || completed}
                                 >
-                                    <StepLabel StepIconComponent={StepIcon}>{child.props.label}</StepLabel>
+                                    <StyledStepLabel StepIconComponent={StepIcon}>{child.props.label}</StyledStepLabel>
                                 </Step>
                             ))}
                         </Stepper>
@@ -62,15 +85,42 @@ function FormikStepper({children, ...props}) {
 
                     <Container>
                         <div className="py-3"></div>
-                        
+                        <Row>
+                            {!completed ? (
+                                <Col lg={8}>
+                                    {currentChild}
+                                </Col>
+                            ) : (
+                                <Col lg={12}>
+                                    {currentChild}
+                                </Col>
+                            )}
+                            {!completed ? (
+                                <Col lg={3} sm={12} className="ms-auto">
+                                    <Row>
+                                        <Col sm={{span: 12, order: 2}}>
+                                            <div className="p-3"></div>
+                                            {isLastStep() ? 
+                                                <>
+                                                    <StyledClickWrap>
+                                                        By booking 
+                                                    </StyledClickWrap>
+                                                </>
+                                            : null}
+                                        </Col>
+                                        <Col sm={{span: 12, order: 1}}>
+                                            <ButtonControls style={props.buttonStyle}>
+                                                <Button disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress  /> : null} type="submit" text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} />
+                                                {step > 0 && step < 3 ? (
+                                                    <Button disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS" />
+                                                ) : null}
+                                            </ButtonControls>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            ) : null}
+                        </Row>
                     </Container>
-                    {currentChild}
-                    <ButtonControls style={props.buttonStyle}>
-                        {step > 0 && step < 3 ? (
-                            <Button disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS" />
-                        ) : null}
-                        <Button disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress  /> : null} type="submit" text={isSubmitting ? "BOOKING" : isLastStep() ? "BOOK EVENT" : "CONTINUE"} />
-                    </ButtonControls>
                 </Form>
             )}
         </Formik>
