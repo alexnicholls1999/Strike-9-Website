@@ -36,11 +36,21 @@ function BookingForm({params}) {
         <FormikStepper
             initialValues={{
                 eventId: eventId,
-                userId: userId,
-                eventSlots: slots - 1,
-                teamName: '',
-                fullName: '',
-                location: '',
+                authId: userId,
+                slots: slots - 1,
+                teamName: "",
+                firstName: "",
+                lastName: "",
+                email: "", 
+                mobile: "",
+                gender: "",
+                selectedDate: "",
+                ethnicity: "",
+                billingLine1: "",
+                billingLine2: "",
+                billingLine3: "",
+                location: "",
+                postcode: "",
             }}
             onSubmit={async (values) => {
                 await sleep(3000);
@@ -52,7 +62,14 @@ function BookingForm({params}) {
             }}
         >
             <FormikStep label="Events Details" validationSchema={teamSchema}>
-                <EventDetails />
+                <EventDetails 
+                    eventDetails={{
+                        date: "17th October 2020",
+                        time: "10:00 - 12:00",
+                        address: "Mosley School Sports Centre, Springfield Road, B13 9NP",
+                        cost: "FREE",
+                    }}
+                />
             </FormikStep>
             
             <FormikStep label="Personal Details">

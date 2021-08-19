@@ -5,12 +5,12 @@ import { withStyles } from "@material-ui/core/styles";
 export const FormikConnector = withStyles({
     active: {
         "& $line": {
-            borderColor: "#5E3D83"
+            borderColor: "#6234D7"
         }
     }, 
     completed: {
         "& $line": {
-            borderColor: "#5E3D83"
+            borderColor: "#6234D7"
         }
     },
     line: {

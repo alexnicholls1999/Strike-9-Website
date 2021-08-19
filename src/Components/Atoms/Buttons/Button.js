@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledButton = styled.button`
     height: 45px;
-    background: ${({theme}) => theme.colors.primary.DaisyBush};
+    background: ${({theme}) => theme.colors.primary.RoyalPurple};
     border-radius: 7px;
     color: ${({theme}) => theme.colors.neutral.White};
     display: flex;
@@ -15,11 +15,11 @@ const StyledButton = styled.button`
     width: 100%;
     font-size: 12px;
     font-weight: ${({theme}) => theme.typography.fontWeight.bold};
-    box-shadow: 0px 0px 17px 2px ${({theme}) => theme.colors.primary.DaisyBush};
+    box-shadow: 0px 0px 17px 2px ${({theme}) => theme.colors.primary.RoyalPurple};
 
     &:disabled {
-        background-color: ${({ theme }) => theme.colors.primary.DaisyBush};
-        border-color: ${({ theme }) => theme.colors.primary.DaisyBush};
+        background-color: ${({ theme }) => theme.colors.primary.RoyalPurple};
+        border-color: ${({ theme }) => theme.colors.primary.RoyalPurple};
         opacity: 0.6;
     }
 `;

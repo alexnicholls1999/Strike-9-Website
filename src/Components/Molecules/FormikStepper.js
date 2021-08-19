@@ -21,18 +21,28 @@ const StyledClickWrap = styled.div`
 
 const StyledStepLabel = styled(StepLabel)`
 
+    .MuiTypography-body2 {
+        font-size: 1rem !important;
+        font-family: "Muli", sans-serif !important;
+        font-weight: 600;
+        line-height: 1.43;
+        letter-spacing: 0.01071em;
+    }
+
     .MuiStepLabel-label {
+        color: #f1f1f1;
         display: none;
     }
 
+
     .MuiStepLabel-label.MuiStepLabel-completed {
         color: ${({theme}) => theme.colors.primary.RoyalPurple};
-        font-weight: bold;
+        font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     }
 
     .MuiStepLabel-label.MuiStepLabel-active {
         color: ${({theme}) => theme.colors.primary.RoyalPurple};
-        font-weight: bold;
+        font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     }
 
     @media(min-width: 768px) {
@@ -109,8 +119,8 @@ function FormikStepper({children, ...props}) {
                                             : null}
                                         </Col>
                                         <Col sm={{span: 12, order: 1}}>
-                                            <ButtonControls style={props.buttonStyle}>
-                                                <Button disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress  /> : null} type="submit" text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} />
+                                            <ButtonControls>
+                                                <Button type="submit" disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress  /> : null} text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} />
                                                 {step > 0 && step < 3 ? (
                                                     <Button disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS" />
                                                 ) : null}

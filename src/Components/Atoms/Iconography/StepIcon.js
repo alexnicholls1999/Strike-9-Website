@@ -10,11 +10,11 @@ const Strike9StepIconStyles = makeStyles({
         alignItems: "center"
     },
     active: {
-        color: "#5E3D83",
+        color: "#6234D7",
         opacity: "100%"
     },
     completed: {
-        color: "#5E3D83",
+        color: "#6234D7",
         zIndex: 2,
         opacity: "100%"
     }

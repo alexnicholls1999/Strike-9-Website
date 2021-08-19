@@ -2,7 +2,7 @@ const theme = {
     colors: {
         primary: {
             DaisyBush: "#4D2AA5",
-            RoyalPurple: "#5E3D83",
+            RoyalPurple: "#6234D7",
             Heliotrope: "#A786F9",
             Perfume: "#D5CC6F8",
             Whisper: "#F5F4F9"
