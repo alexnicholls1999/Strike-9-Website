@@ -1,20 +1,29 @@
-import { useFormikContext } from "formik";
+import PropTypes from "prop-types";
+import { FormGroup } from "react-bootstrap";
 import ErrorMessage from "../../Atoms/Form/ErrorMessage";
 import Label from "../../Atoms/Form/Label";
 import Select from "../../Atoms/Form/Select";
 
 
-function Gender({...props}) {
-
-    const formik = useFormikContext();
+function Gender({labelProps, errMsg, ...props}) {
 
     return (
-        <>
-          <Label style={formik.errors.gender ? {color: "#C90808"} : null}>Gender</Label>
-          <Select value={formik.values.gender} {...props} />
-          <ErrorMessage>{formik.errors.gender}</ErrorMessage>
-        </>
+        <FormGroup>
+          <Label style={labelProps.labelStyle}>{labelProps.labelName}</Label>
+          <Select {...props} />
+          <ErrorMessage>{errMsg}</ErrorMessage>
+        </FormGroup>
     )
+
 }
+
+Gender.propTypes = {
+  labelProps: PropTypes.shape({
+    labelStyle: PropTypes.string,
+    labelName: PropTypes.string
+  }),
+  errMsg: PropTypes.string
+}
+
 
 export default Gender

@@ -4,6 +4,8 @@ import { Container, Col, Row } from 'react-bootstrap';
 import Input from '../../../Atoms/Form/Input';
 import Label from '../../../Atoms/Form/Label';
 import FormControl from "../../../Molecules/FormControl";
+import Gender from "../../../Molecules/Form/Gender";
+import DatePicker from "../../../Molecules/Form/DatePicker";
 
 const StyledUl = styled.ul`
     list-style: none;
@@ -56,6 +58,25 @@ function PersonalDetails() {
         onChange: formik.handleChange,
         placeholder: "Enter Mobile"
     }
+
+    const configGender = {
+        name: "gender",
+        style: formik.errors.mobile ? {borderColor: "#C90808"} : null,
+        value: formik.values.gender,
+        errMsg: formik.errors.gender,
+        options: [
+            {
+                name: "Enter Gender"
+            },
+            {
+                name: "Male"
+            },
+            {
+                name: "Female"
+            }
+        ],
+        onChange: formik.handleChange
+    }
     
     return (
         <Container>
@@ -74,6 +95,22 @@ function PersonalDetails() {
                 </Col>
                 <Col md={6}>
                     <FormControl labelProps={{labelName: "Mobile: ", labelStyle: formik.errors.mobile ? {color: "#C90808"} : null}} errMsg={formik.errors.mobile} {...configMobile}/>
+                </Col>
+            </Row>
+            <Row>
+                <Col md={6}>
+                    <Gender labelProps={{labelName: "Gender: ", labelStyle: formik.errors.gender ? {color: "#C90808"} : null}} errMsg={formik.errors.gender} {...configGender} />
+                </Col>
+            </Row>
+            <Row>
+                <Col md={6}>
+                    <DatePicker name="selectedDate" labelProps={{labelName: "Date of Birth: ", labelStyle: formik.errors.selectedDate ? {color: "#C90808"} : null}} errMsg={formik.errors.selectedDate}/>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col md={6}>
+                    
                 </Col>
             </Row>
 

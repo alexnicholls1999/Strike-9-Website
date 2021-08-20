@@ -122,7 +122,7 @@ function FormikStepper({children, ...props}) {
                                             <ButtonControls>
                                                 <Button type="submit" disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress  /> : null} text={isLastStep() ? "BOOK EVENT" : "CONTINUE"} />
                                                 {step > 0 && step < 3 ? (
-                                                    <Button disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS" />
+                                                    <Button type="button" disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS" />
                                                 ) : null}
                                             </ButtonControls>
                                         </Col>
