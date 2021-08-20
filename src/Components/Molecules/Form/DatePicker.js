@@ -7,7 +7,10 @@ import { FormGroup } from "react-bootstrap";
 import Label from "../../Atoms/Form/Label";
 import ErrorMessage from "../../Atoms/Form/ErrorMessage";
 
-const StyledDatePicker = styled(ReactDatePicker)`
+const StyledDatePickerWrapper = styled.div`
+
+    position: relative;
+    
     .react-datepicker-wrapper {
         width: 100%;
         border: none;
@@ -85,17 +88,18 @@ function DatePicker({labelProps, errMsg, ...props}) {
     return (
         <FormGroup>
             <Label style={labelProps.labelStyle}>{labelProps.labelName}</Label>
-            <StyledDatePicker 
-                selected={(field.value && new Date(field.value)) || null}
-                onChange={val => {
-                    setFieldValue(field.name, val);
-                }}
-                dateFormat="DD/MM/YYYY"
-                peekNextMonth
-                showMonthDropdown
-                showYearDropdown
-                dropdownMode="select"
-            />
+            <StyledDatePickerWrapper>
+                <ReactDatePicker selected={(field.value && new Date(field.value)) || null}
+                    onChange={val => {
+                        setFieldValue(field.name, val);
+                    }}
+                    dateFormat="dd/mm/yyyy"
+                    peekNextMonth
+                    showMonthDropdown
+                    showYearDropdown
+                    dropdownMode="select"
+                />
+            </StyledDatePickerWrapper> 
             <ErrorMessage>{errMsg}</ErrorMessage>
         </FormGroup>
     )
