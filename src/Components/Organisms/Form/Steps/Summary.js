@@ -51,7 +51,7 @@ function Summary({eventDate}) {
     
     return (
         <div>
-            <Container>
+            <>
                 <Title>Summary</Title>
                 <div className="py-2"></div>
 
@@ -97,7 +97,7 @@ function Summary({eventDate}) {
                         </BillingAddressSummary>
                     </Col>
                 </Row>
-            </Container>
+            </>
         </div>
     )
 }

@@ -120,7 +120,7 @@ function FormikStepper({children, ...props}) {
                         </Stepper>
                     </Card>
 
-                    <Container>
+                    <>
                         <div className="py-3"></div>
                         <Row>
                             {!completed ? (
@@ -157,7 +157,7 @@ function FormikStepper({children, ...props}) {
                                 </Col>
                             ) : null}
                         </Row>
-                    </Container>
+                    </>
                 </Form>
 
                 <StyledModalWrapper show={show}> 

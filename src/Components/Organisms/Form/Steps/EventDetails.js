@@ -29,7 +29,7 @@ function EventDetails({eventDetails}) {
     
     return (
         <>
-            <Container>
+            <>
                 <Row>
                     <Title className="py-2">Event Details</Title>
                 </Row>
@@ -55,7 +55,7 @@ function EventDetails({eventDetails}) {
                 <Row>
                     <FormControl labelProps={{labelName: "Team Name: ", labelStyle: formik.errors.teamName ? {color: "#C90808"} : null}} errMsg={formik.errors.teamName} {...configTeamName}/>
                 </Row>
-            </Container>
+            </>
         </>
     )
 }

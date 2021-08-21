@@ -58,7 +58,7 @@ function BillingAddress() {
     };
 
     return (
-        <Container>
+        <>
             <Title>Billing Address</Title>
             <div className="py-2"></div>
 
@@ -83,7 +83,7 @@ function BillingAddress() {
                 </Col>
             </Row>
 
-        </Container>
+        </>
     )
 }
 

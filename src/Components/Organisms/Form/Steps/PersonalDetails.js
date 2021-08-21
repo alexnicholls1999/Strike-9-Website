@@ -99,7 +99,7 @@ function PersonalDetails() {
     }
     
     return (
-        <Container>
+        <>
             <Title>Personal Details</Title>
             <div className="py-2"></div>
 
@@ -134,7 +134,7 @@ function PersonalDetails() {
                 </Col>
             </Row>
 
-        </Container>
+        </>
     )
 }
 
