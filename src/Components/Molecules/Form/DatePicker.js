@@ -15,6 +15,20 @@ const StyledDatePickerWrapper = styled.div`
         width: 100%;
         border: none;
         outline: none;
+
+        .react-datepicker__input-container input {
+            font-size: 15px;
+            padding: 10px;
+            width: 100%;
+            border-radius: 3px;
+            border: 1px solid #F4F4F4;
+            display: block;
+        
+            @media(min-width: 768px){
+                width: 350px;
+            }
+        }
+
     }
     .react-datepicker-popper {
         width: 90%;
