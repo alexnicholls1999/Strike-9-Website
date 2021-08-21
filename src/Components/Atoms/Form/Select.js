@@ -20,12 +20,16 @@ function Select({ options, onChange, onBlur, ...props}) {
     if (!Array.isArray(options) || options.length < 1) return null;
    
     return (
-        <StyledSelect onChange={onChange} onBlur={onBlur} {...props}>
-            {options.map((option, index) => {
-                const { value, name } = option;
-                return <option key={index} value={value}>{name}</option>
-            })}
-        </StyledSelect>
+
+        <>
+            <StyledSelect onChange={onChange} onBlur={onBlur} {...props}>
+                {options.map((option, index) => {
+                    const { value, name } = option;
+                    return <option key={index} value={value}>{name}</option>
+                })}
+            </StyledSelect>
+        </>
+
     )
 }
 

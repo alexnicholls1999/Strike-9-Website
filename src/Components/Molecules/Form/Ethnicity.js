@@ -1,0 +1,29 @@
+import PropTypes from "prop-types";
+import { FormGroup } from "react-bootstrap";
+import ErrorMessage from "../../Atoms/Form/ErrorMessage";
+import Label from "../../Atoms/Form/Label";
+import Select from "../../Atoms/Form/Select";
+
+
+function Ethnicity({labelProps, errMsg, ...props}) {
+
+    return (
+        <FormGroup>
+          <Label style={labelProps.labelStyle}>{labelProps.labelName}</Label>
+          <Select {...props} />
+          <ErrorMessage>{errMsg}</ErrorMessage>
+        </FormGroup>
+    )
+
+}
+
+Ethnicity.propTypes = {
+  labelProps: PropTypes.shape({
+    labelStyle: PropTypes.string,
+    labelName: PropTypes.string
+  }),
+  errMsg: PropTypes.string
+}
+
+
+export default Ethnicity

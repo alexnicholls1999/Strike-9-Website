@@ -46,9 +46,9 @@ function BookingForm({params}) {
                 gender: "",
                 selectedDate: "",
                 ethnicity: "",
-                billingLine1: "",
-                billingLine2: "",
-                billingLine3: "",
+                billingAddressLine1: "",
+                billingAddressLine2: "",
+                billingAddressLine3: "",
                 location: "",
                 postcode: "",
             }}
@@ -84,7 +84,7 @@ function BookingForm({params}) {
                 { booked === "Booked!" ? (
                     <h1 style={{color: "#5E3D83", textAlign: "center"}}>Booking Successful</h1>
                 ) : (
-                    <Summary />
+                    <Summary eventDate="27th October 2020"/>
                 )}
             </FormikStep>
         </FormikStepper>

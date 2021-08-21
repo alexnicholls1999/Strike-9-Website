@@ -1,24 +1,16 @@
 import styled from "styled-components";
 import { useFormikContext } from 'formik';
 import { Container, Col, Row } from 'react-bootstrap';
-import Input from '../../../Atoms/Form/Input';
-import Label from '../../../Atoms/Form/Label';
+
+import Ethnicity from "../../../Molecules/Form/Ethnicity";
 import FormControl from "../../../Molecules/FormControl";
 import Gender from "../../../Molecules/Form/Gender";
 import DatePicker from "../../../Molecules/Form/DatePicker";
-
-const StyledUl = styled.ul`
-    list-style: none;
-    padding: 0;
-`;
 
 const Title = styled.h3`
     color: ${({theme}) => theme.colors.primary.RoyalPurple};
     font-weight: bold;
 `;
-
-
-
 
 function PersonalDetails() {
     const formik = useFormikContext();
@@ -61,7 +53,7 @@ function PersonalDetails() {
 
     const configGender = {
         name: "gender",
-        style: formik.errors.mobile ? {borderColor: "#C90808"} : null,
+        style: formik.errors.gender ? {borderColor: "#C90808"} : null,
         value: formik.values.gender,
         errMsg: formik.errors.gender,
         options: [
@@ -76,6 +68,34 @@ function PersonalDetails() {
             }
         ],
         onChange: formik.handleChange
+    }
+    
+    const configEthnicity = {
+         name: "ethnicity",
+         style: formik.errors.ethnicity ? {borderColor: "#C90808"} : null,
+         value: formik.values.ethnicity,
+         errMsg: formik.errors.ethnicity,
+         options: [
+             {
+                 name: "Enter Ethnicity"
+             },
+             {
+                 name: "White Cascasian"
+             },
+             {
+                 name: "Mixed Race"
+             },
+             {
+                 name: "Asian"
+             },
+             {
+                 name: "Black"
+             },
+             {
+                 name: "Other"
+             }
+         ],
+         onChange: formik.handleChange
     }
     
     return (
@@ -110,7 +130,7 @@ function PersonalDetails() {
 
             <Row>
                 <Col md={6}>
-                    
+                    <Ethnicity labelProps={{labelName: "Date of Birth: ", labelStyle: formik.errors.ethnicity ? {color: "#C90808"} : null}} errMsg={formik.errors.ethnicity} {...configEthnicity}/>
                 </Col>
             </Row>
 
