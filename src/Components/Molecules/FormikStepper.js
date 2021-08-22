@@ -9,8 +9,6 @@ import {FormikConnector} from "./../Atoms/FormikConnector";
 import StepIcon from "./../Atoms/Iconography/StepIcon";
 import Button from "./../Atoms/Buttons/Button";
 import Modal from "./../Atoms/Modal";
-import { submitForm, isLastStep, handleShowPrivacyPolicy, handleShowTermsAndConditions } from "../../helpers/formikHelpers";
-import useFormikStepper from "../../react-hooks/useFormikStepper";
 
 
 const ButtonControls = styled.div`
@@ -64,44 +62,37 @@ const StyledStepLabel = styled(StepLabel)`
     }
 `;
 
-function FormikStepper({children, onSubmit, ...props}) {
-    // const childrenArray = Children.toArray(children);
-    // const [step, setStep] = useState(0);
-    // const [completed, setCompleted] = useState(false);
-    // const currentChild = childrenArray[step];
+function FormikStepper({children, ...props}) {
+    const childrenArray = Children.toArray(children);
+    const [step, setStep] = useState(0);
+    const [completed, setCompleted] = useState(false);
+    const currentChild = childrenArray[step];
 
-    // const [show, setShow] = useState(false);
-    // const [termsandconditions, setTermsAndConditions] = useState(false);
+    const [show, setShow] = useState(false);
+    const [termsandconditions, setTermsAndConditions] = useState(false);
+  
+    const handleShowTermsAndConditions = (e) => {
+        setShow(!show);
+        setTermsAndConditions(true);
+    } 
 
-
-    // const isLastStep = () => {
-    //     return step === childrenArray.length - 1;
-    // }
+    const handleShowPrivacyPolicy = (e) => { 
+        setShow(!show);
+        setTermsAndConditions(false);
+    }
     
-    // const handleShowTermsAndConditions = (e) => {
-    //     setShow(!show);
-    //     setTermsAndConditions(true);
-    // }
-    
-    
-    // const handleShowPrivacyPolicy = (e) => { 
-    //     setShow(!show);
-    //     setTermsAndConditions(false);
-    // }
-    
-    // const submitForm = async(values, helpers) => {
-    //     if (isLastStep()) {
-    //         await props.onSubmit(values, helpers);
-    //         setCompleted(true);
-    //     } else {
-    //         setStep((s) => s + 1);
-    //     }
+    const isLastStep = () => {
+        return step === childrenArray.length - 1;
+    }
 
-
-    const {state, currentChild, childrenArray, isLastStep, handleShowPrivacyPolicy, handlePreviousStep, handleShowTermsAndConditions, handleSubmitForm} = useFormikStepper(children, onSubmit);
-
-    
-    const {step, completed, show, termsandconditions} = state;
+    const handleSubmitForm = async(values, helpers) => {
+        if (isLastStep()) {
+            await props.onSubmit(values, helpers);
+            setCompleted(true);
+        } else {
+            setStep((s) => s + 1);
+        }
+    }
 
     return (
         <Formik
@@ -151,7 +142,7 @@ function FormikStepper({children, onSubmit, ...props}) {
                                             <ButtonControls>
                                                 <Button type="submit" disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress  /> : null} text={isSubmitting ? "BOOKING" : isLastStep() ? "BOOK EVENT" : "CONTINUE"} />
                                                 {step > 0 && step < 3 ? (
-                                                    <Button type="button" disabled={isSubmitting} onClick={handlePreviousStep} text="PREVIOUS" />
+                                                    <Button type="button" disabled={isSubmitting} onClick={() => setStep((s) => -1)} text="PREVIOUS" />
                                                 ) : null}
                                             </ButtonControls>
                                         </Col>
