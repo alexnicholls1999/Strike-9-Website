@@ -1,14 +1,17 @@
+import { useContext } from "react";
 import { Container } from "react-bootstrap";
-import styled from "styled-components";
 import Event from "../Components/Molecules/Event";
 import Hero from "../Components/Organisms/Hero";
 import Search from "../Components/Organisms/Search";
+import { EventContext } from "../react-context/EventContext";
 import useSearch from "../react-hooks/useSearch";
 
 
-function Events({events}) {
+function Events() {
 
     const { state, handleOnChangeSearch, handleOnChangeAvailableSlots, handleSubmit } = useSearch()
+
+    const events = useContext(EventContext);
 
     
     const { date, time, type, age, isChecked} = state;

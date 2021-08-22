@@ -112,6 +112,7 @@ function DatePicker({labelProps, errMsg, ...props}) {
                     showMonthDropdown
                     showYearDropdown
                     dropdownMode="select"
+                    placeholderText="Enter Date of Birth"
                 />
             </StyledDatePickerWrapper> 
             <ErrorMessage>{errMsg}</ErrorMessage>

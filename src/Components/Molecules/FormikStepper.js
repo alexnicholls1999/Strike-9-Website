@@ -5,7 +5,7 @@ import {Formik, Form} from "formik";
 import { Step, StepLabel, Stepper } from '@material-ui/core';
 import { Container, Row, Col} from 'react-bootstrap';
 
-import { isLastStep, FormikConnector} from './../../Helpers/formikHelpers';
+import { isLastStep, FormikConnector} from '../../react-helpers/formikHelpers';
 import Button from './../Atoms/Buttons/Button';
 import Card from './../Atoms/Card';
 import StepIcon from './../Atoms/Iconography/StepIcon';

@@ -12,6 +12,7 @@ import BookEvent from './Pages/BookEvent';
 import Corporate from './Pages/Corporate';
 import Contact from './Pages/Contact';
 import SecondaryLayout from './Layouts/SecondaryLayout';
+import EventContextProvider from './react-context/EventContext';
 
 // Remove Events json once Firebase is intergrated 
 
@@ -169,14 +170,18 @@ function App() {
         <Route path="/training">
           <Training />
         </Route>
-        <Route exact path="/events">
-          <SecondaryLayout>
-            <Events events={events}/>
-          </SecondaryLayout>
-        </Route>
-        <Route path="/events/:id">
-          <BookEvent />
-        </Route>
+
+        <EventContextProvider value={events}>
+          <Route exact path="/events">
+            <SecondaryLayout>
+              <Events/>
+            </SecondaryLayout>
+          </Route>
+          <Route path="/events/:id">
+            <BookEvent />
+          </Route>
+        </EventContextProvider>
+
         <Route path="/corporate">
           <Corporate />
         </Route>
