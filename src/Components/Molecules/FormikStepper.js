@@ -1,14 +1,15 @@
-import { Children, useState} from "react";
+import { useState, Children} from 'react';
+import PropTypes from 'prop-types';
 import styled from "styled-components";
-import { Form, Formik } from 'formik';
-import { CircularProgress, Step, StepLabel, Stepper } from "@material-ui/core";
-import { Col, Row } from "react-bootstrap";
+import {Formik, Form} from "formik";
+import { Step, StepLabel, Stepper } from '@material-ui/core';
+import { Container, Row, Col} from 'react-bootstrap';
 
-import Card from "./../Atoms/Card";
-import {FormikConnector} from "./../Atoms/FormikConnector";
-import StepIcon from "./../Atoms/Iconography/StepIcon";
-import Button from "./../Atoms/Buttons/Button";
-import Modal from "./../Atoms/Modal";
+import { isLastStep, FormikConnector} from './../../Helpers/formikHelpers';
+import Button from './../Atoms/Buttons/Button';
+import Card from './../Atoms/Card';
+import StepIcon from './../Atoms/Iconography/StepIcon';
+import Modal from './../Atoms/Modal';
 
 
 const ButtonControls = styled.div`
@@ -30,7 +31,6 @@ const StyledModalWrapper = styled.div`
 `;
 
 const StyledStepLabel = styled(StepLabel)`
-
     .MuiTypography-body2 {
         font-size: 1rem !important;
         font-family: "Muli", sans-serif !important;
@@ -38,23 +38,18 @@ const StyledStepLabel = styled(StepLabel)`
         line-height: 1.43;
         letter-spacing: 0.01071em;
     }
-
     .MuiStepLabel-label {
         color: #f1f1f1;
         display: none;
     }
-
-
     .MuiStepLabel-label.MuiStepLabel-completed {
         color: ${({theme}) => theme.colors.primary.RoyalPurple};
         font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     }
-
     .MuiStepLabel-label.MuiStepLabel-active {
         color: ${({theme}) => theme.colors.primary.RoyalPurple};
         font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     }
-
     @media(min-width: 768px) {
         .MuiStepLabel-label {
             display: block
@@ -66,97 +61,89 @@ function FormikStepper({children, ...props}) {
     const childrenArray = Children.toArray(children);
     const [step, setStep] = useState(0);
     const [completed, setCompleted] = useState(false);
+    const [show, setShow] = useState(false);
+    const [termsandconditions, setTermsandConditions] = useState(false);
+    
     const currentChild = childrenArray[step];
 
-    const [show, setShow] = useState(false);
-    const [termsandconditions, setTermsAndConditions] = useState(false);
-  
     const handleShowTermsAndConditions = (e) => {
         setShow(!show);
-        setTermsAndConditions(true);
-    } 
-
-    const handleShowPrivacyPolicy = (e) => { 
-        setShow(!show);
-        setTermsAndConditions(false);
+        setTermsandConditions(true);
     }
     
-    const isLastStep = () => {
-        return step === childrenArray.length - 1;
-    }
-
-    const handleSubmitForm = async(values, helpers) => {
-        if (isLastStep()) {
-            await props.onSubmit(values, helpers);
-            setCompleted(true);
-        } else {
-            setStep((s) => s + 1);
-        }
+    const handleShowPrivacyPolicy = (e) => { 
+        setShow(!show);
+        setTermsandConditions(false);
     }
 
     return (
         <Formik
             {...props}
             validationSchema={currentChild.props.validationSchema}
-            onSubmit={async (values, helpers) => {handleSubmitForm(values, helpers)}}
+            onSubmit={async (values, helpers) => {
+                if (isLastStep(step, childrenArray)) {
+                    await props.onSubmit(values, helpers);
+                    setCompleted(true);
+                } else {
+                    setStep((s) => s + 1);
+                }
+            }}
         >
             {({ isSubmitting, isValid, dirty }) => (
-
                 <>
                 <Form autoComplete="off">
-                    <Card style={{marginTop: "-45px", zIndex: 1, position: "relative"}}>                        
+                    <Card style={{marginTop: "-45px", zIndex: "1", position: "relative"}}>
                         <Stepper connector={<FormikConnector/>} activeStep={step}>
                             {childrenArray.map((child, index) => (
                                 <Step
                                     key={child.props.label}
                                     completed={step > index || completed}
                                 >
-                                    <StyledStepLabel StepIconComponent={StepIcon}>{ index === step && isSubmitting ? "Booking..." : child.props.label}</StyledStepLabel>
+                                    <StyledStepLabel StepIconComponent={StepIcon}>{index === step && isSubmitting ? "Booking..." : child.props.label}</StyledStepLabel>
                                 </Step>
                             ))}
                         </Stepper>
                     </Card>
 
-                    <>
+                    <Container>
                         <div className="py-3"></div>
                         <Row>
-                            {!completed ? (
+                            {completed === false ? (
                                 <Col lg={8}>
                                     {currentChild}
                                 </Col>
-                            ) : (
+                                ) : (
                                 <Col lg={12}>
                                     {currentChild}
                                 </Col>
                             )}
-                            {!completed ? (
+
+                            {completed === false ? (
                                 <Col lg={3} sm={12} className="ms-auto">
                                     <Row>
-                                        <Col sm={{span: 12, order: 2}}>
+                                        <Col sm={{span: 12, order: 2}}>  
                                             <div className="p-3"></div>
-                                            {isLastStep() ? 
-                                               <p> By booking an event, you agree to Strike 9 Trainings <a href="#" onClick={(e) => { handleShowTermsAndConditions(e);}}>Terms and Conditions </a> and <a href="#" onClick={(e) => {handleShowPrivacyPolicy(e);}}>Privacy Policy </a>.</p>
+                                            {isLastStep(step, childrenArray) ? 
+                                                    <p> By booking an event, you agree to Strike 9 Trainings <a href="#" onClick={(e) => { handleShowTermsAndConditions(e);}}>Terms and Conditions </a> and <a href="#" onClick={(e) => {handleShowPrivacyPolicy(e);}}>Privacy Policy </a>.</p>
                                             : null}
                                         </Col>
                                         <Col sm={{span: 12, order: 1}}>
                                             <ButtonControls>
-                                                <Button type="submit" disabled={!dirty || !isValid} startIcon={isSubmitting ? <CircularProgress  /> : null} text={isSubmitting ? "BOOKING" : isLastStep() ? "BOOK EVENT" : "CONTINUE"} />
-                                                {step > 0 && step < 3 ? (
-                                                    <Button type="button" disabled={isSubmitting} onClick={() => setStep((s) => -1)} text="PREVIOUS" />
-                                                ) : null}
+                                                <Button disabled={!dirty || !isValid} type="submit" text={isSubmitting ? "BOOKING" : isLastStep(step, childrenArray) ? "BOOK EVENT" : "CONTINUE"} /> 
+                                                {step > 0 && step < 3 ? <Button disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS"/> : null}
                                             </ButtonControls>
                                         </Col>
                                     </Row>
                                 </Col>
                             ) : null}
                         </Row>
-                    </>
-                </Form>
+                    </Container>
 
+                </Form>
                 <StyledModalWrapper show={show}> 
                     {termsandconditions === true ? (
                         <Modal onClose={handleShowTermsAndConditions} show={show}>
-                            <p>Terms and Conditions</p> 
+                            <p>Terms And Conditions</p>  
                         </Modal>
                     ) : (
                         <Modal onClose={handleShowPrivacyPolicy} show={show}>
@@ -164,11 +151,14 @@ function FormikStepper({children, ...props}) {
                         </Modal>
                     )}
                 </StyledModalWrapper>
-
                 </>
             )}
         </Formik>
     )
+}
+
+FormikStepper.propTypes = {
+    children: PropTypes.element.isRequired
 }
 
 export default FormikStepper
