@@ -102,6 +102,7 @@ function DatePicker({labelProps, errMsg, ...props}) {
     return (
         <FormGroup>
             <Label style={labelProps.labelStyle}>{labelProps.labelName}</Label>
+            <div className="p-1"></div>
             <StyledDatePickerWrapper>
                 <ReactDatePicker selected={(field.value && new Date(field.value)) || null}
                     onChange={val => {

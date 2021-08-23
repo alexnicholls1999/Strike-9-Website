@@ -10,7 +10,7 @@ function ErrorMessage({children}) {
 }
 
 ErrorMessage.propTypes = {
-    children: PropTypes.element.isRequired
+    children: PropTypes.element
 }
 
 export default ErrorMessage

@@ -130,9 +130,9 @@ function FormikStepper({children, ...props}) {
                                         <Col sm={{span: 12, order: 1}}>
                                             <ButtonControls>
                                                 <Button disabled={!dirty || !isValid} type="submit" text={isSubmitting ? "BOOKING" : isLastStep(step, childrenArray) ? "BOOK EVENT" : "CONTINUE"} /> 
-                                                {step > 0 && step < 3 ? <Button disabled={isSubmitting} onClick={() => setStep((s) => s - 1)} text="PREVIOUS"/> : null}
+                                                {step > 0 && step < 3 ? <Button disabled={isSubmitting} type="button" onClick={() => setStep((s) => s - 1)} text="PREVIOUS"/> : null}
                                             </ButtonControls>
-                                        </Col>
+                                        </Col> 
                                     </Row>
                                 </Col>
                             ) : null}
@@ -158,7 +158,7 @@ function FormikStepper({children, ...props}) {
 }
 
 FormikStepper.propTypes = {
-    children: PropTypes.element.isRequired
+    children: PropTypes.array.isRequired
 }
 
 export default FormikStepper

@@ -24,7 +24,7 @@ const billingAddressSchema = Yup.object({
 
 function BookingForm({params}) {
 
-    const [booked, setBooked] = useState("Summary!")
+    const [booked, setBooked] = useState("Summary")
  
     const userId = "elasdaXwea2dascx";
     const events = useContext(EventContext);

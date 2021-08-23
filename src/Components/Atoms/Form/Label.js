@@ -13,7 +13,7 @@ function Label({children, style}) {
 
 Label.propTypes = {
     style: PropTypes.string,
-    children: PropTypes.element.isRequired
+    children: PropTypes.string.isRequired
 }
 
 export default Label

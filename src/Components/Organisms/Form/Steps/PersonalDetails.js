@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useFormikContext } from 'formik';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 import Ethnicity from "../../../Molecules/Form/Ethnicity";
 import FormControl from "../../../Molecules/FormControl";
@@ -130,7 +130,7 @@ function PersonalDetails() {
 
             <Row>
                 <Col md={6}>
-                    <Ethnicity labelProps={{labelName: "Date of Birth: ", labelStyle: formik.errors.ethnicity ? {color: "#C90808"} : null}} errMsg={formik.errors.ethnicity} {...configEthnicity}/>
+                    <Ethnicity labelProps={{labelName: "Ethnicity: ", labelStyle: formik.errors.ethnicity ? {color: "#C90808"} : null}} errMsg={formik.errors.ethnicity} {...configEthnicity}/>
                 </Col>
             </Row>
 

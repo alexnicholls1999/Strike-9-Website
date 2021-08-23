@@ -10,6 +10,7 @@ function Gender({labelProps, errMsg, ...props}) {
     return (
         <FormGroup>
           <Label style={labelProps.labelStyle}>{labelProps.labelName}</Label>
+          <div className="p-1"></div>
           <Select {...props} />
           <ErrorMessage>{errMsg}</ErrorMessage>
         </FormGroup>

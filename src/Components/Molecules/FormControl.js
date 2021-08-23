@@ -8,6 +8,7 @@ function FormControl({labelProps, errMsg, ...props}) {
     return (
         <FormGroup>
             <Label style={labelProps.labelStyle}>{labelProps.labelName}</Label>
+            <div className="p-1"></div>
             <Input {...props}/>
             <ErrorMessage>{errMsg}</ErrorMessage>
         </FormGroup>
@@ -19,7 +20,7 @@ FormControl.propTypes = {
         labelStyle: PropTypes.object,
         labelName: PropTypes.string.isRequired
     }),
-    errMsg: PropTypes.string.isRequired
+    errMsg: PropTypes.string
 }
 
 export default FormControl;

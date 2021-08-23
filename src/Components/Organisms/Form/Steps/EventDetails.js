@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 import { useFormikContext } from 'formik';
-import { Container, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import FormControl from '../../../Molecules/FormControl';
 
 const StyledUl = styled.ul`
@@ -53,7 +53,9 @@ function EventDetails({eventDetails}) {
                     </div>
                 </Row>
                 <Row>
-                    <FormControl labelProps={{labelName: "Team Name: ", labelStyle: formik.errors.teamName ? {color: "#C90808"} : null}} errMsg={formik.errors.teamName} {...configTeamName}/>
+                    <Col md={6}>
+                        <FormControl labelProps={{labelName: "Team Name: ", labelStyle: formik.errors.teamName ? {color: "#C90808"} : null}} errMsg={formik.errors.teamName} {...configTeamName}/>
+                    </Col>
                 </Row>
             </>
         </>
