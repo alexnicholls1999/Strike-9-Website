@@ -13,8 +13,13 @@ import Corporate from './Pages/Corporate';
 import Contact from './Pages/Contact';
 import SecondaryLayout from './Layouts/SecondaryLayout';
 import EventContextProvider from './react-context/EventContext';
+import UserContextProvider from './react-context/UserContext';
 
-// Remove Events json once Firebase is intergrated 
+// Remove UserId variable once Firebase is intergrated, add useSearch Hook and bind events value with EventsContextProvider 
+
+const userId = "elasdaXwea2dascx";
+
+// Remove Events json once Firebase is intergrated, add useSearch Hook and bind events value with EventsContextProvider 
 
 const events = [
   {
@@ -153,7 +158,9 @@ const events = [
       "timefltr": true
   }    
 
-]
+];
+
+
 
 
 function App() {
@@ -171,16 +178,20 @@ function App() {
           <Training />
         </Route>
 
-        <EventContextProvider value={events}>
-          <Route exact path="/events">
-            <SecondaryLayout>
-              <Events/>
-            </SecondaryLayout>
-          </Route>
-          <Route path="/events/:id">
-            <BookEvent />
-          </Route>
-        </EventContextProvider>
+        <UserContextProvider value={userId}>
+          <EventContextProvider value={events}>
+            <Route exact path="/events">
+              <SecondaryLayout>
+                <Events/>
+              </SecondaryLayout>
+            </Route>
+            <Route path="/events/:id">
+              <SecondaryLayout>
+                <BookEvent />
+              </SecondaryLayout>
+            </Route>
+          </EventContextProvider>
+        </UserContextProvider>
 
         <Route path="/corporate">
           <Corporate />

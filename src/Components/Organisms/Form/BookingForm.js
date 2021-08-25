@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
-import * as Yup from "yup";
 import { EventContext } from "../../../react-context/EventContext";
+import { UserContext } from "../../../react-context/UserContext";
+import { BillingAddressSchema, EventsDetailsSchema, PersonalDetailsSchema, sleep} from "../../../react-helpers/formikHelpers";
 import FormikStepper from '../../Molecules/FormikStepper';
 import FormikStep from "./../../Atoms/FormikStep";
 import BillingAddress from "./Steps/BillingAddress";
@@ -8,26 +9,13 @@ import EventDetails from './Steps/EventDetails';
 import PersonalDetails from './Steps/PersonalDetails';
 import Summary from "./Steps/Summary";
 
-const sleep = (time) => new Promise((acc) => setTimeout(acc, time));
-
-const teamSchema = Yup.object({
-    teamName: Yup.string().min(2, "Too Short!").required()
-});
-
-const personalSchema = Yup.object({
-    fullName: Yup.string().min(2, "Too Short!").required()
-});
-
-const billingAddressSchema = Yup.object({
-    location: Yup.string().min(2, "Too Short!").required()
-});
 
 function BookingForm({params}) {
 
     const [booked, setBooked] = useState("Summary")
- 
-    const userId = "elasdaXwea2dascx";
     const events = useContext(EventContext);
+    const userId = useContext(UserContext);
+    
     const id = params.id;
     const event = events ? events[id - 1] : null;
 
@@ -60,7 +48,7 @@ function BookingForm({params}) {
                     setBooked("Booked!")
                 }}
             >
-                <FormikStep label="Events Details" validationSchema={teamSchema}>
+                <FormikStep label="Events Details" validationSchema={EventsDetailsSchema}>
                     <EventDetails 
                         eventDetails={{
                             date: event.date,
@@ -71,11 +59,11 @@ function BookingForm({params}) {
                     />
                 </FormikStep>
                 
-                <FormikStep label="Personal Details">
+                <FormikStep label="Personal Details" validationSchema={PersonalDetailsSchema}>
                     <PersonalDetails />
                 </FormikStep>
     
-                <FormikStep label="Billing Address">
+                <FormikStep label="Billing Address" validationSchema={BillingAddressSchema}>
                     <BillingAddress />
                 </FormikStep>
     
