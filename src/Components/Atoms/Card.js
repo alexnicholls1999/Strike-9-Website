@@ -5,6 +5,7 @@ const StyledCard = styled.div`
     border-radius: 0;
     border: none;
     box-shadow: 0 5px 29px 0 hsla(240, 18%, 77%, 0.52);
+    background-color: white;
 `;
 
 function Card({children, ...props}) {

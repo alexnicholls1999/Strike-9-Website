@@ -180,14 +180,6 @@ function App() {
         <Route path="/training">
           <Training />
         </Route>
-
-        {/* <UserContextProvider value={userId}>
-          <EventContextProvider value={events}>
-
-
-          </EventContextProvider>
-        </UserContextProvider>  */}
-
         <Route exact path="/events">
           <UserContextProvider value={userId}>
             <EventContextProvider value={events}>
@@ -197,15 +189,14 @@ function App() {
             </EventContextProvider>
           </UserContextProvider>
         </Route>
-
         <Route path="/events/:id">
-        <UserContextProvider value={userId}>
-            <EventContextProvider value={events}>
-              <SecondaryLayout>
-                <BookEvent/>
-              </SecondaryLayout>
-            </EventContextProvider>
-          </UserContextProvider>
+          <UserContextProvider value={userId}>
+              <EventContextProvider value={events}>
+                <SecondaryLayout>
+                  <BookEvent/>
+                </SecondaryLayout>
+              </EventContextProvider>
+            </UserContextProvider>
         </Route>
 
         <Route path="/corporate">
@@ -213,7 +204,9 @@ function App() {
         </Route>
 
         <Route path="/contact">
-          <Contact />
+          <SecondaryLayout>
+            <Contact />
+          </SecondaryLayout>
         </Route>
       </Switch>
     </ThemeProvider>
