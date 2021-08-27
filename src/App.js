@@ -181,24 +181,37 @@ function App() {
           <Training />
         </Route>
 
-        <UserContextProvider value={userId}>
+        {/* <UserContextProvider value={userId}>
           <EventContextProvider value={events}>
-            <Route exact path="/events">
+
+
+          </EventContextProvider>
+        </UserContextProvider>  */}
+
+        <Route exact path="/events">
+          <UserContextProvider value={userId}>
+            <EventContextProvider value={events}>
               <SecondaryLayout>
                 <Events/>
               </SecondaryLayout>
-            </Route>
-            <Route path="/events/:id">
+            </EventContextProvider>
+          </UserContextProvider>
+        </Route>
+
+        <Route path="/events/:id">
+        <UserContextProvider value={userId}>
+            <EventContextProvider value={events}>
               <SecondaryLayout>
-                <BookEvent />
+                <BookEvent/>
               </SecondaryLayout>
-            </Route>
-          </EventContextProvider>
-        </UserContextProvider> 
+            </EventContextProvider>
+          </UserContextProvider>
+        </Route>
 
         <Route path="/corporate">
           <Corporate />
         </Route>
+
         <Route path="/contact">
           <Contact />
         </Route>
