@@ -14,6 +14,7 @@ import Contact from './Pages/Contact';
 import SecondaryLayout from './Layouts/SecondaryLayout';
 import EventContextProvider from './react-context/EventContext';
 import UserContextProvider from './react-context/UserContext';
+import MainLayout from './Layouts/MainLayout';
 
 // Remove UserId variable once Firebase is intergrated, add useSearch Hook and bind events value with EventsContextProvider 
 
@@ -169,7 +170,9 @@ function App() {
       <GlobalStyles />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <MainLayout heroDetails={{ title: "STRIKE 9 TRAINING ACADEMY", paragraph: "Do you want to bring another level to your Game? Are you tracking your progress? Are you seeking additional training outside of your club team? Football is changing. " }}>
+            <Home />
+          </MainLayout>
         </Route>
         <Route path="/aboutus">
           <About />
@@ -191,7 +194,7 @@ function App() {
               </SecondaryLayout>
             </Route>
           </EventContextProvider>
-        </UserContextProvider>
+        </UserContextProvider> 
 
         <Route path="/corporate">
           <Corporate />

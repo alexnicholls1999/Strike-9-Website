@@ -11,6 +11,35 @@ const GlobalStyles = createGlobalStyle`
         font-weight: ${({theme}) => theme.typography.fontWeight.bold};
         color: ${({theme}) => theme.colors.neutral.White};
     }
+
+    .slideInRight {
+        transform: translateX(0);
+    } 
+
+    .slideInLeft {
+        transform: translateX(0);
+    }
+
+    .slideInLeft, .slideInRight {
+        opacity: 0;
+        transition: transform 400ms ease-in;
+    }
+
+    .slideInLeft.isVisible, .slideInRight.isVisible {
+        opacity: 1;
+        transform: translateX(0);
+        display: block;
+    }
+
+    @media (min-width: 768px) {
+        .slideInRight {
+            transform: translateX(50%);
+        }
+
+        .slideInLeft {
+            transform: translateX(-50%);
+        }
+    }
 `;
 
 

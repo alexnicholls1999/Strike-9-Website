@@ -1,4 +1,4 @@
-import * as Styled from "./../styles/Pages/HomeStyles";
+import * as Styled from "./../styles/PageStyles/HomeStyles";
 import { Container, Row, Col } from 'react-bootstrap';
 import FadeIn from "../Animations/FadeIn";
 import GreyBorder from "../Components/Atoms/GreyBorder";
@@ -6,6 +6,7 @@ import Button from "./../Components/Atoms/Buttons/Button";
 
 import FootballPlayer from '../assets/kisspng-football-player-wallpaper-football-match-5a68fb66da5359.0732821715168295428943.png';
 import AboutInfoImage from '../assets/about-info-image.png';
+import Index from "../Components/Organisms/Index";
 
 
 function Home() {
@@ -27,13 +28,15 @@ function Home() {
                 <Styled.TrainingPlans>
                     <Container>
                         <Row>
-                            <Col md={6} sm className="me-auto">
+                            <Col md={6} sm>
                                 <h2>TRAINING PLANS</h2>
                             </Col>
                         </Row>
                         <Row>
                             <Col md={6} sm>
-                                <img src={FootballPlayer} alt="football_player"/>
+                                <Styled.ImageWrapper>
+                                    <img src={FootballPlayer} alt="football_player"/>
+                                </Styled.ImageWrapper>
                             </Col>
                             <Col md={6} sm>
                                 <Styled.List>
@@ -113,6 +116,8 @@ function Home() {
                 </Styled.About>
                 <GreyBorder />
             </FadeIn>
+
+            <Index />
 
         </div>
     )

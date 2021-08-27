@@ -7,7 +7,7 @@ import SocialMedia from "../SocialMedia";
 const BottomFooter = styled.div`
     padding: 25px 0;
     display: block;
-    border-top: ${({theme}) => '3px solid' + theme.typography.fontFamily.Muli};
+    border-top: ${({theme}) => `2px solid ${theme.colors.neutral.White}`};
     margin-top: 40px;
 
     @media (min-width: 768px) {

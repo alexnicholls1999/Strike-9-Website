@@ -9,7 +9,7 @@ function BookEvent() {
 
     return (
         <>
-            <Hero secondaryDetails={{title: "STRIKE 9 VLU REGISTER EVENTS FORM"}} secondary>
+            <Hero heroDetails={{title: "STRIKE 9 VLU REGISTER EVENTS FORM"}} secondary>
                 <Container>
                     <div className="p-5"></div>
                 </Container>

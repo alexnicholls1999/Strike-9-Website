@@ -15,9 +15,16 @@ export const Sponsors = styled.div`
 
 export const TrainingPlans = styled.div`
     padding-top: 25px;
+`;
+
+export const ImageWrapper = styled.div`
+    height: 100%;
+    width: 100%;
+    position: relative;
 
     img {
-        width: 100%;
+        width: 75%;
+        margin: 0 auto;
     }
 
     @media (min-width: 768px) {
@@ -79,7 +86,6 @@ export const Promises = styled.div`
 `;
 
 export const About = styled.div`
-
     padding: 5%;
 
     button {

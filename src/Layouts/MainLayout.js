@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Wallpaper from '../Atoms/Wallpaper'
-import Footer from '../Organisms/Footer'
-import Header from '../Organisms/Header'
-import Hero from '../Organisms/Hero'
+import Wallpaper from "../Components/Atoms/Wallpaper";
+import Footer from "../Components/Organisms/Footer";
+import Header from "../Components/Organisms/Header";
+import Hero from "../Components/Organisms/Hero";
 
 
 const IntroWrapper = styled.div`
@@ -12,11 +12,12 @@ const IntroWrapper = styled.div`
     height: 100vh;
 `;
 
-function MainLayout({children, ...props}) {
+function MainLayout({children, heroDetails}) {
     return (
         <>
             <IntroWrapper>
-                <Hero {...props}/>
+                <Header menuColor="#190438"/>
+                <Hero homepage heroDetails={heroDetails} />
                 <Wallpaper />
             </IntroWrapper> 
 
@@ -24,7 +25,7 @@ function MainLayout({children, ...props}) {
                 {children}    
             </> 
 
-            <Footer /> 
+            <Footer />
         </>
     )
 }
