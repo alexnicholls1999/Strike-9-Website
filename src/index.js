@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from './App';
 import Webfont from "webfontloader";
 import reportWebVitals from './reportWebVitals';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 Webfont.load({
