@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { Route, Switch } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
 import GlobalStyles from './styles/GlobalStyles';
+import firebase from './firebase/utils';
 
 // Pages
 import Home from './Pages/Home';
@@ -15,10 +17,7 @@ import SecondaryLayout from './Layouts/SecondaryLayout';
 import EventContextProvider from './react-context/EventContext';
 import UserContextProvider from './react-context/UserContext';
 import MainLayout from './Layouts/MainLayout';
-
-// Remove UserId variable once Firebase is intergrated, add useSearch Hook and bind events value with EventsContextProvider 
-
-const userId = "elasdaXwea2dascx";
+import useAuth from './firebase/useAuth';
 
 // Remove Events json once Firebase is intergrated, add useSearch Hook and bind events value with EventsContextProvider 
 
@@ -162,9 +161,24 @@ const events = [
 ];
 
 
+function RouteGuard({children, auth, signInGuest}) {
+
+    useEffect(() => {
+      if(!auth.uid) {
+        signInGuest();
+      } else {
+        console.log(auth.uid);
+      }
+    }, [])
+
+    return <>{children}</>
+}
 
 
 function App() {
+
+  const { user, signInAnomousUser } = useAuth(firebase.auth)
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -183,21 +197,25 @@ function App() {
           <Training />
         </Route>
         <Route exact path="/events">
-          <UserContextProvider value={userId}>
-            <EventContextProvider value={events}>
-              <SecondaryLayout navBg={theme.colors.primary.RoyalPurple} menuBg={theme.colors.primary.RoyalPurple} variant="dark">
-                <Events/>
-              </SecondaryLayout>
-            </EventContextProvider>
+          <UserContextProvider value={user}>
+            <RouteGuard auth={user.uid} signInGuest={signInAnomousUser}>
+              <EventContextProvider value={events}>
+                <SecondaryLayout navBg={theme.colors.primary.RoyalPurple} menuBg={theme.colors.primary.RoyalPurple} variant="dark">
+                  <Events/>
+                </SecondaryLayout>
+              </EventContextProvider>
+            </RouteGuard>
           </UserContextProvider>
         </Route>
         <Route path="/events/:id">
-            <UserContextProvider value={userId}>
-              <EventContextProvider value={events}>
-                <SecondaryLayout navBg={theme.colors.primary.RoyalPurple} menuBg={theme.colors.primary.RoyalPurple} variant="dark">
-                  <BookEvent/>
-                </SecondaryLayout>
-              </EventContextProvider>
+            <UserContextProvider value={user}>
+              <RouteGuard auth={user} signInGuest={signInAnomousUser}>
+                <EventContextProvider value={events}>
+                  <SecondaryLayout navBg={theme.colors.primary.RoyalPurple} menuBg={theme.colors.primary.RoyalPurple} variant="dark">
+                    <BookEvent/>
+                  </SecondaryLayout>
+                </EventContextProvider>
+              </RouteGuard>
             </UserContextProvider>
         </Route>
 

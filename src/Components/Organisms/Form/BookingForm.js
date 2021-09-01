@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import useAuth from "../../../firebase/useAuth";
 import { EventContext } from "../../../react-context/EventContext";
 import { UserContext } from "../../../react-context/UserContext";
 import { BillingAddressSchema, EventsDetailsSchema, PersonalDetailsSchema, sleep} from "../../../react-helpers/formikHelpers";
@@ -9,24 +10,21 @@ import EventDetails from './Steps/EventDetails';
 import PersonalDetails from './Steps/PersonalDetails';
 import Summary from "./Steps/Summary";
 
-
 function BookingForm({params}) {
 
     const [booked, setBooked] = useState("Summary")
     const events = useContext(EventContext);
-    const userId = useContext(UserContext);
+    const user = useContext(UserContext);
     
     const id = params.id;
     const event = events ? events[id - 1] : null;
-
-    console.log(event.id);
 
     if (event) {
         return (
             <FormikStepper
                 initialValues={{
                     eventId: event.id,
-                    authId: userId,
+                    authId: user.uid,
                     slots: event.slots - 1,
                     teamName: "",
                     firstName: "",
@@ -43,12 +41,12 @@ function BookingForm({params}) {
                     postcode: "",
                 }}
                 onSubmit={async (values) => {
-                    await sleep(3000);
+                    // await sleep(3000);
                     console.log(values);
-                    setBooked("Booked!")
+                    setBooked("Booked!");
                 }}
             >
-                <FormikStep label="Events Details" validationSchema={EventsDetailsSchema}>
+                <FormikStep label="Events Details">
                     <EventDetails 
                         eventDetails={{
                             date: event.date,
@@ -59,11 +57,11 @@ function BookingForm({params}) {
                     />
                 </FormikStep>
                 
-                <FormikStep label="Personal Details" validationSchema={PersonalDetailsSchema}>
+                <FormikStep label="Personal Details" >
                     <PersonalDetails />
                 </FormikStep>
     
-                <FormikStep label="Billing Address" validationSchema={BillingAddressSchema}>
+                <FormikStep label="Billing Address">
                     <BillingAddress />
                 </FormikStep>
     
