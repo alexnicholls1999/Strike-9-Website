@@ -16,7 +16,7 @@ function MainLayout({children, heroDetails}) {
     return (
         <>
             <IntroWrapper>
-                <Header menuColor="#190438"/>
+                <Header variant="dark" menuColor="#190438"/>
                 <Hero homepage heroDetails={heroDetails} />
                 <Wallpaper />
             </IntroWrapper> 

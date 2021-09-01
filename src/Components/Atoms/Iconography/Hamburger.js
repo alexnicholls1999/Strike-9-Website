@@ -18,7 +18,7 @@ const StyledHamburger = styled(NavbarToggle)`
     div {
         width: 1.5rem;
         height: 3px;
-        background-color: ${({theme}) => theme.colors.neutral.White};
+        background-color: ${({theme, dark}) => (dark ? theme.colors.neutral.Black : theme.colors.neutral.White)};
         transform-origin: 1px;
         transition: all .3s ease-in;
         &:nth-child(1){
@@ -35,12 +35,13 @@ const StyledHamburger = styled(NavbarToggle)`
 `;
 
 
-function Hamburger({ onClick, open }) {
+function Hamburger({ onClick, open, dark }) {
     return (
         <StyledHamburger
             aria-controls="basic-navbar-nav"
             open={open}
             onClick={onClick}
+            dark={dark}
         >
             <div></div>
             <div></div>

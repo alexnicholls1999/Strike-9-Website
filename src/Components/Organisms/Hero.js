@@ -8,11 +8,11 @@ import { useHistory } from "react-router";
 const HeroWrapper = styled.div`
     position: relative;
     top: 0;
-    background-color: ${({theme, secondary}) => secondary ? theme.colors.primary.RoyalPurple : "none"};
+    background-color: ${({secondary, bgHero}) => secondary ? bgHero : "none"};
     width: 100%;
     padding: 1rem;
     height: 90%;
-    color: ${({theme}) => theme.colors.neutral.White};
+    color: ${({theme, black}) => black ? theme.colors.neutral.Black : theme.colors.neutral.White};
 `;
 
 const ButtonsWrapper = styled.div`
@@ -28,12 +28,12 @@ const SocialMediaHeroWrapper = styled.div`
 `;
 
 
-function Hero({children, secondary, homepage, heroDetails}) {
+function Hero({children, secondary, bgHero, black, homepage, heroDetails}) {
 
     const history = useHistory();
 
     return (
-        <HeroWrapper secondary={secondary}>
+        <HeroWrapper secondary={secondary} black={black} bgHero={bgHero} >
             <Container>
                 <Row>
                     <Col lg={8} md={8} sm>
@@ -74,6 +74,8 @@ Hero.propTypes = {
         paragraph: PropTypes.string
     }),
     secondary: PropTypes.bool,
+    black: PropTypes.bool,
+    bgHero: PropTypes.string,
     homepage: PropTypes.bool,
     children: PropTypes.element,
 }

@@ -5,6 +5,7 @@ import Hero from "../Components/Organisms/Hero";
 import Search from "../Components/Organisms/Search";
 import { EventContext } from "../react-context/EventContext";
 import useSearch from "../react-hooks/useSearch";
+import theme from "./../styles/theme";
 
 
 function Events() {
@@ -19,7 +20,7 @@ function Events() {
     return (
 
         <>
-            <Hero secondary heroDetails={{title: "SEARCH FOR STRIKE 9 VLU EVENTS"}}>
+            <Hero secondary bgHero={theme.colors.primary.RoyalPurple} heroDetails={{title: "SEARCH FOR STRIKE 9 VLU EVENTS"}}>
                 <Search onClick={handleSubmit} handleFilters={{handleDateChange: handleOnChangeSearch, handleTypeChange: handleOnChangeSearch, handleTimeChange: handleOnChangeSearch, handleAgeChange: handleOnChangeSearch, handleCheck: handleOnChangeAvailableSlots}} filters={{date: date, time: time, type: type, age: age, checked: isChecked, checkedValue: isChecked}} />
             </Hero>
             <div style={{padding: "0 5%"}}>

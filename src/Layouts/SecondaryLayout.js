@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import Footer from "../Components/Organisms/Footer";
 import Header from "../Components/Organisms/Header";
 
-function SecondaryLayout({children}) {
+function SecondaryLayout({children, dark, variant, navBg, menuColor}) {
     return (
         <>
             <div style={{position: "relative", width: "100%"}}>
-                <Header navBg="#5E3CDC" menuColor="#5E3CDC"/>
+                <Header dark={dark} variant={variant} navBg={navBg} menuColor={menuColor}/>
             </div>
             {children}
             <Footer /> 

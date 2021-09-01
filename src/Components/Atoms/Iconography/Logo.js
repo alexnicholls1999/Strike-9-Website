@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import Strike9Logo from "../../../assets/Strike-9-Light-Logo.png";
+import Strike9LogoDark from "../../../assets/Strike-9-Dark-Logo.png";
 
 const StyledLogo = styled.img`
     height: 2.5rem;
 `;
 
-function Logo() {
+function Logo({dark}) {
 
     const history = useHistory()
 
@@ -16,7 +17,7 @@ function Logo() {
 
     return (
         <>
-            <StyledLogo src={Strike9Logo} alt="strike-9-logo"/>
+            <StyledLogo src={dark ? Strike9LogoDark : Strike9Logo} alt="strike-9-logo"/>
         </>
     )
 }

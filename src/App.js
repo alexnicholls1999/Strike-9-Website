@@ -175,7 +175,9 @@ function App() {
           </MainLayout>
         </Route>
         <Route path="/aboutus">
-          <About />
+          <SecondaryLayout dark navBg="none" menuBg={theme.colors.primary.RoyalPurple} variant="light">
+            <About />
+          </SecondaryLayout>
         </Route>
         <Route path="/training">
           <Training />
@@ -183,16 +185,16 @@ function App() {
         <Route exact path="/events">
           <UserContextProvider value={userId}>
             <EventContextProvider value={events}>
-              <SecondaryLayout>
+              <SecondaryLayout navBg={theme.colors.primary.RoyalPurple} menuBg={theme.colors.primary.RoyalPurple} variant="dark">
                 <Events/>
               </SecondaryLayout>
             </EventContextProvider>
           </UserContextProvider>
         </Route>
         <Route path="/events/:id">
-          <UserContextProvider value={userId}>
+            <UserContextProvider value={userId}>
               <EventContextProvider value={events}>
-                <SecondaryLayout>
+                <SecondaryLayout navBg={theme.colors.primary.RoyalPurple} menuBg={theme.colors.primary.RoyalPurple} variant="dark">
                   <BookEvent/>
                 </SecondaryLayout>
               </EventContextProvider>
@@ -204,7 +206,7 @@ function App() {
         </Route>
 
         <Route path="/contact">
-          <SecondaryLayout>
+          <SecondaryLayout navBg={theme.colors.primary.RoyalPurple} menuBg={theme.colors.primary.RoyalPurple} variant="dark">
             <Contact />
           </SecondaryLayout>
         </Route>

@@ -27,7 +27,7 @@ const StyledNavLink = styled(NavLink)`
     border-bottom: 3px solid ${({theme}) => theme.colors.neutral.SilverGrey};
 
     &.active{
-        border-bottom: 3px solid ${({theme}) => theme.colors.neutral.White};
+        border-bottom: 3px solid ${({theme, secondary}) => (secondary ? theme.colors.primary.RoyalPurple : theme.colors.secondary.White)};
     }
 
     @media (min-width: ${({theme}) => theme.viewport.mediumDevices}){
@@ -37,28 +37,28 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 
-function Navbar({menuColor, navBg}) {
+function Navbar({menuColor, navBg, dark, variant}) {
 
     const [open, setOpen] = useState(false);
 
     return (
-        <StyledNavbar open={open} menuColor={menuColor} navBg={navBg} variant="dark" expand="lg">
+        <StyledNavbar open={open} menuColor={menuColor} navBg={navBg} variant={variant} expand="lg">
             <Container>
-                <Logo />
-                <Hamburger open={open} onClick={() => setOpen(!open)}/>
+                <Logo dark={dark}/>
+                <Hamburger dark={dark} open={open} onClick={() => setOpen(!open)}/>
                 <NavbarCollapse id="basic-navbar-nav" open={open}>
                     <StyledNav className="ms-auto">
                         <Nav.Item>
                             <Nav.Link as={StyledNavLink} exact to="/">Home</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link as={StyledNavLink} exact to="/aboutus">About Us</Nav.Link>
+                            <Nav.Link as={StyledNavLink} secondary exact to="/aboutus">About Us</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link as={StyledNavLink} exact to="/training">Training</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link as={StyledNavLink} exact to="/events">Events</Nav.Link>
+                            <Nav.Link as={StyledNavLink} to="/events">Events</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link as={StyledNavLink} exact to="/corporate">Corporate</Nav.Link>
