@@ -164,10 +164,11 @@ const events = [
 function RouteGuard({children, auth, signInGuest}) {
 
     useEffect(() => {
-      if(!auth.uid) {
+      if(!auth) {
         signInGuest();
+        console.log(auth)
       } else {
-        console.log(auth.uid);
+        console.log(auth);
       }
     }, [])
 
@@ -209,7 +210,7 @@ function App() {
         </Route>
         <Route path="/events/:id">
             <UserContextProvider value={user}>
-              <RouteGuard auth={user} signInGuest={signInAnomousUser}>
+              <RouteGuard auth={user.uid} signInGuest={signInAnomousUser}>
                 <EventContextProvider value={events}>
                   <SecondaryLayout navBg={theme.colors.primary.RoyalPurple} menuBg={theme.colors.primary.RoyalPurple} variant="dark">
                     <BookEvent/>

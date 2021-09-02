@@ -15,6 +15,8 @@ function BookingForm({params}) {
     const [booked, setBooked] = useState("Summary")
     const events = useContext(EventContext);
     const user = useContext(UserContext);
+
+    const authId = user.uid
     
     const id = params.id;
     const event = events ? events[id - 1] : null;
@@ -24,7 +26,7 @@ function BookingForm({params}) {
             <FormikStepper
                 initialValues={{
                     eventId: event.id,
-                    authId: user.uid,
+                    authId: authId,
                     slots: event.slots - 1,
                     teamName: "",
                     firstName: "",
