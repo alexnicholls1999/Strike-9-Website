@@ -2,7 +2,6 @@ import * as Yup from "yup";
 import { StepConnector } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 
-
 const MobileRegex = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 export const isLastStep = (step, childrenArray) => {

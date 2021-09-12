@@ -1,19 +1,18 @@
-import { Container, Row, Col } from "react-bootstrap";
-import * as Styled from "./../styles/PageStyles/TrainingStyles";
+import * as Styled from "./../styles/PageStyles/CoachingStyles";
+import { Col, Row, Container } from "react-bootstrap";
 import Hero from "../Components/Organisms/Hero";
-import theme from "./../styles/theme";
+import theme  from "./../styles/theme";
 
-function Training() {
+function Coaching() {
     return (
         <>
-            <Hero secondary bgHero={theme.colors.primary.RoyalPurple} heroDetails={{title: "TRAINING DEVELOPMENT AND COMMUNITY", paragraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, corporis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, corporis."}}>
+            <Hero secondary bgHero={theme.colors.primary.RoyalPurple} heroDetails={{title: "STRIKE 9 ACADEMY COACHING TEAM", paragraph: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, corporis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, corporis."}}>
                 <Container>
                     <div className="p-5"></div>
                     <div className="p-5"></div>
                 </Container>
             </Hero>
-            
-            <Styled.TrainingInformation className="ms-auto">
+            <Styled.CoachingInformation className="ms-auto">
                 <Container>
                     <Row>
                         <Col md={{span: 6, order: "last"}} sm>
@@ -31,9 +30,9 @@ function Training() {
                         </Col>
                     </Row>
                 </Container>
-            </Styled.TrainingInformation>
+            </Styled.CoachingInformation>
 
-            <Styled.TrainingInformation secondary>
+            <Styled.CoachingInformation secondary>
                 <Container>
                     <Row>
                         <Col md={6} sm>
@@ -51,9 +50,9 @@ function Training() {
                         </Col>
                     </Row>
                 </Container>
-            </Styled.TrainingInformation>
+            </Styled.CoachingInformation>
             
-            <Styled.TrainingInformation className="ms-auto">
+            <Styled.CoachingInformation className="ms-auto">
                 <Container>
                     <Row>
                         <Col md={{span: 6, order: "last"}} sm>
@@ -71,9 +70,9 @@ function Training() {
                         </Col>
                     </Row>
                 </Container>
-            </Styled.TrainingInformation>
+            </Styled.CoachingInformation>
 
-            <Styled.TrainingInformation secondary>
+            <Styled.CoachingInformation secondary>
                 <Container>
                     <Row>
                         <Col md={6} sm>
@@ -91,9 +90,9 @@ function Training() {
                         </Col>
                     </Row>
                 </Container>
-            </Styled.TrainingInformation>
+            </Styled.CoachingInformation>
 
-            <Styled.TrainingInformation className="ms-auto">
+            <Styled.CoachingInformation className="ms-auto">
                 <Container>
                     <Row>
                         <Col md={{span: 6, order: "last"}} sm>
@@ -111,9 +110,9 @@ function Training() {
                         </Col>
                     </Row>
                 </Container>
-            </Styled.TrainingInformation>
+            </Styled.CoachingInformation>
         </>
     )
 }
 
-export default Training
+export default Coaching;

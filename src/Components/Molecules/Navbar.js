@@ -61,7 +61,7 @@ function Navbar({menuColor, navBg, dark, variant}) {
                             <Nav.Link as={StyledNavLink} to="/events">Events</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link as={StyledNavLink} exact to="/corporate">Corporate</Nav.Link>
+                            <Nav.Link as={StyledNavLink} exact to="/coaching">Coaching</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link as={StyledNavLink} exact to="/contact">Contact</Nav.Link>

@@ -3,25 +3,39 @@ import { Container } from "react-bootstrap";
 import Event from "../Components/Molecules/Event";
 import Hero from "../Components/Organisms/Hero";
 import Search from "../Components/Organisms/Search";
-import { EventContext } from "../react-context/EventContext";
+import { StoreContext } from "../react-context/StoreContext";
 import useSearch from "../react-hooks/useSearch";
 import theme from "./../styles/theme";
 
 
 function Events() {
 
-    const { state, handleOnChangeSearch, handleOnChangeAvailableSlots, handleSubmit } = useSearch()
+    const store = useContext(StoreContext);
 
-    const events = useContext(EventContext);
-
-    
-    const { date, time, type, age, isChecked} = state;
+    const { state, events, handleOnChangeSearch, handleOnChangeAvailableSlots, handleSubmit } = useSearch(store);
 
     return (
 
         <>
             <Hero secondary bgHero={theme.colors.primary.RoyalPurple} heroDetails={{title: "SEARCH FOR STRIKE 9 VLU EVENTS"}}>
-                <Search onClick={handleSubmit} handleFilters={{handleDateChange: handleOnChangeSearch, handleTypeChange: handleOnChangeSearch, handleTimeChange: handleOnChangeSearch, handleAgeChange: handleOnChangeSearch, handleCheck: handleOnChangeAvailableSlots}} filters={{date: date, time: time, type: type, age: age, checked: isChecked, checkedValue: isChecked}} />
+                <Search 
+                    onClick={(e) => handleSubmit(e)} 
+                    handleFilters={{
+                        handleDateChange: handleOnChangeSearch, 
+                        handleTypeChange: handleOnChangeSearch, 
+                        handleTimeChange: handleOnChangeSearch, 
+                        handleAgeChange: handleOnChangeSearch, 
+                        handleCheck: handleOnChangeAvailableSlots
+                    }} 
+                    filters={{
+                        date: state.date, 
+                        time: state.time, 
+                        type: state.type, 
+                        age: state.age, 
+                        checked: state.isChecked, 
+                        checkedValue: state.isChecked
+                    }} 
+                />
             </Hero>
             <div style={{padding: "0 5%"}}>
                 <Container>

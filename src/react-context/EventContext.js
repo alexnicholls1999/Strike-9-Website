@@ -10,6 +10,7 @@ EventContextProvider.propTypes = {
 }
 
 export default function EventContextProvider({ value, children }) {
+
     return (
         <EventContext.Provider value={value}>
             {children}

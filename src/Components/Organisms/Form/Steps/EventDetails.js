@@ -14,7 +14,7 @@ const Title = styled.h3`
     font-weight: bold;
 `;
 
-function EventDetails({eventDetails}) {
+function EventDetails({eventDetails, authId}) {
     
     const formik = useFormikContext();
 

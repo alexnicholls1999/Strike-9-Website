@@ -2,36 +2,6 @@ import styled from "styled-components";
 import GreyBorder from "../../Components/Atoms/GreyBorder";
 
 
-export const ButtonWrapper = styled.div`
-    width: 150px;
-
-`;
-
-export const ImageGallery = styled.div`
-    width: 100%;
-    position: relative;
-    
-    #one {
-        height: 300px;
-        width: 100%;
-    }
-
-    #two {
-        height: 150px;
-    }
-
-    #three {
-        height: 200px;
-        width: 100%;
-    }
-
-    #four {
-        position: absolute;
-        bottom: 10px;
-        height: 300px;
-    }
-`;
-
 export const Section = styled.div`
     background: ${({theme}) => theme.colors.primary.RoyalPurple};
     text-align: center;
@@ -48,7 +18,7 @@ export const Section = styled.div`
     }
 `
 
-export const AboutInformation = styled.div`
+export const CoachingInformation = styled.div`
     background-color: ${({secondary}) => secondary ? "#F5F4F9" : "none"};
 
     @media(min-width: 768px) {
@@ -74,7 +44,7 @@ export const ImageWrapper = styled.div`
     }
 `;
 
-export const GrowthWrapper = styled.div`
+export const SectionWrapper = styled.div`
     padding-bottom: 15%;
     background-color: #F5F4F9;
 `;
@@ -105,8 +75,4 @@ export const Point = styled.div`
         color: black;
         box-shadow: 0 32px 0px 0 #5E3DB3;
     }
-`;
-
-export const Strike9Team = styled.div`
-    padding-bottom: 25%;
 `;

@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom";
 import App from './App';
 import Webfont from "webfontloader";
+import StoreProvider from './react-context/StoreContext';
+import { store } from './firebase/utils';
 import reportWebVitals from './reportWebVitals';
+
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -16,7 +19,9 @@ Webfont.load({
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <StoreProvider store={store}>
+        <App />
+      </StoreProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

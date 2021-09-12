@@ -4,14 +4,12 @@ import styled from "styled-components";
 import {Formik, Form} from "formik";
 import { Step, StepLabel, Stepper } from '@material-ui/core';
 import { Container, Row, Col} from 'react-bootstrap';
-import firebase from './../../firebase/utils';
 
 import { isLastStep, FormikConnector} from '../../react-helpers/formikHelpers';
 import Button from './../Atoms/Buttons/Button';
 import Card from './../Atoms/Card';
 import StepIcon from './../Atoms/Iconography/StepIcon';
 import Modal from './../Atoms/Modal';
-import useAuth from '../../firebase/useAuth';
 
 
 const ButtonControls = styled.div`
@@ -139,6 +137,7 @@ function FormikStepper({children, ...props}) {
                                 </Col>
                             ) : null}
                         </Row>
+                        <div className="p-4"></div>
                     </Container>
 
                 </Form>
