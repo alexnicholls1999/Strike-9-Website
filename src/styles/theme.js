@@ -8,7 +8,9 @@ const theme = {
     },
     colors: {
         neutral: {
-            White: "white"
+            White: "white",
+            Black: "Black",
+            Grey: "#E5E5E5"
         }
     }
 }

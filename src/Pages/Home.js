@@ -1,11 +1,8 @@
-import { Component } from 'react'
 
-export default class Home extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+export default function Home() {
+    return (
+        <div>
+            
+        </div>
+    )
 }

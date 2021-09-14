@@ -1,5 +1,5 @@
-import { Component } from 'react'
 import styled from "styled-components";
+import Header from '../Components/Organisms/Header';
 
 
 const IntroWrapper = styled.div`
@@ -9,22 +9,13 @@ const IntroWrapper = styled.div`
 `;
 
 
-class HomeLayout extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <>
-                <IntroWrapper>
-
-                </IntroWrapper>
-                
-            </>
-        )
-    }
+ export default function HomeLayout() {
+    return (
+        <>
+            <IntroWrapper>
+                <Header />
+            </IntroWrapper>
+            
+        </>
+    )
 }
-
-export default HomeLayout;
