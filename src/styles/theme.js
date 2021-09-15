@@ -1,4 +1,9 @@
 const theme = {
+    colors: {
+        neutral: {
+            White: "white"
+        }
+    },
     typography: {
         fontFamily: {
             Primary: "Muli",
@@ -12,3 +17,5 @@ const theme = {
         sm: "400px"
     },
 }
+
+export default theme;
