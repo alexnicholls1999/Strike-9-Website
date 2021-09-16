@@ -15,7 +15,7 @@ const StyledHamburger = styled.div`
 
   div {
     width: 100%;
-    height: 0.2rem;
+    height: 0.188rem;
     background-color: ${({theme}) => theme.colors.neutral.White};
     transform-origin: 1px;
     transition: all 0.3s ease-in;

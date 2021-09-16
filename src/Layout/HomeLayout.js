@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Header from "../Components/Organisms/Header";
+import Hero from "../Components/Organisms/Hero";
 import Strike9Wallpaper from "./../assets/Strike-9-Cover-Page.jpg";
 
 const IntroWrapper = styled.div`
@@ -26,6 +27,7 @@ function HomeLayout({children}) {
         <>  
             <IntroWrapper>
                 <Header />
+                <Hero secondary heroDetails={{title: "STRIKE 9 TRAINING ACADEMY", paragraph: "Do you want to bring another level to your Game? Are you tracking your progress? Are you seeking additional training outside of your club team? Football is changing."}}/>
                 <Wallpaper />
             </IntroWrapper>
 

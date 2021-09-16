@@ -1,9 +1,9 @@
-import Hero from "../Components/Organisms/Hero";
+import HomeLayout from "../Layout/HomeLayout";
 
 export default function Home() {
     return (
-        <div>
-            
-        </div>
+        <HomeLayout>
+        
+        </HomeLayout>
     )
 }

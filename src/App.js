@@ -1,23 +1,45 @@
+import { useContext } from "react";
 import { Route, Switch } from "react-router";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
 import theme from "./styles/theme";
+import RouteProvider, { RouteContext } from "./utils/Context/RouteContext";
 
 import Home from "./Pages/Home";
 
-import HomeLayout from "./Layout/HomeLayout";
-
+const pages = [
+  {
+      routeName: "Home",
+      exact: true,
+      path: "/",
+      component: Home,
+  },
+  {
+      routeName: "About Us"   
+  },
+  {
+      routeName: "Training"   
+  },
+  {
+      routeName: "Events"   
+  },
+  {
+      routeName: "Coaching"   
+  },
+  {
+      routeName: "Contact" 
+  }
+]
 
 function App() {
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Switch>
-        <Route exact path="/">
-          <HomeLayout>
-            <Home />
-          </HomeLayout>
-        </Route>
+        <RouteProvider pages={pages}>
+          {pages.map(({ exact, path, component } , i) => {return <Route key={i} exact={exact} path={path} component={component}/>})}
+        </RouteProvider>
       </Switch>
     </ThemeProvider>
   );
