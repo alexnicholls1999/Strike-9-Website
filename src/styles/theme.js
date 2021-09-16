@@ -21,8 +21,8 @@ const theme = {
         },
         h1: {
             fontSize: {
-                min: "25px",
-                default: "5vw",
+                min: "21px",
+                default: "4vw",
                 max: "5.2083333333vw"
             }
         },

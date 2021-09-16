@@ -5,7 +5,7 @@ const StyledHeader = styled.div`
     padding: 10px;
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {
-        padding: 20px 40px;
+        padding: 10px 40px;
     }
 
 `;

@@ -15,7 +15,18 @@ const HeroWrapper = styled.div`
 `;
 
 const StyledIntro = styled.div`
-    margin-top: 50%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    justify-content: flex-start;
+    margin-top: 10%;
+    padding: 5px;
+
+    @media (min-width: ${({theme}) => theme.viewport.lg}) {
+        justify-content: center;
+        margin-top: 0;
+    }
 
 `;
 
@@ -34,17 +45,12 @@ const SocialMediaWrapper = styled.div`
 function Hero({ children, homepage, secondary, heroDetails}) {
     return (
         <HeroWrapper secondary={secondary}>
-            <Container fluid>
             {secondary ? (
                 <>
-                    <Row>
-                        <Col md={12} sm>
-                            <StyledIntro>
-                                <h1>{heroDetails.title}</h1>
-                                <p>{heroDetails.paragraph}</p>
-                            </StyledIntro>                            
-                        </Col>
-                    </Row>
+                    <StyledIntro>
+                        <h1>{heroDetails.title}</h1>
+                        <p>{heroDetails.paragraph}</p>
+                    </StyledIntro>
                 </>
             ) : (
                 <>
@@ -60,7 +66,6 @@ function Hero({ children, homepage, secondary, heroDetails}) {
                     </Row>
                 </>
             )}
-            </Container>
         </HeroWrapper>
     )
 }
