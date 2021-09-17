@@ -3,7 +3,7 @@ import Strike9Logo from "./../../../assets/Strike-9-Logo.png";
 import Strike9LogoMobile from "./../../../assets/Strike-9-Logo1.png";
 
 const StyledLogo = styled.img`
-    height: 2vw;
+    height: 2.5rem;
     display: none;
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {

@@ -7,7 +7,7 @@ const HeroWrapper = styled.div`
     top: 0;
     background-color: ${({ theme, secondary }) => secondary ? theme.colors.primary : "none" };
     width: 100%;
-    height: 90%;
+    height: 80%;
     color: ${({theme}) => theme.colors.neutral.White};
     text-align: ${({secondary}) => secondary ? "center" : "left"};
     margin: 0 auto;
@@ -23,9 +23,17 @@ const StyledIntro = styled.div`
     margin-top: 10%;
     padding: 5px;
 
+    p {
+        margin: 0 auto;
+    }
+
     @media (min-width: ${({theme}) => theme.viewport.lg}) {
         justify-content: center;
         margin-top: 0;
+
+        p {
+            width: 50%;
+        }
     }
 
 `;
@@ -42,7 +50,7 @@ const SocialMediaWrapper = styled.div`
     right: 10%;
 `;
 
-function Hero({ children, homepage, secondary, heroDetails}) {
+function Hero({ children, secondary, heroDetails}) {
     return (
         <HeroWrapper secondary={secondary}>
             {secondary ? (

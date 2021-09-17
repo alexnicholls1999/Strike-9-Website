@@ -15,19 +15,27 @@ const pages = [
       component: Home,
   },
   {
-      routeName: "About Us"   
+      routeName: "About Us",
+      path: "/about",
   },
   {
-      routeName: "Training"   
+      routeName: "Training",
+      path: "/training",
   },
   {
-      routeName: "Events"   
+      routeName: "Events",
+      exact: true,
+      path: "/events",
   },
   {
-      routeName: "Coaching"   
+      routeName: "Coaching",
+      exact: true,
+      path: "/coaching",  
   },
   {
-      routeName: "Contact" 
+      routeName: "Contact",
+      exact: true,
+      path: "/contact",
   }
 ]
 
