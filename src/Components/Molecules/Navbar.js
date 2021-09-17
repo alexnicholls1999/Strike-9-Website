@@ -6,17 +6,29 @@ import { NavLink } from "react-router-dom";
 import Hamburger from "../Atoms/Iconography/Hamburger";
 import Logo from "../Atoms/Iconography/Logo";
 import SideBar from "./SideBar";
+import ButtonWrapper from "./ButtonWrapper";
 
 const StyledNavLink = styled(NavLink)`
-    padding: 20px;
+    padding: 15px;
 
     &.active {
         border-bottom: 3px solid ${({theme}) => theme.colors.neutral.white};    
         font-weight: ${({theme}) => theme.typography.fontWeight.bold};
+        border-radius: 1px;
     }
 
 `;
 
+const authButtons = [
+    {
+        text: "Create Account",
+        secondary: true,
+    }, 
+    {
+        text: "Login",
+        secondary: true
+    }
+]
 
 function Navbar() {
 
@@ -38,6 +50,8 @@ function Navbar() {
                                 </Nav.Item>
                             )
                         })} 
+                        
+                        <ButtonWrapper secondary buttons={authButtons}/>
                     </Nav>
                 </BootstrapNavbar.Collapse>
             </Container>

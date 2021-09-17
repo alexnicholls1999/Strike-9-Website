@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Navbar from "./../Molecules/Navbar";
+import Navbar from "../Molecules/Navbar";
 
 const StyledHeader = styled.div`
     padding: 10px;
@@ -9,6 +9,8 @@ const StyledHeader = styled.div`
     }
 
 `;
+
+
 
 function Header() {
     return (

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Logo from "../Atoms/Iconography/Logo";
 import { useContext } from "react";
 import { RouteContext } from "../../utils/Context/RouteContext";
+import ButtonWrapper from "./ButtonWrapper";
 
 const StyledSideBar = styled.div`
   flex-flow: column nowrap;
@@ -48,26 +49,14 @@ const SideBarFooter = styled.div`
   width: 100%;
 `;
 
-const ButtonWrapper = styled.div`
-  display: flex;
-  flex-flow: row;
-  justify-content: space-evenly;
-  align-content: space-inbetween;
-  width: 100%;
-
-  button {
-    width: 150px;
-    &:nth-child(1) {
-      margin-right: 10px;
-    }
+const authButtons = [
+  {
+      text: "Create Account",
+  }, 
+  {
+      text: "Login",
   }
-
-  @media (max-width: ${({theme}) => theme.viewport.sm}) {
-    button {
-      width: 100px;
-    }
-  }
-`;
+]
 
 function SideBar({ open }) {
 
@@ -85,6 +74,9 @@ function SideBar({ open }) {
             )
           })} 
       </SideBarNav>
+      <SideBarFooter>
+        <ButtonWrapper buttons={authButtons} />
+      </SideBarFooter>
     </StyledSideBar>
   );
 }

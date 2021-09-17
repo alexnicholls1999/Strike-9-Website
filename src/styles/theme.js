@@ -1,5 +1,13 @@
 const theme = {
     colors: {
+        primary: {
+            DaisyBush: "#4D2AA5",
+            RoyalPurple: "#5E3CDC",
+            
+        },
+        secondary: {
+            Violet: "#050727" 
+        },
         neutral: {
             White: "white"
         }
