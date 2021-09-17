@@ -8,12 +8,15 @@ const StyledButtonWrapper = styled.div`
   align-content: space-inbetween;
   width: 100%;
 
+  @media(min-width: ${({theme}) => theme.viewport.lg}) {
+    width: ${({width}) => width};
+  }
 `;
 
-function ButtonWrapper({ buttons }) {
+function ButtonWrapper({ buttons, width}) {
     return (
-        <StyledButtonWrapper>
-            {buttons.map(({secondary, text}) => { return <Button secondary={secondary} text={text}/>})}
+        <StyledButtonWrapper width={width}>
+            {buttons.map(({secondary, text, style}) => { return <Button style={style} secondary={secondary} text={text}/>})}
         </StyledButtonWrapper>        
   )
 }

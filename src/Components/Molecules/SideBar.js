@@ -14,7 +14,7 @@ const StyledSideBar = styled.div`
   top: 0;
   right: 0;
   height: 100vh;
-  padding-top: 3.5rem;
+  padding: 3.5rem 1rem 0;
   transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   z-index: 1;
@@ -29,13 +29,13 @@ const StyledSideBar = styled.div`
 `; 
 
 const SideBarNav = styled.nav`
-  padding: 10px;
+  margin-top: 10%;
   list-style: none;
 `;
 
 const SideBarLink = styled.li`
   text-align: left;
-  padding: 10px;
+  padding: 20px;
   margin: 10px 0;
   border-radius: 10px;
   background-color: ${({ active }) => (active ? "#1E2147" : "none")};

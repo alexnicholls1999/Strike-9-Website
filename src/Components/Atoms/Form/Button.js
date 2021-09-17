@@ -7,10 +7,9 @@ const StyledButton = styled.button`
     border-radius: 7px;
     color:  ${({theme, secondary}) => secondary ? theme.colors.primary.DaisyBush : theme.colors.primary.White}};
     border: none;
-    width: 100%;
-    font-size: clamp(12px, 2vh, 3vh);
     font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     box-shadow: 0px 0px 17px 2px ${({theme}) => theme.colors.primary.DaisyBush};
+    padding: 0 20px;
 `;
 
 function Button({ text, secondary , onClick }) {

@@ -26,7 +26,7 @@ const authButtons = [
     }, 
     {
         text: "Login",
-        secondary: true
+        secondary: true,
     }
 ]
 
@@ -50,8 +50,9 @@ function Navbar() {
                                 </Nav.Item>
                             )
                         })} 
-                        
-                        <ButtonWrapper secondary buttons={authButtons}/>
+                    </Nav>
+                    <Nav>
+                        <ButtonWrapper width="275px" buttons={authButtons}/>
                     </Nav>
                 </BootstrapNavbar.Collapse>
             </Container>

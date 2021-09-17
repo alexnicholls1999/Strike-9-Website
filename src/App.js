@@ -24,17 +24,14 @@ const pages = [
   },
   {
       routeName: "Events",
-      exact: true,
       path: "/events",
   },
   {
       routeName: "Coaching",
-      exact: true,
       path: "/coaching",  
   },
   {
       routeName: "Contact",
-      exact: true,
       path: "/contact",
   }
 ]
