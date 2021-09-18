@@ -1,25 +1,21 @@
 import styled from "styled-components"
 
-const StyledTitle = styled.h2`
-    font-size: 35px;
+const StyledTitle = styled.h1`
+  font-size: clamp(12px, 2vw, 45px);;
 
-    &::after {
-        content: '${(props) => props.title}';
-        position: absolute;
-        top: 3vh;
-        left: 0;
-        font-size: 50px;
-        color: ${({theme}) => theme.colors.neutral.Grey};
-        z-index: -1;
-        opacity: 0.5;
-    }
-
+  &:after {
+    position: absolute;
+    left: 0;
+    font-size: clamp(12px, 2vw, 45px);
+    color: #E5E5E5;
+    z-index: -1;
+    opacity: 0.5;
+    content: '${(props) => props.title}'
+  }
 `;
 
-function Title({title, ...props}) {
-    return (
-        <StyledTitle {...props}>{title}</StyledTitle>
-    )
+function Title({ title }) {
+  return <StyledTitle title={title}>{title}</StyledTitle>;
 }
 
-export default Title
+export default Title;
