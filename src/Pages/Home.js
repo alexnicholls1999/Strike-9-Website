@@ -1,5 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
+import Title from "../Components/Atoms/Typography/Title";
 import HomeLayout from "../Layout/HomeLayout";
 
 const StyledSportsEnglandWrapper = styled.div`
@@ -27,6 +28,11 @@ export default function Home() {
                     </Row>
                 </Container>
             </StyledSportsEnglandWrapper>
+            <Container fluid>
+                <Row>
+                    <Title title="TRAINING PLANS" />
+                </Row>
+            </Container>
         </HomeLayout>
     )
 }

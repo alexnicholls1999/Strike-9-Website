@@ -74,9 +74,9 @@ function SideBar({ open }) {
             )
           })} 
       </SideBarNav>
-      <SideBarFooter>
+      {/* <SideBarFooter>
         <ButtonWrapper buttons={authButtons} />
-      </SideBarFooter>
+      </SideBarFooter> */}
     </StyledSideBar>
   );
 }

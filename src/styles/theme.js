@@ -9,7 +9,9 @@ const theme = {
             Violet: "#050727" 
         },
         neutral: {
-            White: "white"
+            White: "white",
+            Black: "black",
+            Grey: "#E5E5E5"
         }
     },
     typography: {

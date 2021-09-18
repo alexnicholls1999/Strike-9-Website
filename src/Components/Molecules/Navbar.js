@@ -51,9 +51,9 @@ function Navbar() {
                             )
                         })} 
                     </Nav>
-                    <Nav>
+                    {/* <Nav>
                         <ButtonWrapper width="275px" buttons={authButtons}/>
-                    </Nav>
+                    </Nav> */}
                 </BootstrapNavbar.Collapse>
             </Container>
         </BootstrapNavbar>

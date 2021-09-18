@@ -1,19 +1,32 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import {Button as BootstrapButton} from "react-bootstrap"
 
-const StyledButton = styled.button`
-    height: 45px;
-    background: ${({theme, secondary}) => secondary ? theme.colors.primary.White : theme.colors.primary.DaisyBush};
-    border-radius: 7px;
-    color:  ${({theme, secondary}) => secondary ? theme.colors.primary.DaisyBush : theme.colors.primary.White}};
-    border: none;
-    font-weight: ${({theme}) => theme.typography.fontWeight.bold};
-    box-shadow: 0px 0px 17px 2px ${({theme}) => theme.colors.primary.DaisyBush};
-    padding: 0 20px;
+const StyledButton = styled(BootstrapButton)`
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-content: space-inbetween;
+    width: 100%;
+
+    button {
+        width: 150px;
+        &:nth-child(1) {
+            margin-right: 10px;
+        }
+    }
+
+    @media (max-width: 330px) {
+        button {
+            width: 100px;
+        }
+    }
 `;
 
-function Button({ text, secondary , onClick }) {
-    return <StyledButton secondary={secondary} onClick={onClick}>{text}</StyledButton>
+
+
+function Button({ text, onClick }) {
+    return <StyledButton onClick={onClick}>{text}</StyledButton>
 }
 
 Button.propTypes = {
