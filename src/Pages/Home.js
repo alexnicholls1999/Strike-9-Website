@@ -30,7 +30,7 @@ export default function Home() {
             </StyledSportsEnglandWrapper>
             <Container fluid>
                 <Row>
-                    <Title title="TRAINING PLANS" />
+                    <Title float={{ right: true }} title="TRAINING PLANS" />
                 </Row>
             </Container>
         </HomeLayout>

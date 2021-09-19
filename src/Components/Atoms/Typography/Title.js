@@ -1,25 +1,44 @@
+import PropTypes from "prop-types"
 import styled from "styled-components"
 
 const StyledTitle = styled.h2`
-    font-size: 35px;
+    font-size: clamp(4vh, 6rem, 10vw);
+    font-weight: ${({theme}) => theme.typography.fontWeight.bold};
+    text-align: left;
 
     &::after {
-        content: '${(props) => props.title}';
+        content: '${({title}) => title}';
         position: absolute;
-        top: 3vh;
         left: 0;
-        font-size: 50px;
+        font-size: clamp(5vh, 8rem, 15vw);
         color: ${({theme}) => theme.colors.neutral.Grey};
         z-index: -1;
         opacity: 0.5;
     }
 
+    @media(min-width: ${({theme}) => theme.viewport.lg}) {
+        text-align: ${({left}) => left ? "left" : "right"};
+        
+        &::after {
+            left: ${({left}) => left && "0"};
+            right: ${({right}) => right && "0"};
+        }
+    }
+
 `;
 
-function Title({title, ...props}) {
+function Title({title, float}) {
     return (
-        <StyledTitle {...props}>{title}</StyledTitle>
+        <StyledTitle left={float.left} right={float.right} title={title}>{title}</StyledTitle>
     )
+}
+
+Title.propTypes = {
+    title: PropTypes.string.isRequired,
+    float: PropTypes.shape({
+        left: PropTypes.bool,
+        right: PropTypes.bool
+    })
 }
 
 export default Title
