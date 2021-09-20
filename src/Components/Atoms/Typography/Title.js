@@ -2,15 +2,14 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 
 const StyledTitle = styled.h2`
-    font-size: clamp(4vh, 6rem, 10vw);
-    font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     text-align: left;
+
 
     &::after {
         content: '${({title}) => title}';
         position: absolute;
         left: 0;
-        font-size: clamp(5vh, 8rem, 15vw);
+        font-size: clamp(2vh, 6rem, 5vw);
         color: ${({theme}) => theme.colors.neutral.Grey};
         z-index: -1;
         opacity: 0.5;
@@ -18,10 +17,13 @@ const StyledTitle = styled.h2`
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {
         text-align: ${({left}) => left ? "left" : "right"};
-        
+        padding-left: ${({left}) => left && "2.5%"};
+        padding-right: ${({right}) => right && "2.5%"};
+
         &::after {
-            left: ${({left}) => left && "0"};
-            right: ${({right}) => right && "0"};
+            left: ${({left}) => left && "2.5%"};
+            right: ${({right}) => right && "2.5%"};
+
         }
     }
 

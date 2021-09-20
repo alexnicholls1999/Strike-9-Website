@@ -1,7 +1,9 @@
 import { Col, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
-import Title from "../Components/Atoms/Typography/Title";
 import HomeLayout from "../Layout/HomeLayout";
+
+import Title from "../Components/Atoms/Typography/Title";
+import Pattern from "../Components/Atoms/Iconography/Pattern";
 
 const StyledSportsEnglandWrapper = styled.div`
     background-color: ${({theme}) => theme.colors.secondary.Violet};
@@ -28,6 +30,7 @@ export default function Home() {
                     </Row>
                 </Container>
             </StyledSportsEnglandWrapper>
+            <Pattern />
             <Container fluid>
                 <Row>
                     <Title float={{ right: true }} title="TRAINING PLANS" />

@@ -32,8 +32,15 @@ const theme = {
         h1: {
             fontSize: {
                 min: "21px",
-                default: "4vw",
-                max: "5.2083333333vw"
+                default: "5vw",
+                max: "60px"
+            }
+        },
+        h2: {
+            fontSize: {
+                min: "1.5vh",
+                default: "3.75rem",
+                max: "4vw"
             }
         },
         p: {
