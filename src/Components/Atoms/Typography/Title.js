@@ -9,7 +9,7 @@ const StyledTitle = styled.h2`
         content: '${({title}) => title}';
         position: absolute;
         left: 0;
-        font-size: clamp(2vh, 6rem, 5vw);
+        font-size: clamp(2vh, 6rem, 9vw);
         color: ${({theme}) => theme.colors.neutral.Grey};
         z-index: -1;
         opacity: 0.5;

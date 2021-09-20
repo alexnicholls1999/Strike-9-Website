@@ -39,8 +39,8 @@ const theme = {
         h2: {
             fontSize: {
                 min: "1.5vh",
-                default: "3.75rem",
-                max: "4vw"
+                default: "4rem",
+                max: "7vw"
             }
         },
         p: {
