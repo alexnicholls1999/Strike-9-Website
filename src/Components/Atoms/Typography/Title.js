@@ -23,16 +23,13 @@ const StyledTitle = styled.h2`
         &::after {
             left: ${({left}) => left && "2.5%"};
             right: ${({right}) => right && "2.5%"};
-
         }
     }
 
 `;
 
 function Title({title, float}) {
-    return (
-        <StyledTitle left={float.left} right={float.right} title={title}>{title}</StyledTitle>
-    )
+    return <StyledTitle left={float.left} right={float.right} title={title}>{title}</StyledTitle>
 }
 
 Title.propTypes = {

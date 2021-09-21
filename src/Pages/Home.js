@@ -35,6 +35,9 @@ export default function Home() {
                 <Row>
                     <Title float={{ right: true }} title="TRAINING PLANS" />
                 </Row>
+                <Row>
+                    
+                </Row>
             </Container>
         </HomeLayout>
     )

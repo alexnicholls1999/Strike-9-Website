@@ -7,7 +7,7 @@ const StyledPattern = styled.svg`
     z-index: -1;
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {
-        width: 300px;
+        width: 150px;
         padding: 0;
         margin-left: 10vw;
     }
