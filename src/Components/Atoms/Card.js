@@ -1,5 +1,6 @@
 
-function Memo() {
+
+function Card() {
     return (
         <div>
             
@@ -7,4 +8,4 @@ function Memo() {
     )
 }
 
-export default Memo
+export default Card

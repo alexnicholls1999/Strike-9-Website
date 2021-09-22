@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 const StyledPattern = styled.svg`
-    width: 50%;
+    width: 150px;
     display: flex;
     padding: 10px 25px 10%;
     z-index: -1;
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {
-        width: 150px;
         padding: 0;
         margin-left: 10vw;
+        width: 200px;
     }
     
 `;

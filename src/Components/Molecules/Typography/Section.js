@@ -1,4 +1,3 @@
-import React from 'react'
 import { Row } from 'react-bootstrap'
 import styled from 'styled-components'
 import Subtitle from '../../Atoms/Typography/Subtitle'
@@ -13,10 +12,10 @@ const StyledSectionTitle = styled.div`
 
 `;
 
-function Section({growth, section}) {
+function Section({section}) {
     return (
         <Row>
-            <Col md={6} sm className={growth && "ms-auto"}>
+            <Col md={6} sm>
                 <StyledSection>
                     <StyledSectionTitle>
                         <Subtitle subtitle={section.subtitle}/>

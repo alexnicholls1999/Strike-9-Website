@@ -3,7 +3,6 @@ const theme = {
         primary: {
             DaisyBush: "#4D2AA5",
             RoyalPurple: "#5E3CDC",
-            
         },
         secondary: {
             Violet: "#050727" 
@@ -33,7 +32,7 @@ const theme = {
             fontSize: {
                 min: "21px",
                 default: "5vw",
-                max: "60px"
+                max: "10vw"
             }
         },
         h2: {
@@ -43,6 +42,7 @@ const theme = {
                 max: "7vw"
             }
         },
+
         p: {
             fontSize: {
                 min: "15px",
