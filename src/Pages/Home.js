@@ -7,6 +7,7 @@ import Pattern from "../Components/Atoms/Iconography/Pattern";
 
 
 import FootballPlayer from "../assets/kisspng-football-player-wallpaper-football-match-5a68fb66da5359.0732821715168295428943.png";
+import Topic from "../Components/Organisms/Typography/Topic";
 
 
 const StyledSportsEnglandWrapper = styled.div`
@@ -186,7 +187,9 @@ export default function Home() {
                 <Row>
                     <Title float={{ left: true }} title="FEEDBACK" />
                 </Row>
-
+            </Container>
+            <Container>
+                <Topic float={{right: true, left: false}} src="https://www.strike9-training.com/S9/wp-content/uploads/2021/04/S9-wc_1-300x300.jpg" alt="About-Us" />
             </Container>
 
         </HomeLayout>
