@@ -182,12 +182,13 @@ export default function Home() {
                     </Row>
                 </Container>
             </Promises>
-            <Container fluid>
+            {/* <Container fluid>
                 <div className="p-4"></div>
                 <Row>
                     <Title float={{ left: true }} title="FEEDBACK" />
                 </Row>
-            </Container>
+            </Container> */}
+            <div className="p-3"></div>
             <Container>
                 <Topic float={{right: true, left: false}} src="https://www.strike9-training.com/S9/wp-content/uploads/2021/04/S9-wc_1-300x300.jpg" alt="About-Us" />
             </Container>

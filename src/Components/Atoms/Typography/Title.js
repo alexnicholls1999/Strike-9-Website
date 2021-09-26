@@ -21,8 +21,8 @@ const StyledTitle = styled.h2`
         padding-right: ${({right}) => right && "2.5%"};
 
         &::after {
-            left: ${({left}) => left && "2.5%"};
-            right: ${({right}) => right && "2.5%"};
+            left: ${({left}) => left && "2.75%"};
+            right: ${({right}) => right && "5%"};
         }
     }
 
