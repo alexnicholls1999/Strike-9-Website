@@ -17,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h3 {
+        font-size: clamp(${({theme}) => theme.typography.h3.fontSize.min}, ${({theme}) => theme.typography.h3.fontSize.default}, ${({theme}) => theme.typography.h3.fontSize.max});
         font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     }
 

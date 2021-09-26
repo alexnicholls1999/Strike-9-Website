@@ -42,7 +42,13 @@ const theme = {
                 max: "7vw"
             }
         },
-
+        h3: {
+            fontSize: {
+                min: "1.75vh",
+                default: "1.5rem",
+                max: "3rem"
+            }
+        },
         p: {
             fontSize: {
                 min: "15px",
@@ -52,6 +58,7 @@ const theme = {
         }
     },
     viewport: {
+        xl: "1400px",
         lg: "990px",
         md: "768px",
         sm: "400px"

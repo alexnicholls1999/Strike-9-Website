@@ -44,12 +44,12 @@ const List = styled.div`
     padding: 5% 0 10%;
     display: flex;
     flex-flow: column;
-    align-items: ${({growth}) => (growth ? "self-end" : "self-start")};
+    align-items: self-start;
 
     p {
         padding-top: 10px;
         color: ${({theme}) => theme.colors.neutral.Black};
-        text-align: ${({growth}) => (growth ? "right" : "left")};
+        text-align: left;
         line-height: 36px;
         width: 100%;
     }
@@ -67,14 +67,22 @@ const List = styled.div`
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {
         padding: 0 5% 27.5%;
+        align-items: ${({growth}) => (growth ? "self-end" : "self-start")};
         
         p {
             line-height: 50px;
             width: 100%;
+            text-align: ${({growth}) => (growth ? "right" : "left")};
         }
 
         &::before {
             padding: 15%;
+        }
+    }
+
+    @media(min-width: ${({theme}) => theme.viewport.xl}) {
+        p {
+            width: 75%;
         }
     }
 `;
@@ -89,6 +97,8 @@ const Point = styled.div`
         padding-right: ${({growth}) => (growth && "10px")};
         color: ${({theme}) => theme.colors.neutral.Black};
     }
+
+
 `;
 
 const Promises = styled.div`
@@ -169,7 +179,7 @@ export default function Home() {
                 </Row>        
             </Container>
             <Promises>
-                <Container>
+                <Container fluid>
                     <Row>
                         {goals.map(({title, message}) => {
                             return (
@@ -182,17 +192,7 @@ export default function Home() {
                     </Row>
                 </Container>
             </Promises>
-            {/* <Container fluid>
-                <div className="p-4"></div>
-                <Row>
-                    <Title float={{ left: true }} title="FEEDBACK" />
-                </Row>
-            </Container> */}
-            <div className="p-3"></div>
-            <Container>
-                <Topic float={{right: true, left: false}} src="https://www.strike9-training.com/S9/wp-content/uploads/2021/04/S9-wc_1-300x300.jpg" alt="About-Us" />
-            </Container>
-
+            
         </HomeLayout>
     )
 }
