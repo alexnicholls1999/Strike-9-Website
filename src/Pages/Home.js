@@ -184,8 +184,8 @@ export default function Home() {
                         })}
                     </Row>
                 </Container>
-            </Promises>  
-            <Topic />   
+            </Promises>
+            <Topic />  
             <Index />
         </HomeLayout>
     )

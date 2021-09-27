@@ -9,7 +9,6 @@ const StyledParagraph = styled.p`
         text-align: ${({right}) => right ? "right" : "left"};
         margin-left: ${({right}) => right && "auto"};
         margin-right: ${({left}) => left && "auto"};
-        width: 75%;
     }
 `;
 
