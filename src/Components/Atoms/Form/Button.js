@@ -8,6 +8,11 @@ const StyledButton = styled(BootstrapButton)`
     justify-content: space-evenly;
     align-content: space-inbetween;
     width: 100%;
+    background-color: ${({theme}) => theme.colors.primary.DaisyBush};
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: ${({theme}) => theme.typography.fontWeight.bold};
 
     button {
         width: 150px;

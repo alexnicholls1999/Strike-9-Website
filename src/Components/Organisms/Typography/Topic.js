@@ -1,82 +1,82 @@
-import Title from "./../../Atoms/Typography/Title";
-import Paragraph from "./../../Atoms/Typography/Paragraph";
 import styled from "styled-components";
-import { Col, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Pattern from "./../../../assets/Pattern-A.svg";
 
-const StyledImageWrapper = styled.div`
+import Title from "./../../Atoms/Typography/Title";
+import Paragraph from "./../../Atoms/Typography/Paragraph";
+import Button from "./../../Atoms/Form/Button";
+
+const StyledImage = styled.div`
     height: 100%;
     width: 100%;
     position: relative;
+    padding: 5%;
 
     img {
         width: 100%;
         margin: 0 auto;
-        border-radius: 5px;
     }
 
-    &::before {
-        content: '';
-        height: 100px;
-        width: 150px;
-        z-index: -1;
-        margin-top: -50px;
-        background: url(${Pattern});
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: right;
-        position: absolute;
-        right: 10px;
-    }
-
-    @media (min-width: ${({theme}) => theme.viewport.lg}){
-        &::before {
-           left: 10%;
-           height: 200px;
-           margin-top: -65px;
-        }
-
+    @media(min-width: ${({theme}) => theme.viewport.lg}) {
         img {
-            padding: 7.5%;
-            border-radius: 15px;
+            position: absolute;
+            width: 75%;
         }
-
-        
-    } 
+    }
 `;
 
-const StyledTextWrapper = styled.div`
+const StyledInfo = styled.div`
+    width: 100%;
+    padding: 5%;
 
-    
-    &::after {
-        content: '';
-        padding: 20%;
-        position: absolute;
-        background: #F5F4F9;
-        z-index: -1;
-        width: 100vw;
-        left: 0;
+    @media(min-width: ${({theme}) => theme.viewport.md}) {
+
+        p {
+            padding-top: 5vh;
+            width: 75%;
+        }
     }
 
+    @media(min-width: ${({theme}) => theme.viewport.xl}) {
+        p {
+            line-height: 2;
+        }
+    }
+`;
+
+const StyledTopicButtonWrapper = styled.div`
+    width: 150px;
+    align-items: self-start;
+    position: absolute;
 `;
 
 
 function Topic({src, alt, float}) {
     return (
-        <Row>
-            <Col md={6}>
-                <StyledImageWrapper>
-                    <img style={{width: "100%"}} src={src} alt={alt}/>
-                </StyledImageWrapper>
-            </Col>
-            <Col md={6}>
-                <StyledTextWrapper>
-                    <Title title="ABOUT US" float={float}/>
-                    <Paragraph float={float} text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ducimus nesciunt quasi numquam facere dolorum, libero aliquid vero possimus illo." />  
+        <Container fluid>
+                <Row>
+                    <Col md={6} sm>
+                        <StyledImage>
+                            <img src={src} alt={alt}/>
+                        </StyledImage>
+                    </Col>
+                    <Col md={6} sm>
+                        <StyledInfo>
+                            <Title title="ABOUT US" float={float}/>
+                            <Paragraph float={float} text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ducimus nesciunt quasi numquam facere dolorum, libero aliquid vero possimus illo." />  
+                            <StyledTopicButtonWrapper>
+                                <Button text="REGISTER" />
+                            </StyledTopicButtonWrapper>
+                        </StyledInfo>
+                    </Col>
+                </Row>        
+                <Row style={{backgroundColor: '#F5F4F9'}}>                    
                     <div className="p-5"></div>
-                </StyledTextWrapper>
-            </Col>
-        </Row>
+                    <div className="p-5"></div>
+                    <div className="p-5"></div>
+                    <div className="p-5"></div>
+                </Row>
+        </Container>
     )
 }
 

@@ -24,6 +24,10 @@ const GlobalStyles = createGlobalStyle`
     p {
         font-size: clamp(${({theme}) => theme.typography.p.fontSize.min}, ${({theme}) => theme.typography.p.fontSize.default}, ${({theme}) => theme.typography.p.fontSize.max});
     }
+
+    img {
+        border-radius: 10px;
+    }
     
     .slideInRight {
         transform: translateX(0);

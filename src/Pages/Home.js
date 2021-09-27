@@ -8,6 +8,7 @@ import Pattern from "../Components/Atoms/Iconography/Pattern";
 
 import FootballPlayer from "../assets/kisspng-football-player-wallpaper-football-match-5a68fb66da5359.0732821715168295428943.png";
 import Topic from "../Components/Organisms/Typography/Topic";
+import Index from "../Components/Organisms/Index";
 
 
 const StyledSportsEnglandWrapper = styled.div`
@@ -54,19 +55,8 @@ const List = styled.div`
         width: 100%;
     }
 
-    &::before {
-        content: '';
-        display: ${({growth}) => growth ? "block" : "none"};
-        padding: 40%;
-        position: absolute;
-        background: #F5F4F9;
-        z-index: -1;
-        width: 100vw;
-        left: 0;
-    }
-
     @media(min-width: ${({theme}) => theme.viewport.lg}) {
-        padding: 0 5% 27.5%;
+        padding: 0 5% 25%;
         align-items: ${({growth}) => (growth ? "self-end" : "self-start")};
         
         p {
@@ -168,7 +158,10 @@ export default function Home() {
                             </Point>
                             <p>We work year-round, with teams and individual players, to raise the level of every player we work with. </p>
                         </List>
-                        <div className="p-5"></div>
+                    </Col>
+                </Row>        
+                <Row style={{backgroundColor: '#F5F4F9'}}>                    
+                    <Col md={6} className='ms-auto'>
                         <List growth> 
                             <Point growth>
                                 <h3>GROWTH</h3>
@@ -176,7 +169,7 @@ export default function Home() {
                             <p>We work year round with teams and individual players, to raise the level of every player we work with.</p>
                         </List>
                     </Col>
-                </Row>        
+                </Row>
             </Container>
             <Promises>
                 <Container fluid>
@@ -192,7 +185,8 @@ export default function Home() {
                     </Row>
                 </Container>
             </Promises>
-            
+            <Topic float={{right: true}} src="https://www.strike9-training.com/S9/wp-content/uploads/2021/04/S9-wc_1-300x300.jpg" alt="Kids-Football-About-Image" />
+            {/* <Index /> */}
         </HomeLayout>
     )
 }
