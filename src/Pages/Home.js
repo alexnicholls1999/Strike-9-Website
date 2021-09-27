@@ -184,9 +184,9 @@ export default function Home() {
                         })}
                     </Row>
                 </Container>
-            </Promises>
-            <Topic float={{right: true}} src="https://www.strike9-training.com/S9/wp-content/uploads/2021/04/S9-wc_1-300x300.jpg" alt="Kids-Football-About-Image" />
-            {/* <Index /> */}
+            </Promises>  
+            <Topic />   
+            <Index />
         </HomeLayout>
     )
 }
