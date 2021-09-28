@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Col, Container, Row } from "react-bootstrap";
+import SocialMedia from "../Molecules/SocialMedia";
+import ButtonWrapper from "../Molecules/ButtonWrapper";
 
 const HeroWrapper = styled.div`
     position: relative;
@@ -50,6 +52,17 @@ const SocialMediaWrapper = styled.div`
     right: 10%;
 `;
 
+const buttons = [
+    {
+        secondary: false,
+        text: "REGISTER"
+    },
+    {
+        secondary: false,
+        text: "FIND OUT MORE"
+    }
+]
+
 function Hero({ children, secondary, heroDetails}) {
     return (
         <HeroWrapper secondary={secondary}>
@@ -58,7 +71,11 @@ function Hero({ children, secondary, heroDetails}) {
                     <StyledIntro>
                         <h1>{heroDetails.title}</h1>
                         <p>{heroDetails.paragraph}</p>
+                        <ButtonWrapper buttons={buttons} />
                     </StyledIntro>
+                    <SocialMediaWrapper>
+                        <SocialMedia />
+                    </SocialMediaWrapper>
                 </>
             ) : (
                 <>
