@@ -16,7 +16,7 @@ const pages = [
   },
   {
       routeName: "About Us",
-      path: "/about",
+      path: "/aboutus",
   },
   {
       routeName: "Training",

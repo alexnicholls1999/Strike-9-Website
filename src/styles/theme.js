@@ -10,6 +10,7 @@ const theme = {
         neutral: {
             White: "white",
             Black: "black",
+            BlackRock: "#190438",
             Grey: "#E5E5E5"
         }
     },
