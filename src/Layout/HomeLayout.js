@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Footer from "../Components/Organisms/Footer";
 import Header from "../Components/Organisms/Header";
 import Hero from "../Components/Organisms/Hero";
 import Strike9Wallpaper from "./../assets/Strike-9-Cover-Page.jpg";
@@ -33,8 +34,7 @@ function HomeLayout({children}) {
 
             {children}
 
-
-
+            <Footer />
         </>
     )
 }
