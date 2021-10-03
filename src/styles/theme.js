@@ -2,7 +2,7 @@ const theme = {
     colors: {
         primary: {
             DaisyBush: "#4D2AA5",
-            RoyalPurple: "#5E3CDC",
+            RoyalPurple: "#5E3DB3",
         },
         secondary: {
             Violet: "#050727" 
@@ -11,7 +11,8 @@ const theme = {
             White: "white",
             Black: "black",
             BlackRock: "#190438",
-            Grey: "#E5E5E5"
+            Grey: "#E5E5E5",
+            LightGrey: "#C6C5C5"
         }
     },
     typography: {
