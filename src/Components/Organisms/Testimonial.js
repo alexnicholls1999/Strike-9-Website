@@ -7,6 +7,20 @@ const StyledTestimonialWrapper = styled.div`
 
 `;
 
+const StyledBanner = styled.div`
+
+`;
+
+const StyledTestimonial = styled.div`
+
+`;
+
+const StyledTestimonialContainer = styled.div`
+
+`;
+
+
+
 function Testimonial({quotes}) {
     return (
         <div>
