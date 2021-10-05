@@ -30,7 +30,23 @@ const StyledQuote = styled.div`
 `;
 
 const StyledQuoteInfo = styled.div`
+    padding-top: 1rem;
+    text-align: center;
 
+    &::before {
+        content: "";
+        position: absolute;
+        left: 25px;
+        top: 10px;
+        height: 75px;
+        width: 75px;
+        background: no-repeat center contain url(${PatternB});
+        z-index: -1;
+    }
+
+    @media(min-width: ${({theme}) => theme.viewport.sm}) {
+        text-align: left;
+    }
 `;
 
 
@@ -50,6 +66,14 @@ Quote.defaultProps = {
     quote: "Quote",
     name: "Name",
     rating: 0
+}
+
+Quote.propTypes = {
+    customer: PropTypes.shape({
+        quote: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        rating: PropTypes.number.isRequired
+    })
 }
 
 export default Quote

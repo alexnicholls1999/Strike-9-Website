@@ -1,0 +1,18 @@
+import { useEffect, useReducer } from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import Dots from "../Molecules/Dots";
+
+const StyledTestimonialWrapper = styled.div`
+
+`;
+
+function Testimonial({quotes}) {
+    return (
+        <div>
+            
+        </div>
+    )
+}
+  
+export default Testimonial;
