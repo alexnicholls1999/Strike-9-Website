@@ -33,8 +33,8 @@ function HomeLayout({children}) {
             </IntroWrapper>
 
             {children}
-
-            <Footer />
+            
+            {/* <Footer /> */}
         </>
     )
 }

@@ -34,8 +34,6 @@ const StyledTopicImage = styled.div`
 const StyledTopicInfo = styled.div`
     height: 100%;
     width: 100%;
-    padding: 10%;
-    padding-bottom: 25%;
 
     p {
         margin-top: 5%;

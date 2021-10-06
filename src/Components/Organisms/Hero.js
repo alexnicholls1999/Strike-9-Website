@@ -71,7 +71,6 @@ function Hero({ children, secondary, heroDetails}) {
                     <StyledIntro>
                         <h1>{heroDetails.title}</h1>
                         <p>{heroDetails.paragraph}</p>
-                        <ButtonWrapper buttons={buttons}  width="400px" />
                     </StyledIntro>
                     <SocialMediaWrapper>
                         <SocialMedia />

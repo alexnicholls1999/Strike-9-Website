@@ -5,6 +5,7 @@ import Strike9LogoMobile from "./../../../assets/Strike-9-Logo1.png";
 const StyledLogo = styled.img`
     height: 2.5rem;
     display: none;
+    border-radius: 0;
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {
         display: block;
@@ -15,6 +16,7 @@ const StyledLogoMobile = styled.img`
     height: 2rem;
     z-index: 2;
     display: block; 
+    border-radius: 0;
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {
         display: none;

@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
 
     h2 {
         font-size: clamp(${({theme}) => theme.typography.h2.fontSize.min}, ${({theme}) => theme.typography.h2.fontSize.default}, ${({theme}) => theme.typography.h2.fontSize.max});
-        font-weight: ${({theme}) => theme.typography.fontWeight.bold};
+        font-weight: ${({theme}) => theme.typography.fontWeight.xbold};
     }
 
     h3 {

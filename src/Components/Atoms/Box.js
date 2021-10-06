@@ -15,8 +15,6 @@ const StyledBox = styled.div`
     
     @media (min-width: 768px){
         position: absolute;
-        height: 75px;
-        width: 75px;
         margin: 0 auto;
     }
 `;

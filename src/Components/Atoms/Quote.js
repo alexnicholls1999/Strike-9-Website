@@ -30,7 +30,7 @@ const StyledQuote = styled.div`
 `;
 
 const StyledQuoteInfo = styled.div`
-    padding-top: 1rem;
+    padding-top: 2rem;
     text-align: center;
 
     &::before {
@@ -40,10 +40,12 @@ const StyledQuoteInfo = styled.div`
         top: 10px;
         height: 75px;
         width: 75px;
-        background: no-repeat center contain url(${PatternB});
+        background-image: url(${PatternB});
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
         z-index: -1;
-    }
-
+      }
     @media(min-width: ${({theme}) => theme.viewport.sm}) {
         text-align: left;
     }
@@ -56,7 +58,7 @@ function Quote({customer, active}) {
             <StyledQuoteInfo>
                 <p>{customer.quote}</p>
                 <h5>{customer.name}</h5>
-                <h6>{customer.rating}</h6>
+                <h6>{customer.rating}/5</h6>
             </StyledQuoteInfo>
         </StyledQuote>
     )

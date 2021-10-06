@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledPattern = styled.svg`
     width: 150px;
     display: flex;
-    padding: 10px 25px 10%;
+    padding: 0 25px 10%;
     z-index: -1;
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {

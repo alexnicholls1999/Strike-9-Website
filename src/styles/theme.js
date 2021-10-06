@@ -32,35 +32,35 @@ const theme = {
         },
         h1: {
             fontSize: {
-                min: "21px",
-                default: "5vw",
+                min: "25px",
+                default: "0.5rem + 4.25vw",
                 max: "10vw"
             }
         },
         h2: {
             fontSize: {
-                min: "1.5vh",
-                default: "4rem",
-                max: "7vw"
+                min: "1.5rem",
+                default: "0.225rem + 4vw",
+                max: "8vw"
             }
         },
         h3: {
             fontSize: {
-                min: "1.75vh",
-                default: "1.5rem",
-                max: "3rem"
+                min: "1.3rem",
+                default: "0.125rem + 2vw",
+                max: "6vw"
             }
         },
         p: {
             fontSize: {
-                min: "15px",
+                min: "12px",
                 default: "1.2vw",
                 max: "25px"
             }
         }
     },
     viewport: {
-        xl: "1400px",
+        xl: "1200px",
         lg: "990px",
         md: "768px",
         sm: "400px"
