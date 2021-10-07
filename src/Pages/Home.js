@@ -23,7 +23,20 @@ function Home() {
                     },
                     points: content.home.trainingplans.list.points
                 },
-                goals: content.home.goals
+                goals: content.home.goals,
+                feedback: {
+                    title: content.home.feedback.title,
+                    quotes: content.home.feedback.quotes
+                },
+                about: {
+                    title: content.home.about.title,
+                    paragraph: content.home.about.paragraph,
+                    img: {
+                        src: content.home.about.img.src,
+                        alt: content.home.about.img.alt,
+                    }
+                },
+                index: content.home.index
             }}
         />
     )

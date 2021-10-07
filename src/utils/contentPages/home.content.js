@@ -78,7 +78,7 @@ const home = {
             }
         ]
     }, 
-    aboutus: {
+    about: {
         title: "ABOUT US",
         paragraph: "We take pride in our adaptability and believe we can impact every player, helping them reach their goals in, and out, of the world of Football.",
         img: {

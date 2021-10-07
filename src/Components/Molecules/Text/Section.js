@@ -5,7 +5,7 @@ function Section({content}) {
     return (
         <>
             <h2>{content.title}</h2>
-            <p>{content.text}</p>
+            <p>{content.paragraph}</p>
         </>
     )
 }
@@ -13,7 +13,7 @@ function Section({content}) {
 Section.propTypes = {
     content: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired
+        paragraph: PropTypes.string.isRequired
     })
 }
 
