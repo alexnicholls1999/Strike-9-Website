@@ -1,16 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 import { ThemeProvider } from 'styled-components';
-import theme from './styles/theme';
 import GlobalStyles from './styles/GlobalStyles';
-import { Switch } from 'react-router';
+import { Switch, Route } from 'react-router';
 import RouteProvider from './utils/Context/RouteContext';
+import ContentProvider from './utils/Context/ContentContext';
+import Home from './Pages/Home';
+
+import content from './utils/content';
+import theme from './styles/theme';
 
 const pages = [
   {
     routeName: "Home",
     exact: true,
     path: "/",
+    component: Home
   },
   {
     routeName: "About Us",
@@ -40,7 +45,9 @@ function App() {
       <GlobalStyles />
       <Switch>
         <RouteProvider pages={pages}>
-          {pages.map(({ exact, path, component}, i) => {return <Route key={i} exact={exact} path={path} component={component}/>})}
+          <ContentProvider content={content}>
+            {pages.map(({ exact, path, component}, i) => {return <Route key={i} exact={exact} path={path} component={component}/>})}
+          </ContentProvider>
         </RouteProvider>
       </Switch>
     </ThemeProvider>
