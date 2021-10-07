@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 WebFont.load({
   google: {
-    families: ["Muli: 300, 400, 500, 600, 700, 800, 900"]
+    families: ['Muli:300,400,500,600,700,800,900']
   }
 });
 

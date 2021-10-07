@@ -16,16 +16,18 @@ const home = {
             alt: "football_player"
         },
         list: {
-            point: {
-                collaboration: {
+            points: [
+                {
+                    alternate: false,
                     title: "COLLABORATION",
                     paragraph: "We work year round with teams and individual players, to raise the level of every player we work with."
                 },
-                growth: {
+                {   
+                    alternate: true,
                     title: "GROWTH",
                     paragraph: "We work year round with teams and individual players, to raise the level of every player we work with."
                 }
-            }, 
+            ], 
         }
     },
     goals: [
