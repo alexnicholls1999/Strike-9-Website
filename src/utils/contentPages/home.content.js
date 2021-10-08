@@ -1,3 +1,8 @@
+import trainingPlans from "./../../assets/trainingPlans.png"
+import training from "./../../assets/Training.png";
+import corporate from "./../../assets/Corporate.png";
+import events from "./../../assets/Events.png";
+
 const home = {
     hero: {
         title: "STRIKE 9 TRAINING ACADEMY",
@@ -12,7 +17,7 @@ const home = {
     trainingplans: {
         title: "TRAINING PLANS",
         img: {
-            src: "",
+            src: trainingPlans,
             alt: "football_player"
         },
         list: {
@@ -90,7 +95,7 @@ const home = {
         {
             alternate: false,
             img: {
-                src: "",
+                src: training,
                 alt: "FootballIndex-01"
             },
             title: "TRAINING",
@@ -99,7 +104,7 @@ const home = {
         {
             alternate: true,
             img: {
-                src: "",
+                src: events,
                 alt: "FootballIndex-02"
             },
             title: "EVENTS",
@@ -108,7 +113,7 @@ const home = {
         {
             alternate: false,
             img: {
-                src: "",
+                src: corporate,
                 alt: "FootballIndex-03"
             },
             title: "CORPORATE",

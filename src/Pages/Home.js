@@ -17,6 +17,7 @@ function Home() {
                     alt: content.home.panel.img.alt
                 },
                 trainingplans: {
+                    title: content.home.trainingplans.title,
                     img: {
                         src: content.home.trainingplans.img.src,
                         alt: content.home.trainingplans.img.alt

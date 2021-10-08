@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/GlobalStyles';
 import { Switch, Route } from 'react-router';

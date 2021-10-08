@@ -5,9 +5,9 @@ import Container from ".././../Grid/Container";
 
 const StyledHero = styled.div`
     position: relative;
-    // height: 90%;
     width: 100%;
-    // background: ${({theme}) => theme.colors.primary[600]};
+    height: 90%;
+    color: ${({theme}) => theme.colors.neutral[100]};
 `;
 
 function Hero({content}) {
