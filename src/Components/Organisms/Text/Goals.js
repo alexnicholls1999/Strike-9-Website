@@ -1,26 +1,24 @@
 import PropTypes from "prop-types";
+import { Container, Row } from "react-bootstrap";
 import styled from "styled-components";
-import Container from "./../../../Grid/Container";
 import Goal from "../../Molecules/Text/Goal";
 
 
 const StyledGoals = styled.div`
-    display: flex;
-    flex-flow: column;
-    background: ${({theme}) => theme.colors.primary[500]};
-    padding: 2.75rem;
-
-    @media(min-width: ${({theme}) => theme.viewport.md}) {
-        flex-flow: row;
-    }
+    padding: 3rem 0;
+    background-color: ${({theme}) => theme.colors.primary[500]}
 `
 
 function Goals({goals}) {
     return (
         <StyledGoals>
-            {goals.map(({title, paragraph}) => {
-                return <Goal goal={{title: title, paragraph: paragraph}} />
-            })}
+            <Container fluid>
+                <Row>
+                    {goals.map(({title, paragraph}) => {
+                        return <Goal goal={{title: title, paragraph: paragraph}} />
+                    })}
+                </Row>
+            </Container>
         </StyledGoals>
     )
 }

@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
-    padding: 3rem 0;
 `;
 
 function Section({content}) {

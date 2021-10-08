@@ -1,18 +1,14 @@
 import PropTypes from "prop-types";
+import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import Quote from "../Molecules/Quote";
 
 const StyledTestimonialWrapper = styled.div`
-    display: flex;
-    flex-flow: column;
+
 `;
 
 const StyledBanner = styled.div`
-    background: ${({theme}) => theme.colors.neutral[800]};
 
-    h2 {
-        color: ${({theme}) => theme.colors.neutral[100]};
-    }
 `;
 
 const StyledTestimonial = styled.div`
@@ -21,16 +17,20 @@ const StyledTestimonial = styled.div`
 
 function Testimonial({title, quotes}) {
     return (
-        <StyledTestimonialWrapper>
-            <StyledBanner>
-                <h2>{title}</h2>
-            </StyledBanner>
-            <StyledTestimonial>
-                {quotes.map(({id, paragraph, name, rating}) => {
-                    return <Quote key={id} quote={{message: paragraph, name: name, rating: rating}} />
-                })}
-            </StyledTestimonial>
-        </StyledTestimonialWrapper>
+        <Container fluid>
+            <Row>
+                <Col md={6}>
+                    <StyledBanner>
+                        <h2>{title}</h2>
+                    </StyledBanner>
+                </Col>
+                <Col md={6}>
+                    {quotes.map(({id, paragraph, name, rating}) => {
+                        return <Quote key={id} quote={{message: paragraph, name: name, rating: rating}} />
+                    })}
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

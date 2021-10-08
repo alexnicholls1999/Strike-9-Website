@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Hero from "../Components/Organisms/Hero";
-import Container from "../Grid/Container";
 
 import Strike9Wallpaper from "./../assets/Strike-9-Cover-Page.jpg";
 
