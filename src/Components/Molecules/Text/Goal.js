@@ -3,10 +3,8 @@ import styled from "styled-components"
 import { Col } from "react-bootstrap";
 
 const StyledGoal = styled.section`
-    width: 75%;
     color: ${({theme}) => theme.colors.neutral[100]};
     margin-inline: auto;
-    padding: 2rem 0;
 `;
 
 function Goal({goal}) {

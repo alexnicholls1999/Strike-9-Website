@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import HomeLayout from "../../Layouts/HomeLayout";
 import home from "../../utils/contentPages/home.content";
@@ -16,25 +16,79 @@ const StyledSponsors = styled.div`
 `;
 
 const StyledTrainingplansTitle = styled.h2`
+    text-align: left;
+    padding: 3rem 0;
 
+    @media(min-width: ${({theme}) => theme.viewport.md}) {
+        text-align: right;
+    }
 `;
 
 const ListWrapper = styled.div`
+    position: relative;
+    display: flex;
+    flex-flow: column;
 
+    &::before {
+        content: '';
+        display: none;
+        position: absolute;
+        z-index: -1;
+        height: 50%;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background: ${({theme}) => theme.colors.primary[200]}
+    }
+
+
+    @media(min-width: ${({theme}) => theme.viewport.md}) {
+        flex-flow: row;
+
+        &::before {
+            display: block;
+        }
+    }
 
 `;
 
 const ImageWrapper = styled.div`
-
+    width: 100%;
 `;
 
 const List = styled.div`
-
-
+    width: 100%;
 `;
 
 const Point = styled.div`
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    padding: ${({alternate}) => alternate ? "2rem 1rem 6rem" : "2rem 1rem 3rem"};
+    height: 50%;
+    align-items: self-start;
 
+    &::before {
+        content: '';
+        display: ${({alternate}) => alternate ? "block" : "none"};
+        position: absolute;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background: ${({theme}) => theme.colors.primary[200]}
+    }
+
+    @media(min-width: ${({theme}) => theme.viewport.md}) {
+        align-items: ${({alternate}) => alternate ? "self-end" : "self-start"};
+        text-align: ${({alternate}) => alternate ? "right" : "left"};
+        padding: 1rem;
+
+        &::before {
+            display: none;
+        }
+    }
 `;
 
 
@@ -49,9 +103,14 @@ function HomeTemplate({homeContent}) {
             </StyledSponsors>
 
             <Container fluid>            
-                <StyledTrainingplansTitle>{homeContent.trainingplans.title}</StyledTrainingplansTitle>
-        
-                <ListWrapper>
+                <Row>
+                    <Col md={12}>
+                        <StyledTrainingplansTitle>{homeContent.trainingplans.title}</StyledTrainingplansTitle>
+                    </Col>
+                </Row>
+            </Container>
+
+            <ListWrapper>
                     <ImageWrapper>
                         <img src={homeContent.trainingplans.img.src} alt={homeContent.trainingplans.img.alt}/>
                     </ImageWrapper>
@@ -65,8 +124,7 @@ function HomeTemplate({homeContent}) {
                             )
                         })}
                     </List>
-                </ListWrapper>
-            </Container>
+            </ListWrapper>
 
             <Goals goals={homeContent.goals} />
             <Testimonial title={homeContent.feedback.title} quotes={homeContent.feedback.quotes} />

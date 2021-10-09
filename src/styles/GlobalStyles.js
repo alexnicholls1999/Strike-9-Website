@@ -21,14 +21,16 @@ const GlobalStyles = createGlobalStyle`
     h1 {
         font-weight: ${({theme}) => theme.typography.fontWeight.bold};
         color: ${({theme}) => theme.colors.neutral[100]};
-        line-height: 1.2;
     }
 
     h2,
     h3 {
         font-weight: ${({theme}) => theme.typography.fontWeight.bold};
-        line-height: 1;
         color: ${({theme}) => theme.colors.neutral[900]};
+    }
+
+    h1, h2, h3 {
+        line-height: 1.2;
     }
 
     p {
