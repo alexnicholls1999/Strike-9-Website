@@ -88,6 +88,11 @@ const Point = styled.div`
         &::before {
             display: none;
         }
+
+        p { 
+            width: 60%;
+        }
+
     }
 `;
 
@@ -129,15 +134,14 @@ function HomeTemplate({homeContent}) {
             <Goals goals={homeContent.goals} />
             <Testimonial title={homeContent.feedback.title} quotes={homeContent.feedback.quotes} />
             <Topic 
+                secondary
                 topic={{ 
                     img: { src: homeContent.about.img.src, alt: homeContent.about.img.alt },
                     title: homeContent.about.title,
                     paragraph: homeContent.about.paragraph
                 }}
             />
-            {homeContent.index.map(({alternate, img, title, paragraph}) => {
-                return <Index indexSection={{title: title, message: paragraph, img: { src: img.src, alt: img.alt }}} />
-            })}
+            {homeContent.index.map(({alternate, img, title, paragraph}) => <Index indexSection={{title: title, message: paragraph, img: { src: img.src, alt: img.alt }}} alternate={alternate} />)}
         </HomeLayout>
     )
 }

@@ -3,22 +3,53 @@ import styled from "styled-components";
 import Section from "../Molecules/Text/Section";
 
 const StyledIndexSection = styled.div`
+    display: flex;
+    width: 100%;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
 
+    @media (min-width: ${({theme}) => theme.viewport.md}){
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        flex-direction: ${({alternate}) => (alternate ? "row-reverse" : "row")}
+    }
 `;
 
 const StyledIndexImage = styled.div`
+    width: 100%;
+    img {
+        width: 100%;
+    }
 
+    @media (min-width: ${({theme}) => theme.viewport.md}){
+        width: 50%;
+    }
 `;
 
 const StyledIndexText = styled.div`
+    width: 100%;
+    padding: 3rem 1rem;
+ 
 
+    @media (min-width: ${({theme}) => theme.viewport.md}){
+        width: 50%;
+        padding-top: 0;
+        padding-left: 5%;
+
+        p {
+            width: 75%;
+        }
+    }
 `;
 
 
 function Index({indexSection, alternate}) {
     return (
         <>
-            <StyledIndexSection>
+            <StyledIndexSection alternate={alternate}>
                 <StyledIndexImage>
                     <img src={indexSection.img.src} alt={indexSection.img.alt} />
                 </StyledIndexImage>

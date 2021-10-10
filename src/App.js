@@ -44,7 +44,7 @@ function App() {
       <Switch>
         <RouteProvider pages={pages}>
           <ContentProvider content={content}>
-            {pages.map(({ exact, path, component}, i) => {return <Route key={i} exact={exact} path={path} component={component}/>})}
+            {pages.map(({ exact, path, component}, i) => <Route key={i} exact={exact} path={path} component={component}/>)}
           </ContentProvider>
         </RouteProvider>
       </Switch>

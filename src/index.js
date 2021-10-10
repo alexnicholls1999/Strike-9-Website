@@ -6,6 +6,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+export const loadIcons = () => {
+  library.add(faStar, farStar);
+};
+
 WebFont.load({
   google: {
     families: ['Muli:300,400,500,600,700,800,900']

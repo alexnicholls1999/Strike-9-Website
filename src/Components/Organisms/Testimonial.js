@@ -3,12 +3,13 @@ import styled from "styled-components";
 import Quote from "../Molecules/Quote";
 
 import PatternA from './../../assets/PatternA.svg';
+import QuotePattern from './../../assets/Testimonial/Quote.svg';
 
 const StyledTestimonialWrapper = styled.div`
     display: flex;
     flex-flow: column;
 
-    @media(min-width: ${({theme}) => theme.viewport.md}){
+    @media(min-width: ${({theme}) => theme.viewport.lg}){
         flex-flow: row;
     }
 
@@ -22,7 +23,6 @@ const StyledBanner = styled.div`
 
     h2 {
         color: ${({theme}) => theme.colors.neutral[100]};
-        font-size: 35px;
         padding: 3.5rem 1rem;
 
         &::before {
@@ -47,7 +47,26 @@ const StyledBanner = styled.div`
 
 const StyledTestimonial = styled.div`
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 5rem;
+        width: 5rem;
+        top: 1rem;
+        left: 1rem;
+        background: url(${QuotePattern});
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat; 
+        z-index: -1;
+    }
+
+    @media(min-width: ${({theme}) => theme.viewport.md}) {
+        padding: 2rem;
+    }
 `;
 
 function Testimonial({title, quotes}) {
@@ -57,9 +76,7 @@ function Testimonial({title, quotes}) {
                 <h2>{title}</h2>   
             </StyledBanner>
             <StyledTestimonial>
-                {quotes.map(({id, paragraph, name, rating, active}) => {
-                    return <Quote key={id} quote={{message: paragraph, name: name, rating: rating}} active={active}/>
-                })}
+                {quotes.map(({id, paragraph, name, rating, active}) => <Quote key={id} quote={{message: paragraph, name: name, rating: rating}} active={active}/>)}
             </StyledTestimonial>
         </StyledTestimonialWrapper>
     )
