@@ -2,6 +2,9 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
+    h2 {
+        padding-bottom: .5rem;
+    }
 `;
 
 function Section({content}) {

@@ -17,7 +17,7 @@ function Quote({quote, active}) {
     return (
         <StyledQuote active={active}>
           <p>{quote.message}</p>
-          <div className="p-3"></div> 
+          <div className="p-2"></div> 
           <Rating rating={4}/>
           <div className="p-1"></div> 
           <h5>{quote.name}</h5>

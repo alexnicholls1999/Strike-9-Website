@@ -5,6 +5,18 @@ import { Col } from "react-bootstrap";
 const StyledGoal = styled.section`
     color: ${({theme}) => theme.colors.neutral[100]};
     margin-inline: auto;
+    padding: 1.75rem;
+
+    h4 {
+        padding-bottom: .75rem;
+    }
+
+    @media(min-width: ${({theme}) => theme.viewport.md}) {
+        p {
+            width: 70%;
+            margin: 0 auto;
+        }
+    }
 `;
 
 function Goal({goal}) {
@@ -12,7 +24,7 @@ function Goal({goal}) {
         <Col md={3} sm={6}>
             <StyledGoal className="text-center">
                 <h4>{goal.title}</h4>
-                <p>{goal.paragraph}</p>
+                <p>We will {goal.paragraph}</p>
             </StyledGoal>
         </Col>
     )

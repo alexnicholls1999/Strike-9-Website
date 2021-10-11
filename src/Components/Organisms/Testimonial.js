@@ -23,7 +23,7 @@ const StyledBanner = styled.div`
 
     h2 {
         color: ${({theme}) => theme.colors.neutral[100]};
-        padding: 3.5rem 1rem;
+        padding: 3.5rem .75rem;
 
         &::before {
             content: '';
@@ -38,9 +38,9 @@ const StyledBanner = styled.div`
     }
 
     @media(min-width: ${({theme}) => theme.viewport.md}) {
-
         h2 {
-            width: 60%;
+            width: 90%;
+            padding: 3.5rem 2rem;
         }
     }
 `;
@@ -56,7 +56,7 @@ const StyledTestimonial = styled.div`
         height: 5rem;
         width: 5rem;
         top: 1rem;
-        left: 1rem;
+        left: 1.75rem;
         background: url(${QuotePattern});
         background-size: contain;
         background-position: center;
@@ -65,7 +65,7 @@ const StyledTestimonial = styled.div`
     }
 
     @media(min-width: ${({theme}) => theme.viewport.md}) {
-        padding: 2rem;
+        padding: 3rem;
     }
 `;
 

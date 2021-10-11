@@ -38,19 +38,19 @@ const home = {
     goals: [
         {
             title: "COACHING",
-            paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie ligula at nisi egestas, quis laoreet tortor vehicula. Sed malesuada eros ac consectetur pretium."
+            paragraph: "work with coaches to develop their knowledge"
           },
           {
             title: "PLAYERS",
-            paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie ligula at nisi egestas, quis laoreet tortor vehicula. Sed malesuada eros ac consectetur pretium."
+            paragraph: "work with players to develop their skills"
           },
           {
             title: "PARENTS",
-            paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie ligula at nisi egestas, quis laoreet tortor vehicula. Sed malesuada eros ac consectetur pretium."
+            paragraph: "work with parents to develop their understanding"
           },
           {
             title: "VOLUNTEERS",
-            paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie ligula at nisi egestas, quis laoreet tortor vehicula. Sed malesuada eros ac consectetur pretium."
+            paragraph: "work with volunteers to develop their engagement"
           }
     ],
     feedback: {
@@ -92,7 +92,7 @@ const home = {
         title: "ABOUT US",
         paragraph: "We take pride in our adaptability and believe we can impact every player, helping them reach their goals in, and out, of the world of Football.",
         img: {
-            src: "https://www.strike9-training.com/S9/wp-content/uploads/2021/04/S9-wc_1-300x300.jpg",
+            src: "https://images.unsplash.com/photo-1609422644211-a85c36ee36a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
             alt: "strike-9-football-image"
         }
     },

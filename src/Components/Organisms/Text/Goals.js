@@ -5,8 +5,12 @@ import Goal from "../../Molecules/Text/Goal";
 
 
 const StyledGoals = styled.div`
-    padding: 3rem 0;
-    background-color: ${({theme}) => theme.colors.primary[500]}
+    padding: 1rem 0;
+    background-color: ${({theme}) => theme.colors.primary[500]};
+
+    @media(min-width: ${({theme}) => theme.viewport.md}){
+        padding: 4rem 0;
+    }
 `
 
 function Goals({goals}) {

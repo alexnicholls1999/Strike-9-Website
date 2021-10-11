@@ -52,7 +52,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     p {
-        font-size: clamp(1rem, 1rem + .25vw, 5rem);
+        font-size: clamp(1rem, .75rem + .25vw, 5rem);
     }
 
     img {

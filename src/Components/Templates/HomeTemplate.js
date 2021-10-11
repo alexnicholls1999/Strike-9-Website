@@ -7,6 +7,7 @@ import Index from "../Organisms/Index";
 import Testimonial from "../Organisms/Testimonial";
 import Goals from "../Organisms/Text/Goals";
 import Topic from "../Organisms/Topic";
+import Pattern from "./../Atoms/Pattern";
 
 const StyledSponsors = styled.div`
     display: flex;
@@ -68,6 +69,10 @@ const Point = styled.div`
     height: 50%;
     align-items: self-start;
 
+    h3 {
+        padding-bottom: 1rem;
+    }
+
     &::before {
         content: '';
         display: ${({alternate}) => alternate ? "block" : "none"};
@@ -106,6 +111,8 @@ function HomeTemplate({homeContent}) {
             <StyledSponsors>
                     <img src={homeContent.sponsorsImg.src} alt={homeContent.sponsorsImg.alt} />
             </StyledSponsors>
+
+            <Pattern />
 
             <Container fluid>            
                 <Row>

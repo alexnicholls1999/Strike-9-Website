@@ -12,8 +12,11 @@ const StyledTopicWrapper = styled.div`
 const StyledTopicImage = styled.div`
     display: flex;
     justify-content: space-around;
-
-
+    
+    @media(min-width: ${({theme}) => theme.viewport.lg}) {
+        padding: 0 2rem;
+    }
+    
 `;
 
 const StyledTopicInfo = styled.div`
