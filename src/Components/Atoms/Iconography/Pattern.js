@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PatternA from "./../../assets/PatternA.svg";
+import PatternA from "./../../../assets/PatternA.svg";
 
 const StyledPattern = styled.div` 
     height: 5rem;

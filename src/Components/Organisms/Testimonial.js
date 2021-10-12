@@ -1,11 +1,17 @@
 import PropTypes from "prop-types";
+import { useEffect, useReducer } from "react";
 import styled from "styled-components";
+import testimonialTypes from "../../redux/Testimonial/testimonial.types";
+import useTestimonialReducer from "../../redux/Testimonial/testmionial.reducer";
+import TestimonialButton from "../Atoms/TestimonialButton";
+import Dots from "../Molecules/Dots";
 import Quote from "../Molecules/Quote";
 
 import PatternA from './../../assets/PatternA.svg';
 import QuotePattern from './../../assets/Testimonial/Quote.svg';
 
 const StyledTestimonialWrapper = styled.div`
+    position: relative;
     display: flex;
     flex-flow: column;
 
@@ -47,7 +53,7 @@ const StyledBanner = styled.div`
 
 const StyledTestimonial = styled.div`
     width: 100%;
-    padding: 1rem;
+    padding: 3rem 1rem;
     position: relative;
 
     &::before {
@@ -70,13 +76,33 @@ const StyledTestimonial = styled.div`
 `;
 
 function Testimonial({title, quotes}) {
+
+    const [{slideIndex}, dispatch] = useReducer(useTestimonialReducer, {slideIndex: 1});
+
+    useEffect(() => {
+        const interval = setInterval(nextSlide, slideIndex * 2000);
+        return () => clearInterval(interval);
+    });
+
+    const nextSlide = () => {
+        dispatch({ type: "nextSlide" });
+        if (slideIndex === quotes.length) return dispatch({type: "resetSlide"});
+    }
+
+    const prevSlide = () => {
+        dispatch({ type: "prevSlide"});
+        if (slideIndex === 1) return dispatch({type: "lastSlide", payload: quotes.length});
+    }
+
     return (
         <StyledTestimonialWrapper>
             <StyledBanner>
                 <h2>{title}</h2>   
             </StyledBanner>
+            <TestimonialButton />
             <StyledTestimonial>
-                {quotes.map(({id, paragraph, name, rating, active}) => <Quote key={id} quote={{message: paragraph, name: name, rating: rating}} active={active}/>)}
+                {quotes.map(({id, paragraph, name, rating}, i) => <Quote key={id} quote={{message: paragraph, name: name, rating: rating}} active={slideIndex === i + 1}/>)}
+                <Dots slideIndex={slideIndex} moveDot={(index) => dispatch({type: "moveDots", payload: index})} /> 
             </StyledTestimonial>
         </StyledTestimonialWrapper>
     )

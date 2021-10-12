@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
+import SocialMedia from "../Molecules/SocialMedia";
 import Introduction from "../Molecules/Text/Introduction";
 
 
@@ -18,10 +19,19 @@ const StyledHero = styled.div`
     }
 `;
 
+const SocialMediaWrapper = styled.div`
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+`;
+
 function Hero({content}) {
     return (
         <StyledHero>
                 <Introduction content={content} center />
+                <SocialMediaWrapper>
+                    <SocialMedia />
+                </SocialMediaWrapper>
         </StyledHero>
     )
 }

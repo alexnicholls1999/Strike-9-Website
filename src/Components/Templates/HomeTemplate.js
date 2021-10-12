@@ -2,12 +2,11 @@ import PropTypes from "prop-types";
 import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import HomeLayout from "../../Layouts/HomeLayout";
-import home from "../../utils/contentPages/home.content";
 import Index from "../Organisms/Index";
 import Testimonial from "../Organisms/Testimonial";
 import Goals from "../Organisms/Text/Goals";
 import Topic from "../Organisms/Topic";
-import Pattern from "./../Atoms/Pattern";
+import Pattern from "../Atoms/Iconography/Pattern";
 
 const StyledSponsors = styled.div`
     display: flex;

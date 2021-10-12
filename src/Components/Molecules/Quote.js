@@ -1,9 +1,30 @@
 import PropTypes from "prop-types"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import Rating from "./Rating";
+
+const fadeIn = keyframes`
+    from {
+        opacity: 0;
+    } 
+
+    to {
+        opacity: 1;
+    }
+`;
+
+const fadeOut = keyframes`
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+`;  
 
 const StyledQuote = styled.div`
     display: ${({active}) => active ? "block" : "none"};
+    animation: ${({active}) => active ? fadeOut : fadeIn} 1s ease-in-out;
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {        
         p {
