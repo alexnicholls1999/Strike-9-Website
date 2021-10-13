@@ -2,8 +2,6 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledIntroduction = styled.section`
-    
-
     @media(min-width: ${({theme}) => theme.viewport.md}) {
         p {
             width: 65%;

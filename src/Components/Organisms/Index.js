@@ -54,7 +54,7 @@ function Index({indexSection, alternate}) {
                     <img src={indexSection.img.src} alt={indexSection.img.alt} />
                 </StyledIndexImage>
                 <StyledIndexText>
-                    <Section content={{title: indexSection.title, paragraph: indexSection.message}}/>
+                    <Section content={{title: indexSection.title, paragraph: indexSection.message, button: {text: indexSection.button.text, onClick: indexSection.button.onClick}}} />
                 </StyledIndexText>
             </StyledIndexSection>
         </>
@@ -67,6 +67,10 @@ Index.propTypes = {
         img: PropTypes.shape({
             src: PropTypes.string.isRequired,
             alt: PropTypes.string.isRequired
+        }),
+        button: PropTypes.shape({
+            text: PropTypes.string.isRequired,
+            onClick: PropTypes.func.isRequired,
         }),
         title: PropTypes.string.isRequired,
         message: PropTypes.string.isRequired

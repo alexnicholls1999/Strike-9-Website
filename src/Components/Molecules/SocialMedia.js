@@ -19,7 +19,8 @@ const socialMedia = [
 
 const StyledSocialMedia = styled.div`
     color: ${({theme}) => theme.colors.neutral[100]};
-
+    cursor: pointer;
+    
     > * {
        padding: .85rem 0;
     }

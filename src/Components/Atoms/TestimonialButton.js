@@ -21,19 +21,16 @@ const StyledPrevious = styled.div`
 
 const ArrowButtons = styled.div`
   position: absolute;
+  bottom: -1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  top: 250px;
   width: 90px;
   height: 45px;
   box-shadow: 0px 0px 5px 0px hsla(240, 18%, 77%, 0.52);
   border-radius: 50px;
   background: white;
   overflow: hidden;
-
-  @media (max-width: 400px) {
-    top: 250px !important;
-  }
+  z-index: 1;
 
   ${StyledNext}, ${StyledPrevious} {
     display: inline-block;
@@ -50,6 +47,11 @@ const ArrowButtons = styled.div`
       background-repeat: no-repeat;
       background-position: center;
     }
+  }
+
+  @media(min-width: ${({theme}) => theme.viewport.lg}) {
+    bottom: 10%;
+    left: 100%;
   }
 `;
 

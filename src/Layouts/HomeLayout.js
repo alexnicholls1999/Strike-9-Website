@@ -14,7 +14,6 @@ const IntroWrapper = styled.div`
     box-shadow: inset 0 0 0 100vmax rgb(5 10 43 / 84%);
 `;
 
-
 function HomeLayout({content, children}) {
 
     return (

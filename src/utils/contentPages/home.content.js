@@ -98,14 +98,20 @@ const home = {
                 src: training,
                 alt: "FootballIndex-01"
             },
+            button: {
+                text: "TRAINING"
+            },
             title: "TRAINING",
-            paragraph: "Post videos with your skills. Like and follow others to be more popular."                
+            paragraph: "Post videos with your skills. Like and follow others to be more popular."           
         },
         {
             alternate: true,
             img: {
                 src: events,
                 alt: "FootballIndex-02"
+            },
+            button: {
+                text: "EVENTS"
             },
             title: "EVENTS",
             paragraph: "Post videos with your skills. Like and follow others to be more popular."                
@@ -115,6 +121,9 @@ const home = {
             img: {
                 src: corporate,
                 alt: "FootballIndex-03"
+            },
+            button: {
+                text: "CORPORATE"
             },
             title: "CORPORATE",
             paragraph: "Post videos with your skills. Like and follow others to be more popular."                

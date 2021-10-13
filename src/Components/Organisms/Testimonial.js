@@ -97,9 +97,9 @@ function Testimonial({title, quotes}) {
     return (
         <StyledTestimonialWrapper>
             <StyledBanner>
-                <h2>{title}</h2>   
+                <h2>{title}</h2>  
+                <TestimonialButton /> 
             </StyledBanner>
-            <TestimonialButton />
             <StyledTestimonial>
                 {quotes.map(({id, paragraph, name, rating}, i) => <Quote key={id} quote={{message: paragraph, name: name, rating: rating}} active={slideIndex === i + 1}/>)}
                 <Dots slideIndex={slideIndex} moveDot={(index) => dispatch({type: "moveDots", payload: index})} /> 

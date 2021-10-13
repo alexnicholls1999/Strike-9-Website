@@ -141,13 +141,13 @@ function HomeTemplate({homeContent}) {
             <Testimonial title={homeContent.feedback.title} quotes={homeContent.feedback.quotes} />
             <Topic 
                 secondary
-                topic={{ 
+                topic={{
                     img: { src: homeContent.about.img.src, alt: homeContent.about.img.alt },
                     title: homeContent.about.title,
                     paragraph: homeContent.about.paragraph
                 }}
             />
-            {homeContent.index.map(({alternate, img, title, paragraph}) => <Index indexSection={{title: title, message: paragraph, img: { src: img.src, alt: img.alt }}} alternate={alternate} />)}
+            {homeContent.index.map(({alternate, img, button, title, paragraph}) => <Index indexSection={{title: title, message: paragraph, img: { src: img.src, alt: img.alt }, button: {text: button.text, onClick: button.onClick}}} alternate={alternate} />)}
         </HomeLayout>
     )
 }
