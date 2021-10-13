@@ -5,18 +5,28 @@ import Section from '.././Molecules/Text/Section';
 
 const StyledTopicWrapper = styled.div`
     background-color: ${({theme, secondary}) => secondary ? theme.colors.primary[200] : "none"};
-    padding: 3rem 0;
+    padding: 1rem;
+    display: flex;
+    flex-flow: column-reverse;
+
+    @media(min-width: ${({theme}) => theme.viewport.md}) {
+        flex-flow: row;
+        padding: 3rem 0;
+    }
+
+    > * {
+        flex-basis: 100%;
+    }
 `;
 
 
 const StyledTopicImage = styled.div`
-    display: flex;
-    justify-content: space-around;
+    padding: 1.5rem 1rem;
     
+
     @media(min-width: ${({theme}) => theme.viewport.lg}) {
-        padding: 0 2rem;
+        padding: 0 3rem;
     }
-    
 `;
 
 const StyledTopicInfo = styled.div`
@@ -28,9 +38,9 @@ const StyledTopicInfo = styled.div`
 
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {
-        text-align: right;
-        align-items: flex-end;
-        justify-content: flex-end;    
+        text-align: right; 
+        justify-content: flex-end;
+        justify-content: flex-end;
         padding: 0 1rem;
         
         > * {        
@@ -42,22 +52,13 @@ const StyledTopicInfo = styled.div`
 function Topic({topic, secondary}) {
     return (
         <StyledTopicWrapper secondary={secondary}>
-            <Container fluid>
-                <Row>
-                    <Col md={6}>
-                        <StyledTopicImage>
-                            <img src={topic.img.src} alt={topic.img.alt} />
-                        </StyledTopicImage>
-                    </Col>
-                    <Col md={6}>
-                        <StyledTopicInfo>
-                            <Section content={{title: topic.title, paragraph: topic.paragraph}} />
-                        </StyledTopicInfo>
-                    </Col>
-                </Row>
-            </Container>
+            <StyledTopicImage>
+                <img src={topic.img.src} alt={topic.img.alt}/>
+            </StyledTopicImage>
+            <StyledTopicInfo>
+                <Section alternate content={{title: topic.title, paragraph: topic.paragraph}} />
+            </StyledTopicInfo>
         </StyledTopicWrapper>
-
     )
 }
 

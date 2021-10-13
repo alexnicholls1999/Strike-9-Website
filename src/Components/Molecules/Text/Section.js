@@ -5,19 +5,29 @@ import Button from "./../../Atoms/Form/Button";
 const StyledSection = styled.section`
 
     h2 {
-        padding-bottom: .5rem;
+        padding-bottom: 1rem;
     }
 
-    
 
 `;
 
-function Section({content}) {
+const StyledSectionButtonWrapper = styled.div`
+    width: 100%;
+    padding: 4rem 0;
+
+    button {
+       float: ${({alternate}) => alternate ? "left" : "right"};
+    }
+`;
+
+function Section({content, alternate}) {
     return (
         <StyledSection>
             <h2>{content.title}</h2>
             <p>{content.paragraph}</p>
-            <Button text="TEST" />
+            <StyledSectionButtonWrapper alternate={alternate}>
+                <Button text="TEST" />
+            </StyledSectionButtonWrapper>
         </StyledSection>
     )
 }

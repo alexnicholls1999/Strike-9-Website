@@ -11,12 +11,15 @@ const StyledHero = styled.div`
     flex-flow: column;
     width: 100%;
     height: 90%;
+    padding: ${({secondary}) => secondary && "3rem 0 10rem"};
     color: ${({theme}) => theme.colors.neutral[100]};
-    text-align: center;
-    justify-content: center;
+    text-align: ${({secondary}) => secondary ? "left" : "center"};
+    justify-content: align-start;
 
     @media(min-width: ${({theme}) => theme.viewport.md}) {     
-        align-items: center;
+        width: ${({secondary}) => secondary && "90%"};
+        align-items: ${({secondary}) => secondary ? "align-start" : "center"};
+        justify-content: ${({secondary}) => secondary ? "align-start" : "center"};
     }
 `;
 
@@ -36,19 +39,28 @@ const ButtonsWrapper = styled.div`
     padding: 1rem;
 `;
 
-function Hero({content}) {
+function Hero({content, secondary, component}) {
     return (
-        <StyledHero>
-                <Introduction content={content} center />
-                <br />
-                <ButtonsWrapper>
-                    <Button text="REGISTER" />
-                    <Button text="FIND OUT MORE"/>
-                </ButtonsWrapper>
-                <SocialMediaWrapper>
-                    <SocialMedia />
-                </SocialMediaWrapper>
-        </StyledHero>
+        <>
+            {!secondary ? (
+                <StyledHero>
+                        <Introduction content={content} center />
+                        <ButtonsWrapper>
+                            <Button text="REGISTER" />
+                            <Button text="FIND OUT MORE"/>
+                        </ButtonsWrapper>
+                        <SocialMediaWrapper>
+                            <SocialMedia />
+                        </SocialMediaWrapper>
+                </StyledHero>
+            ) : (
+                <StyledHero secondary={secondary}>
+                    <Introduction content={content} />
+                    {component}
+                </StyledHero>
+            )}  
+        </>
+
     )
 }
 

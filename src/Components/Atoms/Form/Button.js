@@ -9,10 +9,10 @@ const StyledButton = styled.button`
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: max(1vw, 0.665rem);
+    font-size: 0.7rem;
     font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     border-radius: 7px;
-    width: 12rem;
+    width: 9rem;
 `;
 
 function Button({onClick, text}) {

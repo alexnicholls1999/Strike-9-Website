@@ -36,15 +36,13 @@ const StyledIndexText = styled.div`
 
     @media (min-width: ${({theme}) => theme.viewport.md}){
         width: 50%;
-        padding-top: 0;
-        padding-left: 5%;
+        padding: 5rem;
 
         p {
             width: 75%;
         }
     }
 `;
-
 
 function Index({indexSection, alternate}) {
     return (

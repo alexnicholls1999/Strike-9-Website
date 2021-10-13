@@ -7,6 +7,7 @@ import Home from './Pages/Home';
 
 import content from './utils/content';
 import theme from './styles/theme';
+import About from './Pages/About';
 
 const pages = [
   {
@@ -18,6 +19,7 @@ const pages = [
   {
     routeName: "About Us",
     path: "/aboutus",
+    component: About
   },
   {
     routeName: "Training",
