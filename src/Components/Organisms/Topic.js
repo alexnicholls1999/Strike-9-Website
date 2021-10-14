@@ -9,14 +9,16 @@ const StyledTopicWrapper = styled.div`
     display: flex;
     flex-flow: column-reverse;
 
-    @media(min-width: ${({theme}) => theme.viewport.md}) {
-        flex-flow: row;
-        padding: 3rem 0;
-    }
-
     > * {
         flex-basis: 100%;
     }
+
+    @media(min-width: ${({theme}) => theme.viewport.md}) {
+        flex-flow: ${({secondary}) => secondary ? "row" : "row-reverse"};
+        padding: 3rem 0;
+    }
+
+
 `;
 
 
@@ -38,9 +40,8 @@ const StyledTopicInfo = styled.div`
 
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {
-        text-align: right; 
-        justify-content: flex-end;
-        justify-content: flex-end;
+        text-align: ${({secondary}) => secondary ? "right" : "left"}; 
+        justify-content: ${({secondary}) => secondary ? "flex-end" : "flex-start"};
         padding: 0 1rem;
         
         > * {        
@@ -55,8 +56,8 @@ function Topic({topic, secondary}) {
             <StyledTopicImage>
                 <img src={topic.img.src} alt={topic.img.alt}/>
             </StyledTopicImage>
-            <StyledTopicInfo>
-                <Section alternate content={{title: topic.title, paragraph: topic.paragraph}} />
+            <StyledTopicInfo secondary={secondary}>
+                <Section alternate={secondary} content={{title: topic.title, paragraph: topic.paragraph}} />
             </StyledTopicInfo>
         </StyledTopicWrapper>
     )

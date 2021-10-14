@@ -18,7 +18,11 @@ function About() {
                     },
                     paragraph: content.about.summary.paragraph
                 },
-                benefits: content.about.benefits
+                benefits: content.about.benefits,
+                coaching: {
+                    bgImage: content.about.coaching.bgImage,
+                    link: content.about.coaching.path
+                }
             }}
         />
     )
