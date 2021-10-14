@@ -44,7 +44,7 @@ const StyledTopicInfo = styled.div`
         padding: 0 1rem;
         
         > * {        
-            width: 60%;
+            width: 65%;
         }
     }
 `;

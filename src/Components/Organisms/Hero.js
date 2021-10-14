@@ -17,7 +17,6 @@ const StyledHero = styled.div`
     justify-content: align-start;
 
     @media(min-width: ${({theme}) => theme.viewport.md}) {     
-        width: ${({secondary}) => secondary && "90%"};
         align-items: ${({secondary}) => secondary ? "align-start" : "center"};
         justify-content: ${({secondary}) => secondary ? "align-start" : "center"};
     }

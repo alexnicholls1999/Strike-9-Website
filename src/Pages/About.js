@@ -10,7 +10,15 @@ function About() {
         <AboutTemplate 
             aboutContent={{
                 heroTitle: content.about.hero.title,
-                paragraph: content.about.hero.paragraph
+                paragraph: content.about.hero.paragraph,
+                summary: {
+                    blurb: {
+                        title: content.about.summary.blurb.title,
+                        paragraph: content.about.summary.blurb.paragraph
+                    },
+                    paragraph: content.about.summary.paragraph
+                },
+                benefits: content.about.benefits
             }}
         />
     )
