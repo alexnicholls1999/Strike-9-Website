@@ -1,11 +1,39 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import PatternA from "./../../assets/PatternA.svg";
 
 const ImageGalleryWrapper = styled.div`
+    position: relative;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0 0.2rem;
+    padding: 0 .5rem 3rem;
+    margin-bottom: 3rem;
+
+    &::after { 
+        content: '';
+        position: absolute;
+        z-index: -1;
+        bottom: -2rem;
+        height: 6rem;
+        width: 10rem;
+        background: url(${PatternA});
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    @media(min-width: ${({theme}) => theme.viewport.lg}){
+        padding: 0 2rem 6rem;
+        margin-bottom: 0;
+        
+        &::after { 
+            bottom: 1rem;
+            right: 1rem;
+            height: 8rem;
+            width: 12rem;
+        }
+
+    }
 `;
 
 const ImageGalleryColumn = styled.div`
@@ -32,6 +60,7 @@ const ImageGalleryColumn = styled.div`
 
 
 function ImageGallery() {
+
     return (
         <ImageGalleryWrapper>
             <ImageGalleryColumn>

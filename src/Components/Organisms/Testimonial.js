@@ -25,7 +25,7 @@ const StyledBanner = styled.div`
     position: relative;
     background: ${({theme}) => theme.colors.neutral[800]};
     width: 100%;
-    padding: 2rem;
+    padding: 2rem 1rem;
 
     h2 {
         color: ${({theme}) => theme.colors.neutral[100]};
@@ -48,6 +48,17 @@ const StyledBanner = styled.div`
             width: 90%;
             padding: 3.5rem 2rem;
         }
+    }
+
+    @media(min-width: ${({theme}) => theme.viewport.xl}) {
+        padding: 6.25vw 4.6875vw;
+
+        h2 {
+            &::before {
+                top: 5vw;
+                left: 4vw;
+            }
+        } 
     }
 `;
 
@@ -72,6 +83,15 @@ const StyledTestimonial = styled.div`
 
     @media(min-width: ${({theme}) => theme.viewport.md}) {
         padding: 3rem;
+    }
+
+    @media(min-width: ${({theme}) => theme.viewport.xl}) {
+        padding: 6.25vw 4.6875vw;
+
+        &::before {
+            top: 5vw;
+            left: 4vw;
+        }
     }
 `;
 

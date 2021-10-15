@@ -22,6 +22,10 @@ const StyledTrainingplansTitle = styled.h2`
     @media(min-width: ${({theme}) => theme.viewport.md}) {
         text-align: right;
     }
+
+    @media(min-width: ${({theme}) => theme.viewport.xl}) {
+        padding: 0 4.6875vw;
+    }
 `;
 
 const ListWrapper = styled.div`
@@ -54,6 +58,8 @@ const ListWrapper = styled.div`
 
 const ImageWrapper = styled.div`
     width: 100%;
+    display: flex;
+    justify-content: center;
 `;
 
 const List = styled.div`
@@ -92,13 +98,18 @@ const Point = styled.div`
         &::before {
             display: none;
         }
+    }
 
+    @media(min-width: ${({theme}) => theme.viewport.lg}) {
         p { 
             width: 60%;
         }
-
     }
-`;
+
+    @media(min-width: ${({theme}) => theme.viewport.xl}) {
+        padding: ${({alternate}) => alternate ? "1vw 4.6875vw" : "0 4.6875vw"};
+    }
+ `;
 
 
 function HomeTemplate({homeContent}) {
@@ -144,10 +155,15 @@ function HomeTemplate({homeContent}) {
                 topic={{
                     img: { src: homeContent.about.img.src, alt: homeContent.about.img.alt },
                     title: homeContent.about.title,
-                    paragraph: homeContent.about.paragraph
+                    paragraph: homeContent.about.paragraph,
+                    button: {
+                        active: true,
+                        text: homeContent.about.button.text
+                    }
                 }}
             />
-            {homeContent.index.map(({alternate, img, button, title, paragraph}) => <Index indexSection={{title: title, message: paragraph, img: { src: img.src, alt: img.alt }, button: {text: button.text, onClick: button.onClick}}} alternate={alternate} />)}
+            {/* 
+            {homeContent.index.map(({alternate, img, button, title, paragraph}) => <Index indexSection={{title: title, message: paragraph, img: { src: img.src, alt: img.alt }, button: {text: button.text, onClick: button.onClick}}} alternate={alternate} />)} */}
         </HomeLayout>
     )
 }

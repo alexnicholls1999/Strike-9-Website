@@ -21,7 +21,7 @@ const StyledGoal = styled.section`
 
 function Goal({goal}) {
     return (
-        <Col md={3} sm={6}>
+        <Col lg={3} md={6}>
             <StyledGoal className="text-center">
                 <h4>{goal.title}</h4>
                 <p>We will {goal.paragraph}</p>

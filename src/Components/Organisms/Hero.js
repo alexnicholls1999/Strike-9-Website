@@ -16,7 +16,7 @@ const StyledHero = styled.div`
     text-align: ${({secondary}) => secondary ? "left" : "center"};
     justify-content: align-start;
 
-    @media(min-width: ${({theme}) => theme.viewport.md}) {     
+    @media(min-width: ${({theme}) => theme.viewport.lg}) {     
         align-items: ${({secondary}) => secondary ? "align-start" : "center"};
         justify-content: ${({secondary}) => secondary ? "align-start" : "center"};
     }
@@ -31,7 +31,6 @@ const SocialMediaWrapper = styled.div`
 const ButtonsWrapper = styled.div`
     display: flex;
     max-width: 100%;
-    width: 25rem;
     align-items: center;
     justify-content: center;
     gap: 10px;

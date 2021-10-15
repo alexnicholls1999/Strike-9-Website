@@ -52,13 +52,12 @@ const GlobalStyles = createGlobalStyle`
     }
 
     p {
-        font-size: clamp(1rem, .75rem + .4vw, 5rem);
+        font-size: clamp(.5rem, .75rem + .3vw, 5rem);
     }
 
     img {
         display: block;
         max-width: 100%;
-        border-radius: .25rem;
     }
 
 

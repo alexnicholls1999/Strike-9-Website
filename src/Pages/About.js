@@ -18,6 +18,7 @@ function About() {
                     },
                     paragraph: content.about.summary.paragraph
                 },
+                gallery: content.about.gallery.images.group1,
                 benefits: content.about.benefits,
                 coaching: {
                     bgImage: content.about.coaching.bgImage,

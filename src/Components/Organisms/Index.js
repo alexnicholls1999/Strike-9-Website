@@ -21,6 +21,7 @@ const StyledIndexSection = styled.div`
 const StyledIndexImage = styled.div`
     width: 100%;
     img {
+        border-radius: 0;
         width: 100%;
     }
 
@@ -52,7 +53,7 @@ function Index({indexSection, alternate}) {
                     <img src={indexSection.img.src} alt={indexSection.img.alt} />
                 </StyledIndexImage>
                 <StyledIndexText>
-                    <Section content={{title: indexSection.title, paragraph: indexSection.message, button: {text: indexSection.button.text, onClick: indexSection.button.onClick}}} />
+                    <Section content={{title: indexSection.title, paragraph: indexSection.message, button: {active: true, text: indexSection.button.text, onClick: indexSection.button.onClick}}} />
                 </StyledIndexText>
             </StyledIndexSection>
         </>

@@ -9,15 +9,16 @@ import Summary from "../Organisms/Summary";
 import Topic from "../Organisms/Topic";
 
 const StyledCoachingWrapper = styled.div`
-    padding: min(10%, 7rem);
+    padding: min(10rem, 15vh);
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
     background: ${({bgImage}) => `url(${bgImage}) no-repeat center center`};
     background-size: cover;
-    box-shadow: inset 4px 1px 0px 20vmax rgb(2 4 18 / 64%);
+    box-shadow: inset 4px 1px 0px 100vmax rgb(2 4 18 / 64%);
     cursor: pointer;
+
 `;
 
 const StyledCoaching = styled.div`
@@ -46,11 +47,11 @@ function AboutTemplate({aboutContent}) {
 
             <Summary content={{blurb: { title: aboutContent.summary.blurb.title, paragraph: aboutContent.summary.blurb.paragraph}, paragraph: aboutContent.summary.paragraph}}/>
         
-            <ImageGallery />
+            <ImageGallery images={aboutContent.gallery}/>
 
             <div className="p-4"></div>
 
-            {aboutContent.benefits.map((benefit, index) => <Topic key={index} secondary={benefit.secondary} topic={{title: benefit.title, paragraph: benefit.paragraph, img: {src: benefit.img.src, alt: benefit.img.alt}}}/>)};
+            {aboutContent.benefits.map((benefit, index) => <Topic key={index} secondary={benefit.secondary} topic={{title: benefit.title, paragraph: benefit.paragraph, img: {src: benefit.img.src, alt: benefit.img.alt}, button: {active: false}}}/>)};
             
             <StyledCoachingWrapper bgImage={aboutContent.coaching.bgImage} onClick={() => history.push(`${aboutContent.coaching.link}`)}>
                 <StyledCoaching>
@@ -74,6 +75,7 @@ AboutTemplate.propTypes = {
             }),
             paragraph: PropTypes.string.isRequired
         }),
+        gallery: PropTypes.object.isRequired,
         benefits: PropTypes.array.isRequired,
         coaching: PropTypes.shape({
             bgImage: PropTypes.string.isRequired,

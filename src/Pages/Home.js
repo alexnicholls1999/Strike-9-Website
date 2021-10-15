@@ -35,6 +35,9 @@ function Home() {
                     img: {
                         src: content.home.about.img.src,
                         alt: content.home.about.img.alt,
+                    },
+                    button: {
+                        text: content.home.about.button.text
                     }
                 },
                 index: content.home.index

@@ -89,6 +89,9 @@ const home = {
         img: {
             src: "https://images.unsplash.com/photo-1609422644211-a85c36ee36a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80",
             alt: "strike-9-football-image"
+        },
+        button: {
+            text: "ABOUT US"
         }
     },
     index: [

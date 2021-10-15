@@ -74,7 +74,7 @@ const theme = {
         }
     },
     viewport: {
-        xl: "75em",
+        xl: "120em",
         lg: "60em",
         md: "48em",
         sm: "25em"

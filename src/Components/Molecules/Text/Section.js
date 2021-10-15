@@ -14,9 +14,11 @@ const StyledSection = styled.section`
 const StyledSectionButtonWrapper = styled.div`
     width: 100%;
     padding: 4rem 0;
+    display: ${({active}) => active ? "block" : "none"};
 
     button {
        float: ${({alternate}) => alternate ? "left" : "right"};
+
     }
 `;
 
@@ -25,11 +27,11 @@ function Section({content, alternate}) {
         <StyledSection>
             <h2>{content.title}</h2>
             <p>{content.paragraph}</p>
-            <StyledSectionButtonWrapper alternate={alternate}>
-                <Button text="TEST" />
+            <StyledSectionButtonWrapper active={content.button.active} alternate={alternate}>
+                <Button text={content.button.text} />
             </StyledSectionButtonWrapper>
         </StyledSection>
-    )
+    ) 
 }
 
 Section.propTypes = {
@@ -37,6 +39,7 @@ Section.propTypes = {
         title: PropTypes.string.isRequired,
         paragraph: PropTypes.string.isRequired,
         button: PropTypes.shape({
+            active: PropTypes.bool,
             text: PropTypes.string.isRequired,
             onClick: PropTypes.func.isRequired
         })
