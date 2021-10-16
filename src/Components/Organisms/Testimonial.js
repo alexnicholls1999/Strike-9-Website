@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useReducer } from "react";
 import styled from "styled-components";
-import testimonialTypes from "../../redux/Testimonial/testimonial.types";
+import { lastSlideAction, moveDotsAction, nextSlideAction, prevSlideAction, resetSlideAction } from "../../redux/Testimonial/testimonial.actions";
 import useTestimonialReducer from "../../redux/Testimonial/testmionial.reducer";
 import TestimonialButton from "../Atoms/TestimonialButton";
 import Dots from "../Molecules/Dots";
@@ -105,24 +105,24 @@ function Testimonial({title, quotes}) {
     });
 
     const nextSlide = () => {
-        dispatch({ type: "nextSlide" });
-        if (slideIndex === quotes.length) return dispatch({type: "resetSlide"});
+        dispatch(nextSlideAction());
+        if (slideIndex === quotes.length) return dispatch(resetSlideAction());
     }
 
     const prevSlide = () => {
-        dispatch({ type: "prevSlide"});
-        if (slideIndex === 1) return dispatch({type: "lastSlide", payload: quotes.length});
+        dispatch(prevSlideAction());
+        if (slideIndex === 1) return dispatch(lastSlideAction(quotes.length));
     }
 
     return (
         <StyledTestimonialWrapper>
             <StyledBanner>
                 <h2>{title}</h2>  
-                <TestimonialButton /> 
+                <TestimonialButton onClick={{ onHandleClickNext: nextSlide, onHandleClickPrevious: prevSlide }}/> 
             </StyledBanner>
             <StyledTestimonial>
                 {quotes.map(({id, paragraph, name, rating}, i) => <Quote key={id} quote={{message: paragraph, name: name, rating: rating}} active={slideIndex === i + 1}/>)}
-                <Dots slideIndex={slideIndex} moveDot={(index) => dispatch({type: "moveDots", payload: index})} /> 
+                <Dots slideIndex={slideIndex} moveDot={(index) => dispatch(moveDotsAction(index))} /> 
             </StyledTestimonial>
         </StyledTestimonialWrapper>
     )

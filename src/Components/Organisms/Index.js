@@ -10,7 +10,7 @@ const StyledIndexSection = styled.div`
     position: relative;
     flex-direction: column;
 
-    @media (min-width: ${({theme}) => theme.viewport.md}){
+    @media (min-width: ${({theme}) => theme.viewport.lg}){
         align-items: center;
         justify-content: center;
         position: relative;
@@ -25,7 +25,7 @@ const StyledIndexImage = styled.div`
         width: 100%;
     }
 
-    @media (min-width: ${({theme}) => theme.viewport.md}){
+    @media (min-width: ${({theme}) => theme.viewport.lg}){
         width: 50%;
     }
 `;
@@ -35,13 +35,18 @@ const StyledIndexText = styled.div`
     padding: 3rem 1rem;
  
 
-    @media (min-width: ${({theme}) => theme.viewport.md}){
+    @media (min-width: ${({theme}) => theme.viewport.lg}){
         width: 50%;
         padding: 5rem;
 
         p {
             width: 75%;
         }
+    }
+
+    @media (min-width: ${({theme}) => theme.viewport.xl}){
+        width: 50%;
+        padding: 6.25vw 4.6875vw;
     }
 `;
 

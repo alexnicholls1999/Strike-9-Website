@@ -13,6 +13,12 @@ const StyledButton = styled.button`
     font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     border-radius: 7px;
     width: 9rem;
+
+    @media(min-width: ${({theme}) => theme.viewport.xl}) {
+        width: 15rem;
+        padding: 1rem;
+        font-size: 1rem;
+    }
 `;
 
 function Button({onClick, text}) {

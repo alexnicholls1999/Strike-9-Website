@@ -162,8 +162,7 @@ function HomeTemplate({homeContent}) {
                     }
                 }}
             />
-            {/* 
-            {homeContent.index.map(({alternate, img, button, title, paragraph}) => <Index indexSection={{title: title, message: paragraph, img: { src: img.src, alt: img.alt }, button: {text: button.text, onClick: button.onClick}}} alternate={alternate} />)} */}
+            {homeContent.index.map(({alternate, img, button, title, paragraph}) => <Index indexSection={{title: title, message: paragraph, img: { src: img.src, alt: img.alt }, button: {text: button.text, onClick: button.onClick}}} alternate={alternate} />)}
         </HomeLayout>
     )
 }

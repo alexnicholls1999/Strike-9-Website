@@ -55,13 +55,20 @@ const ArrowButtons = styled.div`
   }
 `;
 
-function TestimonialButton() {
+function TestimonialButton({onClick}) {
     return (
         <ArrowButtons>
-            <StyledNext />
-            <StyledPrevious />
+            <StyledNext onClick={onClick.onHandleClickNext} />
+            <StyledPrevious onClick={onClick.onHandleClickPrevious}/>
         </ArrowButtons>
     )
+}
+
+TestimonialButton.propTypes = {
+  onClick: PropTypes.shape({
+    onHandleClickNext: PropTypes.func.isRequired,
+    onHandleClickPrevious: PropTypes.func.isRequired
+  })
 }
 
 export default TestimonialButton
