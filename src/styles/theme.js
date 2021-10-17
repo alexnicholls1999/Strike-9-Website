@@ -11,6 +11,9 @@ const theme = {
             400: "#C6C5C5",
             800: "#190438",
             900: "#000000"
+        },
+        feedback: {
+            err: "#C90808"
         }
     },
     typography: {
