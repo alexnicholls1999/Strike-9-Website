@@ -51,7 +51,7 @@ function AboutTemplate({aboutContent}) {
 
             <div className="p-4"></div>
 
-            {aboutContent.benefits.map((benefit, index) => <Topic key={index} secondary={benefit.secondary} topic={{title: benefit.title, paragraph: benefit.paragraph, img: {src: benefit.img.src, alt: benefit.img.alt}, button: {active: false}}}/>)};
+            {aboutContent.benefits.map((benefit, index) => <Topic key={index} secondary={benefit.secondary} topic={{title: benefit.title, paragraph: benefit.paragraph, img: {src: benefit.img.src, alt: benefit.img.alt}, button: {active: false}}}/>)}
             
             <StyledCoachingWrapper bgImage={aboutContent.coaching.bgImage} onClick={() => history.push(`${aboutContent.coaching.link}`)}>
                 <StyledCoaching>
