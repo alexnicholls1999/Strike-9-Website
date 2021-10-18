@@ -1,12 +1,17 @@
-import React from 'react'
-import ContactForm from '../Components/Organisms/ContactForm'
+import {useContext} from 'react'
+import ContactTemplate from '../Components/Templates/ContactTemplate'
+import { ContentContext } from '../utils/Context/ContentContext';
 
 function Contact() {
-    return (
-        <div>
-            <ContactForm />
-        </div>
-    )
+
+    const content = useContext(ContentContext);
+
+    const contactContent = {
+        heroTitle: content.contact.hero.title, 
+        paragraph: content.contact.hero.paragraph,
+    }
+
+    return <ContactTemplate contactContent={contactContent} />
 }
 
 export default Contact

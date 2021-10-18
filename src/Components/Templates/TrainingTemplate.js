@@ -7,13 +7,13 @@ import Topic from "../Organisms/Topic";
 function TrainingTemplate({trainingContent}) {
     return (
         <MainLayout
-            content={{
-                title: trainingContent.heroTitle,
-                text: trainingContent.paragraph
+            hero={{
+                content: {
+                    title: trainingContent.heroTitle,
+                    text: trainingContent.paragraph
+                }
             }}
         >
-            <Pattern />
-
             <Summary content={{blurb: { title: trainingContent.kidsDevelopmentSummary.blurb.title, paragraph: trainingContent.kidsDevelopmentSummary.blurb.paragraph}, paragraph: trainingContent.kidsDevelopmentSummary.paragraph}}/>
         
             {trainingContent.kidsDevs.map((kidsDev, index) => <Topic key={index} secondary={kidsDev.secondary} topic={{title: kidsDev.title, paragraph: kidsDev.paragraph, img: {src: kidsDev.img.src, alt: kidsDev.img.alt}, button: {active: false}}}/>)}
@@ -21,7 +21,6 @@ function TrainingTemplate({trainingContent}) {
             <Summary content={{blurb: { title: trainingContent.communitySummary.blurb.title, paragraph: trainingContent.communitySummary.blurb.paragraph}, paragraph: trainingContent.communitySummary.paragraph}}/>
            
             {trainingContent.communities.map((community, index) => <Topic key={index} secondary={community.secondary} topic={{title: community.title, paragraph: community.paragraph, img: {src: community.img.src, alt: community.img.alt}, button: {active: false}}}/>)}
-
         </MainLayout>
     )
 }

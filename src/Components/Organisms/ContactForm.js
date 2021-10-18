@@ -1,154 +1,112 @@
-import { Form, Formik } from 'formik'
-import { Row, Col } from 'react-bootstrap';
+import PropTypes from "prop-types";
 import styled from "styled-components";
-import { faBuilding, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-
-import Button from '../../Atoms/Buttons/Button'
-import Card from '../../Atoms/Card'
-import Input from '../../Atoms/Form/Input'
-import TextArea from '../../Atoms/Form/TextArea';
-import Symbol from '../../Atoms/Iconography/Symbol';
-import SocialMedia from '../../Molecules/SocialMedia';
-
-const StyledContactWrapper = styled.div`
-    position: relative;
-    height: 100%;
-    width: 100%;
-    color: ${({theme}) => theme.colors.neutral.White};
-    background-color: ${({theme}) => theme.colors.neutral.BlackRock};
-    padding: 50px 5%;
-    h2 {
-        color: ${({theme}) => theme.colors.neutral.White};
-    }
-    ul {
-        list-style-type: none;
-        padding: 0;
-        li {
-            padding-left: 10px;
-            color: ${({theme}) => theme.colors.neutral.White};
-        }
-    }
-`;
+import FormControl from "../Molecules/FormControl";
+import SocialMedia from "../Molecules/SocialMedia";
+import Card from "./../Atoms/Card";
 
 const StyledContactFormWrapper = styled.div`
-    padding: 50px 5%;
-    @media(min-width: 768px) {
-        button {
-            width: 150px;
-        }
+    display: flex;
+    flex-flow: column;
+
+
+    @media(min-width: ${({theme}) => theme.viewport.md}) {
+        flex-flow: row;
     }
 `;
 
-const SocialMediaWrapper = styled.div`
-    position: absolute;
-    bottom: 10%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+const StyledContactForm = styled.div`
+    padding: 2rem 1rem;
 `;
 
-const StyledContactGroup = styled.div`
+const StyledContactFormContainer = styled.div`
+
+    width: 80%;
+
+`;
+
+const StyledContactInformation = styled.div`
+    padding: 1rem;
+    background-color: ${({theme}) => theme.colors.neutral[800]};
+`;
+
+const StyledContactInformationContainer = styled.div`
     display: flex;
-    flex-direction: row;
-    svg {
-        font-size: 25px;
-    }
+    flex-flow: column;
+`;
+
+const StyledContactInformationTitle = styled.div`
+
+`;
+
+const StyledContactInfo = styled.div`
+
+`;
+
+const StyledContactSocialMedia = styled.div`
+
+`;
+
+const StyledContactFormTitle = styled.div`
+
 `;
 
 function ContactForm() {
-    
     return (
-        <Card style={{marginTop: "-135px", zIndex: "1", position: "relative"}}>
-            <Row>
-                <Col lg={8} md={12}>
-                    <Formik
-                        
-                        initialValues={{
-                            name: '',
-                            email: '',
-                            message: ''
-                        }}
-                        onSubmit={async (values) => {
-                            console.log(values)
-                        }}
-                    >
-                        {({ values, handleChange, isSubmitting}) => (
-                            <StyledContactFormWrapper>
-                                <h3>Send Us A Message</h3>
-                                <br/>
-                                <Form autoComplete="off">
-                                    <Row>
-                                        <Col md={6}>
-                                            <label>Name</label>
-                                            <div className="p-1"></div>
-                                            <Input type="text" name="name" placeholder="Enter Name" value={values.name} onChange={handleChange}/>
-                                            <div className="p-1"></div>
-                                        </Col>
-                                       
-                                        <Col md={6}>
-                                            <label>Email</label>
-                                            <div className="p-1"></div>
-                                            <Input type="text" name="email" placeholder="Enter Email" value={values.email} onChange={handleChange}/>
-                                            <div className="p-1"></div>
-                                        </Col>
-                                    </Row>
-
-                                    <div className="p-1"></div>
-
-                                    <Row>
-                                        <Col md={12}>
-                                            <label>Message</label>
-                                            <div className="p-1"></div>
-                                            <TextArea style={{height: "200px"}} type="text" name="message" placeholder="Enter Message" value={values.message} onChange={handleChange}/>
-                                        </Col>
-                                    </Row>
-                                    
-                                    <Button className="ms-auto" disabled={isSubmitting} text="SEND" type="submit" />
-                                </Form>
-                            </StyledContactFormWrapper>
-                        )}
-                    </Formik>
-                    <div className="p-1"></div>
-                </Col>
-                
-                <Col lg={4} md={12}>
-                    <StyledContactWrapper>
-                        <Row>
-                            <Col md={12}>
-                                <h2>Contact Information</h2>
-                            </Col>
-                        </Row>
-                            <div className="p-4"></div>
-                        <Row>
-                            <Col md={12}>
-
-                                
-                                <ul>
-                                    <StyledContactGroup>
-                                        <Symbol symbol={faBuilding} /><li>Moseley School Sports Centre, Springfield Road, B13 9NP</li>
-                                    </StyledContactGroup>
-                                    <br />
-                                    <StyledContactGroup>
-                                        <Symbol symbol={faEnvelope}/><li>info@strike9training.co.uk</li>
-                                    </StyledContactGroup>
-                                </ul>
-                            </Col>
-                        </Row>
-                            <div className="p-4"></div>
-                        <Row>
-                            <Col md={12}>
-                                <SocialMediaWrapper>
-                                    <SocialMedia />
-                                </SocialMediaWrapper>
-                            </Col>
-                        </Row>
-                    </StyledContactWrapper>
-                    <div className="p-1"></div>
-                </Col>
-            </Row>
+        <Card>
+            <StyledContactFormWrapper>
+                <StyledContactForm>
+                    <StyledContactFormContainer>
+                        <StyledContactFormTitle>
+                            <h3>Send Us A Message</h3>
+                        </StyledContactFormTitle>
+                        <div className="p-3"></div>
+                        <FormControl 
+                            controls={{
+                                label: {
+                                    name: "Name"
+                                }
+                            }}
+                            placeholder="Enter Name"
+                        />
+                        <FormControl 
+                            controls={{
+                                label: {
+                                    name: "Email"
+                                }
+                            }}
+                            placeholder="Enter Email"
+                        />
+                        <FormControl 
+                            controls={{
+                                txtArea: true,
+                                label: {
+                                    name: "Message"
+                                }
+                            }}
+                            placeholder="Enter Message"
+                        />
+                    </StyledContactFormContainer>
+                </StyledContactForm>
+                <StyledContactInformation>
+                    <StyledContactInformationContainer>
+                        <StyledContactInformationTitle>
+                            <h3>Contact Information</h3>
+                        </StyledContactInformationTitle>
+                        <StyledContactInfo>
+                            <ul>
+                                <li>Mosley School Sports Centre, <br/> Springfield Road, B13 9NP</li>
+                                <li>079341234113</li>
+                                <li>info@strike9training.co.uk</li>
+                            </ul>
+                        </StyledContactInfo>
+                        <StyledContactSocialMedia>
+                            <SocialMedia />
+                        </StyledContactSocialMedia>
+                    </StyledContactInformationContainer>
+                </StyledContactInformation>
+            </StyledContactFormWrapper>
         </Card>
     )
 }
 
-export default ContactForm;
+export default ContactForm

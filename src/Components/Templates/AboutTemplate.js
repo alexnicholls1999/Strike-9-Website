@@ -38,13 +38,13 @@ function AboutTemplate({aboutContent}) {
 
     return (
         <MainLayout
-            content={{
-                title: aboutContent.heroTitle,
-                text: aboutContent.paragraph
+            hero={{
+                content: {
+                    title: aboutContent.heroTitle,
+                    text: aboutContent.paragraph
+                }
             }}
         >
-            <Pattern />
-
             <Summary content={{blurb: { title: aboutContent.summary.blurb.title, paragraph: aboutContent.summary.blurb.paragraph}, paragraph: aboutContent.summary.paragraph}}/>
         
             <ImageGallery images={aboutContent.gallery}/>

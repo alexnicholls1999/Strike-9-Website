@@ -55,6 +55,11 @@ const GlobalStyles = createGlobalStyle`
         font-size: clamp(.5rem, .75rem + .3vw, 5rem);
     }
 
+    label {
+        font-size: 1rem;
+        font-weight: ${({theme}) => theme.typography.fontWeight.bold};
+    }
+
     img {
         display: block;
         max-width: 100%;
