@@ -11,6 +11,7 @@ import About from './Pages/About';
 import Training from './Pages/Training';
 import Coaching from './Pages/Coaching';
 import Contact from './Pages/Contact';
+import Events from './Pages/Events';
 
 const pages = [
   {
@@ -32,6 +33,7 @@ const pages = [
   {
     routeName: "Events",
     path: "/events",
+    component: Events,
   },
   {
     routeName: "Coaching",

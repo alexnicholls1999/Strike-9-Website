@@ -7,6 +7,8 @@ const StyledTextArea = styled.textarea`
     font-size: 0.85rem;
     font-weight: ${({theme}) => theme.typography.fontWeight.semiBold};
     padding: 0.5rem;
+    height: 12rem;
+    resize: none;
 
     &::placeholder {
         color: ${({theme}) => theme.colors.neutral[300]};

@@ -12,7 +12,11 @@ const StyledButton = styled.button`
     font-size: 0.7rem;
     font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     border-radius: 7px;
-    width: 9rem;
+    width: ${({form}) => form ? "100%" : "9rem"};
+
+    @media(min-width: ${({theme}) => theme.viewport.md}) {
+        width: 9rem;
+    }
 
     @media(min-width: ${({theme}) => theme.viewport.xl}) {
         width: 15rem;
@@ -21,11 +25,12 @@ const StyledButton = styled.button`
     }
 `;
 
-function Button({onClick, text}) {
-    return <StyledButton onClick={onClick}>{text}</StyledButton>
+function Button({onClick, form, text}) {
+    return <StyledButton form={form} onClick={onClick}>{text}</StyledButton>
 }
 
 Button.propTypes = {
+    form: PropTypes.bool,
     text: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
 }
