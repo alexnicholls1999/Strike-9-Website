@@ -20,9 +20,9 @@ const contact = {
         ]
     },
     map: {
-        accessToken: "",
-        coordinates: {
-            lat: -85910,
+        accessToken: "pk.eyJ1IjoiYWxleG5pY2hvbGxzMTk5OSIsImEiOiJjazg5NXEyc2UwMzRxM25wa3A0cWJpc3llIn0.Xjr0Tkt6MXcyqIwGUdsDIw",
+        location: {
+            lat: -1.85910,
             lng: 52.44150
         },
         zoom: 14

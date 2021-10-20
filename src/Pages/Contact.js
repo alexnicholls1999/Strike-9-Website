@@ -16,6 +16,14 @@ function Contact() {
         contactInfo: {
             title: content.contact.contactInfo.title,
             contactMethods: content.contact.contactInfo.contactMethods
+        },
+        map: {
+            accessToken: content.contact.map.accessToken,
+            zoom: content.contact.map.zoom,
+            location: {
+                lat: content.contact.map.location.lat,
+                lng: content.contact.map.location.lng
+            }
         }
     }
 

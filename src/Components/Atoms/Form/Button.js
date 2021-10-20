@@ -19,7 +19,7 @@ const StyledButton = styled.button`
     }
 
     @media(min-width: ${({theme}) => theme.viewport.xl}) {
-        width: 15rem;
+        width: ${({form}) => form ? "11rem" : "15rem"};
         padding: 1rem;
         font-size: 1rem;
     }

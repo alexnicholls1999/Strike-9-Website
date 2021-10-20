@@ -5,6 +5,7 @@ import WebFont from 'webfontloader';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';

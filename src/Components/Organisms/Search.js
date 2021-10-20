@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import {Row, Col} from "react-bootstrap";
+import {Container, Row, Col} from "react-bootstrap";
 import Dropdown from "./../Molecules/Dropdown";
 
 function Search({search}) {

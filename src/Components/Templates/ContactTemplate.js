@@ -6,6 +6,7 @@ import Card from "../Atoms/Card";
 import ContactForm from "../Organisms/ContactForm";
 import ContactInfo from "../Organisms/ContactInfo";
 import Pattern from "../../assets/PatternA.svg";
+import Map from "../Atoms/Map";
 
 const StyledContactFormWrapper = styled.div`
     margin-top: -2em;
@@ -56,6 +57,9 @@ function ContactTemplate({contactContent}) {
                     </Card>
                 </StyledContactFormWrapper>
             </Container>
+            <div className="p-5"></div>
+            <div className="p-5"></div>
+            <Map map={{location: { lat: contactContent.map.location.lat, lng: contactContent.map.location.lng }, zoom: contactContent.map.zoom, accessToken: contactContent.map.accessToken }} />
         </MainLayout>
     )
 }
@@ -70,6 +74,14 @@ ContactTemplate.propTypes = {
         contactInfo: PropTypes.shape({
             title: PropTypes.string.isRequired,
             contactMethods: PropTypes.array.isRequired
+        }),
+        map: PropTypes.shape({
+            accessToken: PropTypes.string.isRequired,
+            zoom: PropTypes.number.isRequired,
+            location: PropTypes.shape({
+                lat: PropTypes.number.isRequired,
+                lng: PropTypes.number.isRequired
+            })
         })
     })
 }
