@@ -11,7 +11,7 @@ const StyledHero = styled.div`
     flex-flow: column;
     width: 100%;
     height: 90%;
-    padding: ${({secondary}) => secondary && "3rem 0 10rem"};
+    padding: ${({secondary}) => secondary && "3rem 0rem"};
     color: ${({theme}) => theme.colors.neutral[100]};
     text-align: ${({secondary}) => secondary ? "left" : "center"};
     justify-content: align-start;
@@ -37,11 +37,11 @@ const ButtonsWrapper = styled.div`
     padding: 1rem;
 `;
 
-function Hero({content, secondary, component}) {
+function Hero({content, secondary, component, ...props}) {
     return (
         <>
             {!secondary ? (
-                <StyledHero>
+                <StyledHero {...props}>
                         <Introduction content={content} center />
                         <ButtonsWrapper>
                             <Button text="REGISTER" />
@@ -52,7 +52,7 @@ function Hero({content, secondary, component}) {
                         </SocialMediaWrapper>
                 </StyledHero>
             ) : (
-                <StyledHero secondary={secondary}>
+                <StyledHero secondary={secondary} {...props}>
                     <Introduction content={content} />
                     {component}
                 </StyledHero>

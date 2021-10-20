@@ -9,6 +9,14 @@ function Contact() {
     const contactContent = {
         heroTitle: content.contact.hero.title, 
         paragraph: content.contact.hero.paragraph,
+        contactForm: {
+            title: content.contact.contactFormTitle,
+            
+        },
+        contactInfo: {
+            title: content.contact.contactInfo.title,
+            contactMethods: content.contact.contactInfo.contactMethods
+        }
     }
 
     return <ContactTemplate contactContent={contactContent} />

@@ -23,12 +23,20 @@ function ContactForm({contactForm}) {
                         <Row>
                             <Col md={6}>
                                 <FormControl 
-                                    controls={contactForm.name.controls}
+                                    controls={{
+                                        label: {
+                                            name: "Name"
+                                        }
+                                    }}
                                 />
                             </Col>
                             <Col md={6}>
                                 <FormControl 
-                                    controls={contactForm.email.controls}
+                                    controls={{
+                                        label: {
+                                            name: "Email"
+                                        }
+                                    }}
                                 />
                             </Col>
                         </Row>
@@ -36,12 +44,15 @@ function ContactForm({contactForm}) {
                         <Row>
                             <Col md={12}>
                                 <FormControl 
-                                    controls={contactForm.message.controls}
+                                    controls={{
+                                        label: {
+                                            name: "Message"
+                                        },
+                                        txtArea: true
+                                    }}
                                 />
                             </Col>
                         </Row>
-
-                        <Button form text={contactForm.send} />
                     </form>
                 </StyledContactFormWrapper>
         </Col>

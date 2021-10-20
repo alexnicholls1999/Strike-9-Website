@@ -12,11 +12,11 @@ const IntroWrapper = styled.div`
     }
 `;
 
-function MainLayout({hero, children, noDisplay}) {
+function MainLayout({hero, component, children, noDisplay, ...props}) {
     return (
         <>
             <IntroWrapper>
-                <Hero secondary content={hero.content} component={hero.component} />
+                <Hero secondary content={hero.content} component={component} {...props} />
             </IntroWrapper>
             <Pattern noDisplay={noDisplay}/>
 
@@ -27,9 +27,9 @@ function MainLayout({hero, children, noDisplay}) {
 
 MainLayout.propTypes = {
     hero: PropTypes.shape({
-        content: PropTypes.object.isRequired,
-        component: PropTypes.element,
+        content: PropTypes.object.isRequired
     }),
+    component: PropTypes.element,
     children: PropTypes.node.isRequired,
     noDisplay: PropTypes.bool
 }

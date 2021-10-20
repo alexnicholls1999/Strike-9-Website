@@ -50,7 +50,7 @@ function ContactInfo({contactInfo}) {
                 <Row>
                     <Col md={12}>
                         <StyledContactInfoUl>
-                            {contactInfo.contactMethods.map((contactMethod, index) => <ListItem key={index} name={contactInfo.paragraph}/>)}
+                            {contactInfo.contactMethods.map((contactMethod, index) => <ListItem key={index} name={contactMethod.paragraph}/>)}
                         </StyledContactInfoUl>                        
                     </Col>
                 </Row>

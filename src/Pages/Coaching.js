@@ -20,8 +20,7 @@ function Coaching() {
         coaches: content.coaching.coaches
     }
 
-    return <CoachingTemplate coachingContent={coachingContent} 
-    />
+    return <CoachingTemplate coachingContent={coachingContent} />
 }
 
 export default Coaching
