@@ -53,6 +53,7 @@ function ContactForm({contactForm}) {
                                 />
                             </Col>
                         </Row>
+                        <Button className="ms-auto" text="SEND" type="submit" />
                     </form>
                 </StyledContactFormWrapper>
         </Col>
