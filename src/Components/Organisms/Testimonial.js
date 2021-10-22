@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import { useEffect, useReducer } from "react";
 import styled from "styled-components";
-import { lastSlideAction, moveDotsAction, nextSlideAction, prevSlideAction, resetSlideAction } from "../../redux/Testimonial/testimonial.actions";
-import useTestimonialReducer from "../../redux/Testimonial/testmionial.reducer";
+import { lastSlideAction, moveDotsAction, nextSlideAction, prevSlideAction, resetSlideAction } from "../../react-reducers/Testimonial/testimonial.actions";
+import useTestimonialReducer from "../../react-reducers/Testimonial/testmionial.reducer";
 import TestimonialButton from "../Atoms/TestimonialButton";
 import Dots from "../Molecules/Dots";
 import Quote from "../Molecules/Quote";

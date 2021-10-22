@@ -43,9 +43,6 @@ EventsTemplate.propTypes = {
     eventsContent: PropTypes.shape({
         hero: PropTypes.shape({
             title: PropTypes.string.isRequired
-        }),
-        search: PropTypes.shape({
-            filters: PropTypes.array
         })
     })
 }

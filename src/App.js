@@ -12,6 +12,7 @@ import Training from './Pages/Training';
 import Coaching from './Pages/Coaching';
 import Contact from './Pages/Contact';
 import Events from './Pages/Events';
+import Booking from './Pages/Booking';
 
 const pages = [
   {
@@ -32,8 +33,14 @@ const pages = [
   },
   {
     routeName: "Events",
+    exact: true,
     path: "/events",
     component: Events,
+  },
+  {
+    routeName: "BookingForm",
+    path: "/events/:id",
+    component: Booking
   },
   {
     routeName: "Coaching",

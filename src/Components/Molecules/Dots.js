@@ -24,10 +24,10 @@ function Dots({slideIndex, moveDot}) {
     )
 }
 
-// Dots.propTypes = {
-//     slideIndex: PropTypes.any.isRequired,
-//     moveDot: PropTypes.func.isRequired
-// }
+Dots.propTypes = {
+    slideIndex: PropTypes.any.isRequired,
+    moveDot: PropTypes.func.isRequired
+}
 
 
 export default Dots
