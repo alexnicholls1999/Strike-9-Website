@@ -2,6 +2,7 @@ import theme from "../styles/theme";
 import { makeStyles } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/styles";
 import { StepConnector } from "@material-ui/core";
+import * as Steps from "./../Components/Organisms/FormSteps";
 
 export const Strike9StepIconStyles = makeStyles({
     root: {
@@ -42,3 +43,17 @@ export const FormikConnector = withStyles({
 })(StepConnector);
 
 export const sleep = (time) => new Promise((acc) => setTimeout(acc, time));
+
+export function isFormCompleted(booked) {
+    if (booked === "Booked!") {
+        return (
+            <>
+                <h1 style={{color: theme.colors.primary[500], textAlign: "center"}}>Booking Successful</h1>
+                <div className="p-2"></div>
+                <p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad ut molestias suscipit sed quibusdam corrupti nostrum et ex illum saepe.</p>
+            </>
+        )
+    }
+
+    return <Steps.Summary eventDate="20th October 2020" />
+}
