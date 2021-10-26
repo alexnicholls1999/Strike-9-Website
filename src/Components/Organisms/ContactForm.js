@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 import { Col, Row } from "react-bootstrap";
 import styled from "styled-components";
 
-import Button from "./../../Atoms/Form/Button";
-import FormControl from "./../../Molecules/FormControl";
+import Button from "../Atoms/Form/Button";
+import FormControl from "../Molecules/FormControl";
 
 const StyledContactFormWrapper = styled.div`
     padding: 2rem;

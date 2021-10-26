@@ -3,7 +3,7 @@ import { Container, Row } from "react-bootstrap";
 import styled from "styled-components";
 import MainLayout from "../../Layouts/MainLayout";
 import Card from "../Atoms/Card";
-import ContactForm from "../Organisms/Form/ContactForm";
+import ContactForm from "../Organisms/ContactForm";
 import ContactInfo from "../Organisms/ContactInfo";
 import Pattern from "../../assets/PatternA.svg";
 import Map from "../Atoms/Map";

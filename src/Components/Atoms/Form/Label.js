@@ -33,13 +33,13 @@ const StyledStepLabel = styled(StepLabel)`
     }
 `;
 
-function Label({name, step}) {
+function Label({name, step, ...props}) {
     return (
         <>
             {step ? (
-                <StyledLabel>{name}</StyledLabel>
+                <StyledStepLabel {...props}>{name}</StyledStepLabel>
             ) : (
-                <StyledStepLabel StepIconComponent={step.component}>{step.name}</StyledStepLabel>
+                <StyledLabel>{name}</StyledLabel>
             )}
         </>
     )
@@ -47,10 +47,8 @@ function Label({name, step}) {
 
 Label.propTypes = {
     name: PropTypes.string.isRequired,
-    step: PropTypes.shape({
-        component: PropTypes.element.isRequired,
-        name: PropTypes.any.isRequired
-    })
+    step: PropTypes.bool,
+    component: PropTypes.element.isRequired,
 }
 
 export default Label

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Col, Row } from "react-bootstrap";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 import Card from "./../Atoms/Card";
 import Button from "./../Atoms/Form/Button";
@@ -59,6 +60,9 @@ const Description = styled.p`
 `;
 
 function Event({event}) {
+
+    const history = useHistory();
+
     return (
         <Row className="justify-content-center">
             <EventWrapper>
@@ -90,7 +94,7 @@ function Event({event}) {
                             </Row>
                             <Row>
                                 <Col lg={2} md={3} sm={5} xs={6} className="ms-auto" style={{textAlign: "right"}}>
-                                    <Button form text="BOOK"/>
+                                    <Button form onClick={() => history.push(event.linkTo) } text="BOOK"/>
                                 </Col>
                             </Row>
                         </Col>
@@ -110,6 +114,7 @@ Event.propTypes = {
         date: PropTypes.string,
         time: PropTypes.string,
         description: PropTypes.string,
+        linkTo: PropTypes.string
     })
 }
 

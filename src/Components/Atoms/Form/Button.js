@@ -25,8 +25,8 @@ const StyledButton = styled.button`
     }
 `;
 
-function Button({onClick, form, text}) {
-    return <StyledButton form={form} onClick={onClick}>{text}</StyledButton>
+function Button({onClick, form, text, ...props}) {
+    return <StyledButton form={form} onClick={onClick} {...props}>{text}</StyledButton>
 }
 
 Button.propTypes = {

@@ -19,7 +19,8 @@ function EventsTemplate({eventsContent}) {
                         age: "Ages 11 to 13",
                         date: "Tuesday 27th October",
                         time: "09:00 - 12:00",
-                        description: "We take pride in our adaptability and believe we can impact every player, helping them reach their goals in and out of the world of Football."
+                        description: "We take pride in our adaptability and believe we can impact every player, helping them reach their goals in and out of the world of Football.",
+                        linkTo: "events/1"
                     }}
                 />
                 <Event 
@@ -30,7 +31,8 @@ function EventsTemplate({eventsContent}) {
                         age: "Ages 11 to 13",
                         date: "Tuesday 27th October",
                         time: "09:00 - 12:00",
-                        description: "We take pride in our adaptability and believe we can impact every player, helping them reach their goals in and out of the world of Football."
+                        description: "We take pride in our adaptability and believe we can impact every player, helping them reach their goals in and out of the world of Football.",
+                        linkTo: "events/2"
                     }}
                 />
             </Container>
