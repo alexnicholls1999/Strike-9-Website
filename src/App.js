@@ -13,6 +13,8 @@ import Coaching from './Pages/Coaching';
 import Contact from './Pages/Contact';
 import Events from './Pages/Events';
 import Booking from './Pages/Booking';
+import Login from './Pages/Login';
+import CreateAccount from './Pages/CreateAccount';
 
 const pages = [
   {
@@ -51,6 +53,16 @@ const pages = [
     routeName: "Contact",
     path: "/contact",
     component: Contact
+  },
+  {
+    routeName: "Login",
+    path: "/login",
+    component: Login
+  },
+  {
+    routeName: "CreateAccount",
+    path: "/createaccount",
+    component: CreateAccount
   }
 ]
 

@@ -1,12 +1,14 @@
-import { useState, Children} from 'react';
+import { useState, Children, useReducer} from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 import { FormikProvider, useFormik } from "formik";
 import { Container, Row, Col} from 'react-bootstrap';
-import { FormikConnector } from "./../../react-helpers/formHelpers"
+import stepReducer from "./../../react-reducers/FormStepper/stepper.reducer";
+import stepperTypes from '../../react-reducers/FormStepper/stepper.types';
 
 import Button from "./../Atoms/Form/Button";
 import ProgressBar from "./../Molecules/ProgressBar";
+import { firstStepAction, nextStepAction, prevStepAction } from '../../react-reducers/FormStepper/stepper.actions';
 
 
 const ButtonControls = styled.div`
@@ -21,8 +23,9 @@ const ButtonControls = styled.div`
 `;
 
 function FormStepper({children, onSubmit, ...props}) {
+    const [step, dispatch] = useReducer(stepReducer, 0)
     const childrenArray = Children.toArray(children);
-    const [step, setStep] = useState(0);
+    // const [step, setStep] = useState(0);
     const [completed, setCompleted] = useState(false);
     
     const currentChild = childrenArray[step];
@@ -39,9 +42,9 @@ function FormStepper({children, onSubmit, ...props}) {
                 await onSubmit(values, helpers)
                 setCompleted(true)
             } else if (step === 0) {
-                setStep((s) => s + 2)
+                dispatch(firstStepAction());
             } else {
-                setStep((s) => s + 1);
+                dispatch(nextStepAction());
             }
         } 
     })
@@ -68,7 +71,7 @@ function FormStepper({children, onSubmit, ...props}) {
                                     <Col sm={{span: 12, order: 1}}>
                                         <ButtonControls>
                                             <Button disabled={!formik.dirty || !formik.isValid} type="submit" text={formik.isSubmitting ? "BOOKING" : isLastStep() ? "BOOK EVENT" : "CONTINUE"} /> 
-                                            {step > 0 && step < 3 ? <Button disabled={formik.isSubmitting} type="button" onClick={() => setStep((s) => s - 1)} text="PREVIOUS"/> : null}
+                                            {step > 0 && step < 3 ? <Button disabled={formik.isSubmitting} type="button" onClick={() => dispatch(prevStepAction())} text="PREVIOUS"/> : null}
                                         </ButtonControls>
                                     </Col> 
                                 </Row>

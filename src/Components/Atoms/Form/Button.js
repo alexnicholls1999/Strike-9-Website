@@ -14,6 +14,12 @@ const StyledButton = styled.button`
     border-radius: 7px;
     width: ${({form}) => form ? "100%" : "9rem"};
 
+    &:disabled {
+        background-color: ${({ theme }) => theme.colors.primary[600]};
+        border-color: ${({ theme }) => theme.colors.primary[600]};
+        opacity: 0.6;
+    }
+
     @media(min-width: ${({theme}) => theme.viewport.md}) {
         width: 9rem;
     }

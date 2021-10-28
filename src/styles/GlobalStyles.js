@@ -36,7 +36,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h2 {
-        font-size: clamp(1.75rem, .75rem + 3.75vw, 3rem);
+        font-size: clamp(1.75rem, .75rem + 4vw, 4rem);
     }
 
     h3 {
