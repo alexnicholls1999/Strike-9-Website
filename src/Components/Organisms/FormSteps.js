@@ -59,6 +59,38 @@ export function EventDetails({ eventDetails }) {
     )
 }
 
+export function PersonalDetails() {
+    const { values, errors, handleChange } = useFormikContext();
+
+    const configFirstName =  {
+        style: errors.firstName ? {borderColor: "#C90808"} : null,
+        type: "text",
+        name: "firstName",
+        value: values.firstName,
+        onChange: handleChange,
+        placeholder: "Enter First Name"
+    };
+
+    const configLastName = {
+        style: errors.lastName ? {borderColor: "#C90808"} : null,
+        type: "text",
+        name: "lastName",
+        value: values.lastName,
+        onChange: handleChange,
+        placeholder: "Enter Last Name"
+    }
+
+    const configMobile = {
+        style: errors.mobile ? {borderColor: "#C90808"} : null,
+        type: "text",
+        name: "mobile",
+        value: values.mobile,
+        onChange: handleChange,
+        placeholder: "Enter Mobile"
+    }
+
+}
+
 export function BillingAddress() {
 
     const { values, errors, handleChange } = useFormikContext()
@@ -232,6 +264,7 @@ EventDetails.propTypes = {
         cost: PropTypes.string.isRequired,
     })
 }
+
 
 Summary.propTypes = {
     eventDate: PropTypes.string.isRequired

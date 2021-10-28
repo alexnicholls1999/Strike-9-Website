@@ -1,24 +1,39 @@
-import { faFacebookSquare, faInstagram, faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
+import { faFacebookF, faFacebookSquare, faGoogle, faInstagram, faTwitter, faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
 import styled from "styled-components"
 import SocialMediaIcon from "../Atoms/Iconography/SocialMediaIcon"
 
 const socialMedia = [
     {
         path: "https://twitter.com/Strike9Training",
-        icon: faTwitterSquare
+        icon: faTwitter
     },
     {
         path: "https://facebook.com/strike9training",
-        icon: faFacebookSquare
+        icon: faFacebookF
     },
     {
         path: "https://instagram.com/strike9t",
-        icon: faInstagram
+        icon: faGoogle
     }
 ]
 
+const StyledSocialMediaAuth = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    color: ${({theme}) => theme.colors.primary[500]};
+
+    > * {
+        width: auto !important;
+        padding: .85rem;
+        border: 2px solid ${({theme}) => theme.colors.primary[500]};
+        border-radius: 100%;
+     }
+`;
+
 const StyledSocialMedia = styled.div`
-    color: ${({theme}) => theme.colors.neutral[100]};
     cursor: pointer;
     
     > * {
@@ -26,11 +41,20 @@ const StyledSocialMedia = styled.div`
     }
 `;
 
-function SocialMedia() {
+function SocialMedia({auth}) {
     return (
-        <StyledSocialMedia>
-            {socialMedia.map(({path, icon}) => <SocialMediaIcon socialMedia={{path: path, icon: icon}}/>)}
-        </StyledSocialMedia>
+        <>
+            {auth ? (
+                <StyledSocialMediaAuth>
+                    {socialMedia.map(({path, icon}) => <SocialMediaIcon socialMedia={{icon: icon}}/>)}
+                </StyledSocialMediaAuth>
+            ) : (
+                <StyledSocialMedia>
+                    {socialMedia.map(({path, icon}) => <SocialMediaIcon socialMedia={{path: path, icon: icon}}/>)}
+                </StyledSocialMedia>
+            )}
+        </>
+
     )
 }
 
