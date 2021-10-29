@@ -1,25 +1,36 @@
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StyledSocialMediaIcon = styled.div`
     height: 3rem;
     width: 3rem;
-    margin: 0 10px;
-    border-radius: 10rem;
-    border: 1px solid ${({theme}) => theme.colors.neutral[300]};
-    text-align: center;
+    margin: 0 0.05rem;
 
-    &:hover {
-        border: 2px solid ${({theme}) => theme.colors.primary[500]};
-        transition: 300ms ease-in-out;  
-    }
+    text-align: center;
 
     svg {
         height: 100%;
-        font-size: ${({auth}) => auth ? "1rem" : "2rem"};
-        color: ${({auth, theme}) => auth ? theme.colors.primary[500] : theme.colors.neutral[200]};
+        font-size: 2rem;
+        color: ${({theme}) => theme.colors.neutral[200]};
     }
+
+    
+    ${({ auth }) => auth && css`
+        margin: 0 .5rem;
+        border-radius: 10rem;
+        border: 1px solid ${({theme}) => theme.colors.neutral[300]};
+
+        &:hover {
+            border: 2px solid ${({theme}) => theme.colors.primary[500]};
+            transition: 300ms ease-in-out;  
+        }
+
+        svg { 
+            font-size: 1rem;
+            color: ${({theme}) => theme.colors.primary[500]};
+        }
+    `}
 
 `;
 

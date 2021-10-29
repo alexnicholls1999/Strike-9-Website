@@ -3,7 +3,7 @@ import AuthLayout from '../../Layouts/AuthLayout';
 import LoginForm from "../Organisms/LoginForm";
 
 function LoginTemplate({loginContent}) {
-    return <AuthLayout authContent={{ hero: { title: loginContent.title, paragraph: loginContent.paragraph}, component: <LoginForm loginForm={{title: "or use your email for registration:"}}/>}}  />
+    return <AuthLayout authContent={{ hero: { title: loginContent.title, paragraph: loginContent.paragraph}, component: <LoginForm title="or use your email to login:"/>}}  />
 }
 
 LoginTemplate.propTypes = {

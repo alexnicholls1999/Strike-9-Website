@@ -51,7 +51,7 @@ const StyledAuthLink = styled.div`
     }
 `;
 
-function CreateForm({createForm}) {
+function CreateForm({title}) {
 
     const history = useHistory()
 
@@ -60,7 +60,7 @@ function CreateForm({createForm}) {
             <div className="p-3"></div>
             <SocialMedia auth />
             <div className="p-3"></div>
-            <h6>{createForm.title}</h6>
+            <h6>{title}</h6>
             <div className="p-4"></div>
             <Row>
                 <Col md={6}>
@@ -118,7 +118,7 @@ function CreateForm({createForm}) {
 }
 
 CreateForm.propTypes = {
-
+    title: PropTypes.string.isRequired
 }
 
 export default CreateForm

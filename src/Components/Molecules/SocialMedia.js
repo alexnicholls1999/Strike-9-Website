@@ -5,6 +5,21 @@ import SocialMediaIcon from "../Atoms/Iconography/SocialMediaIcon"
 const socialMedia = [
     {
         path: "https://twitter.com/Strike9Training",
+        icon: faTwitterSquare
+    },
+    {
+        path: "https://facebook.com/strike9training",
+        icon: faFacebookSquare
+    },
+    {
+        path: "https://instagram.com/strike9t",
+        icon: faInstagram
+    }
+]
+
+const socialMediaAuth = [
+    {
+        path: "https://twitter.com/Strike9Training",
         icon: faTwitter
     },
     {
@@ -17,7 +32,7 @@ const socialMedia = [
     }
 ]
 
-const StyledSocialMediaAuth = styled.div`
+const StyledSocialMedia = styled.div`
     color: ${({ theme }) => theme.colors.primary[500]};
     display: flex;
     flex-direction: row;
@@ -29,26 +44,17 @@ const StyledSocialMediaAuth = styled.div`
 
 `;
 
-const StyledSocialMedia = styled.div`
-    cursor: pointer;
-    
-    > * {
-       padding: .85rem 0;
-    }
-`;
-
 function SocialMedia({auth}) {
     return (
         <>
-            {auth ? (
-                <StyledSocialMediaAuth>
-                    {socialMedia.map(({path, icon}) => <SocialMediaIcon auth={auth} socialMedia={{icon: icon}}/>)}
-                </StyledSocialMediaAuth>
-            ) : (
-                <StyledSocialMedia>
-                    {socialMedia.map(({path, icon}) => <SocialMediaIcon socialMedia={{path: path, icon: icon}}/>)}
-                </StyledSocialMedia>
-            )}
+            <StyledSocialMedia>
+                {auth ? (
+                    <>{socialMediaAuth.map(({path, icon}) => <SocialMediaIcon auth={auth} socialMedia={{path: path, icon: icon}}/>)}</>
+                ) : (
+                    <>{socialMedia.map(({path, icon}) => <SocialMediaIcon auth={auth} socialMedia={{path: path, icon: icon}}/>)}</>
+                )}
+                
+            </StyledSocialMedia>
         </>
 
     )

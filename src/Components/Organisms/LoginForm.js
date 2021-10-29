@@ -32,6 +32,17 @@ const StyledLoginFormWrapper = styled.div`
 
 `;
 
+const StyledPasswordLink = styled.p`
+    font-size: .75rem;
+    color: ${({theme}) => theme.colors.primary[600]};
+    float: right;
+
+    &:hover{ 
+        text-decoration: underline;
+        cursor: pointer;
+    }
+`;
+
 const StyledAuthLink = styled.div`
     display: flex;
     flex-flow: row;
@@ -53,7 +64,7 @@ const StyledAuthLink = styled.div`
 
 `;
 
-function LoginForm({loginForm}) {
+function LoginForm({title}) {
 
     const history = useHistory()
 
@@ -62,7 +73,7 @@ function LoginForm({loginForm}) {
             <div className="p-3"></div>
             <SocialMedia auth />
             <div className="p-3"></div>
-            <h6>{loginForm.title}</h6>
+            <h6>{title}</h6>
             <div className="p-4"></div>
             <Row>
                 <Col md={12}>
@@ -84,7 +95,7 @@ function LoginForm({loginForm}) {
                             }
                         }}
                     />
-                    <a href="">Forgot your password?</a>
+                    <StyledPasswordLink onClick={() => history.push('/forgotpassword')}>Forgot your password?</StyledPasswordLink>
                 </Col>
             </Row>
             <div className="p-3"></div>
@@ -102,7 +113,7 @@ function LoginForm({loginForm}) {
 }
 
 LoginForm.propTypes = {
-
+    title: PropTypes.string.isRequired
 }
 
 export default LoginForm
