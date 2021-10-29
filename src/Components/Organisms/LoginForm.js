@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router" 
 import FormControl from "./../Molecules/FormControl";
 import Button from "./../Atoms/Form/Button";
 import { Row, Col } from "react-bootstrap";
@@ -31,12 +32,38 @@ const StyledLoginFormWrapper = styled.div`
 
 `;
 
+const StyledAuthLink = styled.div`
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    gap: .5rem;
+    
+    p {
+        font-size: .75rem;
+
+        &:nth-child(2) {
+            color: ${({theme}) => theme.colors.primary[600]};
+
+            &:hover{ 
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+
+`;
+
 function LoginForm({loginForm}) {
+
+    const history = useHistory()
+
     return (
         <StyledLoginFormWrapper>
-            <SocialMedia auth />
-            <h6>{loginForm.title}</h6>
             <div className="p-3"></div>
+            <SocialMedia auth />
+            <div className="p-3"></div>
+            <h6>{loginForm.title}</h6>
+            <div className="p-4"></div>
             <Row>
                 <Col md={12}>
                     <FormControl 
@@ -62,10 +89,14 @@ function LoginForm({loginForm}) {
             </Row>
             <div className="p-3"></div>
             <Row className="justify-content-center">
-                <Col md={8}>
+                <Col md={10}>
                     <Button className="w-100" text="LOG IN WITH EMAIL" />
                 </Col>
             </Row>
+            <div className="p-2"></div>
+            <StyledAuthLink>
+                <p>Dont have an account?</p><p onClick={() => history.push('/createaccount')}>Create an Account </p>
+            </StyledAuthLink>
         </StyledLoginFormWrapper>
     )
 }

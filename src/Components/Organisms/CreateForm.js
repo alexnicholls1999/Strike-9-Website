@@ -4,6 +4,7 @@ import FormControl from "./../Molecules/FormControl";
 import Button from "./../Atoms/Form/Button";
 import { Row, Col } from "react-bootstrap";
 import SocialMedia from "../Molecules/SocialMedia";
+import { useHistory } from "react-router";
 
 
 const StyledLoginFormWrapper = styled.div`
@@ -26,19 +27,52 @@ const StyledLoginFormWrapper = styled.div`
     }
 
     @media(min-width: ${({theme}) => theme.viewport.md}) {
-        width: 40%;
+        width: 60%;
     }
 
 `;
 
+const StyledAuthLink = styled.div`
+    display: flex;
+    flex-flow: row;
+    gap: .5rem;
+    
+    p {
+        font-size: .75rem;
+
+        &:nth-child(2) {
+            color: ${({theme}) => theme.colors.primary[600]};
+
+            &:hover{ 
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+`;
+
 function CreateForm({createForm}) {
+
+    const history = useHistory()
+
     return (
         <StyledLoginFormWrapper>
-            <SocialMedia auth />
-            <h6>{createForm.title}</h6>
             <div className="p-3"></div>
+            <SocialMedia auth />
+            <div className="p-3"></div>
+            <h6>{createForm.title}</h6>
+            <div className="p-4"></div>
             <Row>
-                <Col md={12}>
+                <Col md={6}>
+                    <FormControl 
+                        controls={{
+                            label: {
+                                name: "Name"
+                            }
+                        }}
+                    />
+                </Col>
+                <Col md={6}>
                     <FormControl 
                         controls={{
                             label: {
@@ -48,8 +82,9 @@ function CreateForm({createForm}) {
                     />
                 </Col>
             </Row>
+            <div className="p-1"></div>
             <Row>
-                <Col md={12}>
+                <Col md={6}>
                     <FormControl 
                         controls={{
                             label: {
@@ -57,15 +92,27 @@ function CreateForm({createForm}) {
                             }
                         }}
                     />
-                    <a href="">Forgot your password?</a>
+                </Col>
+                <Col md={6}>
+                    <FormControl 
+                        controls={{
+                            label: {
+                                name: "Confirm Password"
+                            }
+                        }}
+                    />
                 </Col>
             </Row>
             <div className="p-3"></div>
-            <Row className="justify-content-center">
-                <Col md={8}>
-                    <Button className="w-100" text="LOG IN WITH EMAIL" />
+            <Row>
+                <Col md={7}>
+                    <Button className="w-100" text="CREATE ACCOUNT" />
                 </Col>
             </Row>
+            <div className="p-2"></div>
+            <StyledAuthLink>
+                <p>Already have an account?</p><p onClick={() => history.push('/login')}>Login to Account </p>
+            </StyledAuthLink>
         </StyledLoginFormWrapper>
     )
 }
