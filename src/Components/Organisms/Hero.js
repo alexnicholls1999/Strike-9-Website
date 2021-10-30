@@ -10,7 +10,7 @@ const StyledHero = styled.div`
     display: flex;
     flex-flow: column;
     width: 100%;
-    height: 90%;
+    height: 80%;
     padding: ${({secondary}) => secondary && "3rem 0rem"};
     color: ${({theme}) => theme.colors.neutral[100]};
     text-align: ${({secondary}) => secondary ? "left" : "center"};

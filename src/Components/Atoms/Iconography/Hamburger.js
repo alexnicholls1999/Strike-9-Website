@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import RightNav from "../../Molecules/RightNav";
 
 const StyledHamburger = styled.div`
     width: 2rem;
@@ -7,7 +8,7 @@ const StyledHamburger = styled.div`
     position: fixed;
     top: 1rem;
     right: 1rem;
-    z-index: 2;
+    z-index: 3;
     display: none;
 
     @media (max-width: ${({theme}) => theme.viewport.md}) {
@@ -42,14 +43,17 @@ const StyledHamburger = styled.div`
 function Hamburger({onClick, open}) {
 
     return (
-        <StyledHamburger
-            open={open}
-            onClick={onClick}
-        >
-            <div></div>
-            <div></div>
-            <div></div>
-        </StyledHamburger>
+        <>
+            <StyledHamburger
+                open={open}
+                onClick={onClick}
+            >
+                <div></div>
+                <div></div>
+                <div></div>
+            </StyledHamburger>
+            <RightNav open={open}/>
+        </>
     )
 }
 
