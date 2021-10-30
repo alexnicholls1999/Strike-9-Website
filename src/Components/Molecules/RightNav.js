@@ -8,17 +8,18 @@ const Ul = styled.ul`
   color: ${({theme}) => theme.colors.neutral[200]};
 
   .active {
-    border-bottom: 2px solid white;
+    border-bottom: 3px solid white;
     font-weight: bold;
     color: white;
     text-decoration: none;
   }
 
   li {
-    color: #fff;
+    color: ${({theme}) => theme.colors.neutral[300]};
     padding: 15px 10px;
     margin: 2px 0;
-}
+    font-size: 1rem;
+  }
 
   @media (max-width: 768px) {
     flex-flow: column nowrap;
@@ -32,6 +33,10 @@ const Ul = styled.ul`
     padding: 6rem 0.75rem;
     transition: transform 0.3s ease-in-out;
     z-index: 2;
+
+    li {
+      font-size: 2rem;
+    } 
 
     .active {
         font-weight: bold;
@@ -47,6 +52,7 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
 
     const location = useLocation();
+    const history = useHistory();
 
     const { pathname } = location;
 
@@ -54,12 +60,12 @@ const RightNav = ({ open }) => {
 
   return (
     <Ul open={open}>
-      <li className={splitLocation[1] === "" ? "active" : ""}>Home</li>
-      <li className={splitLocation[1] === "aboutus" ? "active" : ""}>About Us</li>
-      <li className={splitLocation[1] === "training" ? "active" : ""}>Training</li>
-      <li className={splitLocation[1] === "events" ? "active" : ""}>Events</li>
-      <li className={splitLocation[1] === "coaching" ? "active" : ""}>Coaching</li>
-      <li className={splitLocation[1] === "contact" ? "active" : ""}>Contact</li>
+      <li onClick={() => history.push("/")}className={splitLocation[1] === "" ? "active" : ""}>Home</li>
+      <li onClick={() => history.push("/aboutus")}className={splitLocation[1] === "aboutus" ? "active" : ""}>About Us</li>
+      <li onClick={() => history.push("/training")}className={splitLocation[1] === "training" ? "active" : ""}>Training</li>
+      <li onClick={() => history.push("/events")}className={splitLocation[1] === "events" ? "active" : ""}>Events</li>
+      <li onClick={() => history.push("/coaching")}className={splitLocation[1] === "coaching" ? "active" : ""}>Coaching</li>
+      <li onClick={() => history.push("/contact")}className={splitLocation[1] === "contact" ? "active" : ""}>Contact</li>
     </Ul>
   )
 }

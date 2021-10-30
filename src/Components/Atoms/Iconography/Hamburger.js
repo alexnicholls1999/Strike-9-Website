@@ -3,22 +3,21 @@ import styled from "styled-components";
 import RightNav from "../../Molecules/RightNav";
 
 const StyledHamburger = styled.div`
-    width: 2rem;
-    height: 2rem;
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
+    width: ${({ open }) => open ? "1.65rem" : "2rem"};
+    height: 1.35rem;
+    position: relative;
+    top: 1.25rem;
     z-index: 3;
     display: none;
 
     @media (max-width: ${({theme}) => theme.viewport.md}) {
         display: flex;
+        align-items: self-end;
         justify-content: space-around;
         flex-flow: column nowrap;
 
         div {
-            width: 2rem;
-            height: 0.25rem;
+            height: 3px;
             background: ${({ theme }) => theme.colors.neutral[200]};
             border-radius: 0.5rem;
             transform-origin: 1px;
@@ -26,15 +25,19 @@ const StyledHamburger = styled.div`
             
             &:nth-child(1) {
                 transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
+                width:  ${({ open }) => open ? "100%" : "65%"};
               }
           
             &:nth-child(2) {
                 transform: ${({ open }) => open ? 'translateX(100%)' : 'translateX(0)'};
+                width: ${({ open }) => open ? "100%" : "80%"};
                 opacity: ${({ open }) => open ? 0 : 1};
             }
         
             &:nth-child(3) {
                 transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+                width: ${({ open }) => open ? "100%" : "45%"};
+                margin-top: ${({ open }) => open && "0.5rem"};
             }
         }
     }
@@ -65,7 +68,7 @@ Hamburger.defaultProps = {
 Hamburger.propTypes = {
     open: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired 
-    
+
 }
 
 export default Hamburger

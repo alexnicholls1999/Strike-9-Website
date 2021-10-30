@@ -15,6 +15,7 @@ const StyledHero = styled.div`
     color: ${({theme}) => theme.colors.neutral[100]};
     text-align: ${({secondary}) => secondary ? "left" : "center"};
     justify-content: align-start;
+    padding-top: 2rem;
 
     @media(min-width: ${({theme}) => theme.viewport.lg}) {     
         align-items: ${({secondary}) => secondary ? "align-start" : "center"};
