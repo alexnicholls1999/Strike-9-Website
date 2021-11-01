@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Footer from "../Components/Organisms/Footer";
 import Header from "../Components/Organisms/Header";
 import Hero from "../Components/Organisms/Hero";
 
@@ -27,6 +28,8 @@ function HomeLayout({content, children}) {
             <>
                 {children}
             </>
+
+            <Footer />
         </>
     )
 }

@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { Container } from "react-bootstrap";
 import styled from "styled-components";
 import Button from "./../Atoms/Form/Button";
 import SocialMedia from "../Molecules/SocialMedia";
@@ -11,7 +10,7 @@ const StyledHero = styled.div`
     flex-flow: column;
     width: 100%;
     height: 80%;
-    padding: ${({secondary}) => secondary && "3rem 0rem"};
+    padding: ${({secondary}) => secondary && "4.5rem 1rem"};
     color: ${({theme}) => theme.colors.neutral[100]};
     text-align: ${({secondary}) => secondary ? "left" : "center"};
     justify-content: align-start;

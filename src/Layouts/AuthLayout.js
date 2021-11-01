@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Hero from "./../Components/Organisms/Hero";
 
 const StyledAuthWrapper = styled.div`
     display: flex;
@@ -74,3 +73,5 @@ AuthLayout.propTypes = {
 }
 
 export default AuthLayout
+
+

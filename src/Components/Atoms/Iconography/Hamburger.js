@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import RightNav from "../../Molecules/RightNav";
 
 const StyledHamburger = styled.div`
     width: ${({ open }) => open ? "1.65rem" : "2rem"};
@@ -55,7 +54,6 @@ function Hamburger({onClick, open}) {
                 <div></div>
                 <div></div>
             </StyledHamburger>
-            <RightNav open={open}/>
         </>
     )
 }
