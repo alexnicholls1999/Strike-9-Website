@@ -9,7 +9,7 @@ function Search({search}) {
             title: "Date",
             name: "date",
             config: {
-                // value: search.filters.date,
+                value: search.filters.date,
                 options: [
                     {
                         name: "Any"
@@ -24,14 +24,14 @@ function Search({search}) {
                         name: "27th October 2020"
                     }
                 ],
-                // onChange: search.handleFilters.handleDateChange
+                onChange: search.handleFilters.handleDateChange
             }
         },
         {
             title: "Time",
             name: "time",
             config: {
-                // value: search.filters.time,
+                value: search.filters.time,
                 options: [
                     {
                         name: "Any"
@@ -46,14 +46,14 @@ function Search({search}) {
                         name: "14:00 - 16:00"
                     } 
                 ],
-                // onChange: search.handleFilters.handleTimeChange
+                onChange: search.handleFilters.handleTimeChange
             }
         },
         {
             title: "Type",
             name: "type",
             config: {
-                // value: search.filters.type,
+                value: search.filters.type,
                 options: [
                     {
                         name: "Any"
@@ -68,14 +68,14 @@ function Search({search}) {
                         name: "Mixed Sessions"
                     } 
                 ],
-                // onChange: search.handleFilters.handleTypeChange
+                onChange: search.handleFilters.handleTypeChange
             }
         },
         {
             title: "Age",
             name: "age",
             config: {
-                // value: search.filters.age,
+                value: search.filters.age,
                 options: [
                     {
                         name: "Any"
@@ -93,7 +93,7 @@ function Search({search}) {
                         name: "Ages 18 and above"
                     } 
                 ],
-                // onChange: search.handleFilters.handleAgeChange
+                onChange: search.handleFilters.handleAgeChange
             }
         }
     ]

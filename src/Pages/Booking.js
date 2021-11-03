@@ -1,12 +1,14 @@
 import { useParams } from "react-router";
 import useBookEvent from "../react-hooks/useBookEvent";
 import BookingTemplate from "../Components/Templates/BookingTemplate";
+import useEvents from "../react-hooks/useEvents";
 
 
 function Booking() {
 
     const params = useParams()
     const { booked, handleSubmit } = useBookEvent();
+    const { events } = useEvents()
 
     const slots = 100;
 
@@ -26,6 +28,7 @@ function Booking() {
             title: "STRIKE 9 VLU REGISTER EVENTS FORM" 
         },
         params: params,
+        events: events,
         slots: slots,
         user: user,
         booked: booked,
