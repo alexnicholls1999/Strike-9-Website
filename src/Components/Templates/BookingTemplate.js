@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { isFormCompleted } from "../../react-helpers/formHelpers";
+import { isFormCompleted, renderBookingForm } from "../../react-helpers/formHelpers";
 import MainLayout from "../../Layouts/MainLayout";
 
 import FormStep from "../../Components/Atoms/FormStep";
@@ -31,48 +31,56 @@ function BookingTemplate({bookingContent}) {
         }
     ]
     
+    const id = bookingContent.params.id;
+    const events = bookingContent.events;
+
 
     return (
-        <MainLayout 
-            hero={{ content: { title: bookingContent.hero.title}}}
-            noDisplay
-        >
-            {bookingContent.events.map((event, index) => {
-                if (event.id === bookingContent.params.id) {
-                    <FormWrapper>
-                        <FormStepper
-                            key={index}
-                            initialValues={{
-                                eventId: bookingContent.params.id,
-                                slots: bookingContent.slots - 1,
-                                teamName: "",
-                                firstName: bookingContent.user.firstName,
-                                lastName: bookingContent.user.lastName,
-                                email: bookingContent.user.email, 
-                                mobile: bookingContent.user.mobile,
-                                gender: bookingContent.user.gender,
-                                selectedDate: bookingContent.user.dateofbirth,
-                                ethnicity: bookingContent.user.ethnicity,
-                                billingAddressLine1: "",
-                                billingAddressLine2: "",
-                                billingAddressLine3: "",
-                                location: "",
-                                postcode: "",
-                            }}
-                            onSubmit={async (values) => {
-                                bookingContent.handleSubmit(values, bookingContent.user.uid);
-                            }}
+        <>
+            {events.map((event) => {
+
+                const eventId = event.id;
+
+                if (eventId === id) {
+                    return (
+                        <MainLayout 
+                            hero={{ content: { title: bookingContent.hero.title}}}
+                            noDisplay
                         >
-        
-                            {steps.map(({label, component}, index) => <FormStep key={index} label={label}>{component}</FormStep>)}
-        
-                        </FormStepper>
-                    </FormWrapper>
-                } else {
-                    return <p>Loading Events</p>
-                }
+                            <FormWrapper>
+                                <FormStepper
+                                    initialValues={{
+                                        eventId: eventId,
+                                        slots: bookingContent.slots - 1,
+                                        teamName: "",
+                                        firstName: bookingContent.user.firstName,
+                                        lastName: bookingContent.user.lastName,
+                                        email: bookingContent.user.email, 
+                                        mobile: bookingContent.user.mobile,
+                                        gender: bookingContent.user.gender,
+                                        selectedDate: bookingContent.user.dateofbirth,
+                                        ethnicity: bookingContent.user.ethnicity,
+                                        billingAddressLine1: "",
+                                        billingAddressLine2: "",
+                                        billingAddressLine3: "",
+                                        location: "",
+                                        postcode: "",
+                                    }}
+                                    onSubmit={async (values) => {
+                                        bookingContent.handleSubmit(values, bookingContent.user.uid);
+                                    }}
+                                >
+
+
+                                    {steps.map(({label, component}, index) => <FormStep key={index} label={label}>{component}</FormStep>)}
+
+                                </FormStepper>
+                            </FormWrapper>
+                        </MainLayout>
+                    )
+                } 
             })}
-        </MainLayout>
+        </>
     )
 }
 

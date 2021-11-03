@@ -19,6 +19,7 @@ const StyledHero = styled.div`
     @media(min-width: ${({theme}) => theme.viewport.lg}) {     
         align-items: ${({secondary}) => secondary ? "align-start" : "center"};
         justify-content: ${({secondary}) => secondary ? "align-start" : "center"};
+        padding: ${({secondary}) => secondary && "4.5rem 1rem 6rem"};
     }
 `;
 

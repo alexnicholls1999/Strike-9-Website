@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/styles";
 import { StepConnector } from "@material-ui/core";
 import * as Steps from "./../Components/Organisms/FormSteps";
+import FormStep from "../Components/Atoms/FormStep";
+import FormStepper from "../Components/Organisms/FormStepper";
 
 export const Strike9StepIconStyles = makeStyles({
     root: {
@@ -56,4 +58,39 @@ export function isFormCompleted(booked) {
     }
 
     return <Steps.Summary eventDate="20th October 2020" />
+}
+
+export function renderBookingForm(event, steps, bookingContent){
+    if (event) {
+        return (
+                <FormStepper
+                    initialValues={{
+                        eventId: bookingContent.params.id,
+                        slots: bookingContent.slots - 1,
+                        teamName: "",
+                        firstName: bookingContent.user.firstName,
+                        lastName: bookingContent.user.lastName,
+                        email: bookingContent.user.email, 
+                        mobile: bookingContent.user.mobile,
+                        gender: bookingContent.user.gender,
+                        selectedDate: bookingContent.user.dateofbirth,
+                        ethnicity: bookingContent.user.ethnicity,
+                        billingAddressLine1: "",
+                        billingAddressLine2: "",
+                        billingAddressLine3: "",
+                        location: "",
+                        postcode: "",
+                    }}
+                    onSubmit={async (values) => {
+                        bookingContent.handleSubmit(values, bookingContent.user.uid);
+                    }}
+                >
+
+                    {steps.map(({label, component}, index) => <FormStep key={index} label={label}>{component}</FormStep>)}
+
+                </FormStepper>
+        )
+    } else {
+        return <p>Loading events...</p>
+    }
 }
