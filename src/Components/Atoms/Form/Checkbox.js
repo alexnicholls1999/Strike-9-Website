@@ -10,7 +10,7 @@ const Icon = styled.svg`
     fill: none;
     stroke: white;
     stroke-width: 3px;
-    margin-top: -15px;
+    margin-top: -1rem;
 `;
 
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox"})`
@@ -27,7 +27,6 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox"})`
 `;
 
 const StyledCheckbox = styled.div`
-    display: inline-block;
     width: 16px;
     height: 16px;
     background: ${({checked}) => (checked ? "#4D2AA5" : "#4D2AA5")};

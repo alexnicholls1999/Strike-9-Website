@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import { Container } from "react-bootstrap";
 import MainLayout from "../../Layouts/MainLayout";
+import { renderSearchResults } from "../../react-helpers/eventHelpers";
 import useEvents from "../../react-hooks/useEvents";
-import Event from "../Organisms/Event";
 import Search from "../Organisms/Search";
 
 function EventsTemplate({eventsContent}) {
 
-    const { state, events, handleOnChangeSearch } = useEvents();
+    const { state, events, handleOnChangeSearch, handleOnChangeAvailableSlots } = useEvents();
 
     return (
         <MainLayout 
@@ -20,35 +20,22 @@ function EventsTemplate({eventsContent}) {
                             handleTypeChange: handleOnChangeSearch, 
                             handleTimeChange: handleOnChangeSearch, 
                             handleAgeChange: handleOnChangeSearch, 
+                            handleCheck: handleOnChangeAvailableSlots
                         },
                         filters: {
                             date: state.date, 
                             time: state.time, 
                             type: state.type, 
                             age: state.age, 
-                            checked: state.isChecked, 
                             checkedValue: state.isChecked
-                        }
+                        },
+                        checked: state.isChecked, 
                     }}
-                />
+                />  
             }
         >
             <Container fluid>
-                {events.map((event, index) => (
-                    <Event
-                        key={index}
-                        event={{
-                            title: event.eventsTitle,
-                            type: event.eventsType,
-                            age: event.age,
-                            cost: event.cost,
-                            date: event.date,
-                            description: event.description,
-                            time: event.time,
-                            linkTo: "/events/" + event.id
-                        }}
-                    />
-                ))}
+                {renderSearchResults(events)}
             </Container>
 
         </MainLayout>    

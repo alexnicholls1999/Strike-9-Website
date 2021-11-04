@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import {Container, Row, Col} from "react-bootstrap";
 import Dropdown from "./../Molecules/Dropdown";
+import Checkbox from "./../Atoms/Form/Checkbox";
 
 function Search({search}) {
 
@@ -107,6 +108,14 @@ function Search({search}) {
                             <Dropdown title={filter.title} name={filter.name} {...filter.config}/>
                         </Col>
                     ))}
+                    <div className="py-1"></div>
+                    <Col lg={2} md={3}>
+                            <label>
+                                <Checkbox onChange={search.handleFilters.handleCheck} value={search.filters.checkedValue} checked={search.checked}/>
+                                <span style={{marginLeft: 8, fontWeight: 500}}>Available Slots</span>
+                            </label>
+                    </Col>
+
                 </Row>
             </Col>
         </form>
@@ -120,13 +129,16 @@ Search.propTypes = {
             time: PropTypes.any,
             type: PropTypes.any,
             age: PropTypes.any,
+            checkedValue: PropTypes.any
         }),
         handleFilters: PropTypes.shape({
             handleDateChange: PropTypes.func.isRequired,
             handleTimeChange: PropTypes.func.isRequired,
             handleTypeChange: PropTypes.func.isRequired,
             handleAgeChange: PropTypes.func.isRequired,
+            handleCheck: PropTypes.func.isRequired
         }),
+        checked: PropTypes.bool
     })
 }
 

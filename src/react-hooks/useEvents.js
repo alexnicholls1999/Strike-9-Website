@@ -19,6 +19,17 @@ export default function useEvents(){
         })
     }
 
+    const handleOnChangeAvailableSlots = (e) => {
+        setState({
+            date: state.date,
+            time: state.time,
+            type: state.type,
+            age: state.age,
+            isChecked: e.target.checked
+        })
+    }
+
+
     useEffect(() => {
         handleFetchEvents(state, store, setEvents)
     }, [state]);
@@ -27,7 +38,8 @@ export default function useEvents(){
     return {
         state, 
         events,
-        handleOnChangeSearch
+        handleOnChangeSearch,
+        handleOnChangeAvailableSlots
     }
 }
 
