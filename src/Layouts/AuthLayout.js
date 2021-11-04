@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Header from "./../Components/Organisms/Header";
 
 const StyledAuthWrapper = styled.div`
+    position: absolute;
+    top: 0;
     display: flex;
     flex-flow: column;
+    height: 100vh;
 
     @media(min-width: ${({theme}) => theme.viewport.md}) {
         flex-flow: row;
@@ -20,7 +24,7 @@ const StyledAuthHeader = styled.div`
     padding: 1rem;
     text-align: center;
     gap: 1rem;
-    padding: 3rem 1rem;
+    padding: 7rem 1rem 3rem;
 
     h2 {
         color: ${({theme}) => theme.colors.neutral[100]};
@@ -28,7 +32,7 @@ const StyledAuthHeader = styled.div`
 
     @media(min-width: ${({theme}) => theme.viewport.md}) {
         width: 35%;
-        height: 100vh;
+        height: 100%;
         padding-top: 10rem;
         text-align: left;
     }
@@ -50,15 +54,18 @@ const StyledAuthContainer = styled.div`
 
 function AuthLayout({authContent}) {
     return (
-        <StyledAuthWrapper>
-            <StyledAuthHeader>
-                <h2>{authContent.hero.title}</h2>
-                <p>{authContent.hero.paragraph}</p>
-            </StyledAuthHeader>
-            <StyledAuthContainer>
-                {authContent.component}
-            </StyledAuthContainer>
-        </StyledAuthWrapper>
+        <>
+            <Header auth secondary/>
+            <StyledAuthWrapper>
+                <StyledAuthHeader>
+                    <h2>{authContent.hero.title}</h2>
+                    <p>{authContent.hero.paragraph}</p>
+                </StyledAuthHeader>
+                <StyledAuthContainer>
+                    {authContent.component}
+                </StyledAuthContainer>
+            </StyledAuthWrapper>
+        </>
     )
 }
 

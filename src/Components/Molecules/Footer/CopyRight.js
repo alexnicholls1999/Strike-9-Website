@@ -28,6 +28,15 @@ const StyledSocialMediaWrapper = styled.div`
     svg {
         font-size: 1.75rem;
     }
+
+    > * {
+        justify-content: flex-start;
+    }
+
+    @media(min-width: ${({theme}) => theme.viewport.md}) {
+        margin-left: auto;
+    }
+
 `;
 
 function CopyRight() {
@@ -46,7 +55,7 @@ function CopyRight() {
             <Col lg={12} className="p-2">
                 <BottomFooter>
                     <StyledCopyRight>©{year} STRIKE 9 TRAINING</StyledCopyRight>
-                    <StyledSocialMediaWrapper className="ms-auto">
+                    <StyledSocialMediaWrapper>
                         <SocialMedia />
                     </StyledSocialMediaWrapper>
                 </BottomFooter>

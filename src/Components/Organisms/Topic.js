@@ -70,7 +70,7 @@ const StyledTopicInfo = styled.div`
 
     @media(min-width: ${({theme}) => theme.viewport.md}) {
         > * {        
-            width: 65%;
+            width: 75%;
         }
     }
 

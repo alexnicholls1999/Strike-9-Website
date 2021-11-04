@@ -4,7 +4,8 @@ import styled from "styled-components";
 const StyledSelect = styled.select`
     color: ${({theme}) => theme.colors.neutral[900]};
     font-size: 1.05rem;
-    border: 2px solid ${({theme}) => theme.colors.neutral[300]};
+    border: 1px solid ${({theme}) => theme.colors.neutral[300]};
+    background-color: ${({theme}) => theme.colors.neutral[100]};
     padding: 0.35rem;
     border-radius: .25rem;
 `;

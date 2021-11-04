@@ -20,6 +20,7 @@ const StyledSocialMediaIcon = styled.div`
         margin: 0 .5rem;
         border-radius: 10rem;
         border: 1px solid ${({theme}) => theme.colors.neutral[300]};
+        cursor: pointer;
 
         &:hover {
             border: 2px solid ${({theme}) => theme.colors.primary[500]};

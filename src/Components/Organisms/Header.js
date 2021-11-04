@@ -21,13 +21,13 @@ const StyledLogo = styled.div`
     }
 `;
 
-function Header() {
+function Header({...props}) {
     return (
         <StyledHeader>
             <StyledLogo>
                 Strike 9 Training
             </StyledLogo>
-            <Navbar />
+            <Navbar {...props}/>
         </StyledHeader>
     )
 }

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 const StyledButton = styled.button`
     background-color: ${({theme}) => theme.colors.primary[600]};
@@ -13,6 +13,11 @@ const StyledButton = styled.button`
     font-weight: ${({theme}) => theme.typography.fontWeight.bold};
     border-radius: 7px;
     width: ${({form}) => form ? "100%" : "9rem"};
+
+    ${({ secondary }) => secondary && css`
+        background-color: ${({theme}) => theme.colors.neutral[100]};
+        color: ${({theme}) => theme.colors.primary[600]};
+    `}
 
     &:disabled {
         background-color: ${({ theme }) => theme.colors.primary[600]};
@@ -31,8 +36,8 @@ const StyledButton = styled.button`
     }
 `;
 
-function Button({onClick, form, text, ...props}) {
-    return <StyledButton form={form} onClick={onClick} {...props}>{text}</StyledButton>
+function Button({onClick, secondary, form, text, ...props}) {
+    return <StyledButton secondary={secondary} form={form} onClick={onClick} {...props}>{text}</StyledButton>
 }
 
 Button.propTypes = {
