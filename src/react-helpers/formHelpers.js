@@ -60,37 +60,28 @@ export function isFormCompleted(booked) {
     return <Steps.Summary eventDate="20th October 2020" />
 }
 
-export function renderBookingForm(event, steps, bookingContent){
-    if (event) {
-        return (
-                <FormStepper
-                    initialValues={{
-                        eventId: bookingContent.params.id,
-                        slots: bookingContent.slots - 1,
-                        teamName: "",
-                        firstName: bookingContent.user.firstName,
-                        lastName: bookingContent.user.lastName,
-                        email: bookingContent.user.email, 
-                        mobile: bookingContent.user.mobile,
-                        gender: bookingContent.user.gender,
-                        selectedDate: bookingContent.user.dateofbirth,
-                        ethnicity: bookingContent.user.ethnicity,
-                        billingAddressLine1: "",
-                        billingAddressLine2: "",
-                        billingAddressLine3: "",
-                        location: "",
-                        postcode: "",
-                    }}
-                    onSubmit={async (values) => {
-                        bookingContent.handleSubmit(values, bookingContent.user.uid);
-                    }}
-                >
+export const renderSteps = (bookingContent, event) => {
 
-                    {steps.map(({label, component}, index) => <FormStep key={index} label={label}>{component}</FormStep>)}
+    console.log(event);
 
-                </FormStepper>
-        )
-    } else {
-        return <p>Loading events...</p>
-    }
+    const steps = [
+        {
+            label: "Events Details",
+            component: <Steps.EventDetails eventDetails={{date: event.date, time: event.time, address: "Mosley School Sports Centre, Springfield Road, B13 9NP", cost: event.cost,}}/>
+        },
+        {
+            label: "Personal Details"
+        },
+        {
+            label: "Billing Address",
+            component: <Steps.BillingAddress />
+        },
+        {
+            label: bookingContent.booked,
+            component: isFormCompleted(bookingContent.booked)
+        }
+    ]
+
+
+    return steps.map(({label, component}, index) => <FormStep key={index} label={label}>{component}</FormStep>)
 }

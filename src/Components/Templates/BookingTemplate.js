@@ -1,10 +1,7 @@
 import styled from "styled-components";
-import { isFormCompleted, renderBookingForm } from "../../react-helpers/formHelpers";
+import { renderBookingForm, renderSteps } from "../../react-helpers/formHelpers";
 import MainLayout from "../../Layouts/MainLayout";
-
-import FormStep from "../../Components/Atoms/FormStep";
 import FormStepper from "../../Components/Organisms/FormStepper";
-import * as Steps from "../../Components/Organisms/FormSteps";
 
 const FormWrapper = styled.div`
     margin-top: -2rem
@@ -13,24 +10,7 @@ const FormWrapper = styled.div`
 
 function BookingTemplate({bookingContent}) {
 
-    const steps = [
-        {
-            label: "Events Details",
-            component: <Steps.EventDetails eventDetails={{date: "20th October 2020", time: "15:00 - 17:00", address: "Mosley School Sports Centre, Springfield Road, B13 9NP", cost: "FREE",}}/>
-        },
-        {
-            label: "Personal Details"
-        },
-        {
-            label: "Billing Address",
-            component: <Steps.BillingAddress />
-        },
-        {
-            label: bookingContent.booked,
-            component: isFormCompleted(bookingContent.booked)
-        }
-    ]
-    
+
     const id = bookingContent.params.id;
     const events = bookingContent.events;
 
@@ -46,8 +26,8 @@ function BookingTemplate({bookingContent}) {
                         <MainLayout 
                             hero={{ content: { title: bookingContent.hero.title}}}
                             noDisplay
-                        >
-                            <FormWrapper>
+                        > 
+                            <FormWrapper >
                                 <FormStepper
                                     initialValues={{
                                         eventId: eventId,
@@ -71,12 +51,12 @@ function BookingTemplate({bookingContent}) {
                                     }}
                                 >
 
-
-                                    {steps.map(({label, component}, index) => <FormStep key={index} label={label}>{component}</FormStep>)}
+                                    {renderSteps(bookingContent, event)}
 
                                 </FormStepper>
                             </FormWrapper>
                         </MainLayout>
+
                     )
                 } 
             })}
