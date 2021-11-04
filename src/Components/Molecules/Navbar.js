@@ -52,6 +52,14 @@ const NavLink = styled.li`
     text-decoration: none;
   `}
 
+  ${({auth}) => auth && `
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: .5rem;
+  `}
+
   @media(max-width: ${({theme}) => theme.viewport.md}) {
     ${({active}) => active && `
       font-weight: bold;
@@ -61,6 +69,15 @@ const NavLink = styled.li`
       border: none;
       border-radius: .5rem;
     `}
+
+    ${({auth}) => auth && `
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    background: #1E2147;
+    border: none;
+    border-radius: .5rem;
+  `}
   }
 
 `;
@@ -82,15 +99,43 @@ const StyledButtonWrapper = styled.div`
     }
 `;
 
+const NavDropDrown = styled.div`
+  float: left;
+  overflow: hidden;
+`;
+
+
+const NavDropDownContent = styled.div`
+  float: none;
+  color: black;
+  position: absolute;
+  padding: 1rem 3rem;
+  margin: 0 -4rem;
+  text-decoration: none;
+  background: white;
+  display: ${({open}) => open ? "block" : "none"};
+  text-align: left;
+  border-radius: .5rem;
+
+`;
+
+const NavDropDownLink = styled.li`
+  color: ${({theme}) => theme.colors.primary[600]};
+`;
+
 function Navbar({auth, secondary}){
     const routes = useContext(RouteContext);
     const [open, setOpen] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [opendropdown, setOpenDropdown] = useState(false);
     const location = useLocation();
     const history = useHistory();
 
     const { pathname } = location;
 
     const splitLocation = pathname.split("/");
+
+    const name = "Alex"
 
     return (
         <Nav>
@@ -99,11 +144,24 @@ function Navbar({auth, secondary}){
               {routes.links.map((route, index) => <NavLink key={index} secondary={secondary} active={splitLocation[1] === `${route.location}`} onClick={() => history.push(`${route.path}`)}>{route.routeName}</NavLink>)}
             </Ul>
 
-            {!auth && (
+            {isAuthenticated ? (
+              <Ul>
+                <NavDropDrown>
+                  <NavLink auth onClick={() => setOpenDropdown(!opendropdown)}>Hi {name}</NavLink>
+                  <NavDropDownContent open={opendropdown}>
+                    <NavDropDownLink auth onClick={() => setIsAuthenticated(false)}>Logout</NavDropDownLink>
+                  </NavDropDownContent>
+                </NavDropDrown>
+              </Ul>
+            ) : (
+              !auth && (
                 <StyledButtonWrapper>
-                  <Button secondary onClick={() => history.push("/createaccount")} text="Create Account"/>
-                  <Button secondary onClick={() => history.push("/login")} text="Login"/>
+                  {/* <Button secondary onClick={() => history.push("/createaccount")} text="Create Account"/>
+                  <Button secondary onClick={() => history.push("/login")} text="Login"/> */}
+                  <Button secondary onClick={() => setIsAuthenticated(true)} text="Create Account"/>
+                  <Button secondary onClick={() => setIsAuthenticated(true)} text="Login"/>
                 </StyledButtonWrapper>
+            )
             )}
             
             <Burger onClick={() => setOpen(!open)} open={open}/>
