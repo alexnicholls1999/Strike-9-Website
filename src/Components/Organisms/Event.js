@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Col, Row } from "react-bootstrap";
 import { useHistory } from "react-router";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import Card from "./../Atoms/Card";
 import Button from "./../Atoms/Form/Button";
 
@@ -18,6 +18,15 @@ const EventCardWrapper = styled.div`
     @media (min-width: ${({theme}) => theme.viewport.md}){
         padding: 2.5rem 2rem 5rem;
     }
+
+    ${({unavailableEvent}) => unavailableEvent && css`
+        opacity: 0.5;
+        
+
+        ${Cost} {
+            color: ${({theme}) => theme.colors.feedback.err};
+        }
+    `}
 
 `;
 
@@ -59,7 +68,7 @@ const Description = styled.p`
     font-size: clamp(10px, 2.5vw, 18px);
 `;
 
-function Event({event}) {
+function Event({event, unavailableEvent}) {
 
     const history = useHistory();
 
@@ -67,14 +76,14 @@ function Event({event}) {
         <Row className="justify-content-center">
             <EventWrapper>
                 <Card>
-                    <EventCardWrapper>
+                    <EventCardWrapper unavailableEvent={unavailableEvent}>
                         <Col sm={12}>
                             <Row>
                                 <Col xs={8} className="ms-auto">
                                     <EventsTitle>{event.title}</EventsTitle>
                                 </Col>
                                 <Col xs={4} className="text-end">
-                                    <Cost>{event.cost}</Cost>
+                                    <Cost>{unavailableEvent ? "Fully Booked!" : event.cost}</Cost>
                                 </Col>
                             </Row>
                             <Row>
@@ -94,7 +103,7 @@ function Event({event}) {
                             </Row>
                             <Row>
                                 <Col lg={2} md={3} sm={5} xs={6} className="ms-auto" style={{textAlign: "right"}}>
-                                    <Button form onClick={() => history.push(event.linkTo) } text="BOOK"/>
+                                    <Button disabled={unavailableEvent} form onClick={() => history.push(event.linkTo) } text="BOOK"/>
                                 </Col>
                             </Row>
                         </Col>
@@ -115,7 +124,8 @@ Event.propTypes = {
         time: PropTypes.string,
         description: PropTypes.string,
         linkTo: PropTypes.string
-    })
+    }),
+    unavailableEvent: PropTypes.bool
 }
 
 export default Event

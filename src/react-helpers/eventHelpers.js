@@ -75,11 +75,12 @@ function searchResults(events) {
         ) : (
           <Event 
             key={index}
+            unavailableEvent
             event={{
                 title: event.eventsTitle,
                 type: event.eventsType,
                 age: event.age,
-                cost: "Booked!",
+                cost: event.cost,
                 date: event.date,
                 description: event.description,
                 time: event.time,
