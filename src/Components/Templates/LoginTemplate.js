@@ -13,7 +13,8 @@ function LoginTemplate({loginContent}) {
         console.log(data);
 
         try {
-            await loginContent.signInEmailUser(email, password);
+            const user = await loginContent.signInEmailUser(email, password);
+            console.log(user);
         } catch (error) {
             setError(error.message);
         }
