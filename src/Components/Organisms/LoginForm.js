@@ -5,6 +5,7 @@ import FormControl from "./../Molecules/FormControl";
 import Button from "./../Atoms/Form/Button";
 import { Row, Col } from "react-bootstrap";
 import SocialMedia from "../Molecules/SocialMedia";
+import useLogin from "./../../react-hooks/useLogin";
 
 
 const StyledLoginFormWrapper = styled.div`
@@ -64,56 +65,76 @@ const StyledAuthLink = styled.div`
 
 `;
 
-function LoginForm({title}) {
+function LoginForm({login}) {
 
     const history = useHistory()
+
+    const { formik } = useLogin(login.onSubmit)
+
+    const configEmail = { 
+        style: formik.errors.email ? {borderColor: "#C90808"} : null,
+        type: "text",
+        name: "email",
+        value: formik.values.email,
+        onChange: formik.handleChange,
+        placeholder: "Enter Email"
+    }
+
+    const configPassword = { 
+        style: formik.errors.password ? {borderColor: "#C90808"} : null,
+        type: "text",
+        name: "password",
+        value: formik.values.password,
+        onChange: formik.handleChange,
+        placeholder: "Enter Password"
+    }
 
     return (
         <StyledLoginFormWrapper>
             <div className="p-3"></div>
             <SocialMedia auth />
             <div className="p-3"></div>
-            <h6>{title}</h6>
+            <h6>{login.title}</h6>
             <div className="p-4"></div>
-            <Row>
-                <Col md={12}>
-                    <FormControl 
-                        controls={{
-                            label: {
-                                name: "Email"
-                            }
-                        }}
-                    />
-                </Col>
-            </Row>
-            <Row>
-                <Col md={12}>
-                    <FormControl 
-                        controls={{
-                            label: {
-                                name: "Password"
-                            }
-                        }}
-                    />
-                    <StyledPasswordLink onClick={() => history.push('/forgotpassword')}>Forgot your password?</StyledPasswordLink>
-                </Col>
-            </Row>
-            <div className="p-3"></div>
-            <Row className="justify-content-center">
-                <Col md={10}>
-                    <Button className="w-100" text="LOG IN WITH EMAIL" />
-                </Col>
-            </Row>
-            <div className="p-2"></div>
-            <StyledAuthLink>
-                <p>Dont have an account?</p><p onClick={() => history.push('/createaccount')}>Create an Account </p>
-            </StyledAuthLink>
+            <form autocomplete="off" onSubmit={formik.handleSubmit}>
+                <Row>
+                    <Col md={12}>
+                        <FormControl 
+                            controls={{label: {style: formik.errors.email ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.email ? {borderColor: "#C90808"} : null}}
+                            {...configEmail}
+                        />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={12}>
+                        <FormControl 
+                            controls={{label: {style: formik.errors.password ? {borderColor: "#C90808"} : null, name: "Password"}, errMsg: formik.errors.password ? {borderColor: "#C90808"} : null}}
+                            {...configPassword}
+                        />
+                        <StyledPasswordLink onClick={() => history.push('/forgotpassword')}>Forgot your password?</StyledPasswordLink>
+                    </Col>
+                </Row>
+                <div className="p-3"></div>
+                <Row className="justify-content-center">
+                    <Col md={10}>
+                        <Button type="submit" className="w-100" text="LOG IN WITH EMAIL" />
+                    </Col>
+                </Row>
+                <div className="p-2"></div>
+                <StyledAuthLink>
+                    <p>Dont have an account?</p><p onClick={() => history.push('/createaccount')}>Create an Account </p>
+                </StyledAuthLink>
+            </form>
         </StyledLoginFormWrapper>
     )
 }
 
 LoginForm.propTypes = {
-    title: PropTypes.string.isRequired
+    login: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        serverErr: PropTypes.string.isRequired,
+        onSubmit: PropTypes.func.isRequired
+    })
 }
 
 export default LoginForm
