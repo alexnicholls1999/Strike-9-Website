@@ -5,7 +5,7 @@ import FormControl from "./../Molecules/FormControl";
 import Button from "./../Atoms/Form/Button";
 import { Row, Col } from "react-bootstrap";
 import SocialMedia from "../Molecules/SocialMedia";
-import useLogin from "./../../react-hooks/useLogin";
+import useLogin from "../../react-hooks/useLogin";
 
 
 const StyledLoginFormWrapper = styled.div`
@@ -65,11 +65,12 @@ const StyledAuthLink = styled.div`
 
 `;
 
-function LoginForm({login}) {
+function LoginForm({title, onSubmit}) {
+
+    const { formik } = useLogin(onSubmit)
 
     const history = useHistory()
-
-    const { formik } = useLogin(login.onSubmit)
+    
 
     const configEmail = { 
         style: formik.errors.email ? {borderColor: "#C90808"} : null,
@@ -94,7 +95,7 @@ function LoginForm({login}) {
             <div className="p-3"></div>
             <SocialMedia auth />
             <div className="p-3"></div>
-            <h6>{login.title}</h6>
+            <h6>{title}</h6>
             <div className="p-4"></div>
             <form autocomplete="off" onSubmit={formik.handleSubmit}>
                 <Row>
