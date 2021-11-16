@@ -19,11 +19,15 @@ export default function useAuth(firebaseAuth) {
     const signInEmailUser = (email, password) => 
         firebaseAuth().signInWithEmailAndPassword(email, password);
     
+    const createEmailUser = (email, password) =>
+        firebaseAuth().createUserWithEmailAndPassword(email, password);
+    
     const signOut = () => firebaseAuth().signOut();
 
     return {
         isAuthenticated,
         user,
+        createEmailUser,
         signInEmailUser,
         signOut
     }

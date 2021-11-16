@@ -14,29 +14,36 @@ import Login from './Pages/Login';
 import Booking from './Pages/Booking';
 import useAuth from './react-hooks/useAuth';
 import firebase from "./firebase/utils";
+import CreateAccount from './Pages/CreateAccount';
 
 const initAttemptedRoute = "/";
 
 function App() {
 
-  const { isAuthenticated, signInEmailUser } = useAuth(firebase.auth);
+  const { isAuthenticated, createEmailUser, signInEmailUser } = useAuth(firebase.auth);
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Switch>
-        <RouteProvider pages={routes}>
+        {/* <RouteProvider pages={routes}>
           <ContentProvider content={content}>
             {routes.pages.map(({ exact, path, component}, i) => <Route key={i} exact={exact} path={path} component={component}/>)}
           </ContentProvider>
+        </RouteProvider> */}
+
+        <RouteProvider pages={routes}>
+          <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} exact path="/">
+            <Events />
+          </Protected>
+          <RedirectToLogin authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">
+              <Login signInEmailUser={signInEmailUser} />
+          </RedirectToLogin>
+          <RedirectToLogin authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/createaccount">
+              <CreateAccount createEmailUser={createEmailUser} />
+          </RedirectToLogin>
         </RouteProvider>
-        <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} exact path="/events">
-          <Events />
-        </Protected>
-        <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} exact path="/events/:id">
-          <Booking />
-        </Protected>
-        <RedirectToLogin authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login" component={<Login signInEmailUser={signInEmailUser}/>} />
+
       </Switch>
     </ThemeProvider>
   );

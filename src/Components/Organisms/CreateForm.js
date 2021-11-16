@@ -5,6 +5,7 @@ import Button from "./../Atoms/Form/Button";
 import { Row, Col } from "react-bootstrap";
 import SocialMedia from "../Molecules/SocialMedia";
 import { useHistory } from "react-router";
+import useCreateAccount from "./../../react-hooks/useCreateAccount";
 
 
 const StyledLoginFormWrapper = styled.div`
@@ -36,6 +37,7 @@ const StyledAuthLink = styled.div`
     display: flex;
     flex-flow: row;
     gap: .5rem;
+    justify-content: center;
     
     p {
         font-size: .75rem;
@@ -51,9 +53,38 @@ const StyledAuthLink = styled.div`
     }
 `;
 
-function CreateForm({title}) {
+function CreateForm({title, onSubmit}) {
 
     const history = useHistory()
+
+    const { formik } = useCreateAccount(onSubmit)
+
+    const configEmail = { 
+        style: formik.errors.email ? {borderColor: "#C90808"} : null,
+        type: "text",
+        name: "email",
+        value: formik.values.email,
+        onChange: formik.handleChange,
+        placeholder: "Enter Email"
+    }
+
+    const configPassword = { 
+        style: formik.errors.password ? {borderColor: "#C90808"} : null,
+        type: "text",
+        name: "password",
+        value: formik.values.password,
+        onChange: formik.handleChange,
+        placeholder: "Enter Password"
+    }
+
+    const configConfirmPassword = { 
+        style: formik.errors.confirmPassword ? {borderColor: "#C90808"} : null,
+        type: "text",
+        name: "password",
+        value: formik.values.confirmPassword,
+        onChange: formik.handleChange,
+        placeholder: "Enter Confirm Password"
+    }
 
     return (
         <StyledLoginFormWrapper>
@@ -65,20 +96,8 @@ function CreateForm({title}) {
             <Row>
                 <Col md={6}>
                     <FormControl 
-                        controls={{
-                            label: {
-                                name: "Name"
-                            }
-                        }}
-                    />
-                </Col>
-                <Col md={6}>
-                    <FormControl 
-                        controls={{
-                            label: {
-                                name: "Email"
-                            }
-                        }}
+                        controls={{label: {style: formik.errors.email ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.email ? {borderColor: "#C90808"} : null}}
+                        {...configEmail}
                     />
                 </Col>
             </Row>
@@ -86,32 +105,26 @@ function CreateForm({title}) {
             <Row>
                 <Col md={6}>
                     <FormControl 
-                        controls={{
-                            label: {
-                                name: "Password"
-                            }
-                        }}
+                        controls={{label: {style: formik.errors.password ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.password ? {borderColor: "#C90808"} : null}}
+                        {...configPassword}
                     />
                 </Col>
                 <Col md={6}>
                     <FormControl 
-                        controls={{
-                            label: {
-                                name: "Confirm Password"
-                            }
-                        }}
+                        controls={{label: {style: formik.errors.confirmPassword ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.confirmPassword ? {borderColor: "#C90808"} : null}}
+                        {...configConfirmPassword}
                     />
                 </Col>
             </Row>
             <div className="p-3"></div>
             <Row>
                 <Col md={7}>
-                    <Button className="w-100" text="CREATE ACCOUNT" />
+                    <Button type="submit" className="w-100" text="CREATE ACCOUNT" />
                 </Col>
             </Row>
             <div className="p-2"></div>
             <StyledAuthLink>
-                <p>Already have an account?</p><p onClick={() => history.push('/login')}>Login to Account </p>
+                <p>Already have an account?</p><p onClick={() => history.push('/login')}>Login to Account</p>
             </StyledAuthLink>
         </StyledLoginFormWrapper>
     )

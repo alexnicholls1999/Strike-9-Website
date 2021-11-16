@@ -143,27 +143,6 @@ function Navbar({auth, secondary}){
             <Ul secondary={secondary} open={open}>
               {routes.links.map((route, index) => <NavLink key={index} secondary={secondary} active={splitLocation[1] === `${route.location}`} onClick={() => history.push(`${route.path}`)}>{route.routeName}</NavLink>)}
             </Ul>
-
-            {isAuthenticated ? (
-              <Ul>
-                <NavDropDrown>
-                  <NavLink auth onClick={() => setOpenDropdown(!opendropdown)}>Hi {name}</NavLink>
-                  <NavDropDownContent open={opendropdown}>
-                    <NavDropDownLink auth onClick={() => setIsAuthenticated(false)}>Logout</NavDropDownLink>
-                  </NavDropDownContent>
-                </NavDropDrown>
-              </Ul>
-            ) : (
-              !auth && (
-                <StyledButtonWrapper>
-                  {/* <Button secondary onClick={() => history.push("/createaccount")} text="Create Account"/>
-                  <Button secondary onClick={() => history.push("/login")} text="Login"/> */}
-                  <Button secondary onClick={() => setIsAuthenticated(true)} text="Create Account"/>
-                  <Button secondary onClick={() => setIsAuthenticated(true)} text="Login"/>
-                </StyledButtonWrapper>
-            )
-            )}
-            
             <Burger onClick={() => setOpen(!open)} open={open}/>
         </Nav>
     )

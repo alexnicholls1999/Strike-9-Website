@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import AuthLayout from '../../Layouts/AuthLayout';
 import LoginForm from "../Organisms/LoginForm";
 
-function LoginTemplate({loginContent}) {
+function LoginTemplate({loginContent, signInEmailUser}) {
 
     const [error, setError] = useState();
 
@@ -13,13 +13,13 @@ function LoginTemplate({loginContent}) {
         console.log(data);
 
         try {
-            await loginContent.signInEmailUser(email, password);
+            await signInEmailUser(email, password);
         } catch (error) {
             setError(error.message);
         }
     }
 
-    return <AuthLayout authContent={{ hero: { title: loginContent.title, paragraph: loginContent.paragraph}, component: <LoginForm title="or use your email for signing in:" onSubmit={handleSubmit}/>}}  />
+    return <AuthLayout authContent={{ hero: { title: loginContent.title, paragraph: loginContent.paragraph}, component: <LoginForm title="or use your email for signing in:" serverError={error} onSubmit={handleSubmit}/>}}  />
 }
 
 LoginTemplate.propTypes = {

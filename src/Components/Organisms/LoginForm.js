@@ -6,6 +6,7 @@ import Button from "./../Atoms/Form/Button";
 import { Row, Col } from "react-bootstrap";
 import SocialMedia from "../Molecules/SocialMedia";
 import useLogin from "../../react-hooks/useLogin";
+import ErrorMessage from "../Atoms/Form/ErrorMessage";
 
 
 const StyledLoginFormWrapper = styled.div`
@@ -65,7 +66,7 @@ const StyledAuthLink = styled.div`
 
 `;
 
-function LoginForm({title, onSubmit}) {
+function LoginForm({title, serverError, onSubmit}) {
 
     const { formik } = useLogin(onSubmit)
 
@@ -122,6 +123,7 @@ function LoginForm({title, onSubmit}) {
                     </Col>
                 </Row>
                 <div className="p-2"></div>
+                <ErrorMessage>{serverError}</ErrorMessage>
                 <StyledAuthLink>
                     <p>Dont have an account?</p><p onClick={() => history.push('/createaccount')}>Create an Account </p>
                 </StyledAuthLink>
