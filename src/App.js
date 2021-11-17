@@ -9,7 +9,7 @@ import theme from './styles/theme';
 import routes from './utils/routes';
 import Protected from './HOC/Protected';
 import Events from './Pages/Events';
-import RedirectToLogin from './HOC/RedirectToLogin';
+import RedirectToEvents from './HOC/RedirectToEvents';
 import Login from './Pages/Login';
 import Booking from './Pages/Booking';
 import useAuth from './react-hooks/useAuth';
@@ -20,7 +20,7 @@ const initAttemptedRoute = "/";
 
 function App() {
 
-  const { isAuthenticated, signOut, createEmailUser, signInEmailUser } = useAuth(firebase.auth);
+  const { user, isAuthenticated, signOut, createEmailUser, signInEmailUser } = useAuth(firebase.auth);
 
   return (
     <ThemeProvider theme={theme}>
@@ -36,12 +36,15 @@ function App() {
           <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} exact path="/">
             <Events signOut={signOut} isAuthenticated={isAuthenticated} />
           </Protected>
-          <RedirectToLogin authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">
+          <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} exact path="/events/:id">
+            <Booking user={user}/>
+          </Protected>
+          <RedirectToEvents authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">
               <Login signInEmailUser={signInEmailUser} />
-          </RedirectToLogin>
-          <RedirectToLogin authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/createaccount">
+          </RedirectToEvents>
+          <RedirectToEvents authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/createaccount">
               <CreateAccount createEmailUser={createEmailUser} />
-          </RedirectToLogin>
+          </RedirectToEvents>
         </RouteProvider>
 
       </Switch>

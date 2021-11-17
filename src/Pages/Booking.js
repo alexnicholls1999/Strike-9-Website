@@ -4,7 +4,7 @@ import BookingTemplate from "../Components/Templates/BookingTemplate";
 import useEvents from "../react-hooks/useEvents";
 
 
-function Booking() {
+function Booking({user}) {
 
     const params = useParams()
     const { booked, handleSubmit } = useBookEvent();
@@ -12,8 +12,8 @@ function Booking() {
 
     const slots = 100;
 
-    const user = {
-        uid: "kmdasqwedq12edsc",
+    const userInfo = {
+        uid: user,
         firstName: "Asmir",
         lastName: "Podak",
         email: "aspodak@yahoo.com",
@@ -27,14 +27,15 @@ function Booking() {
         hero: {
             title: "STRIKE 9 VLU REGISTER EVENTS FORM" 
         },
+        user: userInfo,
         params: params,
         events: events,
         slots: slots,
-        user: user,
         booked: booked,
         handleSubmit: handleSubmit
     }
 
+    console.log(user.uid);
 
     return <BookingTemplate bookingContent={bookingContent} />
 }

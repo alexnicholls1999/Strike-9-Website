@@ -94,7 +94,7 @@ function CreateForm({title, serverError, onSubmit}) {
             <div className="p-3"></div>
             <h6>{title}</h6>
             <div className="p-4"></div>
-            <form>
+            <form autoComplete="off" onSubmit={formik.handleSubmit}>
                 <Row>
                     <Col md={6}>
                         <FormControl 
