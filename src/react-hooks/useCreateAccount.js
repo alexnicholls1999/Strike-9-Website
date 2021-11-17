@@ -6,8 +6,7 @@ export default function useCreateAccount(onSubmit){
     const formik = useFormik({
         initialValues: {
             email: '',
-            password: '',
-            confirmPassword: ''
+            password: ''
         },
         onSubmit: data => {
             handleInnerSubmit(data);

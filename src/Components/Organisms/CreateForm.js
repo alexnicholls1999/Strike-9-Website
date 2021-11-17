@@ -6,6 +6,7 @@ import { Row, Col } from "react-bootstrap";
 import SocialMedia from "../Molecules/SocialMedia";
 import { useHistory } from "react-router";
 import useCreateAccount from "./../../react-hooks/useCreateAccount";
+import ErrorMessage from "../Atoms/Form/ErrorMessage";
 
 
 const StyledLoginFormWrapper = styled.div`
@@ -53,7 +54,7 @@ const StyledAuthLink = styled.div`
     }
 `;
 
-function CreateForm({title, onSubmit}) {
+function CreateForm({title, serverError, onSubmit}) {
 
     const history = useHistory()
 
@@ -93,39 +94,43 @@ function CreateForm({title, onSubmit}) {
             <div className="p-3"></div>
             <h6>{title}</h6>
             <div className="p-4"></div>
-            <Row>
-                <Col md={6}>
-                    <FormControl 
-                        controls={{label: {style: formik.errors.email ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.email ? {borderColor: "#C90808"} : null}}
-                        {...configEmail}
-                    />
-                </Col>
-            </Row>
-            <div className="p-1"></div>
-            <Row>
-                <Col md={6}>
-                    <FormControl 
-                        controls={{label: {style: formik.errors.password ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.password ? {borderColor: "#C90808"} : null}}
-                        {...configPassword}
-                    />
-                </Col>
-                <Col md={6}>
-                    <FormControl 
-                        controls={{label: {style: formik.errors.confirmPassword ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.confirmPassword ? {borderColor: "#C90808"} : null}}
-                        {...configConfirmPassword}
-                    />
-                </Col>
-            </Row>
-            <div className="p-3"></div>
-            <Row>
-                <Col md={7}>
-                    <Button type="submit" className="w-100" text="CREATE ACCOUNT" />
-                </Col>
-            </Row>
-            <div className="p-2"></div>
-            <StyledAuthLink>
-                <p>Already have an account?</p><p onClick={() => history.push('/login')}>Login to Account</p>
-            </StyledAuthLink>
+            <form>
+                <Row>
+                    <Col md={6}>
+                        <FormControl 
+                            controls={{label: {style: formik.errors.email ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.email ? {borderColor: "#C90808"} : null}}
+                            {...configEmail}
+                        />
+                    </Col>
+                </Row>
+                <div className="p-1"></div>
+                <Row>
+                    <Col md={6}>
+                        <FormControl 
+                            controls={{label: {style: formik.errors.password ? {borderColor: "#C90808"} : null, name: "Password"}, errMsg: formik.errors.password ? {borderColor: "#C90808"} : null}}
+                            {...configPassword}
+                        />
+                    </Col>
+                    {/* <Col md={6}>
+                        <FormControl 
+                            controls={{label: {style: formik.errors.confirmPassword ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.confirmPassword ? {borderColor: "#C90808"} : null}}
+                            {...configConfirmPassword}
+                        />
+                    </Col> */}
+                </Row>
+                <div className="p-3"></div>
+                <Row>
+                    <Col md={7}>
+                        <Button type="submit" className="w-100" text="CREATE ACCOUNT" />
+                    </Col>
+                </Row>
+                <div className="p-2"></div>
+                <ErrorMessage>{serverError}</ErrorMessage>
+                <StyledAuthLink>
+                    <p>Already have an account?</p><p onClick={() => history.push('/login')}>Login to Account</p>
+                </StyledAuthLink>
+            </form>
+            
         </StyledLoginFormWrapper>
     )
 }

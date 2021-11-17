@@ -123,11 +123,9 @@ const NavDropDownLink = styled.li`
   color: ${({theme}) => theme.colors.primary[600]};
 `;
 
-function Navbar({auth, secondary}){
+function Navbar({isAuthenticated, signOut, secondary}){
     const routes = useContext(RouteContext);
     const [open, setOpen] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [opendropdown, setOpenDropdown] = useState(false);
     const location = useLocation();
     const history = useHistory();
 
@@ -135,14 +133,21 @@ function Navbar({auth, secondary}){
 
     const splitLocation = pathname.split("/");
 
-    const name = "Alex"
-
     return (
-        <Nav>
-
+        <Nav> 
             <Ul secondary={secondary} open={open}>
               {routes.links.map((route, index) => <NavLink key={index} secondary={secondary} active={splitLocation[1] === `${route.location}`} onClick={() => history.push(`${route.path}`)}>{route.routeName}</NavLink>)}
             </Ul>
+            {isAuthenticated ? (
+              <StyledButtonWrapper>
+                  <Button secondary text="Logout" onClick={signOut}/>
+              </StyledButtonWrapper>
+            ) : (
+              <StyledButtonWrapper>
+                <Button secondary text="Create Account"/>
+                <Button secondary text="Login"/>
+              </StyledButtonWrapper>
+            )}
             <Burger onClick={() => setOpen(!open)} open={open}/>
         </Nav>
     )

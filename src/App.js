@@ -20,7 +20,7 @@ const initAttemptedRoute = "/";
 
 function App() {
 
-  const { isAuthenticated, createEmailUser, signInEmailUser } = useAuth(firebase.auth);
+  const { isAuthenticated, signOut, createEmailUser, signInEmailUser } = useAuth(firebase.auth);
 
   return (
     <ThemeProvider theme={theme}>
@@ -34,7 +34,7 @@ function App() {
 
         <RouteProvider pages={routes}>
           <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} exact path="/">
-            <Events />
+            <Events signOut={signOut} isAuthenticated={isAuthenticated} />
           </Protected>
           <RedirectToLogin authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">
               <Login signInEmailUser={signInEmailUser} />

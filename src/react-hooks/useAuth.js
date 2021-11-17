@@ -8,7 +8,7 @@ export default function useAuth(firebaseAuth) {
     firebaseAuth().onAuthStateChanged(fbUser => {
         if (fbUser) {
             setIsAuthenticated(true);
-            console.log(fbUser);
+            // console.log(fbUser);
             setUser(fbUser);
             return;
         }

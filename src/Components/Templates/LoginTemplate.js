@@ -10,8 +10,6 @@ function LoginTemplate({loginContent, signInEmailUser}) {
     const handleSubmit = async data => {
         const { email, password } = data;
 
-        console.log(data);
-
         try {
             await signInEmailUser(email, password);
         } catch (error) {

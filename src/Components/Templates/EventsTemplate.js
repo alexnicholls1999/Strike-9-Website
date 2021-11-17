@@ -5,12 +5,14 @@ import { renderSearchResults } from "../../react-helpers/eventHelpers";
 import useEvents from "../../react-hooks/useEvents";
 import Search from "../Organisms/Search";
 
-function EventsTemplate({eventsContent}) {
+function EventsTemplate({eventsContent, isAuthenticated, signOut}) {
 
     const { state, events, handleOnChangeSearch, handleOnChangeAvailableSlots } = useEvents();
 
     return (
         <MainLayout 
+            isAuthenticated={isAuthenticated}
+            signOut={signOut}
             hero={{ content: { title: eventsContent.hero.title}}} 
             component={
                 <Search
