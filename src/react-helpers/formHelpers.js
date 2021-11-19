@@ -105,13 +105,13 @@ export const handleBookEvent = (store, values) => {
     });
 }
 
-export const handleUpdateEventSlots = (store, slots) => {
+export const handleUpdateEventSlots = (store, values) => {
     return new Promise((resolve, reject) => {
-        console.log(slots);
+        console.log(values.slots, values.eventId);
         store
             .collection("events")
-            .doc()
-            .set(slots)
+            .doc(values.eventId)
+            .update({slots: values.slots})
             .then(() => resolve())
             .catch((err) => reject(err));
     });

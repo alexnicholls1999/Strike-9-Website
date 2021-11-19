@@ -20,6 +20,9 @@ function BookingTemplate({bookingContent}) {
             {events.map((event) => {
 
                 const eventId = event.id;
+                const slots = event.slots;
+
+                console.log(event.slots);
 
                 if (eventId === id) {
                     return (
@@ -32,7 +35,7 @@ function BookingTemplate({bookingContent}) {
                                     initialValues={{
                                         eventId: eventId,
                                         uid: bookingContent.uid,
-                                        slots: bookingContent.slots - 1,
+                                        slots: slots - 1,
                                         teamName: "",
                                         firstName: "",
                                         lastName: "",

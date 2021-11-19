@@ -8,7 +8,7 @@ export default function useBookEvent(store){
     const handleSubmit = (values) => {
         setBooked("Booked!");
         handleBookEvent(store, values);        
-        handleUpdateEventSlots(store, values.slots);
+        handleUpdateEventSlots(store, values);
     }
 
     return {
