@@ -15,38 +15,48 @@ import Booking from './Pages/Booking';
 import useAuth from './react-hooks/useAuth';
 import firebase from "./firebase/utils";
 import CreateAccount from './Pages/CreateAccount';
+import Home from './Pages/Home';
+import About from './Pages/About';
+import Training from './Pages/Training';
+import Coaching from './Pages/Coaching';
+import Contact from './Pages/Contact';
+import useBookEvent from './react-hooks/useBookEvent';
+import useEvents from './react-hooks/useEvents';
 
-const initAttemptedRoute = "/";
+const initAttemptedRoute = "/events";
 
 function App() {
 
   const { user, isAuthenticated, signOut, createEmailUser, signInEmailUser } = useAuth(firebase.auth);
+  const { state, events, handleOnChangeAvailableSlots, handleOnChangeSearch } = useEvents(firebase.firestore);  
+  const { booked, handleSubmit } = useBookEvent(firebase.firestore);
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Switch>
-        {/* <RouteProvider pages={routes}>
-          <ContentProvider content={content}>
-            {routes.pages.map(({ exact, path, component}, i) => <Route key={i} exact={exact} path={path} component={component}/>)}
-          </ContentProvider>
-        </RouteProvider> */}
-
-        <RouteProvider pages={routes}>
-          <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} exact path="/">
-            <Events signOut={signOut} isAuthenticated={isAuthenticated} />
-          </Protected>
-          <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} exact path="/events/:id">
-            <Booking user={user}/>
-          </Protected>
-          <RedirectToEvents authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">
-              <Login signInEmailUser={signInEmailUser} />
-          </RedirectToEvents>
-          <RedirectToEvents authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/createaccount">
-              <CreateAccount createEmailUser={createEmailUser} />
-          </RedirectToEvents>
-        </RouteProvider>
-
+      <Switch> 
+        <ContentProvider content={content}>       
+          <RouteProvider pages={routes}>
+              <Route exact path="/" component={Home}/>
+              <Route path="/aboutus" component={About}/>
+              <Route path="/training" component={Training}/>        
+              <Route exact path="/events">
+                  <Events useEvents={{state: state, events: events, handleOnChangeAvailableSlots: handleOnChangeAvailableSlots, handleOnChangeSearch: handleOnChangeSearch}} signOut={signOut} isAuthenticated={isAuthenticated} />
+              </Route>
+              <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/events/:id">
+                  <Booking useAuth={{user: user}} useEvents={{events: events}} useBookEvents={{booked: booked, handleSubmit: handleSubmit}} />
+              </Protected>
+              <Route exact path="/coaching" component={Coaching}/>
+              <Route exact path="/contact" component={Contact}/>
+      
+              <RedirectToEvents authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">
+                  <Login signInEmailUser={signInEmailUser}/>
+              </RedirectToEvents>
+              <RedirectToEvents authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/createaccount">
+                  <CreateAccount createEmailUser={createEmailUser} />
+              </RedirectToEvents>
+          </RouteProvider>
+        </ContentProvider>
       </Switch>
     </ThemeProvider>
   );

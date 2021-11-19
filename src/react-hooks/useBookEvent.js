@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import { handleBookEvent, handleUpdateEventSlots } from '../react-helpers/formHelpers';
 
-export default function useBookEvent(){
+export default function useBookEvent(store){
     
     const [booked, setBooked] = useState('Summary');
 
-    const handleSubmit = (values, userId) => {
+    const handleSubmit = (values) => {
         setBooked("Booked!");
-        console.log(values);
-        console.log(userId);
+        handleBookEvent(store, values);        
+        handleUpdateEventSlots(store, values.slots);
     }
 
     return {

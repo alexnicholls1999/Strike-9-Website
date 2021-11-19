@@ -93,11 +93,8 @@ function LoginForm({title, serverError, onSubmit}) {
 
     return (
         <StyledLoginFormWrapper>
+            <h3 className="text-center justify-content-center">Strike 9 Training</h3>
             <div className="p-3"></div>
-            <SocialMedia auth />
-            <div className="p-3"></div>
-            <h6>{title}</h6>
-            <div className="p-4"></div>
             <form autoComplete="off" onSubmit={formik.handleSubmit}>
                 <Row>
                     <Col md={12}>

@@ -25,7 +25,6 @@ const ButtonControls = styled.div`
 function FormStepper({children, onSubmit, ...props}) {
     const [step, dispatch] = useReducer(stepReducer, 0)
     const childrenArray = Children.toArray(children);
-    // const [step, setStep] = useState(0);
     const [completed, setCompleted] = useState(false);
     
     const currentChild = childrenArray[step];

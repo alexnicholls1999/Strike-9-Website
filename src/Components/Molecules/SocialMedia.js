@@ -44,15 +44,13 @@ const StyledSocialMedia = styled.div`
 
 `;
 
-function SocialMedia({auth}) {
+function SocialMedia() {
     return (
         <>
             <StyledSocialMedia>
-                {auth ? (
-                    <>{socialMediaAuth.map(({path, icon}) => <SocialMediaIcon auth={auth} socialMedia={{path: path, icon: icon}}/>)}</>
-                ) : (
-                    <>{socialMedia.map(({path, icon}) => <SocialMediaIcon auth={auth} socialMedia={{path: path, icon: icon}}/>)}</>
-                )}
+
+                <>{socialMedia.map(({path, icon}) => <SocialMediaIcon socialMedia={{path: path, icon: icon}}/>)}</>
+
                 
             </StyledSocialMedia>
         </>

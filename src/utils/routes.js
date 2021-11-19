@@ -32,11 +32,6 @@ const pages = [
       component: Events,
     },
     {
-      routeName: "BookingForm",
-      path: "/events/:id",
-      component: Booking
-    },
-    {
       routeName: "Coaching",
       path: "/coaching",
       component: Coaching
@@ -46,16 +41,6 @@ const pages = [
       path: "/contact",
       component: Contact
     },
-    {
-      routeName: "Login",
-      path: "/login",
-      component: Login
-    },
-    {
-      routeName: "CreateAccount",
-      path: "/createaccount",
-      component: CreateAccount
-    }
 ]
 
 const links = [

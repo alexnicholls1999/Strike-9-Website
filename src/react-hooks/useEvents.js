@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { handleFetchEvents } from "./../react-helpers/eventHelpers";
-import { store } from "./../firebase/utils";
 
-export default function useEvents(){
+export default function useEvents(store){
     const [events, setEvents] = useState([]);
     const [state, setState] = useState({
         date: "Any",

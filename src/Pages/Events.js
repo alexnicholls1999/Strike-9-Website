@@ -1,6 +1,6 @@
 import EventsTemplate from '../Components/Templates/EventsTemplate'
 
-function Events({isAuthenticated, signOut}) {
+function Events({isAuthenticated, signOut, useEvents}) {
 
     const eventsContent = {
         hero: {
@@ -8,7 +8,7 @@ function Events({isAuthenticated, signOut}) {
         }
     }
 
-    return <EventsTemplate isAuthenticated={isAuthenticated} signOut={signOut} eventsContent={eventsContent} />
+    return <EventsTemplate isAuthenticated={isAuthenticated} useEvents={useEvents} signOut={signOut} eventsContent={eventsContent} />
 }
 
 export default Events

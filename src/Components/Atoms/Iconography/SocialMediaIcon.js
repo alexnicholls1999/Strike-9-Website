@@ -14,36 +14,17 @@ const StyledSocialMediaIcon = styled.div`
         font-size: 2rem;
         color: ${({theme}) => theme.colors.neutral[200]};
     }
-
-    
-    ${({ auth }) => auth && css`
-        margin: 0 .5rem;
-        border-radius: 10rem;
-        border: 1px solid ${({theme}) => theme.colors.neutral[300]};
-        cursor: pointer;
-
-        &:hover {
-            border: 2px solid ${({theme}) => theme.colors.primary[500]};
-            transition: 300ms ease-in-out;  
-        }
-
-        svg { 
-            font-size: 1rem;
-            color: ${({theme}) => theme.colors.primary[500]};
-        }
-    `}
-
 `;
 
-function SocialMediaIcon({auth, socialMedia}) {
+function SocialMediaIcon({socialMedia}) {
 
     const handleOnClickLink = () => {
         window.open(`${socialMedia.path}`, '_blank');
     }
 
     return (
-        <StyledSocialMediaIcon auth={auth}>
-            <FontAwesomeIcon onClick={auth ? auth.handleAuthClick : handleOnClickLink} className="fab" icon={socialMedia.icon} />
+        <StyledSocialMediaIcon>
+            <FontAwesomeIcon onClick={handleOnClickLink} className="fab" icon={socialMedia.icon} />
         </StyledSocialMediaIcon>
     )
 }

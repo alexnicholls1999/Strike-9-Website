@@ -2,9 +2,13 @@ import theme from "../styles/theme";
 import { makeStyles } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/styles";
 import { StepConnector } from "@material-ui/core";
-import * as Steps from "./../Components/Organisms/FormSteps";
 import FormStep from "../Components/Atoms/FormStep";
-import FormStepper from "../Components/Organisms/FormStepper";
+
+// Steps
+import EventDetails from "../Components/Organisms/FormSteps/EventDetails";
+import PersonalDetails from "../Components/Organisms/FormSteps/PersonalDetails";
+import BillingAddress from "../Components/Organisms/FormSteps/BillingAddress";
+import Summary from "../Components/Organisms/FormSteps/Summary";
 
 export const Strike9StepIconStyles = makeStyles({
     root: {
@@ -50,31 +54,34 @@ export function isFormCompleted(booked) {
     if (booked === "Booked!") {
         return (
             <>
+                <div className="p-2"></div>
                 <h1 style={{color: theme.colors.primary[500], textAlign: "center"}}>Booking Successful</h1>
                 <div className="p-2"></div>
                 <p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad ut molestias suscipit sed quibusdam corrupti nostrum et ex illum saepe.</p>
+                <div className="p-4"></div>
+                <div className="p-4"></div>
+                <div className="p-4"></div>
+                <div className="p-4"></div>
             </>
         )
     }
 
-    return <Steps.Summary eventDate="20th October 2020" />
+    return <Summary eventDate="20th October 2020" />
 }
 
 export const renderSteps = (bookingContent, event) => {
 
-    console.log(event);
-
     const steps = [
         {
             label: "Events Details",
-            component: <Steps.EventDetails eventDetails={{date: event.date, time: event.time, address: "Mosley School Sports Centre, Springfield Road, B13 9NP", cost: event.cost,}}/>
+            component: <EventDetails eventDetails={{date: event.date, time: event.time, address: "Mosley School Sports Centre, Springfield Road, B13 9NP", cost: event.cost,}}/>
         },
         {
             label: "Personal Details"
         },
         {
             label: "Billing Address",
-            component: <Steps.BillingAddress />
+            component: <BillingAddress />
         },
         {
             label: bookingContent.booked,
@@ -84,4 +91,28 @@ export const renderSteps = (bookingContent, event) => {
 
 
     return steps.map(({label, component}, index) => <FormStep key={index} label={label}>{component}</FormStep>)
+}
+
+export const handleBookEvent = (store, values) => {
+    return new Promise((resolve, reject) => {
+        console.log(values);
+        store
+            .collection("booking")
+            .doc()
+            .set(values)
+            .then(() => resolve())
+            .catch((err) => reject(err));
+    });
+}
+
+export const handleUpdateEventSlots = (store, slots) => {
+    return new Promise((resolve, reject) => {
+        console.log(slots);
+        store
+            .collection("events")
+            .doc()
+            .set(slots)
+            .then(() => resolve())
+            .catch((err) => reject(err));
+    });
 }

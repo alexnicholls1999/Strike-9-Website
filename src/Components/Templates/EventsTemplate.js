@@ -2,12 +2,9 @@ import PropTypes from "prop-types";
 import { Container } from "react-bootstrap";
 import MainLayout from "../../Layouts/MainLayout";
 import { renderSearchResults } from "../../react-helpers/eventHelpers";
-import useEvents from "../../react-hooks/useEvents";
 import Search from "../Organisms/Search";
 
-function EventsTemplate({eventsContent, isAuthenticated, signOut}) {
-
-    const { state, events, handleOnChangeSearch, handleOnChangeAvailableSlots } = useEvents();
+function EventsTemplate({eventsContent, isAuthenticated, signOut, useEvents}) {
 
     return (
         <MainLayout 
@@ -18,26 +15,26 @@ function EventsTemplate({eventsContent, isAuthenticated, signOut}) {
                 <Search
                     search={{
                         handleFilters: {
-                            handleDateChange: handleOnChangeSearch, 
-                            handleTypeChange: handleOnChangeSearch, 
-                            handleTimeChange: handleOnChangeSearch, 
-                            handleAgeChange: handleOnChangeSearch, 
-                            handleCheck: handleOnChangeAvailableSlots
+                            handleDateChange: useEvents.handleOnChangeSearch, 
+                            handleTypeChange: useEvents.handleOnChangeSearch, 
+                            handleTimeChange: useEvents.handleOnChangeSearch, 
+                            handleAgeChange:useEvents. handleOnChangeSearch, 
+                            handleCheck: useEvents.handleOnChangeAvailableSlots
                         },
                         filters: {
-                            date: state.date, 
-                            time: state.time, 
-                            type: state.type, 
-                            age: state.age, 
-                            checkedValue: state.isChecked
+                            date: useEvents.state.date, 
+                            time: useEvents.state.time, 
+                            type: useEvents.state.type, 
+                            age: useEvents.state.age, 
+                            checkedValue: useEvents.state.isChecked
                         },
-                        checked: state.isChecked, 
+                        checked: useEvents.state.isChecked, 
                     }}
                 />  
             }
         >
             <Container fluid>
-                {renderSearchResults(events)}
+                {renderSearchResults(useEvents.events)}
             </Container>
 
         </MainLayout>    

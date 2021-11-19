@@ -31,15 +31,16 @@ function BookingTemplate({bookingContent}) {
                                 <FormStepper
                                     initialValues={{
                                         eventId: eventId,
+                                        uid: bookingContent.uid,
                                         slots: bookingContent.slots - 1,
                                         teamName: "",
-                                        firstName: bookingContent.user.firstName,
-                                        lastName: bookingContent.user.lastName,
-                                        email: bookingContent.user.email, 
-                                        mobile: bookingContent.user.mobile,
-                                        gender: bookingContent.user.gender,
-                                        selectedDate: bookingContent.user.dateofbirth,
-                                        ethnicity: bookingContent.user.ethnicity,
+                                        firstName: "",
+                                        lastName: "",
+                                        email: "", 
+                                        mobile: "",
+                                        gender: "",
+                                        selectedDate: "",
+                                        ethnicity: "",
                                         billingAddressLine1: "",
                                         billingAddressLine2: "",
                                         billingAddressLine3: "",
@@ -47,7 +48,7 @@ function BookingTemplate({bookingContent}) {
                                         postcode: "",
                                     }}
                                     onSubmit={async (values) => {
-                                        bookingContent.handleSubmit(values, bookingContent.user.uid);
+                                        bookingContent.handleSubmit(values);
                                     }}
                                 >
 

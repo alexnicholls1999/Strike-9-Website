@@ -29,7 +29,7 @@ const StyledLoginFormWrapper = styled.div`
     }
 
     @media(min-width: ${({theme}) => theme.viewport.md}) {
-        width: 60%;
+        width: 40%;
     }
 
 `;
@@ -71,32 +71,20 @@ function CreateForm({title, serverError, onSubmit}) {
 
     const configPassword = { 
         style: formik.errors.password ? {borderColor: "#C90808"} : null,
-        type: "text",
+        type: "password",
         name: "password",
         value: formik.values.password,
         onChange: formik.handleChange,
         placeholder: "Enter Password"
     }
 
-    const configConfirmPassword = { 
-        style: formik.errors.confirmPassword ? {borderColor: "#C90808"} : null,
-        type: "text",
-        name: "password",
-        value: formik.values.confirmPassword,
-        onChange: formik.handleChange,
-        placeholder: "Enter Confirm Password"
-    }
-
     return (
         <StyledLoginFormWrapper>
+            <h3 className="text-center justify-content-center">Strike 9 Training</h3>
             <div className="p-3"></div>
-            <SocialMedia auth />
-            <div className="p-3"></div>
-            <h6>{title}</h6>
-            <div className="p-4"></div>
             <form autoComplete="off" onSubmit={formik.handleSubmit}>
                 <Row>
-                    <Col md={6}>
+                    <Col md={12}>
                         <FormControl 
                             controls={{label: {style: formik.errors.email ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.email ? {borderColor: "#C90808"} : null}}
                             {...configEmail}
@@ -105,22 +93,16 @@ function CreateForm({title, serverError, onSubmit}) {
                 </Row>
                 <div className="p-1"></div>
                 <Row>
-                    <Col md={6}>
+                    <Col md={12}>
                         <FormControl 
                             controls={{label: {style: formik.errors.password ? {borderColor: "#C90808"} : null, name: "Password"}, errMsg: formik.errors.password ? {borderColor: "#C90808"} : null}}
                             {...configPassword}
                         />
                     </Col>
-                    {/* <Col md={6}>
-                        <FormControl 
-                            controls={{label: {style: formik.errors.confirmPassword ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.confirmPassword ? {borderColor: "#C90808"} : null}}
-                            {...configConfirmPassword}
-                        />
-                    </Col> */}
                 </Row>
                 <div className="p-3"></div>
-                <Row>
-                    <Col md={7}>
+                <Row className="justify-content-center">
+                    <Col md={10}>
                         <Button type="submit" className="w-100" text="CREATE ACCOUNT" />
                     </Col>
                 </Row>
