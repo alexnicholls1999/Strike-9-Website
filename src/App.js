@@ -8,14 +8,17 @@ import content from './utils/content';
 import theme from './styles/theme';
 import routes from './utils/routes';
 import Protected from './HOC/Protected';
-import Events from './Pages/Events';
 import RedirectToEvents from './HOC/RedirectToEvents';
+
+import useAuth from './react-hooks/useAuth';
+import { auth, store } from "./firebase/utils";
+
+
+import CreateAccount from './Pages/CreateAccount';
 import Login from './Pages/Login';
 import Booking from './Pages/Booking';
-import useAuth from './react-hooks/useAuth';
-import firebase from "./firebase/utils";
-import CreateAccount from './Pages/CreateAccount';
 import Home from './Pages/Home';
+import Events from './Pages/Events';
 import About from './Pages/About';
 import Training from './Pages/Training';
 import Coaching from './Pages/Coaching';
@@ -27,13 +30,13 @@ const initAttemptedRoute = "/events";
 
 function App() {
 
-  const { user, isAuthenticated, signOut, createEmailUser, signInEmailUser } = useAuth(firebase.auth);
-  const { state, events, handleOnChangeAvailableSlots, handleOnChangeSearch } = useEvents(firebase.firestore);  
-  const { booked, handleSubmit } = useBookEvent(firebase.firestore);
+  const { user, isAuthenticated, signOut, createEmailUser, signInEmailUser } = useAuth(auth);
+  const { state, events, handleOnChangeAvailableSlots, handleOnChangeSearch } = useEvents(store);  
+  const { booked, handleSubmit } = useBookEvent(store);
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
+      <GlobalStyles />  
       <Switch> 
         <ContentProvider content={content}>       
           <RouteProvider pages={routes}>
@@ -48,7 +51,6 @@ function App() {
               </Protected>
               <Route exact path="/coaching" component={Coaching}/>
               <Route exact path="/contact" component={Contact}/>
-      
               <RedirectToEvents authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">
                   <Login signInEmailUser={signInEmailUser}/>
               </RedirectToEvents>
