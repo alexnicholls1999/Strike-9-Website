@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import TrainingTemplate from '../Components/Templates/TrainingTemplate'
 import { ContentContext } from '../utils/Context/ContentContext'
 
-function Training() {
+function Training({isAuthenticated, signOut}) {
 
     const content = useContext(ContentContext);
 
@@ -27,7 +27,7 @@ function Training() {
         communities: content.training.communities,
     }
 
-    return <TrainingTemplate trainingContent={trainingContent} />
+    return <TrainingTemplate isAuthenticated={isAuthenticated} signOut={signOut} trainingContent={trainingContent} />
 }
 
 export default Training

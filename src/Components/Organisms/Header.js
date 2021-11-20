@@ -21,13 +21,13 @@ const StyledLogo = styled.div`
     }
 `;
 
-function Header({isAuthenticated, ...props}) {
+function Header({isAuthenticated, signOut, ...props}) {
     return (
         <StyledHeader>
             <StyledLogo>
                 Strike 9 Training
             </StyledLogo>
-            <Navbar isAuthenticated={isAuthenticated} {...props}/>
+            <Navbar isAuthenticated={isAuthenticated} signOut={signOut} {...props}/>
         </StyledHeader>
     )
 }

@@ -30,9 +30,11 @@ const StyledContactFormWrapper = styled.div`
 
 `;
 
-function ContactTemplate({contactContent}) {
+function ContactTemplate({contactContent, isAuthenticated, signOut}) {
     return (
         <MainLayout
+            isAuthenticated={isAuthenticated}
+            signOut={signOut}
             hero={{
                 content: {
                     title: contactContent.heroTitle,

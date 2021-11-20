@@ -4,7 +4,7 @@ import {ContentContext} from "../utils/Context/ContentContext";
 
 
 
-function Coaching() {
+function Coaching({isAuthenticated, signOut}) {
     const content = useContext(ContentContext);
 
     const coachingContent = {
@@ -20,7 +20,7 @@ function Coaching() {
         coaches: content.coaching.coaches
     }
 
-    return <CoachingTemplate coachingContent={coachingContent} />
+    return <CoachingTemplate isAuthenticated={isAuthenticated} signOut={signOut} coachingContent={coachingContent} />
 }
 
 export default Coaching

@@ -32,12 +32,14 @@ const StyledCoaching = styled.div`
 `;
 
 
-function AboutTemplate({aboutContent}) {
+function AboutTemplate({aboutContent, isAuthenticated, signOut}) {
 
     const history = useHistory()
 
     return (
         <MainLayout
+            isAuthenticated={isAuthenticated}
+            signOut={signOut}
             hero={{
                 content: {
                     title: aboutContent.heroTitle,

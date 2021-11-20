@@ -7,7 +7,3 @@ export const nextStepAction = () => ({
 export const prevStepAction = () => ({
     type: stepperTypes.PREVIOUS_STEP
 });
-
-export const firstStepAction = () => ({
-    type: stepperTypes.FIRST_STEP
-});

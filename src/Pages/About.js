@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import AboutTemplate from '../Components/Templates/AboutTemplate'
 import { ContentContext } from '../utils/Context/ContentContext'
 
-function About() {
+function About({isAuthenticated, signOut}) {
 
     const content = useContext(ContentContext);
 
@@ -24,7 +24,7 @@ function About() {
         }
     }
 
-    return <AboutTemplate aboutContent={aboutContent} />
+    return <AboutTemplate isAuthenticated={isAuthenticated} signOut={signOut} aboutContent={aboutContent} />
 }
 
 export default About

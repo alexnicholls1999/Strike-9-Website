@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import BookingTemplate from "../Components/Templates/BookingTemplate";
 
 
-function Booking({useAuth, useEvents, useBookEvents}) {
+function Booking({useAuth, useEvents, useBookEvents, isAuthenticated, signOut}) {
 
     const params = useParams()
 
@@ -22,7 +22,7 @@ function Booking({useAuth, useEvents, useBookEvents}) {
     }
 
 
-    return <BookingTemplate bookingContent={bookingContent} />
+    return <BookingTemplate isAuthenticated={isAuthenticated} signOut={signOut} bookingContent={bookingContent} />
 }
 
 Booking.propTypes = {

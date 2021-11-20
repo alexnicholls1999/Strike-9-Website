@@ -41,6 +41,33 @@ export default function PersonalDetails() {
         placeholder: "Enter Mobile"
     }
 
+    const configGender = {
+        style: errors.gender ? {borderColor: "#C90808"} : null,
+        type: "text",
+        name: "gender",
+        value: values.gender,
+        onChange: handleChange,
+        placeholder: "Enter Gender"
+    }
+
+    const configDateofBirth = {
+        style: errors.dateOfBirth ? {borderColor: "#C90808"} : null,
+        type: "text",
+        name: "dateOfBirth",
+        value: values.dateOfBirth,
+        onChange: handleChange,
+        placeholder: "Enter Date of Birth"
+    }
+
+    const configEthnicity = {
+        style: errors.ethnicity ? {borderColor: "#C90808"} : null,
+        type: "text",
+        name: "ethnicity",
+        value: values.ethnicity,
+        onChange: handleChange,
+        placeholder: "Enter Ethnicity"
+    }
+
     return (
         <>
             <Row>
@@ -52,7 +79,7 @@ export default function PersonalDetails() {
                         controls={{
                             label: {
                                 style: errors.firstName ? {borderColor: "#C90808"} : null,
-                                name: "Billing Address Line 1",
+                                name: "First Name",
                             },
                             errMsg: errors.firstName ? {borderColor: "#C90808"} : null
                         }}
@@ -64,7 +91,7 @@ export default function PersonalDetails() {
                         controls={{
                             label: {
                                 style: errors.lastName ? {borderColor: "#C90808"} : null,
-                                name: "Billing Address Line 2",
+                                name: "Last Name",
                             },
                             errMsg: errors.lastName ? {borderColor: "#C90808"} : null
                         }}
@@ -95,6 +122,48 @@ export default function PersonalDetails() {
                             errMsg: errors.mobile ? {borderColor: "#C90808"} : null
                         }}
                         {...configMobile}
+                    />
+                </Col>
+            </Row>
+            <Row>
+                <Col md={6}>
+                    <FormControl 
+                        controls={{
+                            label: {
+                                style: errors.gender ? {borderColor: "#C90808"} : null,
+                                name: "Gender",
+                            },
+                            errMsg: errors.gender ? {borderColor: "#C90808"} : null
+                        }}
+                        {...configGender}
+                    />
+                </Col>
+            </Row>
+            <Row>
+                <Col md={6}>
+                    <FormControl 
+                        controls={{
+                            label: {
+                                style: errors.dateOfBirth ? {borderColor: "#C90808"} : null,
+                                name: "Date of Birth",
+                            },
+                            errMsg: errors.dateOfBirth ? {borderColor: "#C90808"} : null
+                        }}
+                        {...configDateofBirth}
+                    />
+                </Col>
+            </Row>
+            <Row>
+                <Col md={6}>
+                    <FormControl 
+                        controls={{
+                            label: {
+                                style: errors.ethnicity ? {borderColor: "#C90808"} : null,
+                                name: "Ethnicity",
+                            },
+                            errMsg: errors.ethnicity ? {borderColor: "#C90808"} : null
+                        }}
+                        {...configEthnicity}
                     />
                 </Col>
             </Row>

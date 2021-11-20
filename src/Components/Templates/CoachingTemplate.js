@@ -4,14 +4,18 @@ import MainLayout from "../../Layouts/MainLayout";
 import Topic from "../Organisms/Topic";
 import Summary from "../Organisms/Summary";
 
-function CoachingTemplate({coachingContent}) {
+function CoachingTemplate({coachingContent, isAuthenticated, signOut}) {
     return (
-        <MainLayout hero={{
-            content: {
-                title: coachingContent.heroTitle,
-                text: coachingContent.paragraph
-            }
-        }}>
+        <MainLayout 
+            isAuthenticated={isAuthenticated}
+            signOut={signOut}
+            hero={{
+                content: {
+                    title: coachingContent.heroTitle,
+                    text: coachingContent.paragraph
+                }
+            }}
+        >
             
             <Summary content={{blurb: { title: coachingContent.summary.blurb.title, paragraph: coachingContent.summary.blurb.paragraph}, paragraph: coachingContent.summary.paragraph}}/>
 

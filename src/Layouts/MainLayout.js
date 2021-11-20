@@ -9,11 +9,11 @@ const IntroWrapper = styled.div`
     background: ${({theme}) => theme.colors.primary[500]};
 `;
 
-function MainLayout({hero, component, children, isAuthenticated, firebase, noDisplay, ...props}) {
+function MainLayout({hero, component, children, isAuthenticated, noDisplay, ...props}) {
     return (
         <>
             <IntroWrapper>
-                <Header isAuthenticated={isAuthenticated} firebase={firebase} {...props}/>
+                <Header isAuthenticated={isAuthenticated} {...props}/>
                 <Hero secondary content={hero.content} component={component} {...props} />
             </IntroWrapper>
             <Pattern noDisplay={noDisplay}/>

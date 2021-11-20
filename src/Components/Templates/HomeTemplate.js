@@ -112,12 +112,16 @@ const Point = styled.div`
  `;
 
 
-function HomeTemplate({homeContent}) {
+function HomeTemplate({homeContent, isAuthenticated, signOut}) {
     return (
-        <HomeLayout content={{
-            title: homeContent.heroTitle,
-            text: homeContent.paragraph
-        }}>
+        <HomeLayout 
+            isAuthenticated={isAuthenticated}
+            signOut={signOut}
+            content={{
+                title: homeContent.heroTitle,
+                text: homeContent.paragraph
+            }}
+        >
             <StyledSponsors>
                     <img src={homeContent.sponsorsImg.src} alt={homeContent.sponsorsImg.alt} />
             </StyledSponsors>

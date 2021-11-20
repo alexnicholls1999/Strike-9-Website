@@ -4,11 +4,10 @@ import styled from "styled-components";
 import { FormikProvider, useFormik } from "formik";
 import { Container, Row, Col} from 'react-bootstrap';
 import stepReducer from "./../../react-reducers/FormStepper/stepper.reducer";
-import stepperTypes from '../../react-reducers/FormStepper/stepper.types';
 
 import Button from "./../Atoms/Form/Button";
 import ProgressBar from "./../Molecules/ProgressBar";
-import { firstStepAction, nextStepAction, prevStepAction } from '../../react-reducers/FormStepper/stepper.actions';
+import { nextStepAction, prevStepAction } from '../../react-reducers/FormStepper/stepper.actions';
 
 
 const ButtonControls = styled.div`
@@ -40,8 +39,6 @@ function FormStepper({children, onSubmit, ...props}) {
             if (isLastStep()) { 
                 await onSubmit(values, helpers)
                 setCompleted(true)
-            } else if (step === 0) {
-                dispatch(firstStepAction());
             } else {
                 dispatch(nextStepAction());
             }

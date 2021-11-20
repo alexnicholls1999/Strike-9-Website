@@ -2,7 +2,7 @@ import {useContext} from 'react'
 import ContactTemplate from '../Components/Templates/ContactTemplate'
 import { ContentContext } from '../utils/Context/ContentContext';
 
-function Contact() {
+function Contact({isAuthenticated, signOut}) {
 
     const content = useContext(ContentContext);
 
@@ -27,7 +27,7 @@ function Contact() {
         }
     }
 
-    return <ContactTemplate contactContent={contactContent} />
+    return <ContactTemplate isAuthenticated={isAuthenticated} signOut={signOut} contactContent={contactContent} />
 }
 
 export default Contact

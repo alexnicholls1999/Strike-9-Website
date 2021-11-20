@@ -8,7 +8,7 @@ const FormWrapper = styled.div`
 
 `
 
-function BookingTemplate({bookingContent}) {
+function BookingTemplate({bookingContent, isAuthenticated, signOut}) {
 
 
     const id = bookingContent.params.id;
@@ -27,6 +27,8 @@ function BookingTemplate({bookingContent}) {
                 if (eventId === id) {
                     return (
                         <MainLayout 
+                            isAuthenticated={isAuthenticated}
+                            signOut={signOut}
                             hero={{ content: { title: bookingContent.hero.title}}}
                             noDisplay
                         > 

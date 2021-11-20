@@ -40,23 +40,33 @@ function App() {
       <Switch> 
         <ContentProvider content={content}>       
           <RouteProvider pages={routes}>
-              <Route exact path="/" component={Home}/>
-              <Route path="/aboutus" component={About}/>
-              <Route path="/training" component={Training}/>        
+              <Route exact path="/">
+                  <Home signOut={signOut} isAuthenticated={isAuthenticated}/>
+              </Route>
+              <Route path="/aboutus">
+                  <About signOut={signOut} isAuthenticated={isAuthenticated}/>
+              </Route>
+              <Route path="/training">
+                  <Training signOut={signOut} isAuthenticated={isAuthenticated}/>
+              </Route>    
               <Route exact path="/events">
-                  <Events useEvents={{state: state, events: events, handleOnChangeAvailableSlots: handleOnChangeAvailableSlots, handleOnChangeSearch: handleOnChangeSearch}} signOut={signOut} isAuthenticated={isAuthenticated} />
+                  <Events signOut={signOut} isAuthenticated={isAuthenticated} useEvents={{state: state, events: events, handleOnChangeAvailableSlots: handleOnChangeAvailableSlots, handleOnChangeSearch: handleOnChangeSearch}} />
               </Route>
               <Protected authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/events/:id">
-                  <Booking useAuth={{user: user}} useEvents={{events: events}} useBookEvents={{booked: booked, handleSubmit: handleSubmit}} />
+                  <Booking signOut={signOut} isAuthenticated={isAuthenticated} useAuth={{user: user}} useEvents={{events: events}} useBookEvents={{booked: booked, handleSubmit: handleSubmit}} />
               </Protected>
-              <Route exact path="/coaching" component={Coaching}/>
-              <Route exact path="/contact" component={Contact}/>
+              <Route path="/coaching">
+                  <Coaching signOut={signOut} isAuthenticated={isAuthenticated}/>
+              </Route>  
+              <Route path="/contact">
+                  <Contact signOut={signOut} isAuthenticated={isAuthenticated}/>
+              </Route>  
               <RedirectToEvents authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/login">
                   <Login signInEmailUser={signInEmailUser}/>
               </RedirectToEvents>
               <RedirectToEvents authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/createaccount">
                   <CreateAccount createEmailUser={createEmailUser} />
-              </RedirectToEvents>
+              </RedirectToEvents> 
           </RouteProvider>
         </ContentProvider>
       </Switch>

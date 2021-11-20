@@ -77,7 +77,8 @@ export const renderSteps = (bookingContent, event) => {
             component: <EventDetails eventDetails={{date: event.date, time: event.time, address: "Mosley School Sports Centre, Springfield Road, B13 9NP", cost: event.cost,}}/>
         },
         {
-            label: "Personal Details"
+            label: "Personal Details",
+            component: <PersonalDetails />
         },
         {
             label: "Billing Address",

@@ -3,7 +3,7 @@ import HomeTemplate from "../Components/Templates/HomeTemplate"
 import { ContentContext } from "../utils/Context/ContentContext"
 
 
-function Home() {
+function Home({isAuthenticated, signOut}) {
 
     const content = useContext(ContentContext);
 
@@ -41,7 +41,7 @@ function Home() {
         index: content.home.index
     }
 
-    return <HomeTemplate homeContent={homeContent} />
+    return <HomeTemplate isAuthenticated={isAuthenticated} signOut={signOut} homeContent={homeContent} />
 }
 
 export default Home

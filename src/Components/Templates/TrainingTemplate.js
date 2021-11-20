@@ -4,9 +4,11 @@ import Pattern from "../Atoms/Iconography/Pattern";
 import Summary from "../Organisms/Summary";
 import Topic from "../Organisms/Topic";
 
-function TrainingTemplate({trainingContent}) {
+function TrainingTemplate({trainingContent, isAuthenticated, signOut}) {
     return (
         <MainLayout
+            isAuthenticated={isAuthenticated}
+            signOut={signOut}
             hero={{
                 content: {
                     title: trainingContent.heroTitle,
