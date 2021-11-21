@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { renderBookingForm, renderSteps } from "../../react-helpers/formHelpers";
+import { renderSteps } from "../../react-helpers/formHelpers";
 import MainLayout from "../../Layouts/MainLayout";
 import FormStepper from "../../Components/Organisms/FormStepper";
 

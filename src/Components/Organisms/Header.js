@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Logo from "../Atoms/Iconography/Logo";
 import Navbar from "./../Molecules/Navbar"
 
 const StyledHeader = styled.header`
@@ -24,9 +25,7 @@ const StyledLogo = styled.div`
 function Header({isAuthenticated, signOut, ...props}) {
     return (
         <StyledHeader>
-            <StyledLogo>
-                Strike 9 Training
-            </StyledLogo>
+            <Logo />
             <Navbar isAuthenticated={isAuthenticated} signOut={signOut} {...props}/>
         </StyledHeader>
     )

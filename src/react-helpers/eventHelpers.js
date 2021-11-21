@@ -1,4 +1,27 @@
+import styled from "styled-components";
 import Event from "./../Components/Organisms/Event";
+
+const StyledNoResults = styled.div`
+    padding: 5rem 0;
+    text-align: center;
+    width: 100%;
+
+    h3 {
+        color: ${({theme}) => theme.colors.primary[500]};
+        font-weight: bold;
+    }
+`;
+
+export function NoResults(){
+  return (
+    <>
+        <StyledNoResults>
+            <h3>No events found. Please Try Again! </h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, soluta!</p>
+        </StyledNoResults>
+    </>
+  )
+}
 
 export const handleFetchEvents = (state, store, updateEvents) => {
     return new Promise((resolve, reject) => {
@@ -92,7 +115,7 @@ function searchResults(events) {
 }
 
 export function renderSearchResults(events) {
-  if (!events.length > 0) return <p>No results found</p>
+  if (!events.length > 0) return <NoResults />
 
   return <>{searchResults(events)}</>;
 }
