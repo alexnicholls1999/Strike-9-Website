@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const RouteContext = createContext(null);
 
 RouteProvider.propTypes = {
-    values: PropTypes.any.isRequired,
+    pages: PropTypes.any.isRequired,
     children: PropTypes.any.isRequired
 }
 

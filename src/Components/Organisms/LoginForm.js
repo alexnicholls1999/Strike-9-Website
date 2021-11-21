@@ -7,6 +7,7 @@ import { Row, Col } from "react-bootstrap";
 import SocialMedia from "../Molecules/SocialMedia";
 import useLogin from "../../react-hooks/useLogin";
 import ErrorMessage from "../Atoms/Form/ErrorMessage";
+import Logo from "../Atoms/Iconography/Logo";
 
 
 const StyledLoginFormWrapper = styled.div`
@@ -66,7 +67,7 @@ const StyledAuthLink = styled.div`
 
 `;
 
-function LoginForm({title, serverError, onSubmit}) {
+function LoginForm({serverError, onSubmit}) {
 
     const { formik } = useLogin(onSubmit)
 
@@ -93,7 +94,7 @@ function LoginForm({title, serverError, onSubmit}) {
 
     return (
         <StyledLoginFormWrapper>
-            <h3 className="text-center justify-content-center">Strike 9 Training</h3>
+            <Logo auth />
             <div className="p-3"></div>
             <form autoComplete="off" onSubmit={formik.handleSubmit}>
                 <Row>
@@ -116,7 +117,7 @@ function LoginForm({title, serverError, onSubmit}) {
                 <div className="p-3"></div>
                 <Row className="justify-content-center">
                     <Col md={10}>
-                        <Button type="submit" className="w-100" text="LOG IN WITH EMAIL" />
+                        <Button type="submit" disabled={!formik.isValid} className="w-100" text="LOG IN WITH EMAIL" />
                     </Col>
                 </Row>
                 <div className="p-2"></div>

@@ -145,8 +145,8 @@ function Navbar({isAuthenticated, auth, signOut, secondary}){
                 </StyledButtonWrapper>
               ) : (
                 <StyledButtonWrapper>
-                  <Button secondary text="Create Account"/>
-                  <Button secondary text="Login"/>
+                  <Button secondary text="Create Account" onClick={() => history.push("/createaccount")}/>
+                  <Button secondary text="Login" onClick={() => history.push("/login")}/>
                 </StyledButtonWrapper>
               )
             ) : null}
