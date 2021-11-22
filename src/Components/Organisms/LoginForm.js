@@ -29,6 +29,11 @@ const StyledLoginFormWrapper = styled.div`
 
     }
 
+    svg {
+        margin-top: 1rem;
+        margin-inline: auto;
+    }
+
     @media(min-width: ${({theme}) => theme.viewport.md}) {
         width: 40%;
     }
@@ -94,24 +99,35 @@ function LoginForm({serverError, onSubmit}) {
 
     return (
         <StyledLoginFormWrapper>
-            <Logo auth />
+            <Logo auth/>
             <div className="p-3"></div>
             <form autoComplete="off" onSubmit={formik.handleSubmit}>
                 <Row>
                     <Col md={12}>
-                        <FormControl 
-                            controls={{label: {style: formik.errors.email ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.email ? {borderColor: "#C90808"} : null}}
+                        <FormControl
+                            controls={{
+                                label: {
+                                    style: formik.errors.email ? {color: "#C90808"} : null,
+                                    name: "Email: "
+                                },
+                                errMsg: formik.errors.email
+                            }}
                             {...configEmail}
                         />
                     </Col>
                 </Row>
                 <Row>
                     <Col md={12}>
-                        <FormControl 
-                            controls={{label: {style: formik.errors.password ? {borderColor: "#C90808"} : null, name: "Password"}, errMsg: formik.errors.password ? {borderColor: "#C90808"} : null}}
+                        <FormControl
+                            controls={{
+                                label: {
+                                    style: formik.errors.password ? {color: "#C90808"} : null,
+                                    name: "Password: "
+                                },
+                                errMsg: formik.errors.password
+                            }}
                             {...configPassword}
                         />
-                        <StyledPasswordLink onClick={() => history.push('/forgotpassword')}>Forgot your password?</StyledPasswordLink>
                     </Col>
                 </Row>
                 <div className="p-3"></div>

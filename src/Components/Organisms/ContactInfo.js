@@ -4,18 +4,6 @@ import styled from "styled-components";
 import SocialMedia from "../Molecules/SocialMedia";
 import ListItem from "../Molecules/Text/ListItem";
 
-const contactInfos = [
-    {
-        paragraph: "Moseley School Sports Centre, Springfield Road, B13 9NP"
-    },
-    {   
-        paragraph: "079341234113"
-    },
-    {
-        paragraph: "info@strike9training.co.uk"
-    }
-]
-
 const StyledContactInfoWrapper = styled.div`
     position: relative;
     background: ${({theme}) => theme.colors.neutral[800]};

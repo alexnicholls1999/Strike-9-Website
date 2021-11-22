@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { Container, Row } from "react-bootstrap";
 import styled from "styled-components";
@@ -31,6 +32,19 @@ const StyledContactFormWrapper = styled.div`
 `;
 
 function ContactTemplate({contactContent, isAuthenticated, signOut}) {
+
+    const [error, setError] = useState();
+
+    const handleSubmit = async data => {
+        const { email, name, message } = data;
+
+        try {
+            console.log(data)
+        } catch (error) {
+            setError(error.message);
+        }
+    }
+
     return (
         <MainLayout
             isAuthenticated={isAuthenticated}
@@ -48,7 +62,7 @@ function ContactTemplate({contactContent, isAuthenticated, signOut}) {
                 <StyledContactFormWrapper>
                     <Card>
                         <Row>
-                            <ContactForm  contactForm={{title: contactContent.contactForm.title}}/>
+                            <ContactForm onSubmit={handleSubmit} contactForm={{title: contactContent.contactForm.title}}/>
                             <ContactInfo  
                                 contactInfo={{
                                     title: contactContent.contactInfo.title,

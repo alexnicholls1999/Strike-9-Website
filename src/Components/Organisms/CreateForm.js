@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import FormControl from "./../Molecules/FormControl";
 import Button from "./../Atoms/Form/Button";
 import { Row, Col } from "react-bootstrap";
-import SocialMedia from "../Molecules/SocialMedia";
 import { useHistory } from "react-router";
 import useCreateAccount from "./../../react-hooks/useCreateAccount";
 import ErrorMessage from "../Atoms/Form/ErrorMessage";
+import Logo from "../Atoms/Iconography/Logo";
 
 
 const StyledLoginFormWrapper = styled.div`
@@ -25,7 +25,11 @@ const StyledLoginFormWrapper = styled.div`
         font-weight: ${({theme}) => theme.typography.fontWeight.regular};
         color: ${({theme}) => theme.colors.primary[600]};
         float: right;
+    }
 
+    svg {
+        margin-top: 1rem;
+        margin-inline: auto;
     }
 
     @media(min-width: ${({theme}) => theme.viewport.md}) {
@@ -80,13 +84,19 @@ function CreateForm({title, serverError, onSubmit}) {
 
     return (
         <StyledLoginFormWrapper>
-            <h3 className="text-center justify-content-center">Strike 9 Training</h3>
+            <Logo auth />
             <div className="p-3"></div>
             <form autoComplete="off" onSubmit={formik.handleSubmit}>
                 <Row>
                     <Col md={12}>
-                        <FormControl 
-                            controls={{label: {style: formik.errors.email ? {borderColor: "#C90808"} : null, name: "Email"}, errMsg: formik.errors.email ? {borderColor: "#C90808"} : null}}
+                        <FormControl
+                            controls={{
+                                label: {
+                                    style: formik.errors.email ? {color: "#C90808"} : null,
+                                    name: "Email: "
+                                },
+                                errMsg: formik.errors.email
+                            }}
                             {...configEmail}
                         />
                     </Col>
@@ -94,8 +104,14 @@ function CreateForm({title, serverError, onSubmit}) {
                 <div className="p-1"></div>
                 <Row>
                     <Col md={12}>
-                        <FormControl 
-                            controls={{label: {style: formik.errors.password ? {borderColor: "#C90808"} : null, name: "Password"}, errMsg: formik.errors.password ? {borderColor: "#C90808"} : null}}
+                        <FormControl
+                            controls={{
+                                label: {
+                                    style: formik.errors.password ? {color: "#C90808"} : null,
+                                    name: "Password: "
+                                },
+                                errMsg: formik.errors.password
+                            }}
                             {...configPassword}
                         />
                     </Col>
@@ -103,7 +119,7 @@ function CreateForm({title, serverError, onSubmit}) {
                 <div className="p-3"></div>
                 <Row className="justify-content-center">
                     <Col md={10}>
-                        <Button type="submit" className="w-100" text="CREATE ACCOUNT" />
+                        <Button type="submit" disabled={!formik.isValid} className="w-100" text="CREATE ACCOUNT" />
                     </Col>
                 </Row>
                 <div className="p-2"></div>

@@ -25,6 +25,7 @@ const StyledAuthHeader = styled.div`
     text-align: center;
     gap: 1rem;
     padding: 7rem 1rem 3rem;
+    z-index: -1;
 
     h2 {
         color: ${({theme}) => theme.colors.neutral[100]};
@@ -55,7 +56,7 @@ const StyledAuthContainer = styled.div`
 function AuthLayout({authContent}) {
     return (
         <>
-            <Header auth secondary/>
+            <Header auth secondary />
             <StyledAuthWrapper>
                 <StyledAuthHeader>
                     <h2>{authContent.hero.title}</h2>
