@@ -9,6 +9,9 @@ import EventDetails from "../Components/Organisms/FormSteps/EventDetails";
 import PersonalDetails from "../Components/Organisms/FormSteps/PersonalDetails";
 import BillingAddress from "../Components/Organisms/FormSteps/BillingAddress";
 import Summary from "../Components/Organisms/FormSteps/Summary";
+import Select from "../Components/Atoms/Form/Select";
+import TextArea from "../Components/Atoms/Form/TextArea";
+import Input from "../Components/Atoms/Form/Input";
 
 export const Strike9StepIconStyles = makeStyles({
     root: {
@@ -49,6 +52,16 @@ export const FormikConnector = withStyles({
 })(StepConnector);
 
 export const sleep = (time) => new Promise((acc) => setTimeout(acc, time));
+
+export function checkFormControlInputTypes(controls, props) {
+    if(controls.dropDown) {
+        return <Select {...props} />
+    } else if (controls.txtArea){
+        return <TextArea {...props}/>
+    } else {
+        return <Input {...props}/>
+    }
+}
 
 export function isFormCompleted(booked) {
     if (booked === "Booked!") {

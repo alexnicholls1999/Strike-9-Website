@@ -44,21 +44,22 @@ export default function PersonalDetails() {
     const configGender = {
         name: "gender",
         style: errors.gender ? {borderColor: "#C90808"} : null,
-        config: {
-            value: values.gender,
-            options: [
-                {
-                    name: "Enter Gender"
-                },
-                {
-                    name: "Male"
-                },
-                {
-                    name: "Female"
-                },
-            ],
-            onChange: handleChange
-        }
+        value: values.gender,
+        options: [
+            {
+                name: "Any"
+            },
+            {
+                name: "17th October 2020"
+            },
+            {
+                name: "20th October 2020"
+            },
+            {
+                name: "27th October 2020"
+            }
+        ],
+        onChange: handleChange
     }
 
     const configDateofBirth = {
@@ -139,8 +140,8 @@ export default function PersonalDetails() {
             <Row>
                 <Col md={6}>
                     <FormControl
-                        dropdown
                         controls={{
+                            dropDown: true,
                             name: "gender",
                             label: {
                                 style: errors.gender ? {borderColor: "#C90808"} : null,
