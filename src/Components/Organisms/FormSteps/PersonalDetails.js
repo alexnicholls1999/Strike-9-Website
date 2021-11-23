@@ -47,17 +47,14 @@ export default function PersonalDetails() {
         value: values.gender,
         options: [
             {
-                name: "Any"
+                name: "Enter Gender"
             },
             {
-                name: "17th October 2020"
+                name: "Male"
             },
             {
-                name: "20th October 2020"
+                name: "Female"
             },
-            {
-                name: "27th October 2020"
-            }
         ],
         onChange: handleChange
     }
@@ -72,12 +69,36 @@ export default function PersonalDetails() {
     }
 
     const configEthnicity = {
-        style: errors.ethnicity ? {borderColor: "#C90808"} : null,
-        type: "text",
         name: "ethnicity",
+        style: errors.ethnicity ? {borderColor: "#C90808"} : null,
         value: values.ethnicity,
-        onChange: handleChange,
-        placeholder: "Enter Ethnicity"
+        options: [
+            {
+                name: "Enter Ethnicity"
+            },
+            {
+                name: "White"
+            },
+            {
+                name: "Mixed"
+            },
+            {
+                name: "Black or Black British"
+            },
+            {
+                name: "Asian or Asian British"
+            },
+            {
+                name: "Arab"
+            },
+            {
+                name: "Other"
+            },
+            {
+                name: "Prefer not to say"
+            }
+        ],
+        onChange: handleChange
     }
 
     return (
@@ -171,6 +192,7 @@ export default function PersonalDetails() {
                 <Col md={6}>
                     <FormControl 
                         controls={{
+                            dropDown: true,
                             label: {
                                 style: errors.ethnicity ? {borderColor: "#C90808"} : null,
                                 name: "Ethnicity",

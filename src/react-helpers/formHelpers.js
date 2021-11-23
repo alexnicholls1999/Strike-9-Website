@@ -55,7 +55,7 @@ export const sleep = (time) => new Promise((acc) => setTimeout(acc, time));
 
 export function checkFormControlInputTypes(controls, props) {
     if(controls.dropDown) {
-        return <Select {...props} />
+        return <Select form {...props} />
     } else if (controls.txtArea){
         return <TextArea {...props}/>
     } else {
