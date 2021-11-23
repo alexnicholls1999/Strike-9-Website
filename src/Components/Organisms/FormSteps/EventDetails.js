@@ -44,7 +44,7 @@ export default function EventDetails({ eventDetails }) {
                             controls={{
                                 label: {
                                     style: errors.teamName ? {color: "#C90808"} : null,
-                                    name: "Email: "
+                                    name: "Team Name: "
                                 }, 
                                 errMsg: errors.teamName
                             }}

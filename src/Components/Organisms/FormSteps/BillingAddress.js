@@ -61,11 +61,11 @@ export default function BillingAddress() {
                     <FormControl 
                         controls={{
                             label: {
-                                style: errors.teamName ? {borderColor: "#C90808"} : null,
+                                style: errors.billingAddressLine1 ? {borderColor: "#C90808"} : null,
                                 name: "Billing Address Line 1",
                             },
-                            errMsg: errors.teamName ? {borderColor: "#C90808"} : null
-                        }}
+                            errMsg: errors.billingAddressLine1 
+                        }}                        
                         {...configBillingAddress1}
                     />
                 </Col>
@@ -73,11 +73,11 @@ export default function BillingAddress() {
                     <FormControl 
                         controls={{
                             label: {
-                                style: errors.teamName ? {borderColor: "#C90808"} : null,
+                                style: errors.billingAddressLine2 ? {borderColor: "#C90808"} : null,
                                 name: "Billing Address Line 2",
                             },
-                            errMsg: errors.teamName ? {borderColor: "#C90808"} : null
-                        }}
+                            errMsg: errors.billingAddressLine2 
+                        }}                        
                         {...configBillingAddress2}
                     />
                 </Col>
@@ -87,11 +87,11 @@ export default function BillingAddress() {
                     <FormControl 
                         controls={{
                             label: {
-                                style: errors.teamName ? {borderColor: "#C90808"} : null,
+                                style: errors.billingAddressLine3 ? {borderColor: "#C90808"} : null,
                                 name: "Billing Address Line 3",
                             },
-                            errMsg: errors.teamName ? {borderColor: "#C90808"} : null
-                        }}
+                            errMsg: errors.billingAddressLine3 
+                        }}                        
                         {...configBillingAddress3}
                     />
                 </Col>
@@ -101,11 +101,11 @@ export default function BillingAddress() {
                     <FormControl 
                         controls={{
                             label: {
-                                style: errors.teamName ? {borderColor: "#C90808"} : null,
-                                name: "Town/City",
+                                style: errors.location ? {borderColor: "#C90808"} : null,
+                                name: "Town/City ",
                             },
-                            errMsg: errors.teamName ? {borderColor: "#C90808"} : null
-                        }}
+                            errMsg: errors.location 
+                        }}                        
                         {...configLocation}
                     />
                 </Col>
@@ -115,10 +115,10 @@ export default function BillingAddress() {
                     <FormControl 
                         controls={{
                             label: {
-                                style: errors.teamName ? {borderColor: "#C90808"} : null,
+                                style: errors.postcode ? {borderColor: "#C90808"} : null,
                                 name: "Postcode",
                             },
-                            errMsg: errors.teamName ? {borderColor: "#C90808"} : null
+                            errMsg: errors.postcode 
                         }}
                         {...configPostcode}
                     />

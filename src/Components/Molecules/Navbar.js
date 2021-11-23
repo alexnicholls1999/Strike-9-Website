@@ -99,30 +99,6 @@ const StyledButtonWrapper = styled.div`
     }
 `;
 
-const NavDropDrown = styled.div`
-  float: left;
-  overflow: hidden;
-`;
-
-
-const NavDropDownContent = styled.div`
-  float: none;
-  color: black;
-  position: absolute;
-  padding: 1rem 3rem;
-  margin: 0 -4rem;
-  text-decoration: none;
-  background: white;
-  display: ${({open}) => open ? "block" : "none"};
-  text-align: left;
-  border-radius: .5rem;
-
-`;
-
-const NavDropDownLink = styled.li`
-  color: ${({theme}) => theme.colors.primary[600]};
-`;
-
 function Navbar({isAuthenticated, auth, signOut, secondary}){
     const routes = useContext(RouteContext);
     const [open, setOpen] = useState(false);

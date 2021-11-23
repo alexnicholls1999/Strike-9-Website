@@ -59,11 +59,6 @@ export default function PersonalDetails() {
         onChange: handleChange
     }
 
-    const configDateofBirth = {
-        style: errors.dateOfBirth ? {borderColor: "#C90808"} : null,
-        name: "dateOfBirth"
-    }
-
     const configEthnicity = {
         name: "ethnicity",
         style: errors.ethnicity ? {borderColor: "#C90808"} : null,
@@ -105,14 +100,14 @@ export default function PersonalDetails() {
             <Row>
                 <Col md={6}>
                     <FormControl 
-                        controls={{
-                            label: {
-                                style: errors.firstName ? {borderColor: "#C90808"} : null,
-                                name: "First Name",
-                            },
-                            errMsg: errors.firstName ? {borderColor: "#C90808"} : null
-                        }}
-                        {...configFirstName}
+                            controls={{
+                                label: {
+                                    style: errors.firstName ? {color: "#C90808"} : null,
+                                    name: "Email: "
+                                }, 
+                                errMsg: errors.firstName
+                            }}
+                            {...configFirstName}
                     />
                 </Col>
                 <Col md={6}>
@@ -122,7 +117,7 @@ export default function PersonalDetails() {
                                 style: errors.lastName ? {borderColor: "#C90808"} : null,
                                 name: "Last Name",
                             },
-                            errMsg: errors.lastName ? {borderColor: "#C90808"} : null
+                            errMsg: errors.lastName 
                         }}
                         {...configLastName}
                     />
@@ -136,7 +131,7 @@ export default function PersonalDetails() {
                                 style: errors.email ? {borderColor: "#C90808"} : null,
                                 name: "Email",
                             },
-                            errMsg: errors.email ? {borderColor: "#C90808"} : null
+                            errMsg: errors.email 
                         }}
                         {...configEmail}
                     />
@@ -148,7 +143,7 @@ export default function PersonalDetails() {
                                 style: errors.mobile ? {borderColor: "#C90808"} : null,
                                 name: "Mobile",
                             },
-                            errMsg: errors.mobile ? {borderColor: "#C90808"} : null
+                            errMsg: errors.mobile 
                         }}
                         {...configMobile}
                     />
@@ -164,7 +159,7 @@ export default function PersonalDetails() {
                                 style: errors.gender ? {borderColor: "#C90808"} : null,
                                 name: "Gender",
                             },
-                            errMsg: errors.gender ? {borderColor: "#C90808"} : null
+                            errMsg: errors.gender 
                         }}                        
                         {...configGender}
                     />
@@ -175,13 +170,13 @@ export default function PersonalDetails() {
                     <FormControl 
                         controls={{
                             label: {
-                                style: errors.dateOfBirth ? {borderColor: "#C90808"} : null,
+                                style: errors.selectedDate ? {borderColor: "#C90808"} : null,
                                 name: "Date of Birth",
                             },
                             calendar: true,
-                            errMsg: errors.dateOfBirth ? {borderColor: "#C90808"} : null
+                            errMsg: errors.selectedDate
                         }}
-                        name="dateOfBirth"
+                        name="selectedDate"
                     />
                 </Col>
             </Row>
@@ -194,7 +189,7 @@ export default function PersonalDetails() {
                                 style: errors.ethnicity ? {borderColor: "#C90808"} : null,
                                 name: "Ethnicity",
                             },
-                            errMsg: errors.ethnicity ? {borderColor: "#C90808"} : null
+                            errMsg: errors.ethnicity
                         }}
                         {...configEthnicity}
                     />
