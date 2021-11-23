@@ -61,11 +61,7 @@ export default function PersonalDetails() {
 
     const configDateofBirth = {
         style: errors.dateOfBirth ? {borderColor: "#C90808"} : null,
-        type: "text",
-        name: "dateOfBirth",
-        value: values.dateOfBirth,
-        onChange: handleChange,
-        placeholder: "Enter Date of Birth"
+        name: "dateOfBirth"
     }
 
     const configEthnicity = {
@@ -182,9 +178,10 @@ export default function PersonalDetails() {
                                 style: errors.dateOfBirth ? {borderColor: "#C90808"} : null,
                                 name: "Date of Birth",
                             },
+                            calendar: true,
                             errMsg: errors.dateOfBirth ? {borderColor: "#C90808"} : null
                         }}
-                        {...configDateofBirth}
+                        name="dateOfBirth"
                     />
                 </Col>
             </Row>

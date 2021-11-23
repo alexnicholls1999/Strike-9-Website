@@ -1,28 +1,5 @@
-import styled from "styled-components"
-
-const StyledTextArea = styled.textarea`
-    width: 100%;
-    border-radius: 0.1rem;
-    border: 1px solid ${({theme}) => theme.colors.neutral[200]};
-    font-size: 0.85rem;
-    font-weight: ${({theme}) => theme.typography.fontWeight.semiBold};
-    padding: 0.5rem;
-    height: 12rem;
-    resize: none;
-
-    &::placeholder {
-        color: ${({theme}) => theme.colors.neutral[300]};
-    }
-
-    &:focus {
-        outline: none !important;
-        border: 2px solid ${({theme}) => theme.colors.primary[600]};
-    }
-
-`;
-
 function TextArea({...props}) {
-    return <StyledTextArea {...props}/>
+    return <textarea className="form-control" {...props}/>
 }
 
 export default TextArea

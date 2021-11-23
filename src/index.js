@@ -4,6 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import WebFont from 'webfontloader';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
 

@@ -8,6 +8,7 @@ export default function EventDetails({ eventDetails }) {
     const { values, errors, handleChange } = useFormikContext();
 
     const configTeamName =  {
+        style: errors.teamName ? {borderColor: "#C90808"} : null,
         type: "text",
         name: "teamName",
         value: values.teamName,
@@ -38,7 +39,18 @@ export default function EventDetails({ eventDetails }) {
                     </div>
                 </Row>
                 <Row>
-                    <Col md={6}><FormControl controls={{label: {style: errors.teamName ? {borderColor: "#C90808"} : null, name: "Team Name"}, errMsg: errors.teamName ? {borderColor: "#C90808"} : null}}{...configTeamName}/></Col>
+                    <Col md={6}>
+                        <FormControl 
+                            controls={{
+                                label: {
+                                    style: errors.teamName ? {color: "#C90808"} : null,
+                                    name: "Email: "
+                                }, 
+                                errMsg: errors.teamName
+                            }}
+                            {...configTeamName}
+                        />
+                    </Col>
                 </Row>
             </>
         </>
