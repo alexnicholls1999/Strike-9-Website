@@ -42,12 +42,23 @@ export default function PersonalDetails() {
     }
 
     const configGender = {
-        style: errors.gender ? {borderColor: "#C90808"} : null,
-        type: "text",
         name: "gender",
-        value: values.gender,
-        onChange: handleChange,
-        placeholder: "Enter Gender"
+        style: errors.gender ? {borderColor: "#C90808"} : null,
+        config: {
+            value: values.gender,
+            options: [
+                {
+                    name: "Enter Gender"
+                },
+                {
+                    name: "Male"
+                },
+                {
+                    name: "Female"
+                },
+            ],
+            onChange: handleChange
+        }
     }
 
     const configDateofBirth = {
@@ -127,14 +138,16 @@ export default function PersonalDetails() {
             </Row>
             <Row>
                 <Col md={6}>
-                    <FormControl 
+                    <FormControl
+                        dropdown
                         controls={{
+                            name: "gender",
                             label: {
                                 style: errors.gender ? {borderColor: "#C90808"} : null,
                                 name: "Gender",
                             },
                             errMsg: errors.gender ? {borderColor: "#C90808"} : null
-                        }}
+                        }}                        
                         {...configGender}
                     />
                 </Col>
@@ -169,5 +182,4 @@ export default function PersonalDetails() {
             </Row>
         </>
     )
-
 }

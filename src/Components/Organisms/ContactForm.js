@@ -81,12 +81,12 @@ function ContactForm({contactForm, onSubmit}) {
                         <Row>
                             <Col md={12}>
                                 <FormControl 
+                                    txtArea
                                     controls={{
                                         label: {
                                             style: formik.errors.message ? {color: "#C90808"} : null,
                                             name: "Message: "
                                         },
-                                        txtArea: true,
                                         errMsg: formik.errors.message
                                     }}
                                     {...configMessage}

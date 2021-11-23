@@ -8,6 +8,11 @@ const StyledSelect = styled.select`
     background-color: ${({theme}) => theme.colors.neutral[100]};
     padding: 0.35rem;
     border-radius: .25rem;
+
+    &:focus {
+        outline: none !important;
+        border: 2px solid ${({theme}) => theme.colors.primary[600]};
+    }
 `;
 
 function Select({select, options, ...props}) {

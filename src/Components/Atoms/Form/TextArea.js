@@ -14,6 +14,11 @@ const StyledTextArea = styled.textarea`
         color: ${({theme}) => theme.colors.neutral[300]};
     }
 
+    &:focus {
+        outline: none !important;
+        border: 2px solid ${({theme}) => theme.colors.primary[600]};
+    }
+
 `;
 
 function TextArea({...props}) {

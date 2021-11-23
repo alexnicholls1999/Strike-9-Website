@@ -5,6 +5,7 @@ import ErrorMessage from "../Atoms/Form/ErrorMessage";
 import Input from "../Atoms/Form/Input";
 import Label from "../Atoms/Form/Label";
 import TextArea from "../Atoms/Form/TextArea";
+import Select from "../Atoms/Form/Select";
 
 const StyledFormControlGroup = styled.div`
 
@@ -12,16 +13,17 @@ const StyledFormControlGroup = styled.div`
 
 `;
 
-function FormControl({controls, ...props}) {
+
+function FormControl({controls, txtArea, dropdown, ...props}) {
+
     return (
         <StyledFormControlGroup>
             <Label style={controls.label.style} name={controls.label.name}/>
-            <div className="p-1"></div>
-            {controls.txtArea ? (
-                <TextArea {...props} txtArea={controls.txtArea}/>
-            ) : (
-                <Input {...props} txtArea={controls.txtArea}/>
-            )}
+            <div className="p-1"></div>  
+            
+            {dropdown ? <Select name={controls.name} {...props} /> : null}
+            
+            {txtArea ? <TextArea {...props}/> : <Input {...props}/>}
             <ErrorMessage>{controls.errMsg}</ErrorMessage>
         </StyledFormControlGroup>
     )
