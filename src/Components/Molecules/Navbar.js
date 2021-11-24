@@ -87,15 +87,24 @@ const StyledButtonWrapper = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 1rem;
-    margin-top: -1rem;
+    padding: 0 1rem;
 
     button { 
       width: 7.5rem;
     }
 
     @media(max-width: ${({theme}) => theme.viewport.md}) {
-      display: none;
+      position: absolute;
+      bottom: 2rem;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+
+      button {
+        width: 100%;
+      }
     }
 `;
 
@@ -113,19 +122,19 @@ function Navbar({isAuthenticated, auth, signOut, secondary}){
         <Nav> 
             <Ul secondary={secondary} open={open}>
               {routes.links.map((route, index) => <NavLink key={index} secondary={secondary} active={splitLocation[1] === `${route.location}`} onClick={() => history.push(`${route.path}`)}>{route.routeName}</NavLink>)}
+              {!auth ? (
+                isAuthenticated ? (
+                  <StyledButtonWrapper>
+                      <Button secondary text="Logout" onClick={signOut}/>
+                  </StyledButtonWrapper>
+                ) : (
+                  <StyledButtonWrapper>
+                    <Button secondary text="Create Account" onClick={() => history.push("/createaccount")}/>
+                    <Button secondary text="Login" onClick={() => history.push("/login")}/>
+                  </StyledButtonWrapper>
+                )
+              ) : null}
             </Ul>
-            { !auth ? (
-              isAuthenticated ? (
-                <StyledButtonWrapper>
-                    <Button secondary text="Logout" onClick={signOut}/>
-                </StyledButtonWrapper>
-              ) : (
-                <StyledButtonWrapper>
-                  <Button secondary text="Create Account" onClick={() => history.push("/createaccount")}/>
-                  <Button secondary text="Login" onClick={() => history.push("/login")}/>
-                </StyledButtonWrapper>
-              )
-            ) : null}
             <Burger onClick={() => setOpen(!open)} open={open}/>
         </Nav>
     )
