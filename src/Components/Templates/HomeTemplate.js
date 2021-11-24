@@ -153,7 +153,9 @@ function HomeTemplate({homeContent, isAuthenticated, signOut}) {
             </ListWrapper>
 
             <Goals goals={homeContent.goals} />
+
             <Testimonial title={homeContent.feedback.title} quotes={homeContent.feedback.quotes} />
+
             <Topic 
                 secondary
                 topic={{
@@ -166,6 +168,7 @@ function HomeTemplate({homeContent, isAuthenticated, signOut}) {
                     }
                 }}
             />
+
             {homeContent.index.map(({alternate, img, button, title, paragraph}) => <Index indexSection={{title: title, message: paragraph, img: { src: img.src, alt: img.alt }, button: {text: button.text, onClick: button.onClick}}} alternate={alternate} />)}
         </HomeLayout>
     )
