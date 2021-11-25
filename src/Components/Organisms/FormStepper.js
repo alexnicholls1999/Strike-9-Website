@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { FormikProvider, useFormik } from "formik";
 import { Container, Row, Col} from 'react-bootstrap';
 import stepReducer from "./../../react-reducers/FormStepper/stepper.reducer";
+import { nextStepAction, prevStepAction } from '../../react-reducers/FormStepper/stepper.actions';
+import { renderModal } from "./../../react-helpers/formHelpers";
 
 import Button from "./../Atoms/Form/Button";
 import ProgressBar from "./../Molecules/ProgressBar";
-import { nextStepAction, prevStepAction } from '../../react-reducers/FormStepper/stepper.actions';
-
 
 const ButtonControls = styled.div`
     width: 100%;
@@ -31,11 +31,13 @@ function FormStepper({children, onSubmit, ...props}) {
     const currentChild = childrenArray[step];
 
     const handleShowTermsAndConditions = (e) => {
+        e.preventDefault();
         setShow(!show);
         setTermsandConditions(true);
     }
 
-    const handleShowPrivacyPolicy = (e) => { 
+    const handleShowPrivacyPolicy = (e) => {
+        e.preventDefault(); 
         setShow(!show);
         setTermsandConditions(false);
     }
@@ -73,7 +75,7 @@ function FormStepper({children, onSubmit, ...props}) {
                                     <Col sm={{span: 12, order: 2}}>  
                                         <div className="p-3"></div>
                                         {isLastStep() ? 
-                                                <p> By booking an event, you agree to Strike 9 Trainings <a href="#">Terms and Conditions </a> and <a href="#">Privacy Policy </a>.</p>
+                                                <p> By booking an event, you agree to Strike 9 Trainings <a href="#" onClick={(e) => handleShowTermsAndConditions(e)}>Terms and Conditions </a> and <a href="#" onClick={(e) => handleShowPrivacyPolicy(e)}>Privacy Policy </a>.</p>
                                         : null}
                                     </Col>
                                     <Col sm={{span: 12, order: 1}}>
@@ -89,6 +91,8 @@ function FormStepper({children, onSubmit, ...props}) {
                     <div className="p-4"></div>
                 </Container>
             </form>
+
+            {renderModal(show, termsandconditions, handleShowPrivacyPolicy, handleShowTermsAndConditions)}
         </FormikProvider>
     )
 }

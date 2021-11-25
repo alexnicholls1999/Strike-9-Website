@@ -21,6 +21,8 @@ const StyledStepSummary = styled.div`
 export default function Summary({eventDate}) {
     const { values } = useFormikContext();
 
+    const selectedDate = new Date(values.selectedDate).toDateString()
+
     const steps = [
         {
             labelName: "Events Details",
@@ -28,7 +30,7 @@ export default function Summary({eventDate}) {
         }, 
         {
             labelName: "Personal Details",
-            items: [values.firstName, values.lastName, values.email, values.mobile, values.gender, values.selectedDate, values.ethnicity ]
+            items: [values.firstName, values.lastName, values.email, values.mobile, values.gender, selectedDate, values.ethnicity ]
         }, 
         {
             labelName: "Billing Address",
