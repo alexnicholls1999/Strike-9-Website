@@ -25,8 +25,20 @@ function FormStepper({children, onSubmit, ...props}) {
     const [step, dispatch] = useReducer(stepReducer, 0)
     const childrenArray = Children.toArray(children);
     const [completed, setCompleted] = useState(false);
+    const [show, setShow] = useState(false);
+    const [termsandconditions, setTermsandConditions] = useState(false);
     
     const currentChild = childrenArray[step];
+
+    const handleShowTermsAndConditions = (e) => {
+        setShow(!show);
+        setTermsandConditions(true);
+    }
+
+    const handleShowPrivacyPolicy = (e) => { 
+        setShow(!show);
+        setTermsandConditions(false);
+    }
 
     const isLastStep = () => {
         return step === childrenArray.length - 1;

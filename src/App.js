@@ -23,8 +23,12 @@ import About from './Pages/About';
 import Training from './Pages/Training';
 import Coaching from './Pages/Coaching';
 import Contact from './Pages/Contact';
+
+
 import useBookEvent from './react-hooks/useBookEvent';
 import useEvents from './react-hooks/useEvents';
+import TermsAndConditions from './Pages/TermsAndConditions';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
 
 const initAttemptedRoute = "/events";
 
@@ -67,6 +71,12 @@ function App() {
               <RedirectToEvents authenticated={isAuthenticated} initAttemptedRoute={initAttemptedRoute} path="/createaccount">
                   <CreateAccount createEmailUser={createEmailUser} />
               </RedirectToEvents> 
+              <Route path="/termsandconditions">
+                  <TermsAndConditions signOut={signOut} isAuthenticated={isAuthenticated}/>
+              </Route>
+              <Route path="/privacypolicy">
+                  <PrivacyPolicy signOut={signOut} isAuthenticated={isAuthenticated}/>
+              </Route>
           </RouteProvider>
         </ContentProvider>
       </Switch>

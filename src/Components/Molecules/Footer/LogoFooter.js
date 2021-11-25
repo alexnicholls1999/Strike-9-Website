@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Logo from "../../Atoms/Iconography/Logo";
 
 const StyledLogoFooter = styled.div`
     text-align: center;
@@ -14,7 +15,7 @@ const StyledLogoFooter = styled.div`
 function LogoFooter() {
     return (
         <StyledLogoFooter>
-            <h4>Strike 9 Training</h4>
+            <Logo />
         </StyledLogoFooter>
     )
 }
