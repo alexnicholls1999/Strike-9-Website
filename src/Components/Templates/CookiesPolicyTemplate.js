@@ -2,17 +2,17 @@ import PropTypes from "prop-types";
 import { Container } from "react-bootstrap";
 import MainLayout from '../../Layouts/MainLayout'
 
-function TermsAndConditionsTemplate({isAuthenticated, signOut, modal, termsAndConditionsContent}) {
+function CookiesPolicyTemplate({isAuthenticated, signOut, modal, cookiesPolicyContent}) {
     if (modal) {
         return (
             <>
-                <h2 style={{color: "black"}}>{termsAndConditionsContent.hero.title}</h2>
+                <h2 style={{color: "Black"}}>{cookiesPolicyContent.hero.title}</h2>
                 <div className="p-2"/>
-                <p>{termsAndConditionsContent.introduction.paragraph}</p>
+                <p>{cookiesPolicyContent.introduction.paragraph}</p>
 
-                {termsAndConditionsContent.guidelines.map((guideline) => <p>{guideline}</p>)}
+                {cookiesPolicyContent.guidelines.map((guideline) => <p>{guideline}</p>)}
 
-                <p>{termsAndConditionsContent.conclusion.paragraph}</p>
+                <p>{cookiesPolicyContent.conclusion.paragraph}</p>
             </>
         )
     } else {
@@ -20,17 +20,17 @@ function TermsAndConditionsTemplate({isAuthenticated, signOut, modal, termsAndCo
             <MainLayout
                 isAuthenticated={isAuthenticated}
                 signOut={signOut}
-                hero={{ content: { title: termsAndConditionsContent.hero.title, paragraph: termsAndConditionsContent.hero.paragraph }}} 
+                hero={{ content: { title: cookiesPolicyContent.hero.title, paragraph: cookiesPolicyContent.hero.paragraph }}} 
             >
                 <div className="p-4"/>
                 <Container>
-                    <h5 style={{color: "#5E3CDC"}}>{termsAndConditionsContent.introduction.title}</h5>
+                    <h5 style={{color: "#5E3CDC"}}>{cookiesPolicyContent.introduction.title}</h5>
                     <div className="p-2"/>
-                    <p>{termsAndConditionsContent.introduction.paragraph}</p>
+                    <p>{cookiesPolicyContent.introduction.paragraph}</p>
     
-                    {termsAndConditionsContent.guidelines.map((guideline) => <p>{guideline}</p>)}
+                    {cookiesPolicyContent.guidelines.map((guideline) => <p>{guideline}</p>)}
     
-                    <p>{termsAndConditionsContent.conclusion.paragraph}</p>
+                    <p>{cookiesPolicyContent.conclusion.paragraph}</p>
                 </Container>
     
                 <div className="p-5"/>
@@ -39,10 +39,10 @@ function TermsAndConditionsTemplate({isAuthenticated, signOut, modal, termsAndCo
     }
 }
 
-TermsAndConditionsTemplate.propTypes = { 
+CookiesPolicyTemplate.propTypes = { 
     isAuthenticated: PropTypes.bool.isRequired,
     signOut: PropTypes.func.isRequired,
-    termsAndConditionsContent: PropTypes.shape({
+    cookiesPolicyContent: PropTypes.shape({
         hero: PropTypes.shape({
             title: PropTypes.string,
             paragraph: PropTypes.string
@@ -58,4 +58,4 @@ TermsAndConditionsTemplate.propTypes = {
     })
 }
 
-export default TermsAndConditionsTemplate
+export default CookiesPolicyTemplate

@@ -19,7 +19,7 @@ function CreateAccountTemplate({createAccountContent, createEmailUser}) {
         }
     }
 
-    return <AuthLayout authContent={{ hero: { title: createAccountContent.title, paragraph: createAccountContent.paragraph}, component: <CreateForm onSubmit={handleSubmit} serverError={error} title="or use your email for registration:"/>}}  />
+    return <AuthLayout authContent={{ hero: { title: createAccountContent.title, paragraph: createAccountContent.paragraph}, component: <CreateForm onSubmit={handleSubmit} serverError={error}/>}}  />
 }
 
 CreateAccountTemplate.propTypes = {

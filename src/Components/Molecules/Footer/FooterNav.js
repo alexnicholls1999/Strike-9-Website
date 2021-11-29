@@ -63,6 +63,7 @@ function FooterNav() {
                         <h5>Legal</h5>
                         <Link to="/termsandconditions"><li>Terms & Conditions</li></Link>
                         <Link to="/privacypolicy"><li>Privacy Policy</li></Link>
+                        <Link to="/cookiespolicy"><li>Cookies Policy</li></Link>
                     </ul>
                 </IndexFooter>
             </Col>   

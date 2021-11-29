@@ -2,7 +2,7 @@ import { useContext } from "react";
 import PrivacyPolicyTemplate from "../Components/Templates/PrivacyPolicyTemplate"
 import { ContentContext } from "../utils/Context/ContentContext";
 
-function PrivacyPolicy({isAuthenticated, signOut}) {
+function PrivacyPolicy({isAuthenticated, modal, signOut}) {
 
     const content = useContext(ContentContext);
 
@@ -21,7 +21,7 @@ function PrivacyPolicy({isAuthenticated, signOut}) {
         }
     }
 
-    return <PrivacyPolicyTemplate isAuthenticated={isAuthenticated} signOut={signOut} privacyPolicyContent={privacyPolicyContent}/>
+    return <PrivacyPolicyTemplate modal={modal} isAuthenticated={isAuthenticated} signOut={signOut} privacyPolicyContent={privacyPolicyContent}/>
 }
 
 export default PrivacyPolicy;

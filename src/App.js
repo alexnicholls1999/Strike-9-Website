@@ -29,6 +29,7 @@ import useBookEvent from './react-hooks/useBookEvent';
 import useEvents from './react-hooks/useEvents';
 import TermsAndConditions from './Pages/TermsAndConditions';
 import PrivacyPolicy from './Pages/PrivacyPolicy';
+import CookiesPolicy from './Pages/CookiesPolicy';
 
 const initAttemptedRoute = "/events";
 
@@ -76,6 +77,9 @@ function App() {
               </Route>
               <Route path="/privacypolicy">
                   <PrivacyPolicy signOut={signOut} isAuthenticated={isAuthenticated}/>
+              </Route>
+              <Route path="/cookiespolicy">
+                  <CookiesPolicy signOut={signOut} isAuthenticated={isAuthenticated} />
               </Route>
           </RouteProvider>
         </ContentProvider>

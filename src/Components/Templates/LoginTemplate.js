@@ -17,7 +17,7 @@ function LoginTemplate({loginContent, signInEmailUser}) {
         }
     }
 
-    return <AuthLayout authContent={{ hero: { title: loginContent.title, paragraph: loginContent.paragraph}, component: <LoginForm title="or use your email for signing in:" serverError={error} onSubmit={handleSubmit}/>}}  />
+    return <AuthLayout authContent={{ hero: { title: loginContent.title, paragraph: loginContent.paragraph}, component: <LoginForm serverError={error} onSubmit={handleSubmit}/>}}  />
 }
 
 LoginTemplate.propTypes = {

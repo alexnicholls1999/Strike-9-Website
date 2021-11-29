@@ -5,10 +5,24 @@ import { FormikProvider, useFormik } from "formik";
 import { Container, Row, Col} from 'react-bootstrap';
 import stepReducer from "./../../react-reducers/FormStepper/stepper.reducer";
 import { nextStepAction, prevStepAction } from '../../react-reducers/FormStepper/stepper.actions';
-import { renderModal } from "./../../react-helpers/formHelpers";
+import Modal from "./../Organisms/Modal";
 
 import Button from "./../Atoms/Form/Button";
 import ProgressBar from "./../Molecules/ProgressBar";
+import TermsAndConditions from "./../../Pages/TermsAndConditions";
+import PrivacyPolicy from "./../../Pages/PrivacyPolicy";
+
+const StyledModalWrapper = styled.div`
+    display: ${({show}) => show ? "block" : "none"};
+    position: fixed;
+    padding: 2.5%;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+`;
 
 const ButtonControls = styled.div`
     width: 100%;
@@ -92,7 +106,17 @@ function FormStepper({children, onSubmit, ...props}) {
                 </Container>
             </form>
 
-            {renderModal(show, termsandconditions, handleShowPrivacyPolicy, handleShowTermsAndConditions)}
+            <StyledModalWrapper show={show}> 
+                {termsandconditions === true ? (
+                    <Modal onClose={handleShowTermsAndConditions} show={show}>
+                        <TermsAndConditions modal />
+                    </Modal>
+                ) : (
+                    <Modal onClose={handleShowPrivacyPolicy} show={show}>
+                        <PrivacyPolicy modal />
+                    </Modal>
+                )}
+            </StyledModalWrapper>
         </FormikProvider>
     )
 }

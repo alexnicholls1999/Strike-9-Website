@@ -2,7 +2,7 @@ import { useContext } from "react";
 import TermsAndConditionsTemplate from "../Components/Templates/TermsAndConditionsTemplate"
 import { ContentContext } from "../utils/Context/ContentContext";
 
-function TermsAndConditions({isAuthenticated, signOut}) {
+function TermsAndConditions({isAuthenticated, signOut, modal}) {
 
     const content = useContext(ContentContext);
 
@@ -21,7 +21,7 @@ function TermsAndConditions({isAuthenticated, signOut}) {
         }
     }
 
-    return <TermsAndConditionsTemplate isAuthenticated={isAuthenticated} signOut={signOut} termsAndConditionsContent={termsAndConditionsContent}/>
+    return <TermsAndConditionsTemplate isAuthenticated={isAuthenticated} signOut={signOut} modal={modal} termsAndConditionsContent={termsAndConditionsContent}/>
 }
 
 export default TermsAndConditions

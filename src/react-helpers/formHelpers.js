@@ -16,21 +16,8 @@ import Select from "../Components/Atoms/Form/Select";
 import TextArea from "../Components/Atoms/Form/TextArea";
 import Input from "../Components/Atoms/Form/Input";
 import Datepicker from "../Components/Atoms/Form/Datepicker";
-import Modal from "../Components/Organisms/Modal";
 
 const mobileRegex = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
-
-const StyledModalWrapper = styled.div`
-    display: ${({show}) => show ? "block" : "none"};
-    position: fixed;
-    padding: 2.5%;
-    margin: 0 auto;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    height: 100vh;
-    width: 100vw;
-`;
 
 export const EventsDetailsSchema = Yup.object().shape({
     teamName: Yup.string().min(2, "A minimum of 2 characters!").required("Required!")
@@ -125,29 +112,22 @@ export function isFormCompleted(booked) {
     return <Summary eventDate="20th October 2020" />
 }
 
-export const renderModal = (show, termsandconditions, handletermsAndConditions, handleprivacyPolicy) => {
-    
-    function checkPolicy(termsandconditions, show){
-        if (termsandconditions) return <Modal onClose={handletermsAndConditions} children={<p>Terms and Conditions</p>} show={show} /> 
-        if (!termsandconditions) return <Modal onClose={handleprivacyPolicy} children={<p>Privacy Policy</p>} show={show} />
-    }
-    
-    return <StyledModalWrapper>{checkPolicy(termsandconditions, show)}</StyledModalWrapper>
-}
-
 export const renderSteps = (bookingContent, event) => {
 
     const steps = [
         {
             label: "Events Details",
+            validationSchema: EventsDetailsSchema,
             component: <EventDetails eventDetails={{date: event.date, time: event.time, address: "Mosley School Sports Centre, Springfield Road, B13 9NP", cost: event.cost,}}/>
         },
         {
             label: "Personal Details",
+            validationSchema: PersonalDetailsSchema,
             component: <PersonalDetails />
         },
         {
             label: "Billing Address",
+            validationSchema: BillingAddressSchema,
             component: <BillingAddress />
         },
         {
