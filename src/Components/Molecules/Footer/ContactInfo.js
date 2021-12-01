@@ -22,7 +22,7 @@ const StyledContactInfo = styled.div`
 
 function ContactInfo() {
     return (
-        <Col lg={4} sm={12}>
+        <Col lg={4} md={12}>
             <StyledContactInfo>
                 <p>info@strike9training.co.uk</p>
             </StyledContactInfo>

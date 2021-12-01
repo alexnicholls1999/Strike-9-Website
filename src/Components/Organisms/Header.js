@@ -1,3 +1,4 @@
+import { Container } from "react-bootstrap";
 import styled from "styled-components";
 import Logo from "../Atoms/Iconography/Logo";
 import Navbar from "./../Molecules/Navbar"
@@ -12,10 +13,13 @@ const StyledHeader = styled.header`
 
 function Header({isAuthenticated, signOut, ...props}) {
     return (
-        <StyledHeader>
-            <Logo />
-            <Navbar isAuthenticated={isAuthenticated} signOut={signOut} {...props}/>
-        </StyledHeader>
+        <Container>
+            <StyledHeader>
+                <Logo />
+                <Navbar isAuthenticated={isAuthenticated} signOut={signOut} {...props}/>
+            </StyledHeader>
+        </Container>
+
     )
 }
 

@@ -93,6 +93,12 @@ const StyledButtonWrapper = styled.div`
       width: 7.5rem;
     }
 
+    @media(min-width: ${({theme}) => theme.viewport.xl}) {
+      button {
+        width: 9.5rem;
+      }
+    }
+
     @media(max-width: ${({theme}) => theme.viewport.md}) {
       position: absolute;
       bottom: 2rem;
