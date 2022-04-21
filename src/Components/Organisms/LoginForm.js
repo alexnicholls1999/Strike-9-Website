@@ -90,7 +90,7 @@ function LoginForm({serverError, onSubmit}) {
 
     const configPassword = { 
         style: formik.errors.password ? {borderColor: "#C90808"} : null,
-        type: "text",
+        type: "password",
         name: "password",
         value: formik.values.password,
         onChange: formik.handleChange,

@@ -5,7 +5,7 @@ const StyledHamburger = styled.div`
     width: ${({ open }) => open ? "1.65rem" : "2rem"};
     height: 1.35rem;
     position: relative;
-    top: 1.25rem;
+    top: 0.75rem;
     z-index: 3;
     display: none;
 
@@ -31,12 +31,13 @@ const StyledHamburger = styled.div`
                 transform: ${({ open }) => open ? 'translateX(100%)' : 'translateX(0)'};
                 width: ${({ open }) => open ? "100%" : "80%"};
                 opacity: ${({ open }) => open ? 0 : 1};
+                display: ${({ open }) => open ? "none" : "block"};
             }
         
             &:nth-child(3) {
                 transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
                 width: ${({ open }) => open ? "100%" : "45%"};
-                margin-top: ${({ open }) => open && "0.5rem"};
+                margin-top: ${({ open }) => open && "0.75rem"};
             }
         }
     }

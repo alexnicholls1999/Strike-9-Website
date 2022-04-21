@@ -3,7 +3,8 @@ import styled from "styled-components";
 import Button from "../Atoms/Form/Button";
 
 const StyledModal = styled.div`
-    height: 95vh;
+    height: 90vh;
+    width: min(90%, 40rem);
     padding: 1%;
     margin: 0 auto;
     background: ${({theme}) => theme.colors.neutral[100]};
@@ -14,12 +15,6 @@ const StyledModal = styled.div`
     opacity: ${({show}) => (show ? "1" : "0")};
     visibility: ${({show}) => (show ? "visible" : "hidden")};
     transform: ${(show) => (show ? "scale(1)": "scale(0.33)")}; 
-
-    @media(min-width: ${({theme}) => theme.viewport.md}) {
-        width: 500px;
-        height: 500px;
-        margin-top: 25vh;
-    }
 `;
 
 const StyledModalShadow = styled.div`

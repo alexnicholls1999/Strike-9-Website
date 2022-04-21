@@ -5,7 +5,6 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { RouteContext } from '../../utils/Context/RouteContext';
 import Button from "./../Atoms/Form/Button";
 
-
 const Nav = styled.nav`
   width: 100%;
   height: 100%;
@@ -63,7 +62,7 @@ const NavLink = styled.li`
   @media(max-width: ${({theme}) => theme.viewport.md}) {
     ${({active}) => active && `
       font-weight: bold;
-      color: white;
+      color: white !important;
       text-decoration: none;
       background: #1E2147;
       border: none;
@@ -71,13 +70,15 @@ const NavLink = styled.li`
     `}
 
     ${({auth}) => auth && `
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    background: #1E2147;
-    border: none;
-    border-radius: .5rem;
-  `}
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      background: #1E2147;
+      border: none;
+      border-radius: .5rem;
+    `}
+
+    color: ${({theme, secondary}) => secondary ? theme.colors.neutral[100] : theme.colors.neutral[300]};
   }
 
 `;

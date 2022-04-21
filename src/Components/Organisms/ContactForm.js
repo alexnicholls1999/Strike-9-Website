@@ -81,8 +81,8 @@ function ContactForm({contactForm, onSubmit}) {
                         <Row>
                             <Col md={12}>
                                 <FormControl 
-                                    txtArea
                                     controls={{
+                                        txtArea: true,
                                         label: {
                                             style: formik.errors.message ? {color: "#C90808"} : null,
                                             name: "Message: "
@@ -93,6 +93,7 @@ function ContactForm({contactForm, onSubmit}) {
                                 />
                             </Col>
                         </Row>
+                        <div className="p-3"></div>
                         <Button className="ms-auto" disabled={!formik.isValid} text="SEND" type="submit" />
                     </form>
                 </StyledContactFormWrapper>

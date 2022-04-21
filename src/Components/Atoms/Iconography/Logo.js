@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const StyledLogo = styled.svg`
-  z-index: 2;
+  z-index: 5;
+  padding-left: 1rem;
+  padding-top: 1rem;
 `;
 
 function Logo({auth}) {
