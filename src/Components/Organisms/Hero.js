@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Container } from "react-bootstrap";
 import Button from "./../Atoms/Form/Button";
 import SocialMedia from "../Molecules/SocialMedia";
 import Introduction from "../Molecules/Text/Introduction";
@@ -43,6 +44,7 @@ function Hero({content, secondary, component, ...props}) {
         <>
             {!secondary ? (
                 <StyledHero {...props}>
+                    <Container>
                         <Introduction content={content} center />
                         <ButtonsWrapper>
                             <Button text="REGISTER" />
@@ -51,6 +53,7 @@ function Hero({content, secondary, component, ...props}) {
                         <SocialMediaWrapper>
                             <SocialMedia />
                         </SocialMediaWrapper>
+                    </Container>
                 </StyledHero>
             ) : (
                 <StyledHero secondary={secondary} {...props}>
