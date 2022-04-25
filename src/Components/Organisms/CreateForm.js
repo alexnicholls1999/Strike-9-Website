@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import FormControl from "./../Molecules/FormControl";
 import Button from "./../Atoms/Form/Button";
 import { Row, Col } from "react-bootstrap";
-import { useHistory } from "react-router";
+import { useHistory, useNavigate } from "react-router";
 import useCreateAccount from "./../../react-hooks/useCreateAccount";
 import ErrorMessage from "../Atoms/Form/ErrorMessage";
 import Logo from "../Atoms/Iconography/Logo";
@@ -60,7 +60,7 @@ const StyledAuthLink = styled.div`
 
 function CreateForm({title, serverError, onSubmit}) {
 
-    const history = useHistory()
+    const navigate = useNavigate();
 
     const { formik } = useCreateAccount(onSubmit)
 
@@ -125,7 +125,7 @@ function CreateForm({title, serverError, onSubmit}) {
                 <div className="p-2"></div>
                 <ErrorMessage>{serverError}</ErrorMessage>
                 <StyledAuthLink>
-                    <p>Already have an account?</p><p onClick={() => history.push('/login')}>Login to Account</p>
+                    <p>Already have an account?</p><p onClick={() => navigate('/login')}>Login to Account</p>
                 </StyledAuthLink>
             </form>
             

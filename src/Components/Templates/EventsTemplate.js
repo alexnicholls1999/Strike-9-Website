@@ -18,7 +18,7 @@ function EventsTemplate({eventsContent, isAuthenticated, signOut, useEvents}) {
                             handleDateChange: useEvents.handleOnChangeSearch, 
                             handleTypeChange: useEvents.handleOnChangeSearch, 
                             handleTimeChange: useEvents.handleOnChangeSearch, 
-                            handleAgeChange:useEvents. handleOnChangeSearch, 
+                            handleAgeChange: useEvents.handleOnChangeSearch, 
                             handleCheck: useEvents.handleOnChangeAvailableSlots
                         },
                         filters: {

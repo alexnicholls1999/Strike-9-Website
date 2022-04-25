@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { useHistory } from "react-router" 
+import { useNavigate } from "react-router" 
 import FormControl from "./../Molecules/FormControl";
 import Button from "./../Atoms/Form/Button";
 import { Row, Col } from "react-bootstrap";
-import SocialMedia from "../Molecules/SocialMedia";
 import useLogin from "../../react-hooks/useLogin";
 import ErrorMessage from "../Atoms/Form/ErrorMessage";
 import Logo from "../Atoms/Iconography/Logo";
@@ -76,7 +75,7 @@ function LoginForm({serverError, onSubmit}) {
 
     const { formik } = useLogin(onSubmit)
 
-    const history = useHistory()
+    const navigate = useNavigate();
     
 
     const configEmail = { 
@@ -139,7 +138,7 @@ function LoginForm({serverError, onSubmit}) {
                 <div className="p-2"></div>
                 <ErrorMessage>{serverError}</ErrorMessage>
                 <StyledAuthLink>
-                    <p>Dont have an account?</p><p onClick={() => history.push('/createaccount')}>Create an Account </p>
+                    <p>Dont have an account?</p><p onClick={() => navigate('/createaccount')}>Create an Account </p>
                 </StyledAuthLink>
             </form>
         </StyledLoginFormWrapper>

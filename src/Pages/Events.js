@@ -1,4 +1,5 @@
 import EventsTemplate from '../Components/Templates/EventsTemplate'
+import withAuth from '../HOC/withAuth'
 
 function Events({isAuthenticated, signOut, useEvents}) {
 
@@ -8,7 +9,8 @@ function Events({isAuthenticated, signOut, useEvents}) {
         }
     }
 
-    return <EventsTemplate isAuthenticated={isAuthenticated} useEvents={useEvents} signOut={signOut} eventsContent={eventsContent} />
+    return <EventsTemplate isAuthenticated={isAuthenticated} signOut={signOut} useEvents={useEvents} eventsContent={eventsContent} />
 }
 
-export default Events
+export default withAuth(Events);
+

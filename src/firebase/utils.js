@@ -1,12 +1,21 @@
-import firebase from "firebase/compat/app";
-import 'firebase/compat/firestore';
-import 'firebase/compat/auth';
+import { initializeApp } from 'firebase/app';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 import { firebaseConfig } from "./config";
 
-firebase.initializeApp(firebaseConfig);
+const firebase = initializeApp(firebaseConfig);
 
-export const auth = firebase.auth;
+export const auth = getAuth(firebase);
 
-export const store = firebase.firestore();
+export const store = getFirestore(firebase);
+
+export const handleCurrentUser = () => {
+    return new Promise ((resolve, reject) => {
+        onAuthStateChanged(auth, (fbUser) => {
+            resolve(fbUser);
+        })
+        reject('No User!')
+    })
+}
 
 export default firebase;
