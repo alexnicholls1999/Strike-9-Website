@@ -13,7 +13,6 @@ import RedirectToEvents from './HOC/RedirectToEvents';
 import useAuth from './react-hooks/useAuth';
 import { auth, store } from "./firebase/utils";
 
-
 import CreateAccount from './Pages/CreateAccount';
 import Login from './Pages/Login';
 import Booking from './Pages/Booking';

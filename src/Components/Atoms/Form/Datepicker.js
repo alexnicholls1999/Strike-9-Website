@@ -84,20 +84,19 @@ function Datepicker({...props}) {
     const [field] = useField(props);
 
     return (
-        <StyledDatePickerWrapper>
-            <ReactDatePicker 
-                selected={(field.value && new Date(field.value)) || null}
+         <StyledDatePickerWrapper>
+            <ReactDatePicker selected={(field.value && new Date(field.value)) || null}
                 onChange={val => {
                     setFieldValue(field.name, val);
                 }}
-                dateFormat="dd/mm/yyyy"
+                dateFormat="dd/MM/yyyy"
                 peekNextMonth
                 showMonthDropdown
                 showYearDropdown
                 dropdownMode="select"
                 placeholderText="Enter Date of Birth"
             />
-        </StyledDatePickerWrapper>
+        </StyledDatePickerWrapper> 
     )
 }
 

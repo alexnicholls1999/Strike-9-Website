@@ -19,7 +19,7 @@ const StyledModalWrapper = styled.div`
     margin: 0 auto;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 4;
     height: 100vh;
     width: 100vw;
 `;

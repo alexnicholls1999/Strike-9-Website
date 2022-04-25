@@ -16,6 +16,11 @@ const StyledContactFormWrapper = styled.div`
     @media(min-width: ${({theme}) => theme.viewport.md}) {
         margin-top: -5em;
         margin-inline: auto;
+
+        &::after {
+            bottom: -5rem !important;
+            right: -2rem !important;
+        }
     }
 
     &::after {
@@ -23,11 +28,12 @@ const StyledContactFormWrapper = styled.div`
         z-index: -1;
         position: absolute;
         bottom: -2rem;
-        right: -4rem;
+        right: 0;
         height: 10rem;
         width: 15rem;
         background: url(${Pattern});
     }
+
 
 `;
 
