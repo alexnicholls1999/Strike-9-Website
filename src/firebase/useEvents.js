@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { handleFetchEvents } from "./../react-helpers/eventHelpers";
+import { handleEventsPromise } from "../react-helpers/eventHelpers";
+import { store } from "./utils";
 
-export default function useEvents(store){
+export default function useEvents(){
     const [events, setEvents] = useState([]);
     const [state, setState] = useState({
         date: "Any",
@@ -30,7 +31,15 @@ export default function useEvents(store){
 
 
     useEffect(() => {
-        handleFetchEvents(state, store, setEvents)
+        handleEventsPromise(store, state)
+            .then((events) => {
+                console.log(events);
+                setEvents(events);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
     }, [state]);
 
 

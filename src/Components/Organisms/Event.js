@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Col, Row } from "react-bootstrap";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import styled, {css} from "styled-components";
 import Card from "./../Atoms/Card";
 import Button from "./../Atoms/Form/Button";
@@ -70,7 +70,7 @@ const Description = styled.p`
 
 function Event({event, unavailableEvent}) {
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     return (
         <Row className="justify-content-center">
@@ -103,7 +103,7 @@ function Event({event, unavailableEvent}) {
                             </Row>
                             <Row>
                                 <Col lg={2} md={3} sm={5} xs={6} className="ms-auto" style={{textAlign: "right"}}>
-                                    <Button disabled={unavailableEvent} form onClick={() => history.push(event.linkTo) } text="BOOK"/>
+                                    <Button disabled={unavailableEvent} form onClick={() => navigate(event.linkTo) } text="BOOK"/>
                                 </Col>
                             </Row>
                         </Col>

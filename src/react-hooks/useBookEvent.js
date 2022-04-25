@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { handleBookEvent, handleUpdateEventSlots } from '../react-helpers/formHelpers';
+import { store } from '../firebase/utils';
 
-export default function useBookEvent(store){
+export default function useBookEvent(){
     
     const [booked, setBooked] = useState('Summary');
 

@@ -1,8 +1,9 @@
 import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import Burger from './../Atoms/Iconography/Hamburger';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { RouteContext } from '../../utils/Context/RouteContext';
+import useAuth from '../../firebase/useAuth';
 import Button from "./../Atoms/Form/Button";
 
 const Nav = styled.nav`
@@ -115,11 +116,15 @@ const StyledButtonWrapper = styled.div`
     }
 `;
 
-function Navbar({isAuthenticated, auth, signOut, secondary}){
+function Navbar({auth, secondary}){
     const routes = useContext(RouteContext);
+    const { useAuthContext } = useAuth();
+    const { isAuthenticated, logOut } = useAuthContext();
+
+
     const [open, setOpen] = useState(false);
     const location = useLocation();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const { pathname } = location;
 
@@ -128,16 +133,16 @@ function Navbar({isAuthenticated, auth, signOut, secondary}){
     return (
         <Nav> 
             <Ul secondary={secondary} open={open}>
-              {routes.links.map((route, index) => <NavLink key={index} secondary={secondary} active={splitLocation[1] === `${route.location}`} onClick={() => history.push(`${route.path}`)}>{route.routeName}</NavLink>)}
+              {routes.links.map((route, index) => <NavLink key={index} secondary={secondary} active={splitLocation[1] === `${route.location}`} onClick={() => navigate(`${route.path}`)}>{route.routeName}</NavLink>)}
               {!auth ? (
                 isAuthenticated ? (
                   <StyledButtonWrapper>
-                      <Button secondary text="Logout" onClick={signOut}/>
+                      <Button secondary text="Logout" onClick={logOut}/>
                   </StyledButtonWrapper>
                 ) : (
                   <StyledButtonWrapper>
-                    <Button secondary text="Create Account" onClick={() => history.push("/createaccount")}/>
-                    <Button secondary text="Login" onClick={() => history.push("/login")}/>
+                    <Button secondary text="Create Account" onClick={() => navigate("/createaccount")}/>
+                    <Button secondary text="Login" onClick={() => navigate("/login")}/>
                   </StyledButtonWrapper>
                 )
               ) : null}

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import Event from "./../Components/Organisms/Event";
 
 const StyledNoResults = styled.div`
@@ -21,60 +22,6 @@ export function NoResults(){
         </StyledNoResults>
     </>
   )
-}
-
-export const handleFetchEvents = (state, store, updateEvents) => {
-    return new Promise((resolve, reject) => {
-        let ref = store.collection("events");
-
-        if (state.isChecked === true) {
-          ref = ref.where("slots", "!=", 0)
-        }
-
-        if (state.date !== "Any") {
-          ref = ref.where("date", "==", state.date);
-        } else {
-          ref = ref.where("datefltr", "==", true);
-        }
-    
-        if (state.type !== "Any") {
-          ref = ref.where("eventsType", "==", state.type);
-        } else {
-          ref = ref.where("eventsTypefltr", "==", true);
-        }
-    
-        if (state.time !== "Any") {
-          ref = ref.where("time", "==", state.time);
-        } else {
-          ref = ref.where("timefltr", "==", true);
-        }
-    
-        if (state.age !== "Any") {
-          ref = ref.where("age", "==", state.age);
-        } else {
-          ref = ref.where("agefltr", "==", true);
-        }
-        
-        ref.get().then((snapshot) => {
-          const data = [
-            ...snapshot.docs.map((doc) => {
-              return {
-                id: doc.id,
-                ...doc.data()
-              };
-            })
-          ];
-  
-          updateEvents(data);
-  
-          resolve({
-            data
-          });
-        })
-        .catch((err) => {
-          reject(err);
-        });    
-    })
 }
 
 
@@ -118,4 +65,44 @@ export function renderSearchResults(events) {
   if (!events.length > 0) return <NoResults />
 
   return <>{searchResults(events)}</>;
+}
+
+export const handleEventsPromise = (store, state) => {
+  return new Promise ((resolve, reject) => {
+    const constraints = [];
+
+    const filterQuery = (input, type) => {
+      if (input !== "Any") {
+        constraints.push(where(`${type}`, "==", input))
+      } else {
+        constraints.push(where(`${type}fltr`, "==", true))
+      }
+    }
+
+    filterQuery(state.date, "date")
+    filterQuery(state.time, "time")
+    filterQuery(state.type, "eventsType")
+    filterQuery(state.age, "age")
+
+    if (state.isChecked === true) return constraints.push(where("slots", "!=", 0))
+
+    const eventsRef = collection(store, "events");
+    const searchQuery = query(eventsRef, ...constraints);
+    getDocs(searchQuery)
+        .then((snapshot) => {
+          let events = [];
+
+          snapshot.docs.forEach((doc) => {
+            events.push({
+              ...doc.data(),
+              id: doc.id
+            })
+          })
+
+          resolve(events);
+        })
+        .catch((err) => {
+          reject(err);
+        })
+  })
 }

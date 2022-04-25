@@ -12,6 +12,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import FirebaseAuthProvider from './firebase/FirebaseAuthProvider';
 
 
 export const loadIcons = () => {
@@ -27,7 +28,9 @@ WebFont.load({
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-        <App />
+        <FirebaseAuthProvider>
+          <App />
+        </FirebaseAuthProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

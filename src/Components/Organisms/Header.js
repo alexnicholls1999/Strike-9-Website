@@ -11,12 +11,12 @@ const StyledHeader = styled.header`
 `;
 
 
-function Header({isAuthenticated, signOut, ...props}) {
+function Header({...props}) {
     return (
         <Container>
             <StyledHeader>
                 <Logo />
-                <Navbar isAuthenticated={isAuthenticated} signOut={signOut} {...props}/>
+                <Navbar {...props}/>
             </StyledHeader>
         </Container>
 

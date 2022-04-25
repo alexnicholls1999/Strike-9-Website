@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import MainLayout from "../../Layouts/MainLayout";
 
-import Pattern from "../Atoms/Iconography/Pattern";
 import ImageGallery from "../Organisms/ImageGallery";
 import Summary from "../Organisms/Summary";
 import Topic from "../Organisms/Topic";
@@ -34,7 +33,7 @@ const StyledCoaching = styled.div`
 
 function AboutTemplate({aboutContent, isAuthenticated, signOut}) {
 
-    const history = useHistory()
+    const navigate = useNavigate();
 
     return (
         <MainLayout
@@ -55,7 +54,7 @@ function AboutTemplate({aboutContent, isAuthenticated, signOut}) {
 
             {aboutContent.benefits.map((benefit, index) => <Topic key={index} secondary={benefit.secondary} topic={{title: benefit.title, paragraph: benefit.paragraph, img: {src: benefit.img.src, alt: benefit.img.alt}, button: {active: false}}}/>)}
             
-            <StyledCoachingWrapper bgImage={aboutContent.coaching.bgImage} onClick={() => history.push(`${aboutContent.coaching.link}`)}>
+            <StyledCoachingWrapper bgImage={aboutContent.coaching.bgImage} onClick={() => navigate(`${aboutContent.coaching.link}`)}>
                 <StyledCoaching>
                     <h6>Discover</h6>
                     <h2>COACHING</h2>
