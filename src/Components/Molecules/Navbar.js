@@ -23,7 +23,7 @@ const Ul = styled.ul`
   color: ${({theme, secondary}) => secondary ? theme.colors.neutral[900] : theme.colors.neutral[300]};
   padding: 0.5rem;
 
-  @media (max-width: ${({theme}) => theme.viewport.md}) {
+  @media (max-width: ${({theme}) => theme.viewport.lg}) {
     flex-flow: column nowrap;
     background-color: ${({theme}) => theme.colors.neutral[800]};
     position: fixed;
@@ -60,7 +60,7 @@ const NavLink = styled.li`
     border-radius: .5rem;
   `}
 
-  @media(max-width: ${({theme}) => theme.viewport.md}) {
+  @media(max-width: ${({theme}) => theme.viewport.lg}) {
     ${({active}) => active && `
       font-weight: bold;
       color: white;
@@ -99,7 +99,7 @@ const StyledButtonWrapper = styled.div`
       }
     }
 
-    @media(max-width: ${({theme}) => theme.viewport.md}) {
+    @media(max-width: ${({theme}) => theme.viewport.lg}) {
       position: absolute;
       bottom: 2rem;
       left: 0;

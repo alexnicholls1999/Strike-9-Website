@@ -9,7 +9,7 @@ const StyledHamburger = styled.div`
     z-index: 3;
     display: none;
 
-    @media (max-width: ${({theme}) => theme.viewport.md}) {
+    @media (max-width: ${({theme}) => theme.viewport.lg}) {
         display: flex;
         align-items: self-end;
         justify-content: space-around;
