@@ -1,16 +1,21 @@
-import EventsTemplate from '../Components/Templates/EventsTemplate'
-import withAuth from '../HOC/withAuth'
+import EventsTemplate from '../Components/Templates/EventsTemplate';
+import withProtected from '../HOC/withProtected';
 
-function Events({isAuthenticated, signOut, useEvents}) {
+function Events({ isAuthenticated, signOut, useEvents }) {
+  const eventsContent = {
+    hero: {
+      title: 'SEARCH FOR STRIKE 9 VLU EVENTS',
+    },
+  };
 
-    const eventsContent = {
-        hero: {
-            title: "SEARCH FOR STRIKE 9 VLU EVENTS",
-        }
-    }
-
-    return <EventsTemplate isAuthenticated={isAuthenticated} signOut={signOut} useEvents={useEvents} eventsContent={eventsContent} />
+  return (
+    <EventsTemplate
+      isAuthenticated={isAuthenticated}
+      signOut={signOut}
+      useEvents={useEvents}
+      eventsContent={eventsContent}
+    />
+  );
 }
 
-export default withAuth(Events);
-
+export default withProtected(Events);
